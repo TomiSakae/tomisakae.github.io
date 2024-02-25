@@ -11,6 +11,26 @@
 </head>
 
 <body>
+    <div class="modal fade" id="diem_danh">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Điểm danh</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p id="qua_diem_danh">Phần quà điểm danh là <strong>100 xu</strong></p>
+                    <button id="nut_diem_danh" type="button" class="btn btn-outline-success"
+                        onclick="DiemDanh()">Nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="offcanvas offcanvas-end" id="thong_tin_nhan_vat">
         <div class="offcanvas-header">
             <h2 id="ten_nhan_vat" class="offcanvas-title"></h2>
@@ -54,6 +74,12 @@
             </div>
 
             <div class="d-flex align-items-center">
+                <ul class="nav nav-pills">
+                    <li class="nav-item pe-3">
+                        <a id="ngay_thang_nam" class="nav-link text-white" href="#" data-bs-toggle="modal"
+                            data-bs-target="#diem_danh"></a>
+                    </li>
+                </ul>
                 <button type="button" class="btn btn-dark" data-bs-toggle="offcanvas"
                     data-bs-target="#thong_tin_nhan_vat">
                     <span class="navbar-toggler-icon"></span>
