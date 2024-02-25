@@ -19,6 +19,7 @@
         <div class="offcanvas-body">
             <div class="list-group pb-3">
                 <a href="#" class="list-group-item list-group-item-action">Thông tin nhân vật</a>
+                <a href="#" class="list-group-item list-group-item-action">Túi đồ</a>
             </div>
             <button type="button" class="btn btn-danger" onclick="XoaDuLieu()">Xóa dữ liệu!</button>
         </div>
@@ -42,6 +43,42 @@
         </div>
     </nav>
 
+    <div class="container mt-3">
+        <h2>Danh sách nhiệm vụ Bậc F:</h2>
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Tiêu diệt Slime</h4>
+                    <p class="card-text">Cần tìm người giúp diệt Slime đang phá hoại khu vườn.</p>
+                    <p class="card-text">Sau khi hoàn thành sẽ nhận:</p>
+                    <ol>
+                        <li>Điểm kinh nghiệm: <strong>5</strong>.</li>
+                        <li>Xu: <strong>10</strong>.</li>
+                        <li>Diệt Slime có cơ hội rớt ra vật phẩm: <strong>Dịch Slime</strong></li>
+                    </ol>
+                    <button type="button" class="btn btn-outline-primary" onclick="NhanNhiemVu1()">Nhận</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Thu hoạch lúa mì</h4>
+                    <p class="card-text">Đã tới mùa lúa chín, nhưng cánh đồng của tôi quá lớn để một người có thể thu
+                        hoạch.
+                    </p>
+                    <p class="card-text">Sau khi hoàn thành sẽ nhận:</p>
+                    <ol>
+                        <li>Điểm kinh nghiệm: <strong>2</strong>.</li>
+                        <li>Xu: <strong>5</strong>.</li>
+                        <li>Vật phẩm: <strong>5 Lúa mì</strong></li>
+                    </ol>
+                    <button type="button" class="btn btn-outline-primary" onclick="NhanNhiemVu2()">Nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="scripts/TrangChu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
