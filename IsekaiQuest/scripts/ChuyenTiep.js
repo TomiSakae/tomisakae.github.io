@@ -8,7 +8,26 @@ function ChuyenTiep() {
     if (dem == 0) {
         document.getElementById("chuyen_tiep1").classList.add("d-none");
         document.getElementById("chuyen_tiep2").classList.remove("d-none");
-        dem = 1;
+    }
+    else if (dem == 1) {
+        document.getElementById("chuyen_tiep2").classList.add("d-none");
+        document.getElementById("chuyen_tiep3").classList.remove("d-none");
+    }
+    else if (dem == 2) {
+        document.getElementById("chuyen_tiep3").classList.add("d-none");
+        document.getElementById("chuyen_tiep4").classList.remove("d-none");
+    }
+    else if (dem == 3) {
+        document.getElementById("chuyen_tiep4").classList.add("d-none");
+        document.getElementById("chuyen_tiep5").classList.remove("d-none");
+    }
+    else if (dem == 4) {
+        document.getElementById("chuyen_tiep5").classList.add("d-none");
+        document.getElementById("chuyen_tiep6").classList.remove("d-none");
+    }
+    else if (dem == 5) {
+        document.getElementById("chuyen_tiep6").classList.add("d-none");
+        document.getElementById("chuyen_tiep7").classList.remove("d-none");
     }
     else {
         let ten_nhan_vat = document.getElementById("nhap_ten").value;
@@ -19,4 +38,5 @@ function ChuyenTiep() {
             window.location.replace("TrangChu/TrangChu.html");
         }
     }
+    dem++;
 }
