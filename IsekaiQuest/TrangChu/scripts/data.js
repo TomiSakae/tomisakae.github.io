@@ -32,3 +32,22 @@ if (ten_nhan_vat == null) {
 }
 
 document.getElementById("ten_nhan_vat").innerHTML = ten_nhan_vat;
+
+let giao_dien_web = localStorage.getItem("giao_dien");
+if (giao_dien_web == "toi") {
+    document.querySelector('html').setAttribute('data-bs-theme', 'dark');
+}
+
+
+function GiaoDien() {
+    if (giao_dien_web == null || giao_dien_web == "sang") {
+        document.querySelector('html').setAttribute('data-bs-theme', 'dark');
+        localStorage.setItem("giao_dien", "toi");
+        giao_dien_web = "toi";
+    }
+    else {
+        document.querySelector('html').removeAttribute('data-bs-theme', 'dark');
+        localStorage.setItem("giao_dien", "sang");
+        giao_dien_web = "sang";
+    }
+}
