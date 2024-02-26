@@ -65,7 +65,7 @@ function LayGTCSDL() {
     };
 }
 
-// Xóa cột CSDL
+// Xóa giá trị từ kho CSDL
 function XoaGTCSDL() {
     let request = indexedDB.open("ten_csdl", 1);
     let db;
