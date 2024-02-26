@@ -34,7 +34,7 @@ function ChuyenTiep() {
 
         if (ten_nhan_vat != "") {
             localStorage.setItem("ten", true);
-            localStorage.setItem("ten_nhan_vat", ten_nhan_vat);
+            localStorage.setItem("ten_nv", ten_nhan_vat);
             window.location.replace("TrangChu/TrangChu.html");
         }
     }

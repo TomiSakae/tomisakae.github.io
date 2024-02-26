@@ -25,7 +25,7 @@ function DiemDanh() {
 }
 
 
-let ten_nhan_vat = localStorage.getItem("ten_nhan_vat");
+let ten_nhan_vat = localStorage.getItem("ten_nv");
 
 if (ten_nhan_vat == null) {
     ten_nhan_vat = "TomiSakae";
