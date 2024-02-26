@@ -1,5 +1,7 @@
-function XoaDuLieu() {
-    localStorage.clear();
+let tien = localStorage.getItem("tien");
 
-    window.location.replace("../../IsekaiQuest.html");
+if (tien == null) {
+    tien = 0;
 }
+
+document.getElementById("tien").innerHTML = "Tiền: " + tien + " VNĐ"
