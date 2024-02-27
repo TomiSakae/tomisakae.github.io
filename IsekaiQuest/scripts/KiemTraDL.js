@@ -1,6 +1,6 @@
 if (localStorage.getItem("ten_nv") != null) {
-    if (localStorage.getItem("noi_bt") == 1) {
-        window.location.replace("TrangChu/TrangChu.html");
-    }
-
+    window.location.replace("TrangChu/TrangChu.html");
+}
+else {
+    window.location.replace("IsekaiQuest.html");
 }
