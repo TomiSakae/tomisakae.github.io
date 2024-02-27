@@ -66,13 +66,16 @@ const app = Vue.createApp({
                 <div class="d-flex align-items-center">
                     <ul class="nav nav-pills">
                         <li class="nav-item pe-3 py-1">
-                            <a v-bind:class="{ 'active': phien_hoat_dong == 2 }" class="nav-link border border-primary" href="#">Gacha</a>
+                            <a v-bind:class="{ 'active': phien_hoat_dong == 2 }" class="nav-link border border-primary" href="/IsekaiQuest/TrangChu/Menu/BanDo.html">Bản đồ</a>
                         </li>
                         <li class="nav-item pe-3 py-1">
-                            <a v-bind:class="{ 'active': phien_hoat_dong == 3 }" class="nav-link border border-primary" href="#">Cửa hàng</a>
+                            <a v-bind:class="{ 'active': phien_hoat_dong == 3 }" class="nav-link border border-primary" href="#">Gacha</a>
                         </li>
                         <li class="nav-item pe-3 py-1">
-                            <a v-bind:class="{ 'active': phien_hoat_dong == 4 }" class="nav-link border border-primary" href="#">Sự kiện</a>
+                            <a v-bind:class="{ 'active': phien_hoat_dong == 4 }" class="nav-link border border-primary" href="#">Cửa hàng</a>
+                        </li>
+                        <li class="nav-item pe-3 py-1">
+                            <a v-bind:class="{ 'active': phien_hoat_dong == 5 }" class="nav-link border border-primary" href="#">Sự kiện</a>
                         </li>
                     </ul>
                 </div>
