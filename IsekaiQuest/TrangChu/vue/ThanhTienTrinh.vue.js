@@ -50,7 +50,7 @@ const app = Vue.createApp({
             <div class="d-flex align-items-center">
                 <ul class="nav nav-pills">
                     <li class="nav-item pe-3 py-1">
-                        <a v-bind:href="{ '#': phien_hoat_dong == 1 }" v-bind:class="{ 'active': phien_hoat_dong == 1 }" class="nav-link border border-primary" href="/IsekaiQuest/TrangChu/TrangChu.html">Isekai Quest</a>
+                    <a v-bind:href="phien_hoat_dong == 1 ? '#' : '/IsekaiQuest/TrangChu/TrangChu.html'" v-bind:class="{ 'active': phien_hoat_dong == 1 }" class="nav-link border border-primary">Isekai Quest</a>
                     </li>
                 </ul>
             </div>
@@ -66,7 +66,7 @@ const app = Vue.createApp({
                 <div class="d-flex align-items-center">
                     <ul class="nav nav-pills">
                         <li class="nav-item pe-3 py-1">
-                            <a v-bind:href="{ '#': phien_hoat_dong == 2 }" v-bind:class="{ 'active': phien_hoat_dong == 2 }" class="nav-link border border-primary" href="/IsekaiQuest/TrangChu/Menu/BanDo/BanDo.html">Bản đồ</a>
+                            <a v-bind:href="phien_hoat_dong == 2 ? '#' : '/IsekaiQuest/TrangChu/Menu/BanDo/BanDo.html'" v-bind:class="{ 'active': phien_hoat_dong == 2 }" class="nav-link border border-primary">Bản đồ</a>
                         </li>
                         <li class="nav-item pe-3 py-1">
                             <a v-bind:class="{ 'active': phien_hoat_dong == 3 }" class="nav-link border border-primary" href="#">Gacha</a>
