@@ -2,7 +2,8 @@ const app = Vue.createApp({
     data() {
         return {
             dem: 0,
-            ten_nhan_vat: ""
+            ten_nhan_vat: "",
+            gioi_thieu: 0
         }
     },
     methods: {
@@ -10,8 +11,12 @@ const app = Vue.createApp({
             this.dem++
             if (this.dem != 0 && this.ten_nhan_vat != "") {
                 localStorage.setItem("ten_nv", this.ten_nhan_vat)
-                window.location.replace("TrangChu/TrangChu.html")
+                this.gioi_thieu++
             }
+        },
+        ChonNoiBatDau() {
+            localStorage.setItem("noi_bt", 1)
+            window.location.replace("TrangChu/Steamforest.html")
         }
     }
 })

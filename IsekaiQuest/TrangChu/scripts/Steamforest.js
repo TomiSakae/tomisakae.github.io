@@ -3,3 +3,4 @@ function XoaDuLieu() {
 
     window.location.replace("../IsekaiQuest.html");
 }
+

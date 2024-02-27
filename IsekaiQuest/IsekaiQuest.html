@@ -13,22 +13,43 @@
 <body>
     <div id="app">
         <div class="container p-5 my-5 border">
-            <h1>Isekai Quest</h1>
-            <div v-if="dem == 0">
-                <p>Chào mừng đến với Web text Game: Isekai Quest!</p>
+            <div v-if="gioi_thieu == 0">
+                <h1>Isekai Quest</h1>
+                <div v-if="dem == 0">
+                    <p>Chào mừng đến với Web text Game: Isekai Quest!</p>
+                </div>
+                <div v-else>
+                    <form class="was-validated">
+                        <div class="mb-3 mt-3">
+                            <label for="nhap_ten" class="form-label">Vui lòng nhập tên nhân vật:</label>
+                            <input v-model="ten_nhan_vat" type="text" class="form-control" id="nhap_ten"
+                                name="ten_nhan_vat" autocomplete="off" required>
+                            <div class="valid-feedback">Tên hợp lệ.</div>
+                            <div class="invalid-feedback">Tên không được phép để trống!</div>
+                        </div>
+                    </form>
+                </div>
+                <button type="button" class="btn btn-outline-primary" v-on:click="TiepTuc">Tiếp tục</button>
             </div>
+
             <div v-else>
-                <form class="was-validated">
-                    <div class="mb-3 mt-3">
-                        <label for="nhap_ten" class="form-label">Vui lòng nhập tên nhân vật:</label>
-                        <input v-model="ten_nhan_vat" type="text" class="form-control" id="nhap_ten" name="ten_nhan_vat"
-                            autocomplete="off" required>
-                        <div class="valid-feedback">Tên hợp lệ.</div>
-                        <div class="invalid-feedback">Tên không được phép để trống!</div>
+                <h2>Các ngôi làng khởi đầu:</h2>
+                <p>Đâu là nơi để bạn bắt đầu chuyến phiêu lưu?</p>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Làng Steamforest(Rừng hơi nước)</h4>
+                        <p class="card-text">Đây là ngôi làng nằm gần khu rừng có độ ẩm cao. Nơi đây sản sinh ra khá
+                            nhiều
+                            Slime
+                            và trái cây. Một nơi rất tốt cho những ai mới bắt đầu đăng ký làm mạo hiểm giả.</p>
+                        <p class="card-text">Vì đây chỉ là 1 ngôi làng nhỏ nên sẽ có ít yêu cầu và đa số là những yêu
+                            cầu về
+                            các
+                            công việc lặt vặt. Một nơi không dành cho những ai thích chiến đấu!</p>
+                        <button type="button" class="btn btn-outline-primary" v-on:click="ChonNoiBatDau">Chọn</button>
                     </div>
-                </form>
+                </div>
             </div>
-            <button type="button" class="btn btn-outline-primary" v-on:click="TiepTuc">Tiếp tục</button>
         </div>
     </div>
 

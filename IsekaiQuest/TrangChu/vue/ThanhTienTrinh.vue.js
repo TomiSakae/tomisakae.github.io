@@ -50,7 +50,7 @@ const app = Vue.createApp({
             <div class="d-flex align-items-center">
                 <ul class="nav nav-pills">
                     <li class="nav-item pe-3 py-1">
-                        <a class="nav-link active" href="#">Isekai Quest</a>
+                        <a v-bind:class="{ 'active': phien_hoat_dong == 1 }" class="nav-link border border-primary" href="#">Isekai Quest</a>
                     </li>
                 </ul>
             </div>
@@ -66,13 +66,13 @@ const app = Vue.createApp({
                 <div class="d-flex align-items-center">
                     <ul class="nav nav-pills">
                         <li class="nav-item pe-3 py-1">
-                            <a class="nav-link border border-primary" href="#">Gacha</a>
+                            <a v-bind:class="{ 'active': phien_hoat_dong == 2 }" class="nav-link border border-primary" href="#">Gacha</a>
                         </li>
                         <li class="nav-item pe-3 py-1">
-                            <a class="nav-link border border-primary" href="#">Cửa hàng</a>
+                            <a v-bind:class="{ 'active': phien_hoat_dong == 3 }" class="nav-link border border-primary" href="#">Cửa hàng</a>
                         </li>
                         <li class="nav-item pe-3 py-1">
-                            <a class="nav-link border border-primary" href="#">Sự kiện</a>
+                            <a v-bind:class="{ 'active': phien_hoat_dong == 4 }" class="nav-link border border-primary" href="#">Sự kiện</a>
                         </li>
                     </ul>
                 </div>
@@ -100,6 +100,7 @@ const app = Vue.createApp({
     `,
     data() {
         return {
+            phien_hoat_dong: phien_hoat_dong_div,
             ten_nhan_vat: localStorage.getItem("ten_nv"),
             ngay_thang_nam: "Ngày " + ngay + " Tháng " + thang + " Năm " + nam,
             qua_diem_danh: `Phần quà điểm danh là <strong>100 xu</strong>`,

@@ -10,3 +10,5 @@ let giao_dien_web = localStorage.getItem("giao_dien");
 if (giao_dien_web == "toi") {
     document.querySelector('html').setAttribute('data-bs-theme', 'dark');
 }
+
+let phien_hoat_dong_div = document.getElementById("thanh_tien_trinh").getAttribute("data-page");
