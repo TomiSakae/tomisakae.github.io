@@ -11,103 +11,7 @@
 </head>
 
 <body>
-    <div class="modal fade" id="diem_danh">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Điểm danh</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <p id="qua_diem_danh">Phần quà điểm danh là <strong>100 xu</strong></p>
-                    <button id="nut_diem_danh" type="button" class="btn btn-outline-success"
-                        onclick="DiemDanh()">Nhận</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="offcanvas offcanvas-end" id="thong_tin_nhan_vat">
-        <div class="offcanvas-header">
-            <h2 id="ten_nhan_vat" class="offcanvas-title"></h2>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="list-group pb-3">
-                <a href="#" class="list-group-item list-group-item-action">Thông tin nhân vật</a>
-                <a href="#" class="list-group-item list-group-item-action">Nhiệm vụ</a>
-                <a href="#" class="list-group-item list-group-item-action">Túi đồ</a>
-                <a href="#" class="list-group-item list-group-item-action">Chế tạo</a>
-                <a href="#" class="list-group-item list-group-item-action">Trang bị</a>
-                <a href="#" class="list-group-item list-group-item-action">Cường hóa</a>
-                <a href="#" class="list-group-item list-group-item-action">Thành tựu</a>
-                <a href="#" class="list-group-item list-group-item-action">Điểm danh hằng ngày</a>
-                <a href="#" class="list-group-item list-group-item-action">Điểm danh 7 ngày!</a>
-                <a href="#" class="list-group-item list-group-item-action">Hòm thư</a>
-                <a href="#" class="list-group-item list-group-item-action">Mã thưởng</a>
-                <a href="#" class="list-group-item list-group-item-action">Nhật ký cập nhật</a>
-            </div>
-            <button type="button" class="btn btn-danger" onclick="XoaDuLieu()">Xóa dữ liệu!</button>
-        </div>
-    </div>
-
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-
-            <div class="d-flex align-items-center">
-                <ul class="nav nav-pills">
-                    <li class="nav-item pe-3 py-1">
-                        <a class="nav-link active" href="#">Isekai Quest</a>
-                    </li>
-                </ul>
-            </div>
-
-            <ul class="navbar-nav">
-                <li class="nav-item py-1">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </li>
-            </ul>
-            <div class="collapse navbar-collapse" id="menu">
-                <div class="d-flex align-items-center">
-                    <ul class="nav nav-pills">
-                        <li class="nav-item pe-3 py-1">
-                            <a class="nav-link border border-primary" href="#">Gacha</a>
-                        </li>
-                        <li class="nav-item pe-3 py-1">
-                            <a class="nav-link border border-primary" href="#">Cửa hàng</a>
-                        </li>
-                        <li class="nav-item pe-3 py-1">
-                            <a class="nav-link border border-primary" href="#">Sự kiện</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="d-flex align-items-center">
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a id="ngay_thang_nam" class="nav-link text-white" href="#" data-bs-toggle="modal"
-                            data-bs-target="#diem_danh"></a>
-                    </li>
-                </ul>
-
-                <button type="button" class="btn btn-dark" data-bs-toggle="offcanvas"
-                    data-bs-target="#thong_tin_nhan_vat">
-                    <i class="fa-solid fa-user"></i>
-                </button>
-
-                <button type="button" class="btn btn-dark" onclick="GiaoDien()">
-                    <i class="fa-solid fa-circle-half-stroke"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <div id="thanh_tien_trinh"></div>
 
     <div class="container mt-3">
         <h2>Danh sách nhiệm vụ Bậc F:</h2>
@@ -151,6 +55,7 @@
         crossorigin="anonymous"></script>
     <script src="scripts/data.js"></script>
     <script src="scripts/TrangChu.js"></script>
+    <script src="vue/ThanhTienTrinh.vue.js"></script>
 </body>
 
 </html>
