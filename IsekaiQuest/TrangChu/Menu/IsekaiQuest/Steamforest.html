@@ -14,7 +14,7 @@
     <div id="thanh_tien_trinh" data-page="1"></div>
 
     <div class="container mt-3">
-        <h2>Danh sách nhiệm vụ khởi đầu:</h2>
+        <h2>Danh sách yêu cầu hôm nay:</h2>
         <div class="row">
             <div class="card">
                 <div class="card-body">
@@ -23,12 +23,12 @@
                         </h4>
                     </button>
                     <div id="nv1" class="collapse">
-                        <p class="card-text">Tìm người giúp thu hoạch bắp.
+                        <p class="card-text">Tìm người giúp thu hoạch bắp. Số lượng khoảng <strong>10 trái bắp</strong>.
                         </p>
                         <p class="card-text">Sau khi hoàn thành sẽ nhận:</p>
                         <ul>
                             <li>Điểm kinh nghiệm: <strong>10</strong>.</li>
-                            <li>Xu: <strong>15</strong>.</li>
+                            <li>Xu: <strong>20</strong>.</li>
                         </ul>
                         <button type="button" class="btn btn-outline-primary">Nhận</button>
                     </div>
@@ -43,8 +43,9 @@
                         <h4 class="card-title" data-bs-toggle="collapse" data-bs-target="#nv2">Thu hoạch lúa mì
                         </h4>
                     </button>
-                    <div id="nv2" class="collapse">
-                        <p class="card-text">Cánh đồng quá lớn!
+                    <div id="nv2" class="collapse">Ai đó hãy giúp tôi thu hoạch lúa mì. Khoảng chừng <strong>20 lúa
+                            mì</strong>.
+                        <p class="card-text">
                         </p>
                         <p class="card-text">Sau khi hoàn thành sẽ nhận:</p>
                         <ul>
@@ -65,7 +66,8 @@
                         </h4>
                     </button>
                     <div id="nv3" class="collapse">
-                        <p class="card-text">Tìm người giúp trồng rau cải phía sau nhà.
+                        <p class="card-text">Tìm người giúp trồng rau cải phía sau nhà. Gieo khoảng <strong>10 hạt
+                                giống</strong>.
                         </p>
                         <p class="card-text">Sau khi hoàn thành sẽ nhận:</p>
                         <ul>
@@ -82,11 +84,32 @@
             <div class="card">
                 <div class="card-body">
                     <button type="button" class="btn">
-                        <h4 class="card-title" data-bs-toggle="collapse" data-bs-target="#nv4">Trái táo ngon
+                        <h4 class="card-title" data-bs-toggle="collapse" data-bs-target="#nv4">Chăm sóc hoa
                         </h4>
                     </button>
                     <div id="nv4" class="collapse">
-                        <p class="card-text">Yêu cầu tìm trái táo ngon nhất hôm nay.
+                        <p class="card-text">Bạn có thể giúp tôi tưới nước cho những cây hoa xung quanh nhà không?
+                        </p>
+                        <p class="card-text">Sau khi hoàn thành sẽ nhận:</p>
+                        <ul>
+                            <li>Điểm kinh nghiệm: <strong>15</strong>.</li>
+                            <li>Xu: <strong>10</strong>.</li>
+                        </ul>
+                        <button type="button" class="btn btn-outline-primary">Nhận</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="card">
+                <div class="card-body">
+                    <button type="button" class="btn">
+                        <h4 class="card-title" data-bs-toggle="collapse" data-bs-target="#nv5">Trái táo ngon
+                        </h4>
+                    </button>
+                    <div id="nv5" class="collapse">
+                        <p class="card-text">Yêu cầu tìm <strong>1 trái táo ngon nhất</strong> hôm nay.
                         </p>
                         <p class="card-text">Sau khi hoàn thành sẽ nhận:</p>
                         <ul>
@@ -103,11 +126,11 @@
             <div class="card">
                 <div class="card-body">
                     <button type="button" class="btn">
-                        <h4 class="card-title" data-bs-toggle="collapse" data-bs-target="#nv5">Tìm nho
+                        <h4 class="card-title" data-bs-toggle="collapse" data-bs-target="#nv6">Tìm nho
                         </h4>
                     </button>
-                    <div id="nv5" class="collapse">
-                        <p class="card-text">Yêu cầu tìm nho với số lượng là 20 trái.
+                    <div id="nv6" class="collapse">
+                        <p class="card-text">Yêu cầu cung cấp nho với số lượng là <strong>20 trái</strong>.
                         </p>
                         <p class="card-text">Sau khi hoàn thành sẽ nhận:</p>
                         <ul>
@@ -127,6 +150,7 @@
         crossorigin="anonymous"></script>
     <script src="../../scripts/DLThanhTienTrinh.js"></script>
     <script src="scripts/Steamforest.js"></script>
+    <script src="XoaDuLieu.js"></script>
     <script src="../../vue/ThanhTienTrinh.vue.js"></script>
 </body>
 

@@ -1,4 +1,4 @@
-const app = Vue.createApp({
+const tien_trinh = Vue.createApp({
     template:
         `
         <div class="modal fade" id="diem_danh">
@@ -38,7 +38,7 @@ const app = Vue.createApp({
                 <a href="#" class="list-group-item list-group-item-action">Điểm danh hằng ngày</a>
                 <a href="#" class="list-group-item list-group-item-action">Điểm danh 7 ngày!</a>
                 <a href="#" class="list-group-item list-group-item-action">Hòm thư</a>
-                <a href="#" class="list-group-item list-group-item-action">Mã thưởng</a>
+                <a href="/IsekaiQuest/TrangChu/NguoiDung/MaThuong/MaThuong.html" class="list-group-item list-group-item-action">Mã thưởng</a>
                 <a href="#" class="list-group-item list-group-item-action">Nhật ký cập nhật</a>
             </div>
             <button type="button" class="btn btn-danger" onclick="XoaDuLieu()">Xóa dữ liệu!</button>
@@ -136,4 +136,4 @@ const app = Vue.createApp({
     }
 })
 
-app.mount('#thanh_tien_trinh')
+tien_trinh.mount('#thanh_tien_trinh')
