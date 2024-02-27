@@ -11,29 +11,33 @@
 </head>
 
 <body>
-    <div class="container p-5 my-5 border">
-        <h1>Isekai Quest</h1>
-        <div id="chuyen_tiep1" class="">
-            <p>Chào mừng đến với Web text Game: Isekai Quest!</p>
+    <div id="app">
+        <div class="container p-5 my-5 border">
+            <h1>Isekai Quest</h1>
+            <div v-if="dem == 0">
+                <p>Chào mừng đến với Web text Game: Isekai Quest!</p>
+            </div>
+            <div v-else>
+                <form class="was-validated">
+                    <div class="mb-3 mt-3">
+                        <label for="nhap_ten" class="form-label">Vui lòng nhập tên nhân vật:</label>
+                        <input v-model="ten_nhan_vat" type="text" class="form-control" id="nhap_ten" name="ten_nhan_vat"
+                            autocomplete="off" required>
+                        <div class="valid-feedback">Tên hợp lệ.</div>
+                        <div class="invalid-feedback">Tên không được phép để trống!</div>
+                    </div>
+                </form>
+            </div>
+            <button type="button" class="btn btn-outline-primary" v-on:click="TiepTuc">Tiếp tục</button>
         </div>
-
-        <div id="chuyen_tiep2" class="d-none">
-            <form class="was-validated">
-                <div class="mb-3 mt-3">
-                    <label for="nhap_ten" class="form-label">Vui lòng nhập tên nhân vật:</label>
-                    <input type="text" class="form-control" id="nhap_ten" name="ten_nhan_vat" required>
-                    <div class="valid-feedback">Tên hợp lệ.</div>
-                    <div class="invalid-feedback">Tên không được phép để trống!</div>
-                </div>
-            </form>
-        </div>
-        <button type="button" class="btn btn-outline-primary" onclick="ChuyenTiep()">Tiếp tục</button>
     </div>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="scripts/ChuyenTiep.js"></script>
+    <script src="scripts/KiemTraDL.js"></script>
+    <script src="scripts/VueChuyenTiep.js"></script>
 </body>
 
 </html>
