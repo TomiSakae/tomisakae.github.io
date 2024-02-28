@@ -30,5 +30,6 @@ if (localStorage.getItem("csdl") == 0) {
     localStorage.setItem("the_luc_nv", 100);
 
     localStorage.setItem("ngay_game", 1);
-    localStorage.setItem("gio_game", "6:00");
+    localStorage.setItem("gio_game", 6);
+    localStorage.setItem("phut_game", "00");
 }

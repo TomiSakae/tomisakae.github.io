@@ -24,7 +24,7 @@ const tien_trinh = Vue.createApp({
     <div class="offcanvas offcanvas-end" id="thong_tin_nhan_vat">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">
-                <p style="margin: 0;">Thời gian: {{gio_game}}</p>
+                <p style="margin: 0;">Thời gian: {{gio_game}}:{{phut_game}}</p>
                 <p style="margin: 0;">Ngày thứ: {{ngay_game}}</p>
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
@@ -108,6 +108,7 @@ const tien_trinh = Vue.createApp({
         return {
             phien_hoat_dong: phien_hoat_dong_div,
             gio_game: localStorage.getItem("gio_game"),
+            phut_game: localStorage.getItem("phut_game"),
             ngay_game: localStorage.getItem("ngay_game"),
             ngay_thang_nam: "Ngày " + ngay + " Tháng " + thang + " Năm " + nam,
             qua_diem_danh: `Phần quà điểm danh là <strong>100 xu</strong>`,
