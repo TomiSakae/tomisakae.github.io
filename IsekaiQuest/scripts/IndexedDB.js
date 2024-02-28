@@ -65,6 +65,29 @@ function LayGTCSDL() {
     };
 }
 
+// Sửa giá trị từ kho CSDL
+function SuaGTCSDL() {
+    let request = indexedDB.open("ten_csdl", 1);
+    let db;
+
+    request.onsuccess = function (event) {
+        db = event.target.result;
+        let transaction = db.transaction(["ten_kho"], "readwrite");
+        let objectStore = transaction.objectStore("ten_kho");
+
+        let getRequest = objectStore.get("id");
+        getRequest.onsuccess = function (event) {
+            let data = event.target.result;
+
+            // Sửa đổi dữ liệu
+            data.someProperty = "new value";
+
+            // Cập nhật dữ liệu trong object store
+            objectStore.put(data);
+        };
+    };
+}
+
 // Xóa giá trị từ kho CSDL
 function XoaGTCSDL() {
     let request = indexedDB.open("ten_csdl", 1);

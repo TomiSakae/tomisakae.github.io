@@ -3,4 +3,5 @@ if (localStorage.getItem("ten_nv") != null) {
 }
 else {
     window.location.replace("IsekaiQuest.html");
+    localStorage.setItem("csdl", 0);
 }
