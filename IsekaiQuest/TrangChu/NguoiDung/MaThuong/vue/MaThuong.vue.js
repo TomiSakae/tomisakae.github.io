@@ -7,7 +7,7 @@ const app = Vue.createApp({
     methods: {
         DoiMa() {
             if (this.ma_thuong != "") {
-
+                LayMa(this.ma_thuong)
             }
         }
     }
