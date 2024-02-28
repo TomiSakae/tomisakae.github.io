@@ -24,4 +24,11 @@ if (localStorage.getItem("csdl") == 0) {
     };
 
     localStorage.setItem("csdl", 1);
+    localStorage.setItem("mau_nv", 100);
+    localStorage.setItem("doi_nv", 100);
+    localStorage.setItem("khat_nv", 100);
+    localStorage.setItem("the_luc_nv", 100);
+
+    localStorage.setItem("ngay_game", 1);
+    localStorage.setItem("gio_game", "6:00");
 }

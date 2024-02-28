@@ -15,7 +15,7 @@ const app = Vue.createApp({
             }
         },
         ChonNoiBatDau() {
-            localStorage.setItem("noi_bt", 1)
+            localStorage.setItem("noi_hien_tai", 1)
             window.location.replace("TrangChu/TrangChu.html")
         }
     }

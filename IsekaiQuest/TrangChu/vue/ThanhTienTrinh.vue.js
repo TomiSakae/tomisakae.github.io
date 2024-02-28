@@ -23,12 +23,15 @@ const tien_trinh = Vue.createApp({
 
     <div class="offcanvas offcanvas-end" id="thong_tin_nhan_vat">
         <div class="offcanvas-header">
-            <h2 class="offcanvas-title">{{ten_nhan_vat}}</h2>
+            <h5 class="offcanvas-title">
+                <p style="margin: 0;">Thời gian: {{gio_game}}</p>
+                <p style="margin: 0;">Ngày thứ: {{ngay_game}}</p>
+            </h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
             <div class="list-group pb-3">
-                <a href="#" class="list-group-item list-group-item-action">Thông tin nhân vật</a>
+                <a href="/IsekaiQuest/TrangChu/NguoiDung/ThongTinNV/ThongTinNV.html" class="list-group-item list-group-item-action">Thông tin nhân vật</a>
                 <a href="#" class="list-group-item list-group-item-action">Nhiệm vụ</a>
                 <a href="#" class="list-group-item list-group-item-action">Túi đồ</a>
                 <a href="#" class="list-group-item list-group-item-action">Chế tạo</a>
@@ -104,7 +107,8 @@ const tien_trinh = Vue.createApp({
     data() {
         return {
             phien_hoat_dong: phien_hoat_dong_div,
-            ten_nhan_vat: localStorage.getItem("ten_nv"),
+            gio_game: localStorage.getItem("gio_game"),
+            ngay_game: localStorage.getItem("ngay_game"),
             ngay_thang_nam: "Ngày " + ngay + " Tháng " + thang + " Năm " + nam,
             qua_diem_danh: `Phần quà điểm danh là <strong>100 xu</strong>`,
             nut_diem_danh: true
