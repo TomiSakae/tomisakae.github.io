@@ -41,7 +41,7 @@ const tien_trinh = Vue.createApp({
                 <a href="/IsekaiQuest/TrangChu/NguoiDung/MaThuong/MaThuong.html" class="list-group-item list-group-item-action">Mã thưởng</a>
                 <a href="#" class="list-group-item list-group-item-action">Nhật ký cập nhật</a>
             </div>
-            <button type="button" class="btn btn-danger" onclick="XoaDuLieu()">Xóa dữ liệu!</button>
+            <button type="button" class="btn btn-danger" v-on:click="XoaDuLieu">Xóa dữ liệu!</button>
         </div>
     </div>
 
@@ -132,6 +132,11 @@ const tien_trinh = Vue.createApp({
                 localStorage.setItem("giao_dien", "sang")
                 giao_dien_web = "sang"
             }
+        },
+        XoaDuLieu() {
+            localStorage.clear()
+            indexedDB.deleteDatabase("IsekaiQuest")
+            window.location.replace("/IsekaiQuest/KhoiDau.html")
         }
     }
 })

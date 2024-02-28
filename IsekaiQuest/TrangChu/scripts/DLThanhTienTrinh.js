@@ -12,10 +12,3 @@ if (giao_dien_web == "toi") {
 }
 
 let phien_hoat_dong_div = document.getElementById("thanh_tien_trinh").getAttribute("data-page");
-
-function XoaDuLieu() {
-    localStorage.clear();
-    indexedDB.deleteDatabase("IsekaiQuest");
-
-    window.location.replace("/IsekaiQuest/KhoiDau.html");
-}
