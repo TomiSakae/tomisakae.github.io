@@ -16,6 +16,26 @@
     </div>
 
     <div id="app">
+        <div class="modal" id="thong_bao_ma">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Isekai Quest</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p>{{thong_bao}}</p>
+                        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">OK</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         <div class="container mt-3">
             <div class="card">
                 <div class="card-body">
@@ -30,7 +50,8 @@
                             <div class="invalid-feedback">Mã không được phép để trống!</div>
                         </div>
                     </form>
-                    <button type="button" class="btn btn-outline-primary" v-on:click="DoiMa">Đổi mã</button>
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                        data-bs-target="#thong_bao_ma" v-on:click="DoiMa">Đổi mã</button>
                 </div>
             </div>
         </div>

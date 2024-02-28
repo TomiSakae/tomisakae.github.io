@@ -65,17 +65,18 @@ function XoaMa(kiem_id) {
     };
 }
 
+let thong_bao_ma_thuong;
 function LayMa(ten_ma) {
     let kiem_ma = KiemTraMaThuong(ten_ma);
     if (kiem_ma > 0) {
-        alert("Bạn đã nhập mã thành công!");
+        thong_bao_ma_thuong = "Bạn đã nhập mã thành công!";
         XoaMa(kiem_ma);
     }
     else if (kiem_ma == 0) {
-        alert("Mã đã được sử dụng!");
+        thong_bao_ma_thuong = "Mã đã được sử dụng!";
     }
     else {
-        alert("Mã không hợp lệ!");
+        thong_bao_ma_thuong = "Mã không hợp lệ!";
     }
 }
 
