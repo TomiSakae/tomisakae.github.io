@@ -9,6 +9,7 @@ if (localStorage.getItem("csdl") == 0) {
     request.onupgradeneeded = function (event) {
         db = event.target.result;
         db.createObjectStore("ma_thuong", { keyPath: "id" });
+        db.createObjectStore("tui_do", { keyPath: "id" });
     };
 
     request.onsuccess = function (event) {
@@ -24,6 +25,9 @@ if (localStorage.getItem("csdl") == 0) {
         for (var i in nhap_ma_thuong) {
             objectStore.add(nhap_ma_thuong[i]);
         }
+
+        transaction = db.transaction(["tui_do"], "readwrite");
+        objectStore = transaction.objectStore("tui_do");
 
     };
 

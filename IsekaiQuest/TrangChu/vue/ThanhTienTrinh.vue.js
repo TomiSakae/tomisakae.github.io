@@ -33,7 +33,7 @@ const tien_trinh = Vue.createApp({
             <div class="list-group pb-3">
                 <a href="/IsekaiQuest/TrangChu/NguoiDung/ThongTinNV/ThongTinNV.html" class="list-group-item list-group-item-action">Thông tin nhân vật</a>
                 <a href="#" class="list-group-item list-group-item-action">Nhiệm vụ</a>
-                <a href="#" class="list-group-item list-group-item-action">Túi đồ</a>
+                <a href="/IsekaiQuest/TrangChu/NguoiDung/TuiDo/TuiDo.html" class="list-group-item list-group-item-action">Túi đồ</a>
                 <a href="#" class="list-group-item list-group-item-action">Chế tạo</a>
                 <a href="#" class="list-group-item list-group-item-action">Trang bị</a>
                 <a href="#" class="list-group-item list-group-item-action">Cường hóa</a>

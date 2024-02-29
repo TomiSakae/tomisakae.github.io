@@ -174,7 +174,7 @@ function KiemTraTraiCay() {
             if (so_ngau_nhien < sl_trai_cay_hien_tai) {
                 sl_trai_cay_hien_tai--;
                 sl_trai_cay_tim_thay++;
-
+                NhapTraiCay();
                 trai_cay_hien_tai = sl_trai_cay_hien_tai;
                 TraiCay();
             }
