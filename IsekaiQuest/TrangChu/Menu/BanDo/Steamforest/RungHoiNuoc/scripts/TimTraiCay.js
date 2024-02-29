@@ -9,6 +9,9 @@ let the_luc_hien_tai = localStorage.getItem("the_luc_nv");
 let kiem_tra_trang_thai = localStorage.getItem("kiem_tra_trang_thai");
 let doi = localStorage.getItem("doi_nv");
 let khat = localStorage.getItem("khat_nv");
+let canh_bao_nguoi_choi = ``;
+let kt_canh_bao_doi = 0;
+let kt_canh_bao_khat = 0;
 
 if (kiem_tra_trang_thai == null) {
     kiem_tra_trang_thai = 0;
@@ -44,6 +47,46 @@ function ThoiGianTraiCay() {
         doi--;
         khat -= 2;
         kiem_tra_trang_thai -= 10;
+    }
+
+    if (doi <= 60 && kt_canh_bao_doi == 0) {
+        canh_bao_nguoi_choi += `
+        <div class="alert alert-warning alert-dismissible fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Cảnh báo!</strong> Bạn đang bắt đầu đói.
+        </div>
+        `;
+        kt_canh_bao_doi = 1;
+    }
+
+    if (khat <= 60 && kt_canh_bao_khat == 0) {
+        canh_bao_nguoi_choi += `
+        <div class="alert alert-warning alert-dismissible fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Cảnh báo!</strong> Bạn đang bắt đầu khát.
+        </div>
+        `;
+        kt_canh_bao_khat = 1;
+    }
+
+    if (doi <= 40 && kt_canh_bao_doi == 1) {
+        canh_bao_nguoi_choi += `
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Nguy hiểm!</strong> Bạn đang rất đói.
+        </div>
+        `;
+        kt_canh_bao_doi = 2;
+    }
+
+    if (khat <= 40 && kt_canh_bao_khat == 1) {
+        canh_bao_nguoi_choi += `
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Nguy hiểm!</strong> Bạn đang rất khát.
+        </div>
+        `;
+        kt_canh_bao_khat = 2;
     }
 
 }
