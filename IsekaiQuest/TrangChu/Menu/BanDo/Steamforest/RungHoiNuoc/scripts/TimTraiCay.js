@@ -12,6 +12,7 @@ let khat = localStorage.getItem("khat_nv");
 let canh_bao_nguoi_choi = ``;
 let kt_canh_bao_doi = 0;
 let kt_canh_bao_khat = 0;
+let kt_canh_bao_the_luc = 0;
 
 if (kiem_tra_trang_thai == null) {
     kiem_tra_trang_thai = 0;
@@ -46,10 +47,28 @@ function ThoiGianTraiCay() {
     if (kiem_tra_trang_thai >= 10) {
         doi--;
         khat -= 2;
+        if (doi <= 0) {
+            doi = 0;
+        }
+        if (khat <= 0) {
+            khat = 0;
+        }
         kiem_tra_trang_thai -= 10;
     }
 
-    if (doi <= 60 && kt_canh_bao_doi == 0) {
+    if (doi <= 40 && kt_canh_bao_doi == 0) {
+        kt_canh_bao_doi = 1;
+    }
+
+    if (khat <= 40 && kt_canh_bao_khat == 0) {
+        kt_canh_bao_khat = 1;
+    }
+
+    if (the_luc_hien_tai <= 40 && kt_canh_bao_the_luc == 0) {
+        kt_canh_bao_the_luc = 1;
+    }
+
+    if (doi <= 60 && doi > 40 && kt_canh_bao_doi == 0) {
         canh_bao_nguoi_choi += `
         <div class="alert alert-warning alert-dismissible fade show">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -59,7 +78,7 @@ function ThoiGianTraiCay() {
         kt_canh_bao_doi = 1;
     }
 
-    if (khat <= 60 && kt_canh_bao_khat == 0) {
+    if (khat <= 60 && khat > 40 && kt_canh_bao_khat == 0) {
         canh_bao_nguoi_choi += `
         <div class="alert alert-warning alert-dismissible fade show">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -69,8 +88,18 @@ function ThoiGianTraiCay() {
         kt_canh_bao_khat = 1;
     }
 
-    if (doi <= 40 && kt_canh_bao_doi == 1) {
+    if (the_luc_hien_tai <= 60 && the_luc_hien_tai > 40 && kt_canh_bao_the_luc == 0) {
         canh_bao_nguoi_choi += `
+        <div class="alert alert-warning alert-dismissible fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Cảnh báo!</strong> Bạn đang bắt đầu mệt.
+        </div>
+        `;
+        kt_canh_bao_the_luc = 1;
+    }
+
+    if (doi <= 40 && kt_canh_bao_doi == 1) {
+        canh_bao_nguoi_choi = `
         <div class="alert alert-danger alert-dismissible fade show">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <strong>Nguy hiểm!</strong> Bạn đang rất đói.
@@ -80,7 +109,7 @@ function ThoiGianTraiCay() {
     }
 
     if (khat <= 40 && kt_canh_bao_khat == 1) {
-        canh_bao_nguoi_choi += `
+        canh_bao_nguoi_choi = `
         <div class="alert alert-danger alert-dismissible fade show">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <strong>Nguy hiểm!</strong> Bạn đang rất khát.
@@ -89,33 +118,66 @@ function ThoiGianTraiCay() {
         kt_canh_bao_khat = 2;
     }
 
+    if (the_luc_hien_tai <= 40 && kt_canh_bao_the_luc == 1) {
+        canh_bao_nguoi_choi = `
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Nguy hiểm!</strong> Bạn đang rất mệt.
+        </div>
+        `;
+        kt_canh_bao_the_luc = 2;
+    }
+
+
+    if (the_luc_hien_tai < 10) {
+        // Lấy tham chiếu đến thẻ button bằng ID
+        let button = document.getElementById("nut_canh_bao");
+
+        // Thay đổi thuộc tính data-bs-toggle
+        button.setAttribute("data-bs-toggle", "modal");
+
+        // Thay đổi thuộc tính data-bs-target
+        button.setAttribute("data-bs-target", "#hop_canh_bao");
+    }
+
 }
 
 function KiemTraTraiCay() {
-    phan_tram_tim_thay = ((sl_trai_cay_hien_tai * 100) / sl_trai_cay).toFixed(2);
+    let kt_thuc_hien = true;
+    if (the_luc_hien_tai >= 10) {
+        phan_tram_tim_thay = ((sl_trai_cay_hien_tai * 100) / sl_trai_cay).toFixed(2);
 
-    phan_tram_tim_thay_trai_cay = phan_tram_tim_thay;
-    TraiCay();
+        phan_tram_tim_thay_trai_cay = phan_tram_tim_thay;
 
-    phut_trai_cay += 5;
-    kiem_tra_trang_thai += 5;
-    the_luc_hien_tai -= 1;
-    localStorage.setItem("the_luc_nv", the_luc_hien_tai);
-    localStorage.setItem("kiem_tra_trang_thai", kiem_tra_trang_thai);
-    localStorage.setItem("doi_nv", doi);
-    localStorage.setItem("khat_nv", khat);
-    TinhToanThoiGian(gio_trai_cay, phut_trai_cay);
-    ThoiGianTraiCay();
+        if (doi == 0 || khat == 0) {
+            phan_tram_tim_thay = 0;
+            kt_thuc_hien = false;
+        }
 
-
-    let so_ngau_nhien = NgauNhienTrongDoan(0, sl_trai_cay);
-
-    if (so_ngau_nhien < sl_trai_cay_hien_tai) {
-        sl_trai_cay_hien_tai--;
-        sl_trai_cay_tim_thay++;
-
-        trai_cay_hien_tai = sl_trai_cay_hien_tai;
+        phut_trai_cay += 5;
+        kiem_tra_trang_thai += 5;
+        the_luc_hien_tai -= 1;
+        if (the_luc_hien_tai <= 0) {
+            the_luc_hien_tai = 0;
+        }
+        localStorage.setItem("the_luc_nv", the_luc_hien_tai);
+        localStorage.setItem("kiem_tra_trang_thai", kiem_tra_trang_thai);
+        localStorage.setItem("doi_nv", doi);
+        localStorage.setItem("khat_nv", khat);
         TraiCay();
-    }
+        TinhToanThoiGian(gio_trai_cay, phut_trai_cay);
+        ThoiGianTraiCay();
 
+        if (kt_thuc_hien == true) {
+            let so_ngau_nhien = NgauNhienTrongDoan(0, sl_trai_cay);
+
+            if (so_ngau_nhien < sl_trai_cay_hien_tai) {
+                sl_trai_cay_hien_tai--;
+                sl_trai_cay_tim_thay++;
+
+                trai_cay_hien_tai = sl_trai_cay_hien_tai;
+                TraiCay();
+            }
+        }
+    }
 }

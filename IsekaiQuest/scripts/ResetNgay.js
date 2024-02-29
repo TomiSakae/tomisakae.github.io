@@ -16,6 +16,6 @@ function ResetThongSoNgay() {
     localStorage.removeItem("phan_tram_tim_dau_tay_dai");
     localStorage.removeItem("dau_tay_dai_ngay_con_lai");
 
-    window.location.replace("/IsekaiQuest/TrangChu/TrangChu.html");
+    window.location.replace(window.location.href);
 }
 
