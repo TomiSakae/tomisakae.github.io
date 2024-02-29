@@ -1,3 +1,7 @@
+function NgauNhienTrongDoan(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 if (localStorage.getItem("csdl") == 0) {
     let request = indexedDB.open("IsekaiQuest", 4);
     let db;
@@ -32,4 +36,13 @@ if (localStorage.getItem("csdl") == 0) {
     localStorage.setItem("ngay_game", 1);
     localStorage.setItem("gio_game", 6);
     localStorage.setItem("phut_game", "00");
+
+
+    let viet_quat = NgauNhienTrongDoan(100, 200);
+    localStorage.setItem("viet_quat_ngay", viet_quat);
+    let mam_xoi = NgauNhienTrongDoan(200, 400);
+    localStorage.setItem("mam_xoi_ngay", mam_xoi);
+    let dau_tay_dai = NgauNhienTrongDoan(50, 100);
+    localStorage.setItem("dau_tay_dai_ngay", dau_tay_dai);
 }
+
