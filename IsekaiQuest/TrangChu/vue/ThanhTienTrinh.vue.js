@@ -146,4 +146,4 @@ const tien_trinh = Vue.createApp({
     }
 })
 
-tien_trinh.mount('#thanh_tien_trinh')
+const vue_tien_trinh = tien_trinh.mount('#thanh_tien_trinh')

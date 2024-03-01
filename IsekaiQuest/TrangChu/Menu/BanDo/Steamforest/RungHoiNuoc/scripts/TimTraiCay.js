@@ -31,6 +31,7 @@ ThoiGianTraiCay();
 function ThoiGianTraiCay() {
     if (phut_trai_cay >= 60) {
         gio_trai_cay++;
+        vue_tien_trinh.gio_game = gio_trai_cay;
         phut_trai_cay -= 60;
     }
     if (gio_trai_cay >= 24) {
@@ -43,6 +44,8 @@ function ThoiGianTraiCay() {
     else {
         phut_trai_cay_hien_thi = phut_trai_cay.toString();
     }
+
+    vue_tien_trinh.phut_game = phut_trai_cay_hien_thi;
 
     if (kiem_tra_trang_thai >= 10) {
         doi--;
