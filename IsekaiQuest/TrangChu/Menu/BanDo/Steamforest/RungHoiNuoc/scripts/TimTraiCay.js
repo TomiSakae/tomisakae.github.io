@@ -6,17 +6,12 @@ let gio_trai_cay = localStorage.getItem("gio_game");
 let phut_trai_cay = Number(localStorage.getItem("phut_game"));
 let phut_trai_cay_hien_thi = "";
 let the_luc_hien_tai = localStorage.getItem("the_luc_nv");
-let kiem_tra_trang_thai = localStorage.getItem("kiem_tra_trang_thai");
 let doi = localStorage.getItem("doi_nv");
 let khat = localStorage.getItem("khat_nv");
 let canh_bao_nguoi_choi = ``;
 let kt_canh_bao_doi = 0;
 let kt_canh_bao_khat = 0;
 let kt_canh_bao_the_luc = 0;
-
-if (kiem_tra_trang_thai == null) {
-    kiem_tra_trang_thai = 0;
-}
 
 if (sl_trai_cay_hien_tai == null) {
     sl_trai_cay_hien_tai = sl_trai_cay;
@@ -46,18 +41,6 @@ function ThoiGianTraiCay() {
     }
 
     vue_tien_trinh.phut_game = phut_trai_cay_hien_thi;
-
-    if (kiem_tra_trang_thai >= 10) {
-        doi--;
-        khat -= 2;
-        if (doi <= 0) {
-            doi = 0;
-        }
-        if (khat <= 0) {
-            khat = 0;
-        }
-        kiem_tra_trang_thai -= 10;
-    }
 
     if (doi <= 40 && kt_canh_bao_doi == 0) {
         kt_canh_bao_doi = 1;
@@ -158,13 +141,31 @@ function KiemTraTraiCay() {
         }
 
         phut_trai_cay += 5;
-        kiem_tra_trang_thai += 5;
-        the_luc_hien_tai -= 1;
+        let fix_doi = doi;
+        let fix_khat = khat;
+        let fix_the_luc = the_luc_hien_tai;
+        fix_the_luc -= 0.3;
+
+        for (let i = 1; i <= 5; i++) {
+            fix_doi -= 0.1;
+            fix_khat -= 0.2;
+        }
+        the_luc_hien_tai = fix_the_luc.toFixed(2);
+        doi = fix_doi.toFixed(2);
+        khat = fix_khat.toFixed(2);
+
+        if (doi <= 0) {
+            doi = 0;
+        }
+
+        if (khat <= 0) {
+            khat = 0;
+        }
+
         if (the_luc_hien_tai <= 0) {
             the_luc_hien_tai = 0;
         }
         localStorage.setItem("the_luc_nv", the_luc_hien_tai);
-        localStorage.setItem("kiem_tra_trang_thai", kiem_tra_trang_thai);
         localStorage.setItem("doi_nv", doi);
         localStorage.setItem("khat_nv", khat);
         TraiCay();
