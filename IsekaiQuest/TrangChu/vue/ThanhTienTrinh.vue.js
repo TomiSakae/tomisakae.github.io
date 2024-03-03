@@ -42,7 +42,6 @@ const tien_trinh = Vue.createApp({
                 <a href="#" class="list-group-item list-group-item-action">Điểm danh 7 ngày!</a>
                 <a href="#" class="list-group-item list-group-item-action">Hòm thư</a>
                 <a href="/IsekaiQuest/TrangChu/NguoiDung/MaThuong/MaThuong.html" class="list-group-item list-group-item-action">Mã thưởng</a>
-                <a href="#" class="list-group-item list-group-item-action">Nhật ký cập nhật</a>
             </div>
             <button type="button" class="btn btn-danger" v-on:click="XoaDuLieu">Xóa dữ liệu!</button>
         </div>
