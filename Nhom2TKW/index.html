@@ -16,12 +16,6 @@
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Loại bỏ thanh cuộn trang */
-        body {
-            overflow: hidden;
-        }
-    </style>
 </head>
 
 <body>
@@ -51,8 +45,9 @@
 
     <div id="dstv" class="mx-auto p-4 bg-gray-200">
         <div data-aos="flip-up" class="mx-auto max-w-2xl bg-white p-8 rounded-lg shadow-md">
-            <h3 data-aos="fade-down" class="text-lg font-bold leading-normal">Danh sách thành viên:</h3>
-            <ol class="leading-loose list-decimal">
+            <h3 data-aos="fade-down" class="text-lg font-bold leading-normal">Danh sách thành
+                viên:</h3>
+            <ol class="leading-loose list-decimal sm:text-sm md:text-base lg:text-base xl:text-base">
                 <li data-aos="fade-right" class="hover:text-sky-400">Nguyễn Huỳnh Kỹ Thuật</li>
                 <li data-aos="fade-right" class="hover:text-sky-400">Nguyễn Nhật Trường</li>
                 <li data-aos="fade-right" class="hover:text-sky-400">Phạm Quang Vinh</li>
@@ -68,12 +63,6 @@
         <p>© 2024 Nhóm 2 TKW</p>
     </footer>
 
-    <script>
-        document.addEventListener('wheel', function () {
-            // Cho phép cuộn khi sử dụng con chuột
-            document.body.style.overflow = 'auto';
-        });
-    </script>
     <script>
         AOS.init();
     </script>
