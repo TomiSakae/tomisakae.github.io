@@ -23,6 +23,9 @@ app.controller("ham_dstv", function ($scope) {
     window.onload = function () {
         $scope.ThoiGianHienThi();
         $scope.$apply(); // Cần gọi $apply() để áp dụng các thay đổi vào scope
+        if (window.innerWidth < 640) {
+            $scope.mobile_fix = true;
+        }
     };
 
     $scope.ThoiGianHienThi = function () {
