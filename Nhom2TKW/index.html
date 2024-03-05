@@ -16,57 +16,65 @@
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
 </head>
 
 <body>
+    <div ng-app="ds_thanh_vien" ng-controller="ham_dstv">
+        <div class="bg-gradient-to-br from-blue-500 to-green-500">
+            <div class="flex items-center justify-center h-screen">
+                <article class="text-pretty flex flex-col items-center">
+                    <p ng-show="tieu_de1"
+                        class="font-semibold text-4xl text-white text-center animate__animated animate__fadeInDown">
+                        Nhóm 2
+                        thuyết trình
+                        Bootstrap 5</p>
+                    <p ng-show="tieu_de2"
+                        class="pt-3 font-semibold text-2xl xl:text-3xl text-white text-center animate__animated animate__fadeInLeft">
+                        Nơi cung cấp các ví dụ cơ bản về Bootstrap 5</p>
+                    <div ng-show="tieu_de3" class="row pt-3">
+                        <a href="#dstv" ng-click="DanhSachThanhVien()"
+                            class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal animate__animated animate__fadeIn hvr-icon-wobble-horizontal flex items-center hvr-shadow">
+                            <p class="">Danh sách thành viên</p>
+                            <i class="fa fa-arrow-right hvr-icon pl-2"></i>
+                        </a>
+                    </div>
+                </article>
 
-    <div class="bg-gradient-to-br from-blue-500 to-green-500">
-        <div class="flex items-center justify-center h-screen">
-            <article class="text-pretty flex flex-col items-center">
-                <p class="font-semibold text-4xl text-white text-center animate__animated animate__fadeInDown">
-                    Nhóm 2
-                    thuyết trình
-                    Bootstrap 5</p>
-                <p
-                    class="pt-3 font-semibold text-2xl xl:text-3xl text-white text-center animate__animated animate__fadeInLeft">
-                    Nơi cung cấp các ví dụ cơ bản về Bootstrap 5</p>
-                <div class="row pt-3">
-                    <a href="#dstv"
-                        class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal animate__animated animate__fadeIn hvr-icon-wobble-horizontal flex items-center hvr-shadow">
-                        <p class="">Danh sách thành viên</p>
-                        <i class="fa fa-arrow-right hvr-icon pl-2"></i>
-                    </a>
-                </div>
-            </article>
-
+            </div>
         </div>
+
+        <div id="dstv" ng-show="ds_tv" class="mx-auto p-4 bg-gray-200">
+            <div data-aos="flip-up" class="mx-auto max-w-2xl bg-white p-8 rounded-lg shadow-md">
+                <h3 data-aos="fade-down"
+                    class="font-bold leading-normal text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl">Danh
+                    sách thành
+                    viên:</h3>
+                <ol
+                    class="pl-3 pt-2 leading-loose list-decimal text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">
+                    <li data-aos="fade-right" class="hover:text-sky-400">Nguyễn Huỳnh Kỹ Thuật</li>
+                    <li data-aos="fade-right" class="hover:text-sky-400">Nguyễn Nhật Trường</li>
+                    <li data-aos="fade-right" class="hover:text-sky-400">Phạm Quang Vinh</li>
+                    <li data-aos="fade-right" class="hover:text-sky-400">Nguyễn Thành Trung</li>
+                    <li data-aos="fade-right" class="hover:text-sky-400">Nguyễn Huỳnh Phú Vinh</li>
+                    <li data-aos="fade-right" class="hover:text-sky-400">Phạm Minh Thư</li>
+                    <li data-aos="fade-right" class="hover:text-sky-400">Hứa Thị Thảo Vy</li>
+                </ol>
+            </div>
+        </div>
+
+        <footer ng-show="chan_trang"
+            class="text-xs sm:text-sm md:text-base lg:text-base xl:text-lg bg-gray-800 text-white p-4 text-center">
+            <p>©2024 Nhóm 2 TKW-DA22TTC-TVU</p>
+        </footer>
     </div>
 
-    <div id="dstv" class="mx-auto p-4 bg-gray-200">
-        <div data-aos="flip-up" class="mx-auto max-w-2xl bg-white p-8 rounded-lg shadow-md">
-            <h3 data-aos="fade-down"
-                class="font-bold leading-normal text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl">Danh
-                sách thành
-                viên:</h3>
-            <ol class="pl-3 pt-2 leading-loose list-decimal text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">
-                <li data-aos="fade-right" class="hover:text-sky-400">Nguyễn Huỳnh Kỹ Thuật</li>
-                <li data-aos="fade-right" class="hover:text-sky-400">Nguyễn Nhật Trường</li>
-                <li data-aos="fade-right" class="hover:text-sky-400">Phạm Quang Vinh</li>
-                <li data-aos="fade-right" class="hover:text-sky-400">Nguyễn Thành Trung</li>
-                <li data-aos="fade-right" class="hover:text-sky-400">Nguyễn Huỳnh Phú Vinh</li>
-                <li data-aos="fade-right" class="hover:text-sky-400">Phạm Minh Thư</li>
-                <li data-aos="fade-right" class="hover:text-sky-400">Hứa Thị Thảo Vy</li>
-            </ol>
-        </div>
-    </div>
-
-    <footer class="text-xs sm:text-sm md:text-base lg:text-base xl:text-lg bg-gray-800 text-white p-4 text-center">
-        <p>©2024 Nhóm 2 TKW-DA22TTC-TVU</p>
-    </footer>
 
     <script>
         AOS.init();
     </script>
+
+    <script src="Angular/scripts.js"></script>
 </body>
 
 </html>
