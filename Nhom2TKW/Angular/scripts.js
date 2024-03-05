@@ -4,6 +4,7 @@ app.controller("ham_dstv", function ($scope) {
     $scope.ds_tv = false;
     $scope.chan_trang = false;
     $scope.gioi_thieu = false;
+    $scope.vi_du = false;
     $scope.nut_gioi_thieu = false;
     $scope.tieu_de1 = false;
     $scope.tieu_de2 = false;
@@ -48,6 +49,10 @@ app.controller("ham_dstv", function ($scope) {
 
     $scope.GioiThieu = function () {
         $scope.gioi_thieu = true;
+    }
+
+    $scope.BaiVD = function () {
+        $scope.vi_du = true;
     }
 
     $scope.ThanhVien = function () {
