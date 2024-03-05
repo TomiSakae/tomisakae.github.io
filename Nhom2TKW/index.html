@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <div ng-app="ds_thanh_vien" ng-controller="ham_dstv">
+    <div ng-app="ds_thanh_vien" ng-controller="ham_dstv" class="select-none">
         <div class="bg-gradient-to-br from-blue-500 to-green-500">
             <div class="flex items-center justify-center h-screen">
                 <article class="text-pretty flex flex-col items-center">
@@ -48,7 +48,7 @@
         <div id="dstv" ng-show="ds_tv" class="mx-auto p-4 bg-gradient-to-br from-gray-200 to-slate-300">
             <div
                 class="mx-auto max-w-8xl bg-gradient-to-r from-sky-200 to-blue-200 p-8 rounded-lg shadow-md text-center flex flex-col items-center">
-                <button type="button" ng-click="ThanhVien()"
+                <a ng-click="ThanhVien()"
                     class="hvr-buzz-out hvr-icon-spin font-bold leading-normal text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl inline-block rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-info-50/50 hover:text-info-600 focus:border-info-600 focus:bg-info-50/50 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700 motion-reduce:transition-none dark:hover:bg-cyan-950 dark:focus:bg-cyan-950 flex items-center">
                     <span class="px-2"> Danh
                         sách thành
@@ -58,9 +58,9 @@
                         <i class="fa fa-refresh hvr-icon"></i>
                     </span>
                     <span ng-bind="sl_thanh_vien" ng-show="huy_hieu"
-                        class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300"></span>
-                </button>
-                <ul class="select-none pl-3 pt-2 leading-loose text-sm sm:text-base md:text-base lg:text-lg xl:text-lg">
+                        class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-600 dark:text-green-300"></span>
+                </a>
+                <ul class="pl-3 pt-2 leading-loose text-sm sm:text-base md:text-base lg:text-lg xl:text-lg">
                     <li ng-show="tv1" class="hover:text-sky-400 animate__animated animate__lightSpeedInLeft">Nguyễn
                         Huỳnh Kỹ
                         Thuật</li>
@@ -95,46 +95,35 @@
 
         <div id="gt" ng-show="gioi_thieu" class="bg-gradient-to-br from-gray-800 via-gray-900 to-black h-screen">
             <div class="container p-5">
-                <div class="row">
+                <div class="row pt-2 pl-2">
                     <div class="col">
-                        <p class="font-semibold text-xl text-white">Vùng xem và sửa code linh hoạt:</p>
+                        <p class="font-semibold text-xl text-white">Vùng xem code hiện đại cùng tính năng sao chép:</p>
                     </div>
                 </div>
 
-                <div class="row pt-2">
+                <div class="row inline-block pt-2 pl-2">
                     <div class="col">
                         <pre>
                             <code class="language-markup line-numbers">
-                                &lt;div class="container"&gt;
-                                &lt;h1&gt;Hello, world!&lt;/h1&gt;
-                                &lt;p&gt;This is a paragraph.&lt;/p&gt;
-                                &lt;/div&gt;                          
+                                &lt;div class="container p-5 my-5 border"&gt;
+                                    &lt;h1&gt;Trang Bootstrap cơ bản&lt;/h1&gt;
+                                    &lt;p&gt;Nội dung được bao trong khung có phần đệm trong và ngoài.&lt;/p&gt;
+                                &lt;/div&gt;                      
                             </code>
                         </pre>
                     </div>
                 </div>
 
-                <div class="row pt-5">
+                <div class="row pt-5 pl-2">
                     <div class="col">
                         <p class="font-semibold text-xl text-white">Vùng hiển thị kết quả độc đáo:</p>
                     </div>
                 </div>
 
-                <div class="row pt-3">
+                <div class="row pt-3 pl-2">
                     <div class="col">
-                        <div id="ket_qua" class="bg-white">
-                            <div class="container">
-                                <h1>Hello, world!</h1>
-                                <p>This is a paragraph.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row pt-5">
-                    <div class="col">
-                        <p class="font-semibold text-xl text-white">Lưu ý: Tính năng hiển thị kết quả có thể không chính
-                            xác! Nên copy và thử lại ở tệp html của bạn.</p>
+                        <iframe src="ViDu/ViDu.html" style="width: 600px; height: 300px;">
+                        </iframe>
                     </div>
                 </div>
             </div>
