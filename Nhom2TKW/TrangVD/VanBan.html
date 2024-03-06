@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <title>Văn Bản</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../Frism/prism.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="bg-gradient-to-br from-gray-800 via-gray-900 to-black">
+            <div class="container p-5">
+                <div v-show="vd1">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Căn chỉnh văn bản:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;p class=&quot;text-start&quot;&gt; căn lề trái &lt;/p&gt;
+                                &lt;p class=&quot;text-center&quot;&gt; căn giữa &lt;/p&gt;
+                                &lt;p class=&quot;text-end&quot;&gt; căn lề phải &lt;/p&gt;
+                                &lt;p class=&quot;text-sm-start&quot;&gt; căn chỉnh văn bản trên các cửa sổ xem có kích thước nhỏ &lt;/p&gt;
+                                &lt;p class=&quot;text-md-start&quot;&gt; kích thước trung bình &lt;/p&gt;
+                                &lt;p class=&quot;text-lg-start&quot;&gt; kích thước lớn &lt;/p&gt;
+                                &lt;p class=&quot;text-xl-start&quot;&gt; kích thước rất lớn &lt;/p&gt;
+                                &lt;p class=&quot;text-xxl-start&quot;&gt; kích thước siêu lớn &lt;/p&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDVanBan/ViDu1.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd2">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Chuyển đổi văn bản:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;p class=&quot;text-lowercase&quot;&gt; thẻ này dùng để hiển thị chữ viết thường.&lt;/p&gt;
+                                &lt;p class=&quot;text-uppercase&quot;&gt; dùng để hiển thị chữ viết hoa.&lt;/p&gt;
+                                &lt;p class=&quot;text-capitalize&quot;&gt; in hoa chữ cái đầu tiên của mỗi từ.&lt;/p&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDVanBan/ViDu2.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd3">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Cỡ chữ:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;p class=&quot;fs-1&quot;&gt;.fs-1 văn bản &lt;/p&gt;
+                                &lt;p class=&quot;fs-2&quot;&gt;.fs-2 văn bản &lt;/p&gt;
+                                &lt;p class=&quot;fs-3&quot;&gt;.fs-3 văn bản&lt;/p&gt;
+                                &lt;p class=&quot;fs-4&quot;&gt;.fs-4 văn bản&lt;/p&gt;
+                                &lt;p class=&quot;fs-5&quot;&gt;.fs-5 văn bản&lt;/p&gt;
+                                &lt;p class=&quot;fs-6&quot;&gt;.fs-6 văn bản&lt;/p&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDVanBan/ViDu3.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd4">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Độ đậm và độ nghiêng của phông chữ:
+                    </h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;p class=&quot;fw-bold&quot;&gt; Chữ in đậm.&lt;/p&gt;
+                                &lt;p class=&quot;fw-bolder&quot;&gt; Văn bản đậm hơn (liên quan đến phần tử mẹ).&lt;/p&gt;
+                                &lt;p class=&quot;fw-normal&quot;&gt; Văn bản trọng lượng bình thường.&lt;/p&gt;
+                                &lt;p class=&quot;fw-light&quot;&gt; Văn bản có trọng lượng nhẹ.&lt;/p&gt;
+                                &lt;p class=&quot;fw-lighter&quot;&gt; Văn bản có trọng lượng nhẹ hơn (liên quan đến phần tử mẹ).&lt;/p&gt;
+                                &lt;p class=&quot;fst-italic&quot;&gt; Văn bản in nghiêng..&lt;/p&gt;
+                                &lt;p class=&quot;fst-normal&quot;&gt; Văn bản có kiểu phông chữ bình thường&lt;/p&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDVanBan/ViDu4.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd5">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Chiều cao giữa các dòng:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;p class=&quot;lh-1&quot;&gt;Dòng 1&lt;/p&gt;
+                                &lt;p class=&quot;lh-sm&quot;&gt;Dòng 2&lt;/p&gt;
+                                &lt;p class=&quot;lh-base&quot;&gt;Dòng 3&lt;/p&gt;
+                                &lt;p class=&quot;lh-lg&quot;&gt;Dòng 4&lt;/p&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDVanBan/ViDu5.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd6">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Trang trí văn bản:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;p class=&quot;text-decoration-underline&quot;&gt;Văn bản có dòng kẻ bên dưới.&lt;/p&gt;
+                                &lt;p class=&quot;text-decoration-line-through&quot;&gt;Văn bản có dòng kẻ ngay giữa.&lt;/p&gt;
+                                &lt;a href=&quot;#&quot; class=&quot;text-decoration-none&quot;&gt;Liên kết có văn bản không có dòng kẻ.&lt;/a&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDVanBan/ViDu6.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="pt-4 pb-3 flex justify-between">
+                    <div v-show="vd_dau" class="animate__animated animate__slideInLeft">
+                        <button type="button" v-on:click="ViDuTruoc"
+                            class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal hvr-icon-back flex items-center hvr-shadow">
+                            <i class="fa fa-chevron-circle-left hvr-icon pr-2"></i>
+                            <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Ví dụ trước</p>
+                        </button>
+                    </div>
+                    <div v-show="an_tiep" class="flex justify-end animate__animated animate__slideInLeft">
+                        <button type="button" v-on:click="ViDuKe"
+                            class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal hvr-icon-wobble-horizontal flex items-center hvr-shadow">
+                            <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Ví dụ kế</p>
+                            <i class="fa fa-arrow-right hvr-icon pl-2"></i>
+                        </button>
+                    </div>
+
+                    <div v-show="vd_cuoi" class="flex justify-end animate__animated animate__slideInLeft">
+                        <a href="../index.html"
+                            class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal hvr-icon-wobble-horizontal flex items-center hvr-shadow">
+                            <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Trang chủ</p>
+                            <i class="fa fa-arrow-right hvr-icon pl-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-sm sm:text-base md:text-base lg:text-lg xl:text-lg bg-gray-800 text-white p-4 text-center">
+            <p>©2024 Nhóm 2 TKW-DA22TTC-TVU</p>
+        </footer>
+    </div>
+
+    <script src="../Frism/prism.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="Vue/VanBan.js"></script>
+</body>
+
+</html>
