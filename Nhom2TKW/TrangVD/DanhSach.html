@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <div id="app" class="select-none">
+    <div id="app">
         <div class="bg-gradient-to-br from-gray-800 via-gray-900 to-black">
             <div class="container p-5">
                 <div v-show="vd1">
@@ -68,18 +68,130 @@
                     </div>
                 </div>
 
+                <div v-show="vd3">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nhóm danh sách liên kết:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;div class=&quot;list-group&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Mục thứ 1&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Mục thứ 2&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Mục thứ 3&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDDanhSach/ViDu3.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd4">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Mục bị vô hiệu hóa:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;div class=&quot;list-group&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item disabled&quot;&gt;Mục bị vô hiệu thứ 1&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item disabled&quot;&gt;Mục bị vô hiệu thứ 2&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item&quot;&gt;Mục thứ 3&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDDanhSach/ViDu4.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd5">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Xóa đường viền:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;ul class=&quot;list-group list-group-flush&quot;&gt;
+                                    &lt;li class=&quot;list-group-item&quot;&gt;Mục thứ 1&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item&quot;&gt;Mục thứ 2&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item&quot;&gt;Mục thứ 3&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item&quot;&gt;Mục thứ 4&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDDanhSach/ViDu5.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd6">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nhóm danh sách có thứ tự:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;ol class=&quot;list-group list-group-numbered&quot;&gt;
+                                    &lt;li class=&quot;list-group-item&quot;&gt;Mục thứ 1&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item&quot;&gt;Mục thứ 2&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item&quot;&gt;Mục thứ 3&lt;/li&gt;
+                                &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDDanhSach/ViDu6.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd7">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nhóm danh sách ngang:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;ul class=&quot;list-group list-group-horizontal&quot;&gt;
+                                    &lt;li class=&quot;list-group-item&quot;&gt;Mục thứ 1&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item&quot;&gt;Mục thứ 2&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item&quot;&gt;Mục thứ 3&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item&quot;&gt;Mục thứ 4&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDDanhSach/ViDu7.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
                 <div class="pt-4 pb-3 flex justify-between">
                     <div v-show="vd_dau" class="animate__animated animate__slideInLeft">
                         <button type="button" v-on:click="ViDuTruoc"
                             class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal hvr-icon-back flex items-center hvr-shadow">
                             <i class="fa fa-chevron-circle-left hvr-icon pr-2"></i>
-                            <p class="">Ví dụ trước</p>
+                            <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Ví dụ trước</p>
                         </button>
                     </div>
                     <div class="flex justify-end animate__animated animate__slideInLeft">
                         <button type="button" v-on:click="ViDuKe"
                             class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal hvr-icon-wobble-horizontal flex items-center hvr-shadow">
-                            <p class="">Ví dụ kế</p>
+                            <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Ví dụ kế</p>
                             <i class="fa fa-arrow-right hvr-icon pl-2"></i>
                         </button>
                     </div>
