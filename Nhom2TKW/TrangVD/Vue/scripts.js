@@ -8,7 +8,11 @@ const app = Vue.createApp({
             vd5: false,
             vd6: false,
             vd7: false,
+            vd8: false,
+            vd9: false,
             vd_dau: false,
+            an_tiep: true,
+            vd_cuoi: false,
             dem: 1
         }
     },
@@ -40,6 +44,16 @@ const app = Vue.createApp({
                     this.vd6 = false
                     this.vd7 = true
                     break
+                case 7:
+                    this.vd7 = false
+                    this.vd8 = true
+                    break
+                case 8:
+                    this.vd8 = false
+                    this.vd9 = true
+                    this.vd_cuoi = true;
+                    this.an_tiep = false;
+                    break
             }
             this.dem++
         },
@@ -70,6 +84,16 @@ const app = Vue.createApp({
                 case 6:
                     this.vd6 = true
                     this.vd7 = false
+                    break
+                case 7:
+                    this.vd7 = true
+                    this.vd8 = false
+                    break
+                case 8:
+                    this.vd8 = true
+                    this.vd9 = false
+                    this.vd_cuoi = false;
+                    this.an_tiep = true;
                     break
             }
         }

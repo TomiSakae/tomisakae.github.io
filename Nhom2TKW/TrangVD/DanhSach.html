@@ -180,6 +180,61 @@
                     </div>
                 </div>
 
+                <div v-show="vd8">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nhóm danh sách màu:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class="container my-3 py-2"&gt;
+                                &lt;ul class=&quot;list-group&quot;&gt;
+                                    &lt;li class=&quot;list-group-item list-group-item-success&quot;&gt;Mục thành công&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item list-group-item-secondary&quot;&gt;Mục phụ&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item list-group-item-info&quot;&gt;Mục thông tin&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item list-group-item-warning&quot;&gt;Mục cảnh báo&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item list-group-item-danger&quot;&gt;Mục nguy hiểm&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item list-group-item-primary&quot;&gt;Mục chính&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item list-group-item-dark&quot;&gt;Mục tối&lt;/li&gt;
+                                    &lt;li class=&quot;list-group-item list-group-item-light&quot;&gt;Mục sáng&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;                            
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDDanhSach/ViDu8.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd9">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nhóm danh sách liên kết màu:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class="container my-3 py-2"&gt;
+                                &lt;div class=&quot;list-group&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Mục bình thường&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-success&quot;&gt;Mục thành công&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-secondary&quot;&gt;Mục phụ&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-info&quot;&gt;Mục thông tin&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-warning&quot;&gt;Mục cảnh báo&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-danger&quot;&gt;Mục nguy hiểm&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-primary&quot;&gt;Mục chính&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-dark&quot;&gt;Mục tối&lt;/a&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-light&quot;&gt;Mục sáng&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDDanhSach/ViDu9.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
                 <div class="pt-4 pb-3 flex justify-between">
                     <div v-show="vd_dau" class="animate__animated animate__slideInLeft">
                         <button type="button" v-on:click="ViDuTruoc"
@@ -188,12 +243,20 @@
                             <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Ví dụ trước</p>
                         </button>
                     </div>
-                    <div class="flex justify-end animate__animated animate__slideInLeft">
+                    <div v-show="an_tiep" class="flex justify-end animate__animated animate__slideInLeft">
                         <button type="button" v-on:click="ViDuKe"
                             class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal hvr-icon-wobble-horizontal flex items-center hvr-shadow">
                             <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Ví dụ kế</p>
                             <i class="fa fa-arrow-right hvr-icon pl-2"></i>
                         </button>
+                    </div>
+
+                    <div v-show="vd_cuoi" class="flex justify-end animate__animated animate__slideInLeft">
+                        <a href="../index.html"
+                            class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal hvr-icon-wobble-horizontal flex items-center hvr-shadow">
+                            <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Về trang chủ</p>
+                            <i class="fa fa-arrow-right hvr-icon pl-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
