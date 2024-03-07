@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <title>Nút</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../Frism/prism.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="bg-gradient-to-br from-gray-800 via-gray-900 to-black">
+            <div class="container p-5">
+                <div v-show="vd1">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Kiểu nút:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-dark&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-light&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;abc&lt;/button&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu1.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd2">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nút trên nhiều thẻ:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;a href=&quot;#&quot; class=&quot;btn btn-success&quot;&gt;tới luôn&lt;/a&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;abc&lt;/button&gt;
+                                &lt;input type=&quot;button&quot; class=&quot;btn btn-success&quot; value=&quot;abc&quot;&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu2.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd3">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nút có viền:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-success&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-info&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-warning&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-danger&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-dark&quot;&gt;abc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-light text-dark&quot;&gt;abc&lt;/button&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu3.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd4">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Kích thước nút:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;to&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;mặc định&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-sm&quot;&gt;nhỏ&lt;/button&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu4.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd5">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nút cấp độ khối:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;div class=&quot;d-grid&quot;&gt;
+                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;abc&lt;/button&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu5.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd6">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nhiều nút khối:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;div class=&quot;d-grid gap-3&quot;&gt;
+                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;abc&lt;/button&gt;
+                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;bca&lt;/button&gt;
+                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;cab&lt;/button&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu6.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd7">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nút kích hoạt/tắt:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;nút bình thường&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary active&quot;&gt;có vẻ nhấn dc&lt;/button&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; disabled&gt;ko nhấn dc đâu&lt;/button&gt;
+                                &lt;a href=&quot;#&quot; class=&quot;btn btn-primary disabled&quot;&gt;No link&lt;/a&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu7.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd8">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nút xoay:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;button class=&quot;btn btn-primary&quot;&gt;
+                                    &lt;span class=&quot;spinner-border spinner-border&quot;&gt;&lt;/span&gt;
+                                &lt;/button&gt;
+                                &lt;button class=&quot;btn btn-primary&quot;&gt;
+                                    &lt;span class=&quot;spinner-border spinner-border&quot;&gt;&lt;/span&gt;
+                                    đợi xíu...
+                                &lt;/button&gt;
+                                &lt;button class=&quot;btn btn-primary&quot; disabled&gt;
+                                    &lt;span class=&quot;spinner-border spinner-border&quot;&gt;&lt;/span&gt;
+                                    đợi tí...
+                                &lt;/button&gt;
+                                &lt;button class=&quot;btn btn-primary&quot; disabled&gt;
+                                    &lt;span class=&quot;spinner-grow spinner-grow&quot;&gt;&lt;/span&gt;
+                                    đợi cái...
+                                &lt;/button&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu8.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd9">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nhóm nút:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;div class=&quot;btn-group&quot;&gt;
+                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;a&lt;/button&gt;
+                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;b&lt;/button&gt;
+                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;c&lt;/button&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu9.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd10">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nhóm nút dọc:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;div class=&quot;btn-group-vertical&quot;&gt;
+                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;a&lt;/button&gt;
+                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;b&lt;/button&gt;
+                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;c&lt;/button&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu10.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd11">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nút thả xuống:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot;&gt;
+                                    Nút thả xuống
+                                &lt;/button&gt;
+                                &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                                    &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Liên kết 1&lt;/a&gt;&lt;/li&gt;
+                                    &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Liên kết 2&lt;/a&gt;&lt;/li&gt;
+                                    &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Liên kết 3&lt;/a&gt;&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu11.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div v-show="vd12">
+                    <h1 class="h1 text-white animate__animated animate__slideInLeft">Nút thu gọn:</h1>
+                    <div class="row xl:w-2/3 pt-2 animate__animated animate__slideInLeft">
+                        <pre>
+                        <code class="language-markup line-numbers">
+                            &lt;div class=&quot;container my-3 py-2&quot;&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#test&quot;&gt;nhấn vào đi&lt;/button&gt;
+                                &lt;div id=&quot;test&quot; class=&quot;collapse&quot;&gt;
+                                    không có gì hết
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                    </div>
+
+                    <div class="row pt-3 animate__animated animate__slideInLeft">
+                        <iframe src="VDNut/ViDu12.html" style="width: 100%; height: 300px;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="pt-4 pb-3 flex justify-between">
+                    <div v-show="vd_dau" class="animate__animated animate__slideInLeft">
+                        <button type="button" v-on:click="ViDuTruoc"
+                            class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal hvr-icon-back flex items-center hvr-shadow">
+                            <i class="fa fa-chevron-circle-left hvr-icon pr-2"></i>
+                            <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Ví dụ trước</p>
+                        </button>
+                    </div>
+                    <div v-show="an_tiep" class="flex justify-end animate__animated animate__slideInLeft">
+                        <button type="button" v-on:click="ViDuKe"
+                            class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal hvr-icon-wobble-horizontal flex items-center hvr-shadow">
+                            <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Ví dụ kế</p>
+                            <i class="fa fa-arrow-right hvr-icon pl-2"></i>
+                        </button>
+                    </div>
+
+                    <div v-show="vd_cuoi" class="flex justify-end animate__animated animate__slideInLeft">
+                        <a href="../index.html"
+                            class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ocus:outline-none focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-full hvr-wobble-horizontal hvr-icon-wobble-horizontal flex items-center hvr-shadow">
+                            <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Trang chủ</p>
+                            <i class="fa fa-arrow-right hvr-icon pl-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-sm sm:text-base md:text-base lg:text-lg xl:text-lg bg-gray-800 text-white p-4 text-center">
+            <p>©2024 Nhóm 2 TKW-DA22TTC-TVU</p>
+        </footer>
+    </div>
+
+    <script src="../Frism/prism.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="Vue/Nut.js"></script>
+</body>
+
+</html>
