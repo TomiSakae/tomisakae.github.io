@@ -1,5 +1,9 @@
+.w-25-fix {
+    width: 25% !important;
+}
+
 @media (max-width: 576px) {
-    .w-50 {
-        width: 30% !important;
+    .w-25-fix {
+        width: 35% !important;
     }
 }
