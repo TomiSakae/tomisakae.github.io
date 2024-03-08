@@ -2,8 +2,18 @@
     width: 25% !important;
 }
 
+.fs-6-fix {
+    font-size: 1em !important;
+}
+
 @media (max-width: 576px) {
     .w-25-fix {
         width: 35% !important;
+    }
+}
+
+@media (min-width: 576px) {
+    .fs-6-fix {
+        font-size: 1.25em !important;
     }
 }
