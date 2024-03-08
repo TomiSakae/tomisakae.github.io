@@ -1,14 +1,24 @@
-.w-25-fix {
-    width: 25% !important;
-}
-
 .fs-6-fix {
     font-size: 1em !important;
 }
 
+.w-25-fix {
+    width: 25% !important;
+}
+
+.small-fix {
+    font-size: 0.875em;
+}
+
+@media (max-width: 576px) {
+    .small-fix {
+        font-size: 0.6em;
+    }
+}
+
 @media (max-width: 576px) {
     .w-25-fix {
-        width: 35% !important;
+        width: 50% !important;
     }
 }
 
