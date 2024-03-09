@@ -38,3 +38,21 @@
     border-color: white;
     color: white;
 }
+
+.fix_tieu_de {
+    font-size: 3em;
+}
+
+.fix_chu {
+    font-size: 1.5em;
+}
+
+@media (max-width: 576px) {
+    .fix_tieu_de {
+        font-size: 1.3em;
+    }
+
+    .fix_chu {
+        font-size: 0.75em;
+    }
+}
