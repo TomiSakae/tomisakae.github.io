@@ -15,7 +15,7 @@
 }
 
 .khung_trong_nav {
-    border: 1px solid white;
+    border: 1px solid black;
     color: white;
     background: linear-gradient(116deg, rgb(80, 118, 252) 19.936305732484076%, rgb(200, 127, 253) 100%);
     transition: 0.2s linear;
@@ -28,13 +28,13 @@
 }
 
 .khung_thuong {
-    border: 1px solid white;
+    border: 1px solid black;
     color: black;
     transition: 0.2s linear;
 }
 
 .khung_thuong:hover {
     background-color: black;
-    border-color: black;
+    border-color: white;
     color: white;
 }
