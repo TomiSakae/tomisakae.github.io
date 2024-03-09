@@ -1,0 +1,40 @@
+.nen_dau {
+    background: linear-gradient(to top right, #181818, #111111 100%);
+}
+
+.khung_video {
+    border: 5px solid white;
+}
+
+.tieu_de {
+    color: #01a5fc;
+}
+
+.khung_nav {
+    border-radius: 20px;
+}
+
+.khung_trong_nav {
+    border: 1px solid white;
+    color: white;
+    background: linear-gradient(116deg, rgb(80, 118, 252) 19.936305732484076%, rgb(200, 127, 253) 100%);
+    transition: 0.2s linear;
+}
+
+.khung_trong_nav:hover {
+    background: black;
+    border-color: black;
+    color: white;
+}
+
+.khung_thuong {
+    border: 1px solid white;
+    color: black;
+    transition: 0.2s linear;
+}
+
+.khung_thuong:hover {
+    background-color: black;
+    border-color: black;
+    color: white;
+}
