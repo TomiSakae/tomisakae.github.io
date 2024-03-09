@@ -49,10 +49,11 @@
 
 @media (max-width: 576px) {
     .fix_tieu_de {
-        font-size: 1.3em;
+        font-size: 1.5em;
+        text-wrap: nowrap;
     }
 
     .fix_chu {
-        font-size: 0.75em;
+        font-size: 0.8em;
     }
 }
