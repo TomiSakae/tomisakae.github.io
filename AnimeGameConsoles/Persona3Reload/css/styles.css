@@ -1,5 +1,5 @@
 .nen_dau {
-    background: linear-gradient(to top right, #181818, #111111 100%);
+    background: linear-gradient(to top right, #313236, #22252a 100%);
 }
 
 .khung_video {
@@ -48,21 +48,12 @@
 }
 
 @media (max-width: 576px) {
-    .fix_tieu_de {
-        font-size: 1.5em;
-        text-wrap: nowrap;
-    }
-
-    .fix_chu {
-        font-size: 0.8em;
-    }
-
     .nav_bar {
         display: none;
     }
 }
 
-@media (min-width: 577px) and (max-width: 768px) {
+@media (max-width: 768px) {
     .fix_tieu_de {
         font-size: 2em;
         text-wrap: nowrap;
