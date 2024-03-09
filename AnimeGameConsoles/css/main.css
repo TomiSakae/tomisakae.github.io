@@ -27,3 +27,38 @@
         font-size: 1.25em !important;
     }
 }
+
+.mau_tieu_de {
+    background: linear-gradient(116deg, rgb(80, 118, 252) 19.936305732484076%, rgb(200, 127, 253) 100%);
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.di_chuot {
+    position: relative;
+    transition: transform 0.2s linear;
+}
+
+.di_chuot:hover {
+    transform: translateY(-4px);
+}
+
+.w-80 {
+    width: 80% !important;
+}
+
+.w-10 {
+    width: 10% !important;
+}
+
+.mau_nen_ps5 {
+    background: linear-gradient(to top right, #1F1F1F, #1F1F1F00 100%);
+}
+
+.mau_nen_ns {
+    background: linear-gradient(to top right, #C00000, #FF0000 100%);
+}
+
+.mau_nen_xb {
+    background: linear-gradient(to top right, #77BB44, #107C10 100%);
+}
