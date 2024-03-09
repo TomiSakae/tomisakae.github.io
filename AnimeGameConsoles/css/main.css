@@ -51,7 +51,13 @@
     width: 10% !important;
 }
 
-.mau_nen_ps5 {
+@media (max-width: 576px) {
+    .w-10 {
+        width: 15% !important;
+    }
+}
+
+/* .mau_nen_ps5 {
     background: linear-gradient(to top right, #1F1F1F, #1F1F1F00 100%);
 }
 
@@ -61,4 +67,4 @@
 
 .mau_nen_xb {
     background: linear-gradient(to top right, #77BB44, #107C10 100%);
-}
+} */
