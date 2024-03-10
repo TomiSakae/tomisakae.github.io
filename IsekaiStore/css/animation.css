@@ -4,9 +4,9 @@
     --animate-repeat: 1;
 }
 
-.animate__animated.animate__delay-05s {
-    -webkit-animation-delay: 0.5s;
-    animation-delay: 0.5s;
+.animate__animated.animate__delay-025s {
+    -webkit-animation-delay: 0.25s;
+    animation-delay: 0.25s;
 }
 
 .animate__animated {
