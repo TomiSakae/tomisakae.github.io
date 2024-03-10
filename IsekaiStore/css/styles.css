@@ -1,3 +1,17 @@
+.mobile {
+    display: none;
+}
+
+@media (max-width:777px) {
+    .kiem_tra {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+}
+
 .nen_dau {
     background-color: #e3ffe6;
 }
