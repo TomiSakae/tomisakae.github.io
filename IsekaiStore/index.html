@@ -12,32 +12,34 @@
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/animation.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
 </head>
 
 <body id="top">
-    <div class="kiem_tra">
-        <nav class="position-fixed top-0 vw-100 bg-white dieu_huong">
+    <div class="kiem-tra">
+        <nav class="position-fixed top-0 vw-100 bg-white dieu-huong">
             <div class="container py-3">
                 <div class="row">
                     <div class="col-2">
-                        <a class="navbar-brand fw-bold fs-4 mau_tieu_de" href="#top">Isekai Store</a>
+                        <a class="navbar-brand fw-bold fs-4 mau-tieu-de" href="#top">Isekai Store</a>
                     </div>
                     <div class="col-8">
                         <div class="d-flex justify-content-center align-items-center">
-                            <a class="navbar-brand fw-500 px-4 py-2 nen_link" href="#">
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link" href="#">
                                 Vũ Khí</a>
-                            <a class="navbar-brand fw-500 px-4 py-2 nen_link" href="#">
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link" href="#">
                                 Giáp Trụ</a>
-                            <a class="navbar-brand fw-500 px-4 py-2 nen_link" href="#">
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link" href="#">
                                 Phụ Kiện</a>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="d-flex justify-content-end align-items-end">
-                            <a class="nav-link fs-3 px-2 mx-1 nen_icon" href="#">
+                            <a class="nav-link fs-3 px-2 mx-1 nen-icon" href="#">
                                 <i class="bi bi-person"></i>
                             </a>
-                            <a class="nav-link fs-5 px-2 py-1 mx-1 nen_icon" href="#">
+                            <a class="nav-link fs-5 px-2 py-1 mx-1 nen-icon" href="#">
                                 <i class="bi bi-cart"></i>
                             </a>
                         </div>
@@ -45,31 +47,96 @@
                 </div>
             </div>
         </nav>
-        <div class="nen_dau pt-5">
-            <div class="container vh-100 d-flex flex-column justify-content-center">
-                <div class="row">
-                    <div class="col-6">
+
+        <div class="nen-dau">
+            <div class="container-fluid vh-100 d-flex flex-column justify-content-center">
+                <div id="dau1" class="row">
+                    <div class="col-1 d-flex flex-column justify-content-center">
+                        <div class="fs-4"><i class="bi bi-arrow-left mui-ten px-3 py-2 mui_ten_trai"></i></div>
+                    </div>
+                    <div class="col-5">
                         <p class="text-dark fs-5 fw-500 animate__animated animate__slideInLeft">Tăng cường sức mạnh,
                             tiêu
-                            diệt đối phương.</p>
+                            diệt đối thủ.</p>
                         <h1 class="display-1 fw-bold mb-09 animate__animated animate__slideInLeft">Hàng loạt vũ khí</h1>
                         <a href="#"
-                            class="text-white text-decoration-none py-3 px-5 fs-6 nen_nut fw-500 animate__animated animate__slideInLeft animate__delay-05s">
+                            class="text-white text-decoration-none py-3 px-5 fs-6 nen-nut fw-500 animate__animated animate__slideInLeft animate__delay-05s">
                             Mua Ngay
                         </a>
                     </div>
-                    <div class="col-6 text-end mt-5">
-                        <img src="img/MC Vanilla/Swords/netherite_sword_scaled_20x_pngcrushed.png" alt="Kiếm Địa Ngục"
-                            class="kiem_nen animate__animated animate__zoomIn">
-                        <img src="img/Terraria/Swords/Volcano_scaled_5x_pngcrushed.png" alt="Kiếm Núi Lửa"
-                            class="kiem_nen animate__animated animate__zoomIn">
-                        <img src="img/Terraria/Swords/True_Excalibur_scaled_6x_pngcrushed.png"
-                            alt="Kiếm Thánh Excalibur" class="kiem_nen animate__animated animate__zoomIn">
+                    <div class="col-5 text-end mt-5">
+                        <img src="img/MCVanilla/VuKhi/ThanhKiem/netherite_sword_scaled_20x_pngcrushed.png"
+                            alt="Kiếm Địa Ngục" class="vat-pham-nen animate__animated animate__zoomIn">
+                        <img src="img/Terraria/VuKhi/ThanhKiem/Volcano_scaled_5x_pngcrushed.png" alt="Kiếm Núi Lửa"
+                            class="vat-pham-nen animate__animated animate__zoomIn">
+                        <img src="img/Terraria/VuKhi/ThanhKiem/True_Excalibur_scaled_6x_pngcrushed.png"
+                            alt="Kiếm Thánh Excalibur" class="vat-pham-nen animate__animated animate__zoomIn">
+                    </div>
+                    <div class="col-1 d-flex flex-column justify-content-center align-items-end">
+                        <div class="fs-4"><i class="bi bi-arrow-right mui-ten px-3 py-2 mui_ten_phai"></i></div>
                     </div>
                 </div>
+
+                <div id="dau2" class="row">
+                    <div class="col-1 d-flex flex-column justify-content-center">
+                        <div class="fs-4"><i class="bi bi-arrow-left mui-ten px-3 py-2 mui_ten_trai"></i></div>
+                    </div>
+                    <div class="col-5">
+                        <p class="text-dark fs-5 fw-500 animate__animated animate__slideInLeft">Tăng cường phòng thủ,
+                            không lo chết sớm.</p>
+                        <h1 class="display-1 fw-bold mb-09 animate__animated animate__slideInLeft">Nhiều loại giáp</h1>
+                        <a href="#"
+                            class="text-white text-decoration-none py-3 px-5 fs-6 nen-nut fw-500 animate__animated animate__slideInLeft animate__delay-05s">
+                            Mua Ngay
+                        </a>
+                    </div>
+                    <div class="col-5 text-end mt-5">
+                        <img src="img/MCVanilla/AoGiap/Giap/netherite_chestplate_scaled_20x_pngcrushed.png"
+                            alt="Áo Giáp Địa Ngục" class="vat-pham-nen animate__animated animate__zoomIn">
+                        <img src="img/Terraria/AoGiap/Giap/Silver_Chainmail_scaled_11x_pngcrushed.png" alt="Áo Giáp Bạc"
+                            class="vat-pham-nen mx-4 animate__animated animate__zoomIn">
+                        <img src="img/Terraria/AoGiap/Giap/Shadow_Scalemail_scaled_13x_pngcrushed.png"
+                            alt="Áo Giáp Bóng Đêm" class="vat-pham-nen animate__animated animate__zoomIn">
+                    </div>
+                    <div class="col-1 d-flex flex-column justify-content-center align-items-end">
+                        <div class="fs-4"><i class="bi bi-arrow-right mui-ten px-3 py-2 mui_ten_phai"></i></div>
+                    </div>
+                </div>
+
+                <div id="dau3" class="row">
+                    <div class="col-1 d-flex flex-column justify-content-center">
+                        <div class="fs-4"><i class="bi bi-arrow-left mui-ten px-3 py-2 mui_ten_trai"></i></div>
+                    </div>
+                    <div class="col-5">
+                        <p class="text-dark fs-5 fw-500 animate__animated animate__slideInLeft">Tăng cường năng lực,
+                            thoả sức bức phá.</p>
+                        <h1 class="display-1 fw-bold mb-09 animate__animated animate__slideInLeft">Với Phụ kiện
+                        </h1>
+                        <a href="#"
+                            class="text-white text-decoration-none py-3 px-5 fs-6 nen-nut fw-500 animate__animated animate__slideInLeft animate__delay-05s">
+                            Mua Ngay
+                        </a>
+                    </div>
+                    <div class="col-5 text-end mt-5">
+                        <img src="img/Terraria/PhuKien/Anklet_of_the_Wind_scaled_12x_pngcrushed.png" alt="Vòng Gió"
+                            class="vat-pham-nen animate__animated animate__zoomIn">
+                        <img src="img/Terraria/PhuKien/Lava_Charm_scaled_11x_pngcrushed.png" alt="Vòng Dung Nham"
+                            class="vat-pham-nen mx-4 animate__animated animate__zoomIn">
+                        <img src="img/Terraria/PhuKien/Terraspark_Boots_scaled_10x_pngcrushed.png" alt="Giầy Đất Nung"
+                            class="vat-pham-nen animate__animated animate__zoomIn">
+                    </div>
+                    <div class="col-1 d-flex flex-column justify-content-center align-items-end">
+                        <div class="fs-4"><i class="bi bi-arrow-right mui-ten px-3 py-2 mui_ten_phai"></i></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="d-flex justify-content-center pb-4">
+                <div id="trang1" class="bg-white px-5 pt-1 rounded-3"></div>
+                <div id="trang2" class="bg-white px-5 pt-1 rounded-3 mx-2"></div>
+                <div id="trang3" class="bg-white px-5 pt-1 rounded-3"></div>
             </div>
         </div>
-
 
         <footer class="bg-dark text-center py-3">
             <div class="container px-5">
