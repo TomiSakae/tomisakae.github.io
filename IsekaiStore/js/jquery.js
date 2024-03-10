@@ -11,7 +11,7 @@ jq(function () {
 
     function DoiViTri() {
         jq("#trang" + vi_tri).removeClass("bg-white");
-        jq("#trang" + vi_tri).addClass("bg-black");
+        jq("#trang" + vi_tri).addClass("doi-mau-nen-dong");
     }
 
     let chuyen_dong;
@@ -60,18 +60,21 @@ jq(function () {
     }
 
     function Trang1() {
+        ChuyenViTri();
         jq("#dau1").show();
         HoanDoi(1);
         vi_tri = 1;
     }
 
     function Trang2() {
+        ChuyenViTri();
         jq("#dau2").show();
         HoanDoi(2);
         vi_tri = 2;
     }
 
     function Trang3() {
+        ChuyenViTri();
         jq("#dau3").show();
         HoanDoi(3);
         vi_tri = 3;
@@ -80,8 +83,8 @@ jq(function () {
     function HoanDoi(vi_tri_trang) {
         jq("#dau" + vi_tri).hide();
         jq("#trang" + vi_tri_trang).removeClass("bg-white");
-        jq("#trang" + vi_tri_trang).addClass("bg-black");
-        jq("#trang" + vi_tri).removeClass("bg-black");
+        jq("#trang" + vi_tri_trang).addClass("doi-mau-nen-dong");
+        jq("#trang" + vi_tri).removeClass("doi-mau-nen-dong");
         jq("#trang" + vi_tri).addClass("bg-white");
     }
 
@@ -94,7 +97,6 @@ jq(function () {
     jq(".mui_ten_trai").on("click", function () {
         ChuyenViTri();
         ChuyenTiep(1);
-
     });
 
     jq(".mui_ten_phai").on("click", function () {

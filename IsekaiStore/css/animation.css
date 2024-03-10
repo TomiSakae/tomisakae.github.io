@@ -54,3 +54,16 @@
     -webkit-animation-name: zoomIn;
     animation-name: zoomIn;
 }
+
+.doi-mau-nen {
+    background-size: 200% 200%;
+    background-image: linear-gradient(to right, black 50%, white 0);
+    background-position: right;
+}
+
+.doi-mau-nen-dong {
+    background-position: left;
+    transition: background-position 0.2s;
+    -webkit-transition: background-position 0.2s;
+    -moz-transition: background-position 0.2s;
+}
