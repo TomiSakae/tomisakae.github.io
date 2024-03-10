@@ -4,9 +4,14 @@
     --animate-repeat: 1;
 }
 
-.animate__animated.animate__delay-03s {
-    -webkit-animation-delay: 0.3s;
-    animation-delay: 0.3s;
+.animate__animated.animate__delay-02s {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.animate__animated.animate__delay-01s {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
 }
 
 .animate__animated {
