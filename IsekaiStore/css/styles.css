@@ -6,6 +6,16 @@
     font-weight: 500;
 }
 
+.nen_nut {
+    background-color: #0f172A;
+    border-radius: 30px;
+    transition: 0.1s linear;
+}
+
+.nen_nut:hover {
+    background-color: #1e293b;
+}
+
 .nen_link {
     border-radius: 20px;
     transition: 0.1s linear;
@@ -36,4 +46,13 @@
 
 .nen_icon:hover {
     background-color: #F1F5F9;
+}
+
+.mb-09 {
+    margin-bottom: 0.9em;
+}
+
+.kiem_nen {
+    width: 25%;
+    height: auto;
 }
