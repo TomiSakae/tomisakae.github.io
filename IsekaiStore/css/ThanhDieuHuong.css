@@ -1,0 +1,43 @@
+.mau-tieu-de {
+    transition: 0.2s linear;
+}
+
+.mau-tieu-de:hover {
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background: linear-gradient(116deg, rgb(80, 118, 252) 19.936305732484076%, rgb(200, 127, 253) 100%);
+}
+
+.dieu-huong {
+    z-index: 2000;
+}
+
+.nen-link {
+    border-radius: 20px;
+    transition: 0.1s linear;
+}
+
+.nen-link:hover {
+    background-color: #F1F5F9;
+}
+
+.nen-icon {
+    border-radius: 50%;
+    transition: 0.1s linear;
+}
+
+.nen-icon:hover {
+    background-color: #F1F5F9;
+    cursor: pointer;
+}
+
+.nguoi-dung {
+    position: fixed;
+    display: none;
+    max-width: 260px;
+    z-index: 2001;
+}
+
+.br-20 {
+    border-radius: 20px;
+}
