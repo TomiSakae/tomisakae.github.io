@@ -104,4 +104,49 @@ jq(function () {
         ChuyenTiep(0);
     });
 
+    let nav_than = 1;
+
+    CapNhatNavThan();
+    function CapNhatNavThan() {
+        jq("#nav_than" + nav_than).addClass("bg-black");
+        jq("#nav_than" + nav_than).removeClass("text-muted");
+        jq("#nav_than" + nav_than).removeClass("nav-than");
+        jq("#nav_than" + nav_than).addClass("text-light");
+    }
+
+    function XoaCapNhatNavThan(id_nav) {
+        jq("#nav_than" + id_nav).removeClass("bg-black");
+        jq("#nav_than" + id_nav).addClass("text-muted");
+        jq("#nav_than" + id_nav).addClass("nav-than");
+        jq("#nav_than" + id_nav).removeClass("text-light");
+    }
+
+    jq("#nav_than1").on("click", function () {
+        if (nav_than != 1) {
+            XoaCapNhatNavThan(nav_than);
+            nav_than = 1;
+            CapNhatNavThan();
+        }
+    });
+
+    jq("#nav_than2").on("click", function () {
+        if (nav_than != 2) {
+            XoaCapNhatNavThan(nav_than);
+            nav_than = 2;
+            CapNhatNavThan();
+        }
+    });
+
+    jq("#nav_than3").on("click", function () {
+        if (nav_than != 3) {
+            XoaCapNhatNavThan(nav_than);
+            nav_than = 3;
+            CapNhatNavThan();
+        }
+    });
+
+    jq("#bang1").on("click", function () {
+        window.location.href = "TrangVuKhi/MCVanilla/index.html";
+    });
+
 });
