@@ -3,15 +3,12 @@ const jq = $.noConflict();
 jq(function () {
 
     let vi_tri = 1;
-    jq("#dau1").show();
-    jq("#dau2").hide();
-    jq("#dau3").hide();
+    jq("#dau1").removeClass("d-none");
 
     DoiViTri();
 
     function DoiViTri() {
-        jq("#trang" + vi_tri).removeClass("bg-white");
-        jq("#trang" + vi_tri).addClass("doi-mau-nen-dong");
+        jq("#trang" + vi_tri).removeClass("bg-white").addClass("doi-mau-nen-dong");
     }
 
     let chuyen_dong;
@@ -61,31 +58,29 @@ jq(function () {
 
     function Trang1() {
         ChuyenViTri();
-        jq("#dau1").show();
+        jq("#dau1").removeClass("d-none");
         HoanDoi(1);
         vi_tri = 1;
     }
 
     function Trang2() {
         ChuyenViTri();
-        jq("#dau2").show();
+        jq("#dau2").removeClass("d-none");
         HoanDoi(2);
         vi_tri = 2;
     }
 
     function Trang3() {
         ChuyenViTri();
-        jq("#dau3").show();
+        jq("#dau3").removeClass("d-none");
         HoanDoi(3);
         vi_tri = 3;
     }
 
     function HoanDoi(vi_tri_trang) {
-        jq("#dau" + vi_tri).hide();
-        jq("#trang" + vi_tri_trang).removeClass("bg-white");
-        jq("#trang" + vi_tri_trang).addClass("doi-mau-nen-dong");
-        jq("#trang" + vi_tri).removeClass("doi-mau-nen-dong");
-        jq("#trang" + vi_tri).addClass("bg-white");
+        jq("#dau" + vi_tri).addClass("d-none");
+        jq("#trang" + vi_tri_trang).removeClass("bg-white").addClass("doi-mau-nen-dong");
+        jq("#trang" + vi_tri).removeClass("doi-mau-nen-dong").addClass("bg-white");
     }
 
     jq("#trang1").on("click", Trang1);
@@ -108,17 +103,11 @@ jq(function () {
 
     CapNhatNavThan();
     function CapNhatNavThan() {
-        jq("#nav_than" + nav_than).addClass("bg-black");
-        jq("#nav_than" + nav_than).removeClass("text-muted");
-        jq("#nav_than" + nav_than).removeClass("nav-than");
-        jq("#nav_than" + nav_than).addClass("text-light");
+        jq("#nav_than" + nav_than).addClass("bg-black text-light").removeClass("text-muted nav-than");
     }
 
     function XoaCapNhatNavThan(id_nav) {
-        jq("#nav_than" + id_nav).removeClass("bg-black");
-        jq("#nav_than" + id_nav).addClass("text-muted");
-        jq("#nav_than" + id_nav).addClass("nav-than");
-        jq("#nav_than" + id_nav).removeClass("text-light");
+        jq("#nav_than" + id_nav).removeClass("bg-black text-light").addClass("text-muted nav-than");
     }
 
     jq("#nav_than1").on("click", function () {

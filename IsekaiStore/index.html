@@ -11,6 +11,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/animation.css" rel="stylesheet">
+    <link href="css/ThanhDieuHuong.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/jquery.js"></script>
@@ -18,39 +19,12 @@
 
 <body id="top" class="user-select-none">
     <div class="kiem-tra">
-        <nav class="position-fixed top-0 vw-100 bg-white dieu-huong">
-            <div class="container py-3">
-                <div class="row">
-                    <div class="col-2">
-                        <a class="navbar-brand fw-bold fs-4 mau-tieu-de" href="#top">Isekai Store</a>
-                    </div>
-                    <div class="col-8">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <a class="navbar-brand fw-500 px-4 py-2 nen-link" href="#">
-                                Vũ Khí</a>
-                            <a class="navbar-brand fw-500 px-4 py-2 nen-link" href="#">
-                                Giáp Trụ</a>
-                            <a class="navbar-brand fw-500 px-4 py-2 nen-link" href="#">
-                                Phụ Kiện</a>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="d-flex justify-content-end align-items-end">
-                            <a class="nav-link fs-3 px-2 mx-1 nen-icon" href="#">
-                                <i class="bi bi-person"></i>
-                            </a>
-                            <a class="nav-link fs-5 px-2 py-1 mx-1 nen-icon" href="#">
-                                <i class="bi bi-cart"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+
+        <div id="thanh_dieu_huong"></div>
 
         <div class="nen-dau">
             <div class="container-fluid vh-100 d-flex flex-column justify-content-center">
-                <div id="dau1" class="row">
+                <div id="dau1" class="row d-none">
                     <div class="col-1 d-flex flex-column justify-content-center">
                         <div class="fs-4"><i class="bi bi-arrow-left mui-ten px-3 py-2 mui_ten_trai"></i></div>
                     </div>
@@ -79,7 +53,7 @@
                     </div>
                 </div>
 
-                <div id="dau2" class="row">
+                <div id="dau2" class="row d-none">
                     <div class="col-1 d-flex flex-column justify-content-center">
                         <div class="fs-4"><i class="bi bi-arrow-left mui-ten px-3 py-2 mui_ten_trai"></i></div>
                     </div>
@@ -107,7 +81,7 @@
                     </div>
                 </div>
 
-                <div id="dau3" class="row">
+                <div id="dau3" class="row d-none">
                     <div class="col-1 d-flex flex-column justify-content-center">
                         <div class="fs-4"><i class="bi bi-arrow-left mui-ten px-3 py-2 mui_ten_trai"></i></div>
                     </div>
@@ -203,6 +177,9 @@
     <div class="mobile">
         <p>Web hiện chưa hỗ trợ cho các thiết bị di động! Vui lòng chuyển sang máy tính để truy cập.</p>
     </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="js/ThanhDieuHuong.vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

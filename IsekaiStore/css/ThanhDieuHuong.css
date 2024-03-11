@@ -13,7 +13,6 @@
 }
 
 .nen-link {
-    border-radius: 20px;
     transition: 0.1s linear;
 }
 
@@ -40,4 +39,60 @@
 
 .br-20 {
     border-radius: 20px;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.chu-popup {
+    color: #334155;
+}
+
+.nen-popup {
+    transition: 0.1s linear;
+}
+
+.nen-popup:hover {
+    background-color: rgba(243, 244, 246);
+    cursor: pointer;
+}
+
+.gio-hang {
+    position: fixed;
+    display: none;
+    max-width: 430px;
+    z-index: 2001;
+}
+
+.san-pham-gio {
+    overflow-y: auto;
+    max-height: 60vh;
+    scrollbar-width: none;
+}
+
+.nut-gio-hang {
+    border-radius: 40px;
+    padding: 0.6em 3em 0.6em 3em;
+    font-size: 1.15em;
+}
+
+.nen-nut-den {
+    background-color: #0f172A;
+    transition: 0.1s linear;
+}
+
+.nen-nut-den:hover {
+    background-color: #1e293b;
+    cursor: pointer;
+}
+
+.nen-nut-trang {
+    background-color: white;
+    transition: 0.1s linear;
+}
+
+.nen-nut-trang:hover {
+    background-color: #f7f7f9;
+    cursor: pointer;
 }

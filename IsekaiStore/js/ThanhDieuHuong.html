@@ -1,36 +1,104 @@
-<nav class="position-fixed top-0 vw-100 bg-primary dieu-huong">
-    <div class="container py-3">
-        <div class="row">
-            <div class="col-2">
-                <a class="navbar-brand fw-bold fs-4 mau-tieu-de" href="../../index.html">Isekai Store</a>
-            </div>
-            <div class="col-8">
-                <div class="d-flex justify-content-center align-items-center">
-                    <a class="navbar-brand fw-500 px-4 py-2 nen-link" href="#">
-                        Vũ Khí</a>
-                    <a class="navbar-brand fw-500 px-4 py-2 nen-link" href="#">
-                        Giáp Trụ</a>
-                    <a class="navbar-brand fw-500 px-4 py-2 nen-link" href="#">
-                        Phụ Kiện</a>
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <title>Isekai Store</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Cửa hàng dị giới!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../css/ThanhDieuHuong.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="jquery.js"></script>
+</head>
+
+<body id="top" class="user-select-none">
+    <div class="kiem-tra">
+
+        <nav class="position-fixed top-0 vw-100 bg-white dieu-huong">
+            <div class="container py-3">
+                <div class="row">
+                    <div class="col-2">
+                        <a class="navbar-brand fw-bold fs-4 mau-tieu-de" href="/index.html">Isekai Store</a>
+                    </div>
+                    <div class="col-8">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
+                                Vũ Khí</a>
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
+                                Giáp Trụ</a>
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
+                                Phụ Kiện</a>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="d-flex justify-content-end align-items-end">
+                            <a id="icon1" class="nav-link fs-3 px-2 mx-1 nen-icon">
+                                <i class="bi bi-person"></i>
+                            </a>
+                            <a id="icon2" class="nav-link fs-5 px-2 py-1 mx-1 nen-icon">
+                                <i class="bi bi-cart"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-2">
-                <div class="d-flex justify-content-end align-items-end">
-                    <a id="icon1" class="nav-link fs-3 px-2 mx-1 nen-icon">
-                        <i class="bi bi-person"></i>
-                    </a>
-                    <a id="icon2" class="nav-link fs-5 px-2 py-1 mx-1 nen-icon">
-                        <i class="bi bi-cart"></i>
-                    </a>
+        </nav>
+
+        <div id="popup_nguoi_dung" class="vw-100 nguoi-dung bg-white br-20 shadow-sm">
+            <div class="d-flex justify-content-center">
+                <div class="pt-3 px-5 fw-500 fs-5">Tomi Sakae</div>
+            </div>
+            <hr class="bg-black mx-3">
+            <p class="rounded-3 nen-popup nut-nhan py-1 px-1 mx-2 fw-500 chu-popup"><i
+                    class="bi bi-person fs-5 px-2"></i>Tài Khoản
+            </p>
+            <p class="rounded-3 nen-popup nut-nhan py-1 px-1 mx-2 fw-500 chu-popup"><i
+                    class="bi bi-bag fs-5 px-2"></i>Túi Đồ</p>
+            <hr class="bg-black mx-3">
+            <p class="rounded-3 nen-popup nut-nhan py-1 px-1 mx-2 fw-500 chu-popup"><i
+                    class="bi bi-box-arrow-left fs-5 px-2"></i>Thoát Trang</p>
+        </div>
+
+        <div id="popup_xe_hang" class="vw-100 gio-hang bg-white br-20 shadow-sm">
+            <div class="san-pham-gio">
+                <div class="pt-3 px-4">
+                    <div class="fw-500 fs-4">Giỏ hàng</div>
+                </div>
+                <div id="san_pham">
+                    <p class="px-4 pt-3">Giỏ hàng đang trống!</p>
+                </div>
+            </div>
+            <div class="py-4 px-4">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="fw-500 fs-5">Tổng tiền: </div>
+                    </div>
+                    <div class="col-6 text-end">
+                        <div class="fw-500 fs-5">$0</div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <a class="nav-link nut-gio-hang nen-nut-trang border mx-1 mt-3 fw-500">Xem giỏ</a>
+                    <a class="nav-link nut-gio-hang nen-nut-den text-light mx-1 mt-3 fw-500">Kiểm tra</a>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
 
-<div id="popup_nguoi_dung" class="vw-100 nguoi-dung bg-white br-20 shadow">
-    <p class="pt-3 px-5">Tomi Sakae</p>
-    <hr class="bg-black">
-    <p class="py-1 px-3">Thông tin tài khoảng</p>
-    <p class="py-1 px-3">Danh sách sản phẩm</p>
-</div>
+    </div>
+
+    <div class="mobile">
+        <p>Web hiện chưa hỗ trợ cho các thiết bị di động! Vui lòng chuyển sang máy tính để truy cập.</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="ThanhDieuHuong.vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
