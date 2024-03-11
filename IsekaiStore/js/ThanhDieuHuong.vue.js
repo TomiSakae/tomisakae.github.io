@@ -7,7 +7,7 @@ jq(function () {
         var vi_tri1 = jq("#icon1");
         var vi_tri2 = jq("#icon2");
         var popup1 = jq("#popup_nguoi_dung");
-        var popup2 = jq("#popup_xe_hang");
+        var popup2 = jq("#popup_gio_hang");
         if (!popup1.is(event.target) && !vi_tri1.is(event.target) && popup1.has(event.target).length === 0) {
             popup1.stop().fadeOut(300);
         }
@@ -18,7 +18,7 @@ jq(function () {
 
     jq("#icon1").on("click", function (event) {
         var popup1 = jq("#popup_nguoi_dung");
-        var popup2 = jq("#popup_xe_hang");
+        var popup2 = jq("#popup_gio_hang");
         var popupWidth = popup1.outerWidth(); // Lấy chiều rộng của popup
         popup1.css({
             top: vi_tri_icon1.top + jq(this).outerHeight() + 10,
@@ -35,7 +35,7 @@ jq(function () {
 
     jq("#icon2").on("click", function (event) {
         var popup1 = jq("#popup_nguoi_dung");
-        var popup2 = jq("#popup_xe_hang");
+        var popup2 = jq("#popup_gio_hang");
         var popupWidth = popup2.outerWidth(); // Lấy chiều rộng của popup
         popup2.css({
             top: vi_tri_icon2.top + jq(this).outerHeight() + 10,
@@ -53,7 +53,7 @@ jq(function () {
 
     jq(window).on("resize", function () {
         var popup1 = jq("#popup_nguoi_dung");
-        var popup2 = jq("#popup_xe_hang");
+        var popup2 = jq("#popup_gio_hang");
         popup1.hide();
         popup2.hide();
     });
@@ -63,11 +63,11 @@ jq(function () {
 const tien_trinh = Vue.createApp({
     template:
         `
-        <nav class="position-fixed top-0 vw-100 bg-white dieu-huong">
+        <nav class="position-fixed top-0 vw-100 bg-white dieu-huong border-bottom">
             <div class="container py-3">
                 <div class="row">
                     <div class="col-2">
-                        <a class="navbar-brand fw-bold fs-4 mau-tieu-de" href="/index.html">Isekai Store</a>
+                        <a class="navbar-brand fw-bold fs-4 mau-tieu-de" href="/IsekaiStore/index.html">Isekai Store</a>
                     </div>
                     <div class="col-8">
                         <div class="d-flex justify-content-center align-items-center">
@@ -108,7 +108,7 @@ const tien_trinh = Vue.createApp({
                     class="bi bi-box-arrow-left fs-5 px-2"></i>Thoát Trang</p>
         </div>
 
-        <div id="popup_xe_hang" class="vw-100 gio-hang bg-white br-20 shadow-sm">
+        <div id="popup_gio_hang" class="vw-100 gio-hang bg-white br-20 shadow-sm">
             <div class="san-pham-gio">
                 <div class="pt-3 px-4">
                     <div class="fw-500 fs-4">Giỏ hàng</div>
