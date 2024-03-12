@@ -19,7 +19,7 @@ jq(function () {
                 var so = Number(number);
                 switch (so) {
                     case 1:
-                        url_sp = "/IsekaiQuest/img/MCVanilla/VuKhi/ThanhKiem/wood_sword_scaled_20x_pngcrushed.png";
+                        url_sp = "/IsekaiStore/img/MCVanilla/VuKhi/ThanhKiem/wood_sword_scaled_20x_pngcrushed.png";
                         ten_sp = "Kiếm Gỗ";
                         tien_sp = 5;
                         break;
