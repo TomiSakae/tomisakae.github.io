@@ -2,7 +2,7 @@
     position: fixed;
     display: none;
     max-width: 440px;
-    z-index: 2001;
+    z-index: 1001;
 }
 
 .nen-san-pham-gio {

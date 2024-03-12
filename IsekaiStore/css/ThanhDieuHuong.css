@@ -9,7 +9,7 @@
 }
 
 .dieu-huong {
-    z-index: 2000;
+    z-index: 1000;
 }
 
 .nen-link {
@@ -34,7 +34,7 @@
     position: fixed;
     display: none;
     max-width: 260px;
-    z-index: 2001;
+    z-index: 1001;
 }
 
 .br-20 {
@@ -62,7 +62,7 @@
     position: fixed;
     display: none;
     max-width: 430px;
-    z-index: 2001;
+    z-index: 1001;
 }
 
 .san-pham-gio {

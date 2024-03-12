@@ -128,7 +128,7 @@ const thong_bao = Vue.createApp({
                 </div>
                 <div class="col-3">
                     <div class="d-inline-block d-flex justify-content-end">
-                        <p id="tien_sp" class="px-3 fs-6 mau-tien-gio fw-500 rounded-3"></p>
+                        <p id="tien_sp" class="px-3 mt-1 fs-6 mau-tien-gio fw-500 rounded-3"></p>
                     </div>
                     <div class="d-inline-block d-flex justify-content-end align-items-end">
                         <p id="xem_gio" class="mau-chu-gio pt-2">Xem giỏ</p>

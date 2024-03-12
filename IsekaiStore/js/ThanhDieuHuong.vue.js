@@ -173,7 +173,7 @@ jq(function () {
                         </div>
                         <div class="col-3">
                             <div class="d-inline-block d-flex justify-content-end">
-                                <p class="px-3 fs-6 mau-tien-gio-hang fw-500 rounded-3">$`+ gia_sp + `</p>
+                                <p class="px-3 mt-1 fs-6 mau-tien-gio-hang fw-500 rounded-3">$`+ gia_sp + `</p>
                             </div>
                             <div class="d-inline-block d-flex justify-content-end align-items-end">
                                 <p class="mau-chu-gio-hang pt-2">Xem giỏ</p>

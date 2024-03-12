@@ -89,7 +89,7 @@
     </div>
 
     <div class="pt-5 mt-5">
-        <button id="sp_id1" type="button">Click Test</button>
+        <button data-bs-toggle="modal" data-bs-target="#popup_xem_nhanh" type="button">Click Test</button>
     </div>
 
     <div id="popup_thong_bao" class="vw-100 thong-bao thong-bao-chuyen-dong bg-white br-20 shadow-sm">
@@ -108,12 +108,25 @@
                 </div>
                 <div class="col-3">
                     <div class="d-inline-block d-flex justify-content-end">
-                        <p id="tien_sp" class="px-3 fs-6 mau-tien-gio fw-500 rounded-3"></p>
+                        <p id="tien_sp" class="px-3 mt-1 fs-6 mau-tien-gio fw-500 rounded-3"></p>
                     </div>
                     <div class="d-inline-block d-flex justify-content-end align-items-end">
                         <p id="xem_gio" class="mau-chu-gio pt-2">Xem giỏ</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="popup_xem_nhanh">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    Modal body..
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
             </div>
         </div>
     </div>
