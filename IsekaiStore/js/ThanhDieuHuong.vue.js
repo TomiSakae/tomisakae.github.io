@@ -65,9 +65,9 @@ const tien_trinh = Vue.createApp({
                         <div id="tong_tien_gio" class="fw-500 fs-5">$0</div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-between align-items-center">
                     <a class="nav-link nut-gio-hang nen-nut-trang border mx-1 mt-3 fw-500">Xem giỏ</a>
-                    <a class="nav-link nut-gio-hang nen-nut-den text-light mx-1 mt-3 fw-500">Kiểm tra</a>
+                    <a class="nav-link nut-gio-hang nen-nut-den text-light mx-1 mt-3 fw-500">Mua ngay</a>
                 </div>
             </div>
         </div>
@@ -176,7 +176,7 @@ jq(function () {
                                 <p class="px-3 mt-1 fs-6 mau-tien-gio-hang fw-500 rounded-3">$`+ gia_sp + `</p>
                             </div>
                             <div class="d-inline-block d-flex justify-content-end align-items-end">
-                                <p class="mau-chu-gio-hang pt-2">Xem giỏ</p>
+                                <p class="mau-chu-gio-hang pt-2 pe-2">Xóa</p>
                             </div>
                         </div>
                     </div>

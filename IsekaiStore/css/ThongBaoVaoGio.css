@@ -46,3 +46,7 @@
     -webkit-animation-name: fadeInRight;
     animation-name: fadeInRight;
 }
+
+.nut-nhan-dong:hover {
+    cursor: pointer;
+}

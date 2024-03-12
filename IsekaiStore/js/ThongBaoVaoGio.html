@@ -89,13 +89,17 @@
     </div>
 
     <div class="pt-5 mt-5">
-        <button id="xn_sp_id1" data-bs-toggle="modal" data-bs-target="#popup_xem_nhanh" type="button">Click
-            Test</button>
+        <button id="xn_sp_id1" data-bs-toggle="modal" data-bs-target="#popup_xem_nhanh" type="button">Xem nhanh</button>
+
+        <button id="sp_id1" type="button">Thêm vào giỏ</button>
     </div>
 
     <div id="popup_thong_bao" class="vw-100 thong-bao thong-bao-chuyen-dong bg-white br-20 shadow-sm">
         <div class="pt-3 px-3">
-            <p class="fw-500">Đã thêm vào giỏ!</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="fw-500 pt-2 fs-5">Đã thêm vào giỏ!</p>
+                <i id="dong_popup" class="bi bi-x mb-3 px-3 fs-4 nut-nhan-dong"></i>
+            </div>
             <hr>
             <div class="row pb-3">
                 <div class="col-3">
@@ -105,7 +109,7 @@
                 </div>
                 <div class="col-6">
                     <p id="ten_sp" class="fw-500 pt-2"></p>
-                    <p class="text-muted">SL: 1</p>
+                    <p id="so_luong_sp" class="text-muted"></p>
                 </div>
                 <div class="col-3">
                     <div class="d-inline-block d-flex justify-content-end">

@@ -3,6 +3,7 @@ jq(function () {
     let ten_sp = "";
     let tien_sp = 0;
     let url_sp = "";
+    let so_luong_sp = 0;
     function LayDLCSDL(id) {
         let request = indexedDB.open("IsekaiStore", 4);
         let db;
@@ -19,6 +20,7 @@ jq(function () {
                     ten_sp = getRequest.result.ten;
                     tien_sp = getRequest.result.gia;
                     url_sp = getRequest.result.url;
+                    so_luong_sp = getRequest.result.sl;
                     // Gọi resolve khi dữ liệu đã được lấy thành công
                     resolve();
                 };
@@ -83,6 +85,7 @@ jq(function () {
                 jq("#anh_sp").attr("src", url_sp);
                 jq("#ten_sp").text(ten_sp);
                 jq("#tien_sp").text("$" + tien_sp);
+                jq("#so_luong_sp").text("SL: " + Number(so_luong_sp + 1));
                 var popup = jq("#popup_thong_bao");
 
                 // Thiết lập vị trí của popup
@@ -97,10 +100,15 @@ jq(function () {
                     clearTimeout(kt_tg);
                 }
                 kt_tg = setTimeout(() => {
-                    popup.stop().fadeOut(300);
+                    popup.hide();
                 }, 5000);
             });
         }
+    });
+
+    jq("#dong_popup").on("click", function () {
+        clearTimeout(kt_tg);
+        jq("#popup_thong_bao").hide();
     });
 
     jq("#xem_gio").on("click", function () {
@@ -114,7 +122,10 @@ const thong_bao = Vue.createApp({
         `
         <div id="popup_thong_bao" class="vw-100 thong-bao thong-bao-chuyen-dong bg-white br-20 shadow-sm">
         <div class="pt-3 px-3">
-            <p class="fw-500">Đã thêm vào giỏ!</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="fw-500 pt-2 fs-5">Đã thêm vào giỏ!</p>
+                <i id="dong_popup" class="bi bi-x mb-3 px-3 fs-4 nut-nhan-dong"></i>
+            </div>
             <hr>
             <div class="row pb-3">
                 <div class="col-3">
@@ -124,7 +135,7 @@ const thong_bao = Vue.createApp({
                 </div>
                 <div class="col-6">
                     <p id="ten_sp" class="fw-500 pt-2"></p>
-                    <p class="text-muted">SL: 1</p>
+                    <p id="so_luong_sp" class="text-muted"></p>
                 </div>
                 <div class="col-3">
                     <div class="d-inline-block d-flex justify-content-end">
