@@ -16,73 +16,75 @@
 </head>
 
 <body id="top" class="user-select-none">
-
-    <nav class="position-fixed top-0 vw-100 bg-white dieu-huong border-bottom">
-        <div class="container py-3">
-            <div class="row">
-                <div class="col-2">
-                    <a class="navbar-brand fw-bold fs-4 mau-tieu-de" href="/IsekaiStore/index.html">Isekai Store</a>
-                </div>
-                <div class="col-8">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
-                            Vũ Khí</a>
-                        <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
-                            Giáp Trụ</a>
-                        <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
-                            Phụ Kiện</a>
+    <div id="xu_ly_gio_hang">
+        <nav class="position-fixed top-0 vw-100 bg-white dieu-huong border-bottom">
+            <div class="container py-3">
+                <div class="row">
+                    <div class="col-2">
+                        <a class="navbar-brand fw-bold fs-4 mau-tieu-de" href="/IsekaiStore/index.html">Isekai Store</a>
+                    </div>
+                    <div class="col-8">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
+                                Vũ Khí</a>
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
+                                Giáp Trụ</a>
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
+                                Phụ Kiện</a>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="d-flex justify-content-end align-items-end">
+                            <a id="icon1" class="nav-link fs-3 px-2 mx-1 nen-icon">
+                                <i class="bi bi-person"></i>
+                            </a>
+                            <a id="icon2" class="nav-link fs-5 px-2 py-1 mx-1 nen-icon">
+                                <i class="bi bi-cart"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-2">
-                    <div class="d-flex justify-content-end align-items-end">
-                        <a id="icon1" class="nav-link fs-3 px-2 mx-1 nen-icon">
-                            <i class="bi bi-person"></i>
-                        </a>
-                        <a id="icon2" class="nav-link fs-5 px-2 py-1 mx-1 nen-icon">
-                            <i class="bi bi-cart"></i>
-                        </a>
+            </div>
+        </nav>
+
+        <div id="popup_nguoi_dung" class="vw-100 nguoi-dung bg-white br-20 shadow-sm">
+            <div class="d-flex justify-content-center">
+                <div class="pt-3 px-5 fw-500 fs-5">Tomi Sakae</div>
+            </div>
+            <hr class="bg-black mx-3">
+            <p class="rounded-3 nen-popup nut-nhan py-1 px-1 mx-2 fw-500 chu-popup"><i
+                    class="bi bi-person fs-5 px-2"></i>Tài Khoản
+            </p>
+            <p class="rounded-3 nen-popup nut-nhan py-1 px-1 mx-2 fw-500 chu-popup"><i
+                    class="bi bi-bag fs-5 px-2"></i>Túi
+                Đồ</p>
+            <hr class="bg-black mx-3">
+            <p class="rounded-3 nen-popup nut-nhan py-1 px-1 mx-2 fw-500 chu-popup"><i
+                    class="bi bi-box-arrow-left fs-5 px-2"></i>Thoát Trang</p>
+        </div>
+
+        <div id="popup_gio_hang" class="vw-100 gio-hang bg-white br-20 shadow-sm">
+            <div class="san-pham-gio">
+                <div class="pt-3 px-4">
+                    <div class="fw-500 fs-4">Giỏ hàng</div>
+                </div>
+                <div v-html="gio_hang" class="pt-3 px-3">
+
+                </div>
+            </div>
+            <div class="py-4 px-4">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="fw-500 fs-5">Tổng tiền: </div>
+                    </div>
+                    <div class="col-6 text-end">
+                        <div id="tong_tien_gio" class="fw-500 fs-5">$0</div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </nav>
-
-    <div id="popup_nguoi_dung" class="vw-100 nguoi-dung bg-white br-20 shadow-sm">
-        <div class="d-flex justify-content-center">
-            <div class="pt-3 px-5 fw-500 fs-5">Tomi Sakae</div>
-        </div>
-        <hr class="bg-black mx-3">
-        <p class="rounded-3 nen-popup nut-nhan py-1 px-1 mx-2 fw-500 chu-popup"><i
-                class="bi bi-person fs-5 px-2"></i>Tài Khoản
-        </p>
-        <p class="rounded-3 nen-popup nut-nhan py-1 px-1 mx-2 fw-500 chu-popup"><i class="bi bi-bag fs-5 px-2"></i>Túi
-            Đồ</p>
-        <hr class="bg-black mx-3">
-        <p class="rounded-3 nen-popup nut-nhan py-1 px-1 mx-2 fw-500 chu-popup"><i
-                class="bi bi-box-arrow-left fs-5 px-2"></i>Thoát Trang</p>
-    </div>
-
-    <div id="popup_gio_hang" class="vw-100 gio-hang bg-white br-20 shadow-sm">
-        <div class="san-pham-gio">
-            <div class="pt-3 px-4">
-                <div class="fw-500 fs-4">Giỏ hàng</div>
-            </div>
-            <div id="san_pham">
-                <p class="px-4 pt-3">Giỏ hàng đang trống!</p>
-            </div>
-        </div>
-        <div class="py-4 px-4">
-            <div class="row">
-                <div class="col-6">
-                    <div class="fw-500 fs-5">Tổng tiền: </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <a class="nav-link nut-gio-hang nen-nut-trang border mx-1 mt-3 fw-500">Xem giỏ</a>
+                    <a class="nav-link nut-gio-hang nen-nut-den text-light mx-1 mt-3 fw-500">Kiểm tra</a>
                 </div>
-                <div class="col-6 text-end">
-                    <div class="fw-500 fs-5">$0</div>
-                </div>
-            </div>
-            <div class="d-flex justify-content-center align-items-center">
-                <a class="nav-link nut-gio-hang nen-nut-trang border mx-1 mt-3 fw-500">Xem giỏ</a>
-                <a class="nav-link nut-gio-hang nen-nut-den text-light mx-1 mt-3 fw-500">Kiểm tra</a>
             </div>
         </div>
     </div>

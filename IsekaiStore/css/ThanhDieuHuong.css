@@ -96,3 +96,23 @@
     background-color: #f7f7f9;
     cursor: pointer;
 }
+
+
+.nen-san-pham-gio-hang {
+    background-color: #f8fafc;
+    height: 90px;
+    width: 100%;
+}
+
+.mau-tien-gio-hang {
+    color: #37c668;
+    border: 2px solid #22c55e;
+}
+
+.mau-chu-gio-hang {
+    color: #0284c7;
+}
+
+.mau-chu-gio-hang:hover {
+    cursor: pointer;
+}
