@@ -44,7 +44,7 @@ jq(function () {
             popup.stop().show();
 
             if (kt_tg) {
-                clearTimeout(kt);
+                clearTimeout(kt_tg);
             }
             kt_tg = setTimeout(() => {
                 popup.stop().fadeOut(300);
