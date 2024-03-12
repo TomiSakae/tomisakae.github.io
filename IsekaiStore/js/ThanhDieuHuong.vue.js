@@ -27,8 +27,8 @@ jq(function () {
         if (popup1.is(":visible")) {
             popup1.stop().fadeOut(300);
         } else {
+            popup2.stop().fadeOut(300);
             popup1.stop().fadeIn(300);
-            popup2.hide();
         }
         event.stopPropagation();
     });
@@ -45,8 +45,8 @@ jq(function () {
             popup2.stop().fadeOut(300);
 
         } else {
+            popup1.stop().fadeOut(300);
             popup2.stop().fadeIn(300);
-            popup1.hide();
         }
         event.stopPropagation();
     });

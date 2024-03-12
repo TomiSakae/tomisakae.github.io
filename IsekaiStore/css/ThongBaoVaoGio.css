@@ -1,0 +1,48 @@
+.thong-bao {
+    position: fixed;
+    display: none;
+    max-width: 440px;
+    z-index: 2001;
+}
+
+.nen-san-pham-gio {
+    background-color: #f8fafc;
+    height: 90px;
+    width: 100%;
+}
+
+.mau-tien-gio {
+    color: #37c668;
+    border: 2px solid #22c55e;
+}
+
+.mau-chu-gio {
+    color: #0284c7;
+}
+
+.mau-chu-gio:hover {
+    cursor: pointer;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(25%, 0, 0);
+        transform: translate3d(25%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.thong-bao-chuyen-dong {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+}

@@ -1,0 +1,96 @@
+jq(function () {
+
+    let url_sp = "";
+    let ten_sp = "";
+    let tien_sp = 0;
+    jq("[id^='sp_id']").on("click", function (event) {
+        // Kiểm tra xem id của phần tử có bắt đầu bằng chuỗi "sp_id" không
+        if (event.target.id.startsWith("sp_id")) {
+            // Lấy id của phần tử
+            var id = event.target.id;
+
+            // Sử dụng regular expression để trích xuất số sau chuỗi "sp_id"
+            var match = id.match(/^sp_id(\d+)$/);
+
+            // Kiểm tra xem có kết quả từ việc trích xuất hay không
+            if (match) {
+                // Lấy số sau chuỗi "sp_id"
+                var number = match[1];
+                var so = Number(number);
+                switch (so) {
+                    case 1:
+                        url_sp = "/IsekaiQuest/img/MCVanilla/VuKhi/ThanhKiem/wood_sword_scaled_20x_pngcrushed.png";
+                        ten_sp = "Kiếm Gỗ";
+                        tien_sp = 5;
+                        break;
+                }
+            }
+
+            jq("#popup_nguoi_dung").stop().fadeOut(300);
+            jq("#popup_gio_hang").stop().fadeOut(300);
+
+            jq("#anh_sp").attr("src", url_sp);
+            jq("#ten_sp").text(ten_sp);
+            jq("#tien_sp").text("$" + tien_sp);
+            var popup = jq("#popup_thong_bao");
+
+            // Thiết lập vị trí của popup
+            popup.css({
+                top: 15,
+                right: 15
+            });
+
+            popup.stop().show();
+
+            setTimeout(() => {
+                popup.stop().fadeOut(300);
+            }, 5000);
+        }
+    });
+
+    jq("#xem_gio").on("click", function () {
+        window.location.href = "TrangVuKhi/MCVanilla/index.html";
+    });
+
+});
+
+const thong_bao = Vue.createApp({
+    template:
+        `
+        <div id="popup_thong_bao" class="vw-100 thong-bao thong-bao-chuyen-dong bg-white br-20 shadow-sm">
+        <div class="pt-3 px-3">
+            <p class="fw-500">Đã thêm vào giỏ!</p>
+            <hr>
+            <div class="row pb-3">
+                <div class="col-3">
+                    <div class="nen-san-pham-gio br-20 d-flex flex-column justify-content-center align-items-center">
+                        <img id="anh_sp" alt="Sản Phẩm" class="w-50 h-auto">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <p id="ten_sp" class="fw-500 pt-2"></p>
+                    <p class="text-muted">SL: 1</p>
+                </div>
+                <div class="col-3">
+                    <div class="d-inline-block d-flex justify-content-end">
+                        <p id="tien_sp" class="px-3 fs-6 mau-tien-gio fw-500 rounded-3"></p>
+                    </div>
+                    <div class="d-inline-block d-flex justify-content-end align-items-end">
+                        <p id="xem_gio" class="mau-chu-gio pt-2">Xem giỏ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    `,
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+
+    }
+})
+
+const vue_thong_bao = thong_bao.mount('#hien_thong_bao')
