@@ -1,0 +1,38 @@
+.nen-san-pham {
+    background-color: #f8fafc;
+    height: 450px;
+    width: 100%;
+}
+
+.mau-tien {
+    color: #37c668;
+    border: 2px solid #22c55e;
+}
+
+.vung-chon-sl {
+    background-color: #f5f8fb;
+    border-radius: 40px;
+}
+
+.br-50pt {
+    border-radius: 50%;
+}
+
+.khung-chon-cam {
+    border: 1px solid black;
+    opacity: 0.3;
+}
+
+.khung-chon-cam:hover {
+    cursor: not-allowed;
+}
+
+.khung-chon-thuong {
+    border: 1px solid black;
+    opacity: 0.5;
+}
+
+.khung-chon-thuong:hover {
+    opacity: 1;
+    cursor: pointer;
+}
