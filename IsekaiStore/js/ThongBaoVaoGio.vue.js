@@ -3,6 +3,7 @@ jq(function () {
     let url_sp = "";
     let ten_sp = "";
     let tien_sp = 0;
+    let kt_tg;
     jq("[id^='sp_id']").on("click", function (event) {
         // Kiểm tra xem id của phần tử có bắt đầu bằng chuỗi "sp_id" không
         if (event.target.id.startsWith("sp_id")) {
@@ -42,7 +43,10 @@ jq(function () {
 
             popup.stop().show();
 
-            setTimeout(() => {
+            if (kt_tg) {
+                clearTimeout(kt);
+            }
+            kt_tg = setTimeout(() => {
                 popup.stop().fadeOut(300);
             }, 5000);
         }
