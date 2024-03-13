@@ -44,8 +44,8 @@ jq(function () {
         return new Promise(function (resolve) {
             request.onsuccess = function (event) {
                 db = event.target.result;
-                let transaction = db.transaction(["gio_do"]);
-                let objectStore = transaction.objectStore("gio_do");
+                let transaction = db.transaction(["san_pham"]);
+                let objectStore = transaction.objectStore("san_pham");
 
                 let getRequest = objectStore.get(id);
                 getRequest.onsuccess = function (event) {

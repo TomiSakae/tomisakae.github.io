@@ -12,15 +12,15 @@ jq(function () {
         return new Promise(function (resolve) {
             request.onsuccess = function (event) {
                 db = event.target.result;
-                let transaction = db.transaction(["gio_do"]);
-                let objectStore = transaction.objectStore("gio_do");
+                let transaction = db.transaction(["san_pham"]);
+                let objectStore = transaction.objectStore("san_pham");
 
                 let getRequest = objectStore.get(id);
                 getRequest.onsuccess = function (event) {
                     ten_sp = getRequest.result.ten;
                     tien_sp = getRequest.result.gia;
                     url_sp = getRequest.result.url;
-                    so_luong_sp = getRequest.result.sl;
+                    so_luong_sp = getRequest.result.sl_gio_do;
                     // Gọi resolve khi dữ liệu đã được lấy thành công
                     resolve();
                 };
@@ -34,14 +34,14 @@ jq(function () {
 
         request.onsuccess = function (event) {
             db = event.target.result;
-            let transaction = db.transaction(["gio_do"], "readwrite");
-            let objectStore = transaction.objectStore("gio_do");
+            let transaction = db.transaction(["san_pham"], "readwrite");
+            let objectStore = transaction.objectStore("san_pham");
 
             let getRequest = objectStore.get(id);
             getRequest.onsuccess = function (event) {
                 let data = event.target.result;
 
-                if (data.sl == 0) {
+                if (data.sl_gio_do == 0) {
                     // Lấy dữ liệu từ Local Storage và chuyển đổi thành mảng (nếu có)
                     let gioHang = JSON.parse(localStorage.getItem("sl_gh")) || [];
 
@@ -55,7 +55,7 @@ jq(function () {
 
                 }
                 // Sửa đổi dữ liệu
-                data.sl++;
+                data.sl_gio_do++;
 
                 // Cập nhật dữ liệu trong object store
                 objectStore.put(data);

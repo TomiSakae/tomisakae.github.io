@@ -37,7 +37,7 @@ const tien_trinh = Vue.createApp({
             </div>
             <hr class="bg-black mx-3">
             <p class="rounded-3 nen-popup nut-nhan py-1 px-1 mx-2 fw-500 chu-popup"><i
-                    class="bi bi-coin fs-5 px-2 pt-2"></i></i>Số dư: 0$
+                    class="bi bi-coin fs-5 px-2 pt-2"></i></i>Số dư: $<span id="so_du_hien_tai">0</span>
             </p>
             <p class="rounded-3 nen-popup nut-nhan py-1 px-1 mx-2 fw-500 chu-popup"><i
                     class="bi bi-bag fs-5 px-2"></i>Túi
@@ -112,8 +112,8 @@ jq(function () {
                 return new Promise(function (resolve) {
                     request.onsuccess = function (event) {
                         db = event.target.result;
-                        let transaction = db.transaction(["gio_do"]);
-                        let objectStore = transaction.objectStore("gio_do");
+                        let transaction = db.transaction(["san_pham"]);
+                        let objectStore = transaction.objectStore("san_pham");
 
                         let promises = []; // Mảng lưu trữ các lời hứa
 
@@ -123,7 +123,7 @@ jq(function () {
                             let promise = new Promise(function (resolve) {
                                 getRequest.onsuccess = function (event) {
                                     let lay_gio_do = event.target.result;
-                                    if (lay_gio_do.sl > 0) {
+                                    if (lay_gio_do.sl_gio_do > 0) {
                                         nhap_gio_do.push(lay_gio_do);
                                         resolve(); // Đánh dấu lời hứa này đã hoàn thành
                                     }
@@ -154,11 +154,11 @@ jq(function () {
                         code_gio_hang += `<hr id="id_gach_chan` + id_sp + `">`;
                     }
                     ten_sp = sp.ten;
-                    sl_sp = sp.sl;
+                    sl_sp = sp.sl_gio_do;
                     gia_sp = sp.gia;
                     anh_sp = sp.url;
                     id_sp = sp.id;
-                    tong_tien += Number(sp.gia) * Number(sp.sl);
+                    tong_tien += Number(sp.gia) * Number(sp.sl_gio_do);
                     code_gio_hang += `
                 <div id="sp_o_gio`+ id_sp + `" class="row">
                         <div class="col-3">
@@ -204,13 +204,13 @@ jq(function () {
         return new Promise(function (resolve) {
             request.onsuccess = function (event) {
                 db = event.target.result;
-                let transaction = db.transaction(["gio_do"]);
-                let objectStore = transaction.objectStore("gio_do");
+                let transaction = db.transaction(["san_pham"]);
+                let objectStore = transaction.objectStore("san_pham");
 
                 let getRequest = objectStore.get(id);
                 getRequest.onsuccess = function (event) {
                     tien_vp_xoa = getRequest.result.gia;
-                    sl_vp_xoa = getRequest.result.sl;
+                    sl_vp_xoa = getRequest.result.sl_gio_do;
                     // Gọi resolve khi dữ liệu đã được lấy thành công
                     resolve();
                 };
@@ -224,15 +224,15 @@ jq(function () {
 
         request.onsuccess = function (event) {
             db = event.target.result;
-            let transaction = db.transaction(["gio_do"], "readwrite");
-            let objectStore = transaction.objectStore("gio_do");
+            let transaction = db.transaction(["san_pham"], "readwrite");
+            let objectStore = transaction.objectStore("san_pham");
 
             let getRequest = objectStore.get(id);
             getRequest.onsuccess = function (event) {
                 let data = event.target.result;
 
                 // Sửa đổi dữ liệu
-                data.sl = "0";
+                data.sl_gio_do = "0";
 
                 // Cập nhật dữ liệu trong object store
                 objectStore.put(data);
@@ -310,6 +310,10 @@ jq(function () {
     });
 
     jq("#icon1").on("click", function (event) {
+        let so_du_kt = localStorage.getItem("so_du");
+        if (so_du_kt) {
+            jq("#so_du_hien_tai").text(so_du_kt);
+        }
         var popup1 = jq("#popup_nguoi_dung");
         var popup2 = jq("#popup_gio_hang");
         var popupWidth = popup1.outerWidth(); // Lấy chiều rộng của popup
