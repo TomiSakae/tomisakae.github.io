@@ -146,6 +146,7 @@ jq(function () {
                 let gia_sp = 0;
                 let dem = 0;
                 let anh_sp = "";
+                let id_sp = 0;
                 code_gio_hang = ``;
                 tong_tien = 0;
                 for (let sp of nhap_gio_do) {
@@ -153,12 +154,13 @@ jq(function () {
                     sl_sp = sp.sl;
                     gia_sp = sp.gia;
                     anh_sp = sp.url;
+                    id_sp = sp.id;
                     tong_tien += Number(sp.gia) * Number(sp.sl);
                     if (dem > 0) {
-                        code_gio_hang += `<hr>`;
+                        code_gio_hang += `<hr id="id_gach_chan` + id_sp + `">`;
                     }
                     code_gio_hang += `
-                <div class="row">
+                <div id="sp_o_gio`+ id_sp + `" class="row">
                         <div class="col-3">
                             <div
                                 class="nen-san-pham-gio-hang br-20 d-flex flex-column justify-content-center align-items-center">
@@ -176,7 +178,7 @@ jq(function () {
                                 <p class="px-3 mt-1 fs-6 mau-tien-gio-hang fw-500 rounded-3">$`+ gia_sp + `</p>
                             </div>
                             <div class="d-inline-block d-flex justify-content-end align-items-end">
-                                <p class="mau-chu-gio-hang pt-2 pe-2">Xóa</p>
+                                <p id="xoa_sp_trong_gio`+ id_sp + `" class="mau-chu-gio-hang pt-2 pe-2">Xóa</p>
                             </div>
                         </div>
                     </div>
@@ -187,6 +189,83 @@ jq(function () {
                 jq("#tong_tien_gio").text("$" + tong_tien);
             });
         }
+    }
+
+    let sl_vp_xoa = 0;
+    let tien_vp_xoa = 0;
+    function LayDLCSDLXoaGio(id) {
+        let request = indexedDB.open("IsekaiStore", 4);
+        let db;
+
+        // Tạo một Promise để xử lý việc trả về dữ liệu từ indexedDB
+        return new Promise(function (resolve) {
+            request.onsuccess = function (event) {
+                db = event.target.result;
+                let transaction = db.transaction(["gio_do"]);
+                let objectStore = transaction.objectStore("gio_do");
+
+                let getRequest = objectStore.get(id);
+                getRequest.onsuccess = function (event) {
+                    tien_vp_xoa = getRequest.result.gia;
+                    sl_vp_xoa = getRequest.result.sl;
+                    // Gọi resolve khi dữ liệu đã được lấy thành công
+                    resolve();
+                };
+            };
+        });
+    }
+
+    function SuaGTCSDLXoaGio(id) {
+        let request = indexedDB.open("IsekaiStore", 4);
+        let db;
+
+        request.onsuccess = function (event) {
+            db = event.target.result;
+            let transaction = db.transaction(["gio_do"], "readwrite");
+            let objectStore = transaction.objectStore("gio_do");
+
+            let getRequest = objectStore.get(id);
+            getRequest.onsuccess = function (event) {
+                let data = event.target.result;
+
+                // Sửa đổi dữ liệu
+                data.sl = "0";
+
+                // Cập nhật dữ liệu trong object store
+                objectStore.put(data);
+            };
+        };
+    }
+
+    function XoaDLMangGioDo(id) {
+
+        let gioHang = JSON.parse(localStorage.getItem("sl_gh")) || [];
+
+        // Thêm phần tử mới vào mảng
+        if (Array.isArray(gioHang)) {
+            // Giá trị id của phần tử cần xóa
+            var idToDelete = id; // Ví dụ xóa phần tử có id là 2
+
+            // Tìm vị trí của phần tử trong mảng
+            var indexToDelete = -1;
+            for (var i = 0; i < gioHang.length; i++) {
+                if (gioHang[i] == idToDelete) {
+                    indexToDelete = i;
+                    break;
+                }
+            }
+
+            // Nếu tìm thấy phần tử có id cần xóa
+            if (indexToDelete !== -1) {
+                // Xóa phần tử tại vị trí indexToDelete
+                gioHang.splice(indexToDelete, 1);
+
+                // Cập nhật giao diện nếu cần
+            }
+        }
+
+        // Lưu mảng mới vào Local Storage
+        localStorage.setItem("sl_gh", JSON.stringify(gioHang));
     }
 
     var vi_tri_icon1 = jq("#icon1").offset();
@@ -202,6 +281,27 @@ jq(function () {
         }
         if (!popup2.is(event.target) && !vi_tri2.is(event.target) && popup2.has(event.target).length === 0) {
             popup2.stop().fadeOut(300);
+        }
+    });
+
+    jq(document).on("click", "[id^='xoa_sp_trong_gio']", function (event) {
+        // Kiểm tra xem id của phần tử có bắt đầu bằng chuỗi "sp_id" không
+        if (event.target.id.startsWith("xoa_sp_trong_gio")) {
+            // Lấy id của phần tử
+            var id = event.target.id;
+
+            // Sử dụng regular expression để trích xuất số sau chuỗi "sp_id"
+            var match = id.match(/^xoa_sp_trong_gio(\d+)$/);
+            // Lấy số sau chuỗi "sp_id"
+            var number = match[1];
+
+            LayDLCSDLXoaGio(number).then(function () {
+                SuaGTCSDLXoaGio(number);
+                XoaDLMangGioDo(number);
+                jq("#sp_o_gio" + number).hide();
+                tong_tien -= sl_vp_xoa * tien_vp_xoa;
+                jq("#tong_tien_gio").text("$" + tong_tien);
+            });
         }
     });
 

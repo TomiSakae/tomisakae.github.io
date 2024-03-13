@@ -139,7 +139,7 @@ jq(function () {
         tong_tien_sl_sp_xn = tien_sp_xn * sl_sp_xn;
         jq("#so_luong_sp_xn").text(sl_sp_xn);
         jq("#tong_so_tien").text(tong_tien_sl_sp_xn);
-    })
+    });
 
     jq(document).on("click", "#giam_sp", function () {
         sl_sp_xn--;
@@ -155,7 +155,7 @@ jq(function () {
         tong_tien_sl_sp_xn = tien_sp_xn * sl_sp_xn;
         jq("#so_luong_sp_xn").text(sl_sp_xn);
         jq("#tong_so_tien").text(tong_tien_sl_sp_xn);
-    })
+    });
 
 
 });
