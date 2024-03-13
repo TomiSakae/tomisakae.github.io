@@ -117,7 +117,7 @@ jq(function () {
                             </div>
                         </div>
 
-                `
+                `;
 
                 vue_xem_nhanh.code_xn = tai_code;
             });

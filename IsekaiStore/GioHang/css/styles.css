@@ -1,0 +1,47 @@
+.mobile {
+    display: none;
+}
+
+@media (max-width:777px) {
+    .kiem-tra {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+}
+
+.nen-san-pham-gio-hang-them {
+    background-color: #f8fafc;
+    height: 200px;
+    width: 100%;
+}
+
+.br-50pt {
+    border-radius: 50%;
+}
+
+.khung-chon-cam {
+    border: 1px solid black;
+    opacity: 0.3;
+}
+
+.khung-chon-cam:hover {
+    cursor: not-allowed;
+}
+
+.khung-chon-thuong {
+    border: 1px solid black;
+    opacity: 0.5;
+}
+
+.khung-chon-thuong:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.keo-xuong {
+    position: sticky;
+    top: 60px;
+}

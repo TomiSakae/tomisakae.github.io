@@ -66,7 +66,7 @@ const tien_trinh = Vue.createApp({
                     </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
-                    <a class="nav-link nut-gio-hang nen-nut-trang border mx-1 mt-3 fw-500">Xem giỏ</a>
+                    <a class="nav-link nut-gio-hang nen-nut-trang border mx-1 mt-3 fw-500" v-on:click="GioHang">Xem giỏ</a>
                     <a class="nav-link nut-gio-hang nen-nut-den text-light mx-1 mt-3 fw-500">Mua ngay</a>
                 </div>
             </div>
@@ -78,7 +78,9 @@ const tien_trinh = Vue.createApp({
         }
     },
     methods: {
-
+        GioHang() {
+            window.location.href = "/IsekaiStore/GioHang/index.html"
+        }
     }
 })
 
@@ -183,7 +185,7 @@ jq(function () {
                             </div>
                         </div>
                     </div>
-                `
+                `;
                     dem++;
                     id_sp_pre = id_sp;
                 }

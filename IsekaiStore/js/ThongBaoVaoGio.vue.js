@@ -112,7 +112,7 @@ jq(function () {
     });
 
     jq("#xem_gio").on("click", function () {
-        window.location.href = "TrangVuKhi/MCVanilla/index.html";
+        window.location.href = "/IsekaiStore/GioHang/index.html";
     });
 
 });
