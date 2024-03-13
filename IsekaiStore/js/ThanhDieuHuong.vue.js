@@ -188,10 +188,6 @@ jq(function () {
                     id_sp_pre = id_sp;
                 }
                 vue_tien_trinh.gio_hang = code_gio_hang;
-                for (let sp of nhap_gio_do) {
-                    jq("#sp_o_gio" + sp.id).show();
-                    jq(".id_gach_chan" + sp.id).show();
-                }
                 jq("#tong_tien_gio").text("$" + tong_tien);
             });
         }
@@ -304,8 +300,8 @@ jq(function () {
             LayDLCSDLXoaGio(number).then(function () {
                 SuaGTCSDLXoaGio(number);
                 XoaDLMangGioDo(number);
-                jq("#sp_o_gio" + number).hide();
-                jq(".id_gach_chan" + number).hide();
+                jq("#sp_o_gio" + number).remove();
+                jq(".id_gach_chan" + number).remove();
                 tong_tien -= sl_vp_xoa * tien_vp_xoa;
                 jq("#tong_tien_gio").text("$" + tong_tien);
             });
