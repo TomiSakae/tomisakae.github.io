@@ -119,7 +119,7 @@ jq(function () {
 
                         for (let i = 0; i < sl_gd.length; i++) {
                             let id = sl_gd[i].toString();
-                            let getRequest = objectStore.get("1");
+                            let getRequest = objectStore.get(id);
                             let promise = new Promise(function (resolve) {
                                 getRequest.onsuccess = function (event) {
                                     let lay_gio_do = event.target.result;
@@ -147,18 +147,19 @@ jq(function () {
                 let dem = 0;
                 let anh_sp = "";
                 let id_sp = 0;
+                let id_sp_pre = 0;
                 code_gio_hang = ``;
                 tong_tien = 0;
                 for (let sp of nhap_gio_do) {
-                    if (dem > 0) {
-                        code_gio_hang += `<hr id="id_gach_chan` + id_sp + `">`;
-                    }
                     ten_sp = sp.ten;
                     sl_sp = sp.sl_gio_do;
                     gia_sp = sp.gia;
                     anh_sp = sp.url;
                     id_sp = sp.id;
                     tong_tien += Number(sp.gia) * Number(sp.sl_gio_do);
+                    if (dem > 0) {
+                        code_gio_hang += `<hr class="id_gach_chan` + id_sp + ` id_gach_chan` + id_sp_pre + `">`;
+                    }
                     code_gio_hang += `
                 <div id="sp_o_gio`+ id_sp + `" class="row">
                         <div class="col-3">
@@ -184,10 +185,12 @@ jq(function () {
                     </div>
                 `
                     dem++;
+                    id_sp_pre = id_sp;
                 }
                 vue_tien_trinh.gio_hang = code_gio_hang;
                 for (let sp of nhap_gio_do) {
                     jq("#sp_o_gio" + sp.id).show();
+                    jq(".id_gach_chan" + sp.id).show();
                 }
                 jq("#tong_tien_gio").text("$" + tong_tien);
             });
@@ -302,7 +305,7 @@ jq(function () {
                 SuaGTCSDLXoaGio(number);
                 XoaDLMangGioDo(number);
                 jq("#sp_o_gio" + number).hide();
-                jq("#id_gach_chan" + number).hide();
+                jq(".id_gach_chan" + number).hide();
                 tong_tien -= sl_vp_xoa * tien_vp_xoa;
                 jq("#tong_tien_gio").text("$" + tong_tien);
             });
