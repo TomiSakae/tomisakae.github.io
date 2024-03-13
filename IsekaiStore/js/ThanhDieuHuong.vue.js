@@ -150,15 +150,15 @@ jq(function () {
                 code_gio_hang = ``;
                 tong_tien = 0;
                 for (let sp of nhap_gio_do) {
+                    if (dem > 0) {
+                        code_gio_hang += `<hr id="id_gach_chan` + id_sp + `">`;
+                    }
                     ten_sp = sp.ten;
                     sl_sp = sp.sl;
                     gia_sp = sp.gia;
                     anh_sp = sp.url;
                     id_sp = sp.id;
                     tong_tien += Number(sp.gia) * Number(sp.sl);
-                    if (dem > 0) {
-                        code_gio_hang += `<hr id="id_gach_chan` + id_sp + `">`;
-                    }
                     code_gio_hang += `
                 <div id="sp_o_gio`+ id_sp + `" class="row">
                         <div class="col-3">
@@ -299,6 +299,7 @@ jq(function () {
                 SuaGTCSDLXoaGio(number);
                 XoaDLMangGioDo(number);
                 jq("#sp_o_gio" + number).hide();
+                jq("#id_gach_chan" + number).hide();
                 tong_tien -= sl_vp_xoa * tien_vp_xoa;
                 jq("#tong_tien_gio").text("$" + tong_tien);
             });
