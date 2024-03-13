@@ -186,6 +186,9 @@ jq(function () {
                     dem++;
                 }
                 vue_tien_trinh.gio_hang = code_gio_hang;
+                for (let sp of nhap_gio_do) {
+                    jq("#sp_o_gio" + sp.id).show();
+                }
                 jq("#tong_tien_gio").text("$" + tong_tien);
             });
         }
