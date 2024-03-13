@@ -139,3 +139,8 @@ jq(function () {
     });
 
 });
+
+function XDL() {
+    localStorage.clear();
+    indexedDB.deleteDatabase("IsekaiStore");
+}
