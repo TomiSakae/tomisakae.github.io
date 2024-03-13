@@ -65,7 +65,7 @@ jq(function () {
 
 
     let kt_tg;
-    jq("[id^='sp_id']").on("click", function (event) {
+    jq(document).on("click", "[id^='sp_id']", function (event) {
         // Kiểm tra xem id của phần tử có bắt đầu bằng chuỗi "sp_id" không
         if (event.target.id.startsWith("sp_id")) {
             // Lấy id của phần tử

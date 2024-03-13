@@ -60,7 +60,7 @@ jq(function () {
         });
     }
 
-    jq("[id^='xn_sp_id']").on("click", function (event) {
+    jq(document).on("click", "[id^='xn_sp_id']", function (event) {
         // Kiểm tra xem id của phần tử có bắt đầu bằng chuỗi "sp_id" không
         if (event.target.id.startsWith("xn_sp_id")) {
             // Lấy id của phần tử

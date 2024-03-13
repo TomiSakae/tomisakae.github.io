@@ -49,9 +49,12 @@ else {
             },
         ];
 
+        let dem = 0;
         for (var i in nhap_gio_do) {
             objectStore.add(nhap_gio_do[i]);
+            dem++;
         }
+        localStorage.setItem("so_sp", dem - 1);
 
     };
 }
