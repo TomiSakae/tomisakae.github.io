@@ -304,8 +304,13 @@ jq(function () {
                 XoaDLMangGioDo(number);
                 jq("#sp_o_gio" + number).remove();
                 jq(".id_gach_chan" + number).remove();
+                jq("#sp_o_gio_them" + number).remove();
+                jq(".id_gach_chan" + number).remove();
                 tong_tien -= sl_vp_xoa * tien_vp_xoa;
+                window.kt_sua_doi = 1;
+                window.tong_tien_doi = tong_tien;
                 jq("#tong_tien_gio").text("$" + tong_tien);
+                jq("#tong_so_tien_gio").text(tong_tien);
             });
         }
     });

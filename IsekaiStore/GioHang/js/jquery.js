@@ -262,6 +262,10 @@ jq(function () {
                 XoaDLMangGioDoThem(number);
                 jq("#sp_o_gio_them" + number).remove();
                 jq(".id_gach_chan" + number).remove();
+                if (window.kt_sua_doi == 1) {
+                    tong_tien_trong_gio = window.tong_tien_doi;
+                    window.kt_sua_doi = 0;
+                }
                 tong_tien_trong_gio -= sl_vp_xoa_them * tien_vp_xoa_them;
                 jq("#tong_so_tien_gio").text(tong_tien_trong_gio);
             });
