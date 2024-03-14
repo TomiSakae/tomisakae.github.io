@@ -23,7 +23,9 @@ const tien_trinh = Vue.createApp({
                                 <i class="bi bi-person"></i>
                             </a>
                             <a id="icon2" class="nav-link fs-5 px-2 py-1 mx-1 nen-icon">
-                                <i class="bi bi-cart"></i>
+                                 <i class="bi bi-cart position-relative"><span id="thong_bao_gio_hang"
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary px-2 py-1 thong-bao-gio-hang d-none">
+                                    </span></i>
                             </a>
                         </div>
                     </div>
@@ -100,6 +102,11 @@ const xl_gh = Vue.createApp({
 const truy_van_xl_gh = xl_gh.mount("#xu_ly_gio_hang")
 
 jq(function () {
+
+    if (localStorage.getItem("sl_vp_gio") > 0) {
+        jq("#thong_bao_gio_hang").removeClass("d-none").text(localStorage.getItem("sl_vp_gio"));
+    }
+
     let tong_tien = 0;
     let code_gio_hang = ``;
     function XuLyGioHang() {
@@ -306,6 +313,13 @@ jq(function () {
                 jq(".id_gach_chan" + number).eq(0).remove();
                 jq(".id_gach_chan_them" + number).eq(0).remove();
                 jq("#sp_o_gio_them" + number).remove();
+                let xoa_sp = localStorage.getItem("sl_vp_gio");
+                if (xoa_sp == 1) {
+                    jq("#thong_bao_gio_hang").addClass("d-none");
+                }
+                xoa_sp--;
+                localStorage.setItem("sl_vp_gio", xoa_sp);
+                jq("#thong_bao_gio_hang").text(xoa_sp);
                 tong_tien -= sl_vp_xoa * tien_vp_xoa;
                 window.kt_sua_doi = 1;
                 window.tong_tien_doi = tong_tien;

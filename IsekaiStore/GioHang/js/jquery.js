@@ -263,6 +263,13 @@ jq(function () {
                 XoaDLMangGioDoThem(number);
                 jq("#sp_o_gio_them" + number).remove();
                 jq(".id_gach_chan_them" + number).eq(0).remove();
+                let xoa_sp = localStorage.getItem("sl_vp_gio");
+                if (xoa_sp == 1) {
+                    jq("#thong_bao_gio_hang").addClass("d-none");
+                }
+                xoa_sp--;
+                localStorage.setItem("sl_vp_gio", xoa_sp);
+                jq("#thong_bao_gio_hang").text(xoa_sp);
                 if (window.kt_sua_doi == 1) {
                     tong_tien_trong_gio = window.tong_tien_doi;
                     window.kt_sua_doi = 0;

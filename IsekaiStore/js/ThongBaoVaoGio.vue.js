@@ -52,6 +52,13 @@ jq(function () {
 
                     // Lưu mảng mới vào Local Storage
                     localStorage.setItem("sl_gh", JSON.stringify(gioHang));
+                    let them_sp = localStorage.getItem("sl_vp_gio");
+                    if (them_sp == 0) {
+                        jq("#thong_bao_gio_hang").removeClass("d-none");
+                    }
+                    them_sp++;
+                    localStorage.setItem("sl_vp_gio", them_sp);
+                    jq("#thong_bao_gio_hang").text(them_sp);
 
                 }
                 // Sửa đổi dữ liệu

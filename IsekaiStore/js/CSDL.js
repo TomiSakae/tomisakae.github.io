@@ -91,6 +91,21 @@ else {
                 mo_ta: `
                 <p>Đây là 1 thanh kiếm làm bằng kim cương.</p>
                 <p>Có thể gây sát thương lớn cho những kẻ thù mạnh.</p>
+                <p>Một sản phẩm phù hợp cho các mạo hiểm giả mạnh.</p>
+                    `
+            },
+            {
+                id: "6",
+                ten: "Kiếm Netherite",
+                gia: "100",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/MCVanilla/VuKhi/ThanhKiem/netherite_sword_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "Thanh kiếm mạnh nhất Minecraft.",
+                mo_ta: `
+                <p>Đây là 1 thanh kiếm làm bằng netherite.</p>
+                <p>Có thể gây sát thương cực lớn cho những kẻ thù mạnh.</p>
                 <p>Một sản phẩm phù hợp cho các mạo hiểm giả cấp cao.</p>
                     `
             },
@@ -102,6 +117,7 @@ else {
             dem++;
         }
         localStorage.setItem("so_sp", dem - 1);
+        localStorage.setItem("sl_vp_gio", 0);
 
     };
 }

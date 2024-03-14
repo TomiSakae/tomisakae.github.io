@@ -116,3 +116,7 @@
 .mau-chu-gio-hang:hover {
     cursor: pointer;
 }
+
+.thong-bao-gio-hang {
+    font-size: 0.55em;
+}
