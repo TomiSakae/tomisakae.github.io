@@ -109,6 +109,49 @@ else {
                 <p>Một sản phẩm phù hợp cho các mạo hiểm giả cấp cao.</p>
                     `
             },
+            {
+                id: "7",
+                ten: "Cây Cung",
+                gia: "10",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "cay_cung",
+                url: "/IsekaiStore/img/MCVanilla/VuKhi/CayCung/bow_standby_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "Cây cung duy nhất trong Minecraft.",
+                mo_ta: `
+                <p>Một cây cung bình thường.</p>
+                <p>Thích hợp dùng để săn bắn.</p>
+                    `
+            },
+            {
+                id: "8",
+                ten: "Cây Nỏ",
+                gia: "15",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "cay_no",
+                url: "/IsekaiStore/img/MCVanilla/VuKhi/CayNo/crossbow_standby_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "Cây nỏ duy nhất trong Minecraft.",
+                mo_ta: `
+                <p>Một cây nỏ bình thường.</p>
+                <p>Thích hợp dùng để săn bắn.</p>
+                    `
+            },
+            {
+                id: "9",
+                ten: "Cây Đinh Ba",
+                gia: "50",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "cay_giao",
+                url: "/IsekaiStore/img/MCVanilla/VuKhi/CayGiao/trident_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "Cây đinh ba khá mạnh trong Minecraft.",
+                mo_ta: `
+                <p>Một cây đinh ba có thể phóng và đánh.</p>
+                <p>Khá mạnh cho người biết sử dụng.</p>
+                    `
+            },
+
         ];
 
         let dem = 0;
