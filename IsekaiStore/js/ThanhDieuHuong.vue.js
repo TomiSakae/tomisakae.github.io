@@ -9,11 +9,11 @@ const tien_trinh = Vue.createApp({
                     </div>
                     <div class="col-8">
                         <div class="d-flex justify-content-center align-items-center">
-                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="/IsekaiStore/index.html#kham_pha">
                                 Vũ Khí</a>
-                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="/IsekaiStore/index.html#kham_pha">
                                 Giáp Trụ</a>
-                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="#">
+                            <a class="navbar-brand fw-500 px-4 py-2 nen-link br-20" href="/IsekaiStore/index.html#kham_pha">
                                 Phụ Kiện</a>
                         </div>
                     </div>
