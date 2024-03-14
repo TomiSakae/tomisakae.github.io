@@ -304,6 +304,7 @@ jq(function () {
                 XoaDLMangGioDo(number);
                 jq("#sp_o_gio" + number).remove();
                 jq(".id_gach_chan" + number).eq(0).remove();
+                jq(".id_gach_chan_them" + number).eq(0).remove();
                 jq("#sp_o_gio_them" + number).remove();
                 tong_tien -= sl_vp_xoa * tien_vp_xoa;
                 window.kt_sua_doi = 1;
