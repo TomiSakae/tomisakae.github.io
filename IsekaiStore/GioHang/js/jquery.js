@@ -262,7 +262,7 @@ jq(function () {
                 SuaGTCSDLXoaGioThem(number);
                 XoaDLMangGioDoThem(number);
                 jq("#sp_o_gio_them" + number).remove();
-                jq(".id_gach_chan" + number).remove();
+                jq(".id_gach_chan" + number).eq(0).remove();
                 if (window.kt_sua_doi == 1) {
                     tong_tien_trong_gio = window.tong_tien_doi;
                     window.kt_sua_doi = 0;

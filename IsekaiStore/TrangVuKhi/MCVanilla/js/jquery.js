@@ -56,6 +56,7 @@ jq(function () {
             let gia_sp = 0;
             let anh_sp = "";
             let id_sp = 0;
+            let mo_ta_sp = "";
             code_dl_trang = ``;
             for (let i = nhap_dl_trang.length - 1; i >= 0; i--) {
                 let sp = nhap_dl_trang[i];
@@ -63,6 +64,7 @@ jq(function () {
                 gia_sp = sp.gia;
                 anh_sp = sp.url;
                 id_sp = sp.id;
+                mo_ta_sp = sp.mo_ta_ngan;
                 code_dl_trang += `
                 <div id="sp`+ id_sp + `" class="col-3 nut-nhan">
                 <div
@@ -79,7 +81,7 @@ jq(function () {
                 </div>
                 <div class="pt-3">
                     <h5 class="px-2">`+ ten_sp + `</h5>
-                    <p class="px-2 text-muted"></p>
+                    <p class="px-2 text-muted">`+ mo_ta_sp + `</p>
                 </div>
                 <div class="px-2 pt-1 d-inline-block">
                     <p class="px-3 fs-6 mau-tien fw-500 rounded-3">$`+ gia_sp + `</p>
