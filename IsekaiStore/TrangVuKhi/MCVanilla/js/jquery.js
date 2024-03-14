@@ -66,7 +66,7 @@ jq(function () {
                 id_sp = sp.id;
                 mo_ta_sp = sp.mo_ta_ngan;
                 code_dl_trang += `
-                <div id="sp`+ id_sp + `" class="col-3 nut-nhan">
+                <div id="sp`+ id_sp + `" class="col-3 nut-nhan pb-4">
                 <div
                     class="nen-san-pham br-20 d-flex flex-column justify-content-center align-items-center chon-san-pham position-relative">
                     <img src="`+ anh_sp + `"

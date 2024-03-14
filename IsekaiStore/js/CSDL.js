@@ -64,6 +64,36 @@ else {
                 <p>Một sản phẩm phù hợp cho các nhà mạo hiểm.</p>
                     `
             },
+            {
+                id: "4",
+                ten: "Kiếm Vàng",
+                gia: "20",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/MCVanilla/VuKhi/ThanhKiem/gold_sword_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "Đây là 1 thanh kiếm vàng.",
+                mo_ta: `
+                <p>Đây là 1 thanh kiếm làm bằng vàng.</p>
+                <p>Có thể gây sát thương lớn cho những kẻ thù yếu.</p>
+                <p>Một sản phẩm phù hợp cho các mạo hiểm giả.</p>
+                    `
+            },
+            {
+                id: "5",
+                ten: "Kiếm Kim Cương",
+                gia: "50",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/MCVanilla/VuKhi/ThanhKiem/diamond_sword_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "Đây là 1 thanh kiếm kim cương.",
+                mo_ta: `
+                <p>Đây là 1 thanh kiếm làm bằng kim cương.</p>
+                <p>Có thể gây sát thương lớn cho những kẻ thù mạnh.</p>
+                <p>Một sản phẩm phù hợp cho các mạo hiểm giả cấp cao.</p>
+                    `
+            },
         ];
 
         let dem = 0;

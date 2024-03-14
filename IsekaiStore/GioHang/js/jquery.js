@@ -80,7 +80,7 @@ jq(function () {
                     tong_tien_trong_gio += Number(sp.gia) * Number(sp.sl_gio_do);
                     let kt_nut = (sl_sp > 1) ? "khung-chon-thuong" : "khung-chon-cam";
                     if (dem > 0) {
-                        code_gio_hang_them += `<hr class="id_gach_chan_them` + id_sp + ` id_gach_chan` + id_sp_pre + `">`;
+                        code_gio_hang_them += `<hr class="id_gach_chan_them` + id_sp + ` id_gach_chan_them` + id_sp_pre + `">`;
                     }
                     code_gio_hang_them += `
                     <div id="sp_o_gio_them`+ id_sp + `" class="row pb-4 pt-4" >
