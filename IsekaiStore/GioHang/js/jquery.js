@@ -130,7 +130,7 @@ jq(function () {
                         </div>
                         `;
                 vue_xem_gio_hang.code_gh = code_gio_hang_them;
-                jq("#trang_chinh").removeClass("d-none");
+                jq("#trang_chinh").removeClass("load-code");
             });
         }
     }

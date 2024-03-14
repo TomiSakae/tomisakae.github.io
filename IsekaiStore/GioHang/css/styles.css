@@ -45,3 +45,7 @@
     position: sticky;
     top: 60px;
 }
+
+.load-code {
+    visibility: hidden;
+}

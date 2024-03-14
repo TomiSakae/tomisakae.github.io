@@ -88,7 +88,7 @@ jq(function () {
                         `;
             }
             vue_tai_dl_trang.code_dl = code_dl_trang;
-            jq("#trang_chinh").removeClass("d-none");
+            jq("#trang_chinh").removeClass("load-code");
         });
     }
 
