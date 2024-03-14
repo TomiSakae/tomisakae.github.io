@@ -112,30 +112,40 @@ jq(function () {
 
     jq("#nav_than1").on("click", function () {
         if (nav_than != 1) {
+            jq("#bang" + nav_than).addClass("d-none");
             XoaCapNhatNavThan(nav_than);
             nav_than = 1;
             CapNhatNavThan();
+            jq("#bang1").removeClass("d-none");
         }
     });
 
     jq("#nav_than2").on("click", function () {
         if (nav_than != 2) {
+            jq("#bang" + nav_than).addClass("d-none");
             XoaCapNhatNavThan(nav_than);
             nav_than = 2;
             CapNhatNavThan();
+            jq("#bang2").removeClass("d-none");
         }
     });
 
     jq("#nav_than3").on("click", function () {
         if (nav_than != 3) {
+            jq("#bang" + nav_than).addClass("d-none");
             XoaCapNhatNavThan(nav_than);
             nav_than = 3;
             CapNhatNavThan();
+            jq("#bang3").removeClass("d-none");
         }
     });
 
     jq("#bang1").on("click", function () {
         window.location.href = "TrangVuKhi/MCVanilla/index.html";
+    });
+
+    jq("#bang2").on("click", function () {
+        window.location.href = "TrangGiapTru/MCVanilla/index.html";
     });
 
 });

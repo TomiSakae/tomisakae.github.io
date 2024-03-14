@@ -151,7 +151,279 @@ else {
                 <p>Khá mạnh cho người biết sử dụng.</p>
                     `
             },
-
+            {
+                id: "10",
+                ten: "Nón Xích",
+                gia: "10",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "non",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/chainmail_helmet_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "11",
+                ten: "Nón Sắt",
+                gia: "20",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "non",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/iron_helmet_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "12",
+                ten: "Nón Vàng",
+                gia: "25",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "non",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/gold_helmet_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "13",
+                ten: "Nón Kim Cương",
+                gia: "50",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "non",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/diamond_helmet_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "14",
+                ten: "Nón Netherite",
+                gia: "100",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "non",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/netherite_helmet_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "15",
+                ten: "Nón Mai Rùa",
+                gia: "500",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "non",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/turtle_helmet_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "16",
+                ten: "Áo Xích",
+                gia: "50",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "ao",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Giap/chainmail_chestplate_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "17",
+                ten: "Áo Sắt",
+                gia: "100",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "ao",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Giap/iron_chestplate_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "18",
+                ten: "Áo Vàng",
+                gia: "125",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "ao",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Giap/gold_chestplate_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "19",
+                ten: "Áo Kim Cương",
+                gia: "250",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "ao",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Giap/diamond_chestplate_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "20",
+                ten: "Áo Netherite",
+                gia: "500",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "ao",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Giap/netherite_chestplate_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "21",
+                ten: "Quần Xích",
+                gia: "25",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "quan",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Quan/chainmail_leggings_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "22",
+                ten: "Quần Sắt",
+                gia: "50",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "quan",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Quan/iron_leggings_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "23",
+                ten: "Quần Vàng",
+                gia: "65",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "quan",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Quan/gold_leggings_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "24",
+                ten: "Quần Kim Cương",
+                gia: "125",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "quan",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Quan/diamond_leggings_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "25",
+                ten: "Quần Netherite",
+                gia: "250",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "quan",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Quan/netherite_leggings_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "26",
+                ten: "Giầy Xích",
+                gia: "10",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "giay",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Giay/chainmail_boots_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "27",
+                ten: "Giầy Sắt",
+                gia: "20",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "giay",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Giay/iron_boots_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "28",
+                ten: "Giầy Vàng",
+                gia: "25",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "giay",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Giay/gold_boots_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "29",
+                ten: "Giầy Kim Cương",
+                gia: "50",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "giay",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Giay/diamond_boots_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "30",
+                ten: "Giầy Netherite",
+                gia: "100",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "giay",
+                url: "/IsekaiStore/img/MCVanilla/AoGiap/Giay/netherite_boots_scaled_20x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
         ];
 
         let dem = 0;
