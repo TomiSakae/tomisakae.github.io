@@ -632,6 +632,20 @@ else {
                 <p>...</p>
                     `
             },
+            {
+                id: "47",
+                ten: "Kiếm Vàng",
+                gia: "40",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Gold_Shortsword_scaled_16x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+
 
         ];
 
