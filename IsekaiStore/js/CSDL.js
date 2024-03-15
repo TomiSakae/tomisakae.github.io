@@ -645,6 +645,46 @@ else {
                 <p>...</p>
                     `
             },
+            {
+                id: "48",
+                ten: "Thanh Kiếm Chì",
+                gia: "40",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Lead_Broadsword_scaled_9x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "49",
+                ten: "Thanh Kiếm Bạc",
+                gia: "60",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Silver_Broadsword_scaled_9x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "50",
+                ten: "Kiếm Gỗ Tần Bì",
+                gia: "8",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Ash_Wood_Sword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+
 
 
         ];
