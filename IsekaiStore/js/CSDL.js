@@ -639,7 +639,7 @@ else {
                 sl_gio_do: "0",
                 sl_tui_do: "0",
                 loai: "thanh_kiem",
-                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Gold_Shortsword_scaled_16x_pngcrushed.png",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Gold_Shortsword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
                 <p>...</p>
