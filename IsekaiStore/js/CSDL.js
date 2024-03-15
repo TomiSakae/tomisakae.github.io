@@ -424,6 +424,215 @@ else {
                 <p>...</p>
                     `
             },
+            {
+                id: "31",
+                ten: "Kiếm Đồng",
+                gia: "6",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Copper_Shortsword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "32",
+                ten: "Kiếm Thiếc",
+                gia: "12",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Tin_Shortsword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "33",
+                ten: "Kiếm Gỗ",
+                gia: "5",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Wooden_Sword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "34",
+                ten: "Kiếm Gỗ Phương Bắc",
+                gia: "6",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Boreal_Wood_Sword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "35",
+                ten: "Thanh Kiếm Đồng",
+                gia: "12",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Copper_Broadsword_scaled_9x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "36",
+                ten: "Kiếm Sắt",
+                gia: "10",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Iron_Shortsword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "37",
+                ten: "Kiếm Gỗ Cọ",
+                gia: "6",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Palm_Wood_Sword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "38",
+                ten: "Kiếm Gỗ Gụ",
+                gia: "6",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Rich_Mahogany_Sword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "39",
+                ten: "Kiếm Xương Rồng",
+                gia: "15",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Cactus_Sword_scaled_7x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "40",
+                ten: "Kiếm Chì",
+                gia: "20",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Lead_Shortsword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "41",
+                ten: "Kiếm Bạc",
+                gia: "30",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Silver_Shortsword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "42",
+                ten: "Thanh Kiếm Thiếc",
+                gia: "24",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Tin_Broadsword_scaled_9x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "43",
+                ten: "Kiếm Gỗ Mun",
+                gia: "7",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Ebonwood_Sword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "44",
+                ten: "Thanh Kiếm Sắt",
+                gia: "20",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Iron_Broadsword_scaled_9x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "45",
+                ten: "Kiếm Gỗ Mát",
+                gia: "8",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Shadewood_Sword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+            {
+                id: "46",
+                ten: "Kiếm Vonfram",
+                gia: "35",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                loai: "thanh_kiem",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Tungsten_Shortsword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+                <p>...</p>
+                    `
+            },
+
         ];
 
         let dem = 0;

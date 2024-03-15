@@ -147,6 +147,10 @@ jq(function () {
         window.location.href = "TrangVuKhi/MCVanilla/index.html";
     });
 
+    jq("#bang2_vu_khi").on("click", function () {
+        window.location.href = "TrangVuKhi/Terraria/index.html";
+    });
+
     jq("#bang1_giap_tru").on("click", function () {
         window.location.href = "TrangGiapTru/MCVanilla/index.html";
     });
