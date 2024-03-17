@@ -39,27 +39,27 @@ jq(function () {
 
                     let promises = []; // Mảng lưu trữ các lời hứa
 
-                    for (let i = 31; i <= localStorage.getItem("so_sp"); i++) {
+                    for (let i = 1; i <= localStorage.getItem("so_sp"); i++) {
                         let id = i.toString();
                         let getRequest = objectStore.get(id);
                         let promise = new Promise(function (resolve) {
                             getRequest.onsuccess = function (event) {
                                 let lay_gio_do = event.target.result;
-
-                                switch (lay_gio_do.loai) {
-                                    case "thanh_kiem":
-                                        nhap_dl_trang_thanh_kiem.push(lay_gio_do);
-                                        break;
-                                    case "cay_cung":
-                                        nhap_dl_trang_cay_cung.push(lay_gio_do);
-                                        break;
-                                    case "cay_no":
-                                        nhap_dl_trang_cay_no.push(lay_gio_do);
-                                        break;
-                                    case "cay_giao":
-                                        nhap_dl_trang_cay_giao.push(lay_gio_do);
-                                        break;
-
+                                if (lay_gio_do.game == "terraria") {
+                                    switch (lay_gio_do.loai) {
+                                        case "thanh_kiem":
+                                            nhap_dl_trang_thanh_kiem.push(lay_gio_do);
+                                            break;
+                                        case "cay_cung":
+                                            nhap_dl_trang_cay_cung.push(lay_gio_do);
+                                            break;
+                                        case "cay_no":
+                                            nhap_dl_trang_cay_no.push(lay_gio_do);
+                                            break;
+                                        case "cay_giao":
+                                            nhap_dl_trang_cay_giao.push(lay_gio_do);
+                                            break;
+                                    }
                                 }
 
                                 resolve(); // Đánh dấu lời hứa này đã hoàn thành

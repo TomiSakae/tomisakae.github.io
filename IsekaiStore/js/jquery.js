@@ -2,6 +2,37 @@ const jq = $.noConflict();
 
 jq(function () {
 
+    let sl_vp_vk_b1 = 0;
+    let sl_vp_vk_b2 = 0;
+    let sl_vp_gt_b1 = 0;
+    let request = indexedDB.open("IsekaiStore", 4);
+    let db;
+
+    request.onsuccess = function (event) {
+        db = event.target.result;
+        let transaction = db.transaction(["san_pham"]);
+        let objectStore = transaction.objectStore("san_pham");
+        for (let i = 1; i <= localStorage.getItem("so_sp"); i++) {
+            let id = i.toString();
+            let getRequest = objectStore.get(id);
+            getRequest.onsuccess = function (event) {
+                let lay_vat_pham = event.target.result;
+                if (lay_vat_pham.dang == "vu_khi" && lay_vat_pham.game == "minecraft") {
+                    sl_vp_vk_b1++;
+                    jq("#sl_vu_khi_bang1").text(sl_vp_vk_b1);
+                }
+                else if (lay_vat_pham.dang == "vu_khi" && lay_vat_pham.game == "terraria") {
+                    sl_vp_vk_b2++;
+                    jq("#sl_vu_khi_bang2").text(sl_vp_vk_b2);
+                }
+                else if (lay_vat_pham.dang == "giap_tru" && lay_vat_pham.game == "minecraft") {
+                    sl_vp_gt_b1++;
+                    jq("#sl_giap_tru_bang1").text(sl_vp_gt_b1);
+                }
+            };
+        }
+    };
+
     let vi_tri = 1;
     jq("#dau1").removeClass("d-none");
 

@@ -45,23 +45,23 @@ jq(function () {
                         let promise = new Promise(function (resolve) {
                             getRequest.onsuccess = function (event) {
                                 let lay_gio_do = event.target.result;
+                                if (lay_gio_do.game == "minecraft") {
+                                    switch (lay_gio_do.loai) {
+                                        case "thanh_kiem":
+                                            nhap_dl_trang_thanh_kiem.push(lay_gio_do);
+                                            break;
+                                        case "cay_cung":
+                                            nhap_dl_trang_cay_cung.push(lay_gio_do);
+                                            break;
+                                        case "cay_no":
+                                            nhap_dl_trang_cay_no.push(lay_gio_do);
+                                            break;
+                                        case "cay_giao":
+                                            nhap_dl_trang_cay_giao.push(lay_gio_do);
+                                            break;
 
-                                switch (lay_gio_do.loai) {
-                                    case "thanh_kiem":
-                                        nhap_dl_trang_thanh_kiem.push(lay_gio_do);
-                                        break;
-                                    case "cay_cung":
-                                        nhap_dl_trang_cay_cung.push(lay_gio_do);
-                                        break;
-                                    case "cay_no":
-                                        nhap_dl_trang_cay_no.push(lay_gio_do);
-                                        break;
-                                    case "cay_giao":
-                                        nhap_dl_trang_cay_giao.push(lay_gio_do);
-                                        break;
-
+                                    }
                                 }
-
                                 resolve(); // Đánh dấu lời hứa này đã hoàn thành
                             };
                         });

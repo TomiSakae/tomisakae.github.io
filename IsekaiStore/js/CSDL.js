@@ -25,7 +25,9 @@ else {
                 gia: "5",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/VuKhi/ThanhKiem/wood_sword_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "Đây là 1 thanh kiếm gỗ.",
                 mo_ta: `
@@ -40,7 +42,9 @@ else {
                 gia: "10",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/VuKhi/ThanhKiem/stone_sword_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "Đây là 1 thanh kiếm đá.",
                 mo_ta: `
@@ -55,7 +59,9 @@ else {
                 gia: "15",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/VuKhi/ThanhKiem/iron_sword_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "Đây là 1 thanh kiếm sắt.",
                 mo_ta: `
@@ -70,7 +76,9 @@ else {
                 gia: "20",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/VuKhi/ThanhKiem/gold_sword_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "Đây là 1 thanh kiếm vàng.",
                 mo_ta: `
@@ -85,7 +93,9 @@ else {
                 gia: "50",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/VuKhi/ThanhKiem/diamond_sword_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "Đây là 1 thanh kiếm kim cương.",
                 mo_ta: `
@@ -100,7 +110,9 @@ else {
                 gia: "100",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/VuKhi/ThanhKiem/netherite_sword_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "Thanh kiếm mạnh nhất Minecraft.",
                 mo_ta: `
@@ -115,7 +127,9 @@ else {
                 gia: "10",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "cay_cung",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/VuKhi/CayCung/bow_standby_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "Cây cung duy nhất trong Minecraft.",
                 mo_ta: `
@@ -129,7 +143,9 @@ else {
                 gia: "15",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "cay_no",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/VuKhi/CayNo/crossbow_standby_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "Cây nỏ duy nhất trong Minecraft.",
                 mo_ta: `
@@ -143,7 +159,9 @@ else {
                 gia: "50",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "cay_giao",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/VuKhi/CayGiao/trident_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "Cây đinh ba khá mạnh trong Minecraft.",
                 mo_ta: `
@@ -157,7 +175,9 @@ else {
                 gia: "10",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "non",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/chainmail_helmet_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -170,7 +190,9 @@ else {
                 gia: "20",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "non",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/iron_helmet_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -183,7 +205,9 @@ else {
                 gia: "25",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "non",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/gold_helmet_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -196,7 +220,9 @@ else {
                 gia: "50",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "non",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/diamond_helmet_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -209,7 +235,9 @@ else {
                 gia: "100",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "non",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/netherite_helmet_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -222,7 +250,9 @@ else {
                 gia: "500",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "non",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Non/turtle_helmet_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -235,7 +265,9 @@ else {
                 gia: "50",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "ao",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Giap/chainmail_chestplate_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -248,7 +280,9 @@ else {
                 gia: "100",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "ao",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Giap/iron_chestplate_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -261,7 +295,9 @@ else {
                 gia: "125",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "ao",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Giap/gold_chestplate_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -274,7 +310,9 @@ else {
                 gia: "250",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "ao",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Giap/diamond_chestplate_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -287,7 +325,9 @@ else {
                 gia: "500",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "ao",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Giap/netherite_chestplate_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -300,7 +340,9 @@ else {
                 gia: "25",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "quan",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Quan/chainmail_leggings_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -313,7 +355,9 @@ else {
                 gia: "50",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "quan",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Quan/iron_leggings_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -326,7 +370,9 @@ else {
                 gia: "65",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "quan",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Quan/gold_leggings_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -339,7 +385,9 @@ else {
                 gia: "125",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "quan",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Quan/diamond_leggings_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -352,7 +400,9 @@ else {
                 gia: "250",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "quan",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Quan/netherite_leggings_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -365,7 +415,9 @@ else {
                 gia: "10",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "giay",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Giay/chainmail_boots_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -378,7 +430,9 @@ else {
                 gia: "20",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "giay",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Giay/iron_boots_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -391,7 +445,9 @@ else {
                 gia: "25",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "giay",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Giay/gold_boots_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -404,7 +460,9 @@ else {
                 gia: "50",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "giay",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Giay/diamond_boots_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -417,7 +475,9 @@ else {
                 gia: "100",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "giap_tru",
                 loai: "giay",
+                game: "minecraft",
                 url: "/IsekaiStore/img/MCVanilla/AoGiap/Giay/netherite_boots_scaled_20x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -430,7 +490,9 @@ else {
                 gia: "6",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Copper_Shortsword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -443,7 +505,9 @@ else {
                 gia: "12",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Tin_Shortsword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -456,7 +520,9 @@ else {
                 gia: "5",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Wooden_Sword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -469,7 +535,9 @@ else {
                 gia: "6",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Boreal_Wood_Sword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -482,7 +550,9 @@ else {
                 gia: "12",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Copper_Broadsword_scaled_9x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -495,7 +565,9 @@ else {
                 gia: "10",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Iron_Shortsword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -508,7 +580,9 @@ else {
                 gia: "6",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Palm_Wood_Sword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -521,7 +595,9 @@ else {
                 gia: "6",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Rich_Mahogany_Sword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -534,7 +610,9 @@ else {
                 gia: "15",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Cactus_Sword_scaled_7x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -547,7 +625,9 @@ else {
                 gia: "20",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Lead_Shortsword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -560,7 +640,9 @@ else {
                 gia: "30",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Silver_Shortsword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -573,7 +655,9 @@ else {
                 gia: "24",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Tin_Broadsword_scaled_9x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -586,7 +670,9 @@ else {
                 gia: "7",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Ebonwood_Sword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -599,7 +685,9 @@ else {
                 gia: "20",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Iron_Broadsword_scaled_9x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -612,7 +700,9 @@ else {
                 gia: "8",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Shadewood_Sword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -625,7 +715,9 @@ else {
                 gia: "35",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Tungsten_Shortsword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -638,7 +730,9 @@ else {
                 gia: "40",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Gold_Shortsword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -651,7 +745,9 @@ else {
                 gia: "40",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Lead_Broadsword_scaled_9x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -664,7 +760,9 @@ else {
                 gia: "60",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Silver_Broadsword_scaled_9x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
@@ -677,15 +775,15 @@ else {
                 gia: "8",
                 sl_gio_do: "0",
                 sl_tui_do: "0",
+                dang: "vu_khi",
                 loai: "thanh_kiem",
+                game: "terraria",
                 url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Ash_Wood_Sword_scaled_10x_pngcrushed.png",
                 mo_ta_ngan: "...",
                 mo_ta: `
                 <p>...</p>
                     `
             },
-
-
 
         ];
 
