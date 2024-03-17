@@ -784,6 +784,606 @@ else {
                 <p>...</p>
                     `
             },
+            {
+                id: "51",
+                ten: "Kiếm Ruồi",
+                gia: "50",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Flymeal_scaled_8x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "52",
+                ten: "Găng Tay Lưỡi Đao",
+                gia: "25",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Bladed_Glove_scaled_14x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "53",
+                ten: "Thanh Kiếm Vonfram",
+                gia: "100",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Tungsten_Broadsword_scaled_9x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "54",
+                ten: "Tay Thây Ma",
+                gia: "35",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Zombie_Arm_scaled_9x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "55",
+                ten: "Thanh Kiếm Vàng",
+                gia: "110",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Gold_Broadsword_scaled_8x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "56",
+                ten: "Kiếm Bạch Kim",
+                gia: "60",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Platinum_Shortsword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "57",
+                ten: "Lưỡi Dao Hàm Dưới",
+                gia: "44",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Mandible_Blade_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "58",
+                ten: "Kéo Sành Điệu",
+                gia: "77",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Stylish_Scissors_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "59",
+                ten: "Cây Thước",
+                gia: "1",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Ruler_scaled_12x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "60",
+                ten: "Thanh Kiếm Bạch Kim",
+                gia: "200",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Platinum_Broadsword_scaled_8x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "61",
+                ten: "Cây Dù",
+                gia: "20",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Umbrella_scaled_7x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "62",
+                ten: "Sậy Thở",
+                gia: "10",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Breathing_Reed_scaled_7x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "63",
+                ten: "Gladius",
+                gia: "25",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Gladius_scaled_8x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "64",
+                ten: "Kiếm Xương",
+                gia: "35",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Bone_Sword_scaled_7x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "65",
+                ten: "Kiếm Cánh Dơi",
+                gia: "200",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Bat_Bat_scaled_6x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "66",
+                ten: "Xúc Tu Nhọn",
+                gia: "45",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Tentacle_Spike_scaled_7x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "67",
+                ten: "Kiếm Kẹo Mía",
+                gia: "80",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Candy_Cane_Sword_scaled_6x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "68",
+                ten: "Katana",
+                gia: "66",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Katana_scaled_7x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "69",
+                ten: "Lưỡi Dao Băng",
+                gia: "40",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Ice_Blade_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "70",
+                ten: "Tai Ương Của Ánh Sáng",
+                gia: "55",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Light's_Bane_scaled_9x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "71",
+                ten: "Chiếc Ô Bi Kịch",
+                gia: "48",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Tragic_Umbrella_scaled_6x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "72",
+                ten: "Muramasa",
+                gia: "150",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Muramasa_scaled_6x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "73",
+                ten: "Đao Kiếm Kỳ Lạ",
+                gia: "120",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Exotic_Scimitar_scaled_8x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "74",
+                ten: "Phaseblade",
+                gia: "169",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Phaseblade_scaled_7x_minified.gif",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "75",
+                ten: "Đồ Tể Máu",
+                gia: "202",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Blood_Butcherer_scaled_7x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "76",
+                ten: "Kiếm Ngôi Sao",
+                gia: "245",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Starfury_scaled_8x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "77",
+                ten: "Kiếm Phù Phép",
+                gia: "165",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Enchanted_Sword_(item)_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "78",
+                ten: "Kiếm Hội Cá Tím",
+                gia: "320",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Purple_Clubberfish_scaled_7x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "79",
+                ten: "Kiếm Ong",
+                gia: "290",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Bee_Keeper_scaled_8x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "80",
+                ten: "Lưỡi Dao Ưng",
+                gia: "230",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Falcon_Blade_scaled_9x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "81",
+                ten: "Kiếm Ngọn Cỏ",
+                gia: "35",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Blade_of_Grass_scaled_5x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "82",
+                ten: "Kiếm Núi Lửa",
+                gia: "450",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Volcano_scaled_5x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "83",
+                ten: "Kiếm Bóng Đêm",
+                gia: "550",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Night's_Edge_scaled_8x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "84",
+                ten: "Kiếm Gỗ Ngọc",
+                gia: "288",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Pearlwood_Sword_scaled_10x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "85",
+                ten: "Mía Sang Trọng",
+                gia: "85",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Classy_Cane_scaled_12x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "86",
+                ten: "Gậy Tát",
+                gia: "680",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Slap_Hand_scaled_9x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "87",
+                ten: "Kiếm Coban",
+                gia: "480",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Cobalt_Sword_scaled_6x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "88",
+                ten: "Kiếm Palladium",
+                gia: "520",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Palladium_Sword_scaled_7x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "89",
+                ten: "Kiếm Ánh Sáng",
+                gia: "510",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Phasesaber_scaled_7x_minified.gif",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
+            {
+                id: "90",
+                ten: "Liềm Băng",
+                gia: "670",
+                sl_gio_do: "0",
+                sl_tui_do: "0",
+                dang: "vu_khi",
+                loai: "thanh_kiem",
+                game: "terraria",
+                url: "/IsekaiStore/img/Terraria/VuKhi/ThanhKiem/Ice_Sickle_scaled_8x_pngcrushed.png",
+                mo_ta_ngan: "...",
+                mo_ta: `
+    <p>...</p>
+        `
+            },
 
         ];
 
