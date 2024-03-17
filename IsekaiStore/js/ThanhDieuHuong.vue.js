@@ -50,13 +50,11 @@ const tien_trinh = Vue.createApp({
         </div>
 
         <div id="popup_gio_hang" class="vw-100 gio-hang bg-white br-20 shadow-sm">
-            <div class="san-pham-gio">
-                <div class="pt-3 px-4">
-                    <div class="fw-500 fs-4">Giỏ hàng</div>
-                </div>
-                <div v-html="gio_hang" class="pt-3 px-3">
+            <div class="pt-3 px-4">
+                <div class="fw-500 fs-4 pb-2">Giỏ hàng</div>
+            </div>
+            <div v-html="gio_hang" class="pt-3 px-3 san-pham-gio">
 
-                </div>
             </div>
             <div class="py-4 px-4">
                 <div class="row">
