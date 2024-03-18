@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Login 07</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Test</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="login-wrap p-4 p-lg-5">
+					<div class="d-flex">
+						<div class="w-100">
+							<h3 class="mb-4">Đăng Nhập</h3>
+						</div>
+					</div>
+					<div class="form-group mb-3">
+						<label class="label" for="name">Tên đăng nhập:</label>
+						<input id="ten_dang_nhap" type="text" class="form-control" placeholder="Username" required>
+					</div>
+					<div class="form-group mb-3">
+						<label class="label" for="password">Mật khẩu:</label>
+						<input id="mat_khau" type="password" class="form-control" placeholder="Password" required>
+					</div>
+					<div id="xac_nhan_mk" class="form-group mb-3 d-none">
+						<p>Phát hiện tài khoản mới vui lòng nhập lại mật khẩu để đăng ký!</p>
+						<label class="label" for="password">Xác nhận mật khẩu:</label>
+						<input id="mat_khau_xac_nhan" type="password" class="form-control" placeholder="Password"
+							required>
+					</div>
+					<div id="form_dang_nhap" class="form-group">
+						<button id="nut_dang_nhap" type="submit" class="form-control btn btn-primary submit px-3">
+							Đăng Nhập</button>
+					</div>
+					<div id="form_dang_ky" class="form-group d-none">
+						<button id="nut_dang_ky" type="submit" class="form-control btn btn-primary submit px-3">
+							Đăng Ký</button>
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<script type="module" src="js/firebase.js"> </script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
