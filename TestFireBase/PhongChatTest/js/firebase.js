@@ -26,26 +26,6 @@ let mat_khau = document.getElementById("mat_khau");
 let nut_dang_nhap = document.getElementById("nut_dang_nhap");
 let nut_dang_ky = document.getElementById("nut_dang_ky");
 
-function ThemDL() {
-    set(ref(db, 'TestDangNhap/'), {
-        NguoiDung: { Ten: ten.value }
-    }).then(() => {
-        alert("Them thanh cong");
-    }).catch((error) => {
-        alert("That bai");
-        console.log(error);
-    })
-}
-
-function LayDL() {
-    const dbRef = ref(db);
-    get(child(dbRef, 'TestCSDL/')).then((snapshot) => {
-        if (snapshot.exists()) {
-            hien_ten.innerHTML = snapshot.val().NguoiDung.Ten;
-        }
-    })
-}
-
 nut_dang_nhap.addEventListener('click', () => {
     const dbRef = ref(db);
     get(child(dbRef, ten_dang_nhap.value + '/')).then((snapshot) => {
