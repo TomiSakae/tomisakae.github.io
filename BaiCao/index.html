@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TomiSakae Bài cào</title>
+    <meta name="description" content="Bài cào">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="vh-100 d-flex justify-content-center align-items-center">
+        <div class="container mt-5 mb-5 d-flex justify-content-center align-items-center">
+            <div id="nhap_ten" class="row">
+                <form class="was-validated">
+                    <div class="mb-3 mt-3">
+                        <label for="ten" class="form-label h4  text-center">Nhập tên:</label>
+                        <input type="text" class="form-control" id="ten" placeholder="Vui lòng nhập tên..." name="ten"
+                            required>
+                        <div class="valid-feedback">Tên hợp lệ.</div>
+                        <div class="invalid-feedback">Tên không được phép để trống!</div>
+                    </div>
+                </form>
+                <div class="d-inline-block pt-1 text-center">
+                    <button id="kiem_tra_ten" type="button" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+            <div id="chon_phong" class="row d-none">
+                <div class="mb-3 mt-3 d-flex flex-column justify-content-center">
+                    <p class="h4">Tên: <span id="ten_nv"></span></p>
+                    <button type="button" id="tao_phong" class="mt-3 btn btn-outline-primary rounded-3">Tạo
+                        Phòng</button>
+                    <button type="button" id="tim_phong" class="mt-3 btn btn-outline-primary rounded-3">Tìm
+                        Phòng</button>
+                </div>
+            </div>
+
+            <div id="trang_tao_phong" class="row d-none">
+                <div class="mb-3 mt-3 d-flex flex-column justify-content-center">
+                    <form class="was-validated">
+                        <div class="mb-3 mt-3">
+                            <label for="id_phong" class="form-label h4  text-center">Tạo mã phòng:</label>
+                            <input type="text" class="form-control" id="tao_ma_phong" placeholder="Vui lòng nhập mã..."
+                                name="id_phong" required>
+                            <div class="valid-feedback">Mã hợp lệ.</div>
+                            <div class="invalid-feedback">Mã không được phép để trống!</div>
+                        </div>
+                    </form>
+                    <div class="d-inline-block pt-1 text-center">
+                        <button id="kiem_tra_id" type="button" class="btn btn-primary">OK</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="trong_phong" class="row d-none">
+                <div class="mb-3 mt-3 d-flex flex-column justify-content-center">
+                    <p class="mb-3 h4">Mã Phòng: <span id="ma_phong"></span></p>
+                    <p class="mt-2 fs-5">Người chơi 1: <span id="ten_p1">TomiSakae</span><i id="checkp1"
+                            class="text-success bi bi-check-lg d-none"></i>
+                    </p>
+                    <p class="mb-3 mt-2 fs-5">Người chơi 2: <span id="ten_p2">Đang chờ...</span><i id="checkp2"
+                            class="text-success bi bi-check-lg d-none"></i></p>
+                    <button type="button" id="san_sang" class="btn btn-outline-success">Sẵn sàng!</button>
+
+                    <button type="button" id="bat_dau" class="mt-3 btn btn-outline-primary d-none">Bắt đầu!</button>
+                </div>
+            </div>
+
+            <div id="trang_tim_phong" class="row d-none">
+                <div class="mb-3 mt-3 d-flex flex-column justify-content-center">
+                    <form class="was-validated">
+                        <div class="mb-3 mt-3">
+                            <label for="id_phong" class="form-label h4  text-center">Tìm mã phòng:</label>
+                            <input type="text" class="form-control" id="tim_ma_phong" placeholder="Vui lòng nhập mã..."
+                                name="id_phong" required>
+                            <div class="valid-feedback">Mã hợp lệ.</div>
+                            <div class="invalid-feedback">Mã không được phép để trống!</div>
+                        </div>
+                    </form>
+                    <div class="d-inline-block pt-1 text-center">
+                        <button id="kiem_tra_tim_id" type="button" class="btn btn-primary">OK</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tro_choi_chinh" class="row d-none">
+                <div class="row text-center">
+                    <p class="h4"><span id="ten_pl2"></span><i class="text-success bi bi-check-lg d-none"></i></p>
+
+                </div>
+                <div class="row">
+                    <div id="anh_bai" class="d-flex flex-column d-none">
+                        <div class="mt-5 mb-5 d-flex justify-content-center align-items-center">
+                            <img id="lap2_1" src="Cards/card_back.png" class="w-25 h-auto">
+                            <img id="lap2_2" src="Cards/card_back.png" class="w-25 h-auto">
+                            <img id="lap2_3" src="Cards/card_back.png" class="w-25 h-auto">
+                        </div>
+                        <div class="d-inline-block text-center d-none">
+                            <p class="h4 text-success"><span id="ten_plwin">TomiSakae</span> Thắng!</p>
+                            <button type="button" id="choi_lai" class="mt-2 btn btn-outline-primary">Chơi Lại</button>
+                        </div>
+                        <div class="mt-5 mb-5 d-flex justify-content-center align-items-center">
+                            <img id="lap1_1" src="Cards/card_back.png" class="w-25 h-auto">
+                            <img id="lap1_2" src="Cards/card_back.png" class="w-25 h-auto">
+                            <img id="lap1_3" src="Cards/card_back.png" class="w-25 h-auto">
+                        </div>
+                    </div>
+                    <div id="chia_bai_de" class="mt-5 mb-5 pt-5 pb-5 d-inline-block text-center d-none">
+                        <button type="button" id="chia_bai" class="btn btn-outline-primary">Chia Bài</button>
+                    </div>
+                    <div id="cho_chia_bai" class="mt-5 mb-5 pt-5 pb-5 d-inline-block text-center d-none">
+                        <p class="fs-5">Chờ chia bài...</p>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <p class="h4"><span id="ten_pl1"></span><i class="text-success bi bi-check-lg d-none"></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script type="module" src="js/jquery.js"></script>
+</body>
+
+</html>
