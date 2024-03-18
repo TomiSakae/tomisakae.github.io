@@ -413,10 +413,12 @@ jq(function () {
                                             if (bai.val()[3] == 1) {
                                                 id = data.val()[3];
                                                 jq("#lap2_1").attr("src", ChonBai(id));
-                                            } else if (bai.val()[4] == 1) {
+                                            }
+                                            if (bai.val()[4] == 1) {
                                                 id = data.val()[4];
                                                 jq("#lap2_2").attr("src", ChonBai(id));
-                                            } else if (bai.val()[5] == 1) {
+                                            }
+                                            if (bai.val()[5] == 1) {
                                                 id = data.val()[5];
                                                 jq("#lap2_3").attr("src", ChonBai(id));
                                             }
@@ -425,10 +427,12 @@ jq(function () {
                                             if (bai.val()[0] == 1) {
                                                 id = data.val()[0];
                                                 jq("#lap2_1").attr("src", ChonBai(id));
-                                            } else if (bai.val()[1] == 1) {
+                                            }
+                                            if (bai.val()[1] == 1) {
                                                 id = data.val()[1];
                                                 jq("#lap2_2").attr("src", ChonBai(id));
-                                            } else if (bai.val()[2] == 1) {
+                                            }
+                                            if (bai.val()[2] == 1) {
                                                 id = data.val()[2];
                                                 jq("#lap2_3").attr("src", ChonBai(id));
                                             }
