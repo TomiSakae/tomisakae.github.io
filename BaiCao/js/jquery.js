@@ -160,10 +160,28 @@ jq(function () {
         update(lay_dl_la_bai, cap_nhat_la_bai);
 
     });
-
     let kt_mo_bai1 = false;
     let kt_mo_bai2 = false;
     let kt_mo_bai3 = false;
+
+    jq("#choi_lai").on('click', () => {
+        // Reset giá trị của các biến và các phần tử HTML khác cần thiết
+        const lay_dl_mo_bai = ref(db, 'PhongChoi/' + ma_phong);
+        let cap_nhat_mo_bai = {};
+        cap_nhat_mo_bai["mo_bai"] = [0, 0, 0, 0, 0, 0];
+        update(lay_dl_mo_bai, cap_nhat_mo_bai);
+
+        const lay_dl_trong_tran = ref(db, 'PhongChoi/' + ma_phong);
+        let cap_nhat_trong_tran = {};
+        cap_nhat_trong_tran["trong_tran"] = true;
+        update(lay_dl_trong_tran, cap_nhat_trong_tran);
+
+        const lay_dl_chia_bai = ref(db, 'PhongChoi/' + ma_phong);
+        let cap_nhat_chia_bai = {};
+        cap_nhat_chia_bai["chia_bai"] = false;
+        update(lay_dl_chia_bai, cap_nhat_chia_bai);
+
+    });
 
     function ChonBai(id) {
         switch (id) {
@@ -443,6 +461,28 @@ jq(function () {
                         }
                     }
                 });
+
+                let kt_win = 0;
+                for (let kt = 0; kt <= 5; kt++) {
+                    if (bai.val()[kt] == 1) {
+                        kt_win++;
+                    }
+                }
+                if (kt_win == 6) {
+                    jq("#win").removeClass("d-none");
+                    const lay_dl_ten = ref(db, 'PhongChoi/' + ma_phong + '/nguoi_choi1');
+                    onValue(lay_dl_ten, (snapshot) => {
+                        if (snapshot.exists()) {
+                            if (ten_nguoi_choi == snapshot.val()) {
+                                jq("#choi_lai").removeClass("d-none");
+                            }
+                            else {
+                                jq("#choi_lai").addClass("d-none");
+                            }
+                        }
+                    });
+
+                }
             }
         });
 
@@ -452,8 +492,19 @@ jq(function () {
                     jq("#anh_bai").removeClass("d-none");
                     jq("#chia_bai_de").addClass("d-none");
                     jq("#cho_chia_bai").addClass("d-none");
-
-
+                }
+                else {
+                    kt_mo_bai1 = false;
+                    kt_mo_bai2 = false;
+                    kt_mo_bai3 = false;
+                    jq("#choi_lai").addClass("d-none");
+                    jq("#lap1_1").attr("src", "Cards/card_back.png");
+                    jq("#lap1_2").attr("src", "Cards/card_back.png");
+                    jq("#lap1_3").attr("src", "Cards/card_back.png");
+                    jq("#lap2_1").attr("src", "Cards/card_back.png");
+                    jq("#lap2_2").attr("src", "Cards/card_back.png");
+                    jq("#lap2_3").attr("src", "Cards/card_back.png");
+                    jq("#anh_bai").addClass("d-none");
                 }
             }
         });
@@ -514,82 +565,3 @@ jq(function () {
     });
 
 });
-
-// let ten_nhan_vat = localStorage.getItem("ten");
-// sendButton.addEventListener('click', function () {
-//     let message = messageInput.value.trim();
-
-//     if (message !== '') {
-//         const dbRef = ref(db);
-//         get(child(dbRef, 'DLNguoiDung/' + ten_nhan_vat)).then((snapshot) => {
-//             if (snapshot.exists()) {
-//                 message = ten_nhan_vat + ": " + message;
-//                 appendMessage(message);
-//                 messageInput.value = '';
-//             }
-//         });
-//     }
-// });
-
-// function appendMessage(message) {
-//     const dbRef = ref(db);
-//     get(child(dbRef, 'PhongChatTest/')).then((snapshot) => {
-//         if (snapshot.exists()) {
-//             let kt_sl = snapshot.val().so_luong.sl;
-//             let check_dl = "tin_nhan" + kt_sl;
-
-//             // Tạo một đối tượng để định nghĩa các thuộc tính động
-//             let dataToUpdate = {};
-//             dataToUpdate['so_luong/sl'] = kt_sl + 1;
-//             dataToUpdate[check_dl] = { tin_nhan: message };
-
-//             update(ref(db, 'PhongChatTest/'), dataToUpdate);
-//         }
-//         else {
-//             set(ref(db, 'PhongChatTest/'), {
-//                 so_luong: { sl: 1 },
-//                 tin_nhan0: { tin_nhan: message }
-//             });
-//         }
-//     });
-// }
-
-// // Lắng nghe sự kiện khi có tin nhắn mới được thêm vào cơ sở dữ liệu
-
-// let sl_tin_nhan_db = 0;
-// onChildAdded(ref(db, 'PhongChatTest/so_luong/'), (data) => {
-//     sl_tin_nhan_db = data.val();
-//     console.log(sl_tin_nhan_db);
-//     for (let i = 0; i < sl_tin_nhan_db; i++) {
-//         const test_db = ref(db, 'PhongChatTest/tin_nhan' + i + '/tin_nhan');
-//         onValue(test_db, (snapshot) => {
-//             const newMessage = snapshot.val();
-//             console.log(newMessage);
-//             appendMessageToUI(newMessage);
-//         });
-//     }
-// });
-
-// onChildChanged(ref(db, 'PhongChatTest/so_luong/'), (data) => {
-//     sl_tin_nhan_db = data.val() - 1;
-//     console.log(sl_tin_nhan_db);
-//     const test_db = ref(db, 'PhongChatTest/tin_nhan' + sl_tin_nhan_db + '/tin_nhan');
-//     onValue(test_db, (snapshot) => {
-//         const li = document.createElement('li');
-//         li.textContent = snapshot.val();
-//         li.classList.add('list-group-item');
-//         messageList.appendChild(li);
-//     });
-// });
-
-// // Hàm để hiển thị tin nhắn trên giao diện của trang
-// function appendMessageToUI(message) {
-//     // Lấy phần tử DOM để hiển thị tin nhắn
-//     const messageList = document.getElementById('message-list');
-//     // Tạo một phần tử để chứa tin nhắn mới
-//     const li = document.createElement('li');
-//     li.textContent = message;
-//     li.classList.add('list-group-item');
-//     // Thêm tin nhắn vào danh sách
-//     messageList.appendChild(li);
-// }
