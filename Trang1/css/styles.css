@@ -1,0 +1,44 @@
+.nut-nav {
+    background-color: #47BE7D;
+    border-radius: 10px;
+    border-width: 0;
+    color: white;
+    font-weight: 400;
+}
+
+.nut-nav:hover {
+    opacity: 0.9;
+}
+
+.link-nav {
+    color: black;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.link-nav:hover {
+    color: black;
+    background-color: #F4F4F4;
+    border-radius: 10px;
+    border-width: 0;
+}
+
+.vung-dau {
+    background-color: #F9F9F9;
+}
+
+.vung-dau-hien {
+    padding: 5em 0 5em 0;
+}
+
+.bo-tron {
+    border-radius: 12px;
+}
+
+.dam-chu {
+    font-weight: 700;
+}
+
+.co-chu-nho {
+    font-size: 12px;
+}
