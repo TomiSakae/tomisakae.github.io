@@ -8,7 +8,7 @@ $("#nav").html(`
 `);
 
 function Mobile() {
-    var width = $(window).width();
+    let width = $(window).width();
 
     if (width <= 768) {
         $(".mobile-br").html("<br>");
