@@ -31,6 +31,7 @@ function Mobile() {
 
 $(function () {
     Mobile();
+    $("body").removeClass("d-none");
 });
 
 $(window).resize(function () {
