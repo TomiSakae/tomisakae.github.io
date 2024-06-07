@@ -42,3 +42,10 @@
 .co-chu-nho {
     font-size: 12px;
 }
+
+.the-noi-dung {
+    border-radius: 25px;
+    background-color: #40B876;
+    border-width: 0;
+    padding: 5em 0 5em 0;
+}
