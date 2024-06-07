@@ -49,3 +49,14 @@
     border-width: 0;
     padding: 5em 0 5em 0;
 }
+
+.nut-trong-the {
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    border-width: 0;
+}
+
+.nut-trong-the:hover {
+    opacity: 0.9;
+}
