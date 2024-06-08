@@ -3,7 +3,14 @@ function MobileFix() {
 
     if (width <= 768) {
         $("#mobile-fix-anime").html(`
-            <button type="button" class="nut-chon-anime mb-3 py-2 px-3">Anime</button>
+            <div class="offcanvas offcanvas-start offcanvas-chieu-dai" id="anime">
+        <div class="offcanvas-body">
+            <div class="d-flex flex-column">
+                <h6 class="vung-chon-anime px-3 py-3">Date A Live</h6>
+            </div>
+        </div>
+    </div>
+            <button type="button" class="nut-chon-anime mb-3 py-2 px-3" data-bs-toggle="offcanvas" data-bs-target="#anime">Anime</button>
             <h4>Date A Live</h4>
         <p class="text-muted">Danh sách thẻ nhân vật</p>
         <div class="row mobile-fix-row">
