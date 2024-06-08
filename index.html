@@ -7,30 +7,18 @@
     <title>TomiSakae</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="css/styles.css" rel="stylesheet">
     <link href="css/nav.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
 </head>
 
 <body class="d-none">
-
-    <div class="offcanvas offcanvas-end offcanvas-chieu-dai" id="menu">
-        <div class="offcanvas-body">
-            <div class="d-flex flex-column">
-                <a href="#" class="link-nav px-3 py-2 mx-1">Nhân Vật</a>
-                <a href="#" class="link-nav px-3 py-2 mx-1">Nhiệm Vụ</a>
-                <a href="#" class="link-nav px-3 py-2 mx-1">Phiêu Lưu</a>
-                <a href="#" class="link-nav px-3 py-2 mx-1">Gacha</a>
-                <a href="#" class="link-nav px-3 py-2 mx-1">Sự Kiện</a>
-                <button class="nut-nav py-2 px-3 mt-3">Tài Khoản</button>
-            </div>
-        </div>
-    </div>
 
     <div id="nav"></div>
 
     <header class="vung-dau">
         <div id="mobile-fix-header" class="container vung-dau-hien text-center">
-            <h1 class="dam-chu">Web Gacha</h1>
+            <h1 class="dam-chu">Web Gacha Beta v0.0.1</h1>
             <br>
             <p class="text-muted">Đây là trang web mang phong cách lối chơi gacha của những game gacha hiện nay.<br>
                 Gacha
@@ -41,11 +29,11 @@
                 <h6 class="co-chu-nho text-muted">Thẻ Nhân Vật</h6>
             </div>
             <div class="border bo-tron py-1 px-3 d-inline-block mx-3 mt-3">
-                <h4 class="dam-chu">100+</h4>
-                <h6 class="co-chu-nho text-muted">Thẻ Kỹ năng</h6>
+                <h4 class="dam-chu">5+</h4>
+                <h6 class="co-chu-nho text-muted">Vùng Phiêu Lưu</h6>
             </div>
             <div class="border bo-tron py-1 px-3 d-inline-block mt-3">
-                <h4 class="dam-chu">1000+</h4>
+                <h4 class="dam-chu">50+</h4>
                 <h6 class="co-chu-nho text-muted">Nhiệm Vụ</h6>
             </div>
         </div>
@@ -63,7 +51,7 @@
             và mở khóa kỹ
             năng mới!
         </p>
-        <button class="nut-trong-the py-2 px-3 mt-3">Phiêu lưu ngay!</button>
+        <a href="/PhieuLuu/"><button class="nut-trong-the py-2 px-3 mt-3">Phiêu lưu ngay!</button></a>
     </div>
 
     <div class="the-noi-dung mobile-fix-the container text-center text-white mt-5 px-2">
@@ -76,7 +64,7 @@
             <span class="mobile-br"></span>
             Cùng tính năng tự động reset theo ngày và tuần để có thêm các nhiệm vụ mới!
         </p>
-        <button class="nut-trong-the py-2 px-3 mt-3">Kiểm tra ngay!</button>
+        <a href="/NhiemVu/"><button class="nut-trong-the py-2 px-3 mt-3">Kiểm tra ngay!</button></a>
     </div>
 
     <div class="the-noi-dung mobile-fix-the container text-center text-white mt-5 px-2">
@@ -88,7 +76,7 @@
             <span class="mobile-br"></span>
             Các Banner trong Gacha sẽ tồn tại vĩnh viễn để người chơi không lo sợ hay phân vân trong quá trình chơi!
         </p>
-        <button class="nut-trong-the py-2 px-3 mt-3">Gacha ngay!</button>
+        <a href="/Gacha/"><button class="nut-trong-the py-2 px-3 mt-3">Gacha ngay!</button></a>
     </div>
 
     <div class="the-noi-dung mobile-fix-the container text-center text-white mt-5 px-2">
@@ -100,7 +88,7 @@
             <span class="mobile-br"></span>
             Nâng cấp giúp tăng nhanh các chỉ số và mở khóa nhiều kỹ năng độc đáo và bá đạo!
         </p>
-        <button class="nut-trong-the py-2 px-3 mt-3">Nâng cấp ngay!</button>
+        <a href="/NhanVat/"><button class="nut-trong-the py-2 px-3 mt-3">Nâng cấp ngay!</button></a>
     </div>
 
     <div class="the-noi-dung mobile-fix-the container text-center text-white mt-5 px-2">
@@ -113,7 +101,7 @@
             <span class="mobile-br"></span>
             Ngoài ra còn có các sự kiện đặc biệt giúp người chơi có thêm nhiều vé để Gacha nhiều hơn!
         </p>
-        <button class="nut-trong-the py-2 px-3 mt-3">Tham gia ngay!</button>
+        <a href="/SuKien/"><button class="nut-trong-the py-2 px-3 mt-3">Tham gia ngay!</button></a>
     </div>
 
     <footer class="border py-3 text-center mt-5">

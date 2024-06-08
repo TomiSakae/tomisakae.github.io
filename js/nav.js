@@ -1,7 +1,20 @@
 
 $("#nav").html(`
+    <div class="offcanvas offcanvas-end offcanvas-chieu-dai" id="menu">
+        <div class="offcanvas-body">
+            <div class="d-flex flex-column">
+                <a href="/NhanVat/" class="link-nav px-3 py-2 mx-1">Nhân Vật</a>
+                <a href="/NhiemVu/" class="link-nav px-3 py-2 mx-1">Nhiệm Vụ</a>
+                <a href="/PhieuLuu/" class="link-nav px-3 py-2 mx-1">Phiêu Lưu</a>
+                <a href="/Gacha/" class="link-nav px-3 py-2 mx-1">Gacha</a>
+                <a href="/SuKien/" class="link-nav px-3 py-2 mx-1">Sự Kiện</a>
+                <a href="#"><button class="nut-nav py-2 px-3 mt-3">Tài Khoản</button></a>
+            </div>
+        </div>
+    </div>
+
 <nav class="container py-4 d-flex justify-content-between align-items-center">
-    <a href="#" class="fs-4 fw-bold text-dark text-decoration-none">TomiSakae</a>
+    <a href="/" class="fs-4 fw-bold text-dark text-decoration-none">TomiSakae</a>
     <div id="mobile-nav"></div>
     <div id="mobile-menu"></div>
 </nav>
@@ -20,14 +33,14 @@ function Mobile() {
 
     if (width > 768) {
         $("#mobile-nav").html(`
-            <a href="#" class="link-nav px-3 py-2 mx-1">Nhân Vật</a>
-            <a href="#" class="link-nav px-3 py-2 mx-1">Nhiệm Vụ</a>
-            <a href="#" class="link-nav px-3 py-2 mx-1">Phiêu Lưu</a>
-            <a href="#" class="link-nav px-3 py-2 mx-1">Gacha</a>
-            <a href="#" class="link-nav px-3 py-2 mx-1">Sự Kiện</a>
+            <a href="/NhanVat/" class="link-nav px-3 py-2 mx-1">Nhân Vật</a>
+            <a href="/NhiemVu/" class="link-nav px-3 py-2 mx-1">Nhiệm Vụ</a>
+            <a href="/PhieuLuu/" class="link-nav px-3 py-2 mx-1">Phiêu Lưu</a>
+            <a href="/Gacha/" class="link-nav px-3 py-2 mx-1">Gacha</a>
+            <a href="/SuKien/" class="link-nav px-3 py-2 mx-1">Sự Kiện</a>
         `);
         $(".mobile-br").empty();
-        $("#mobile-menu").html(`<button class="nut-nav py-2 px-3">Tài Khoản</button>`);
+        $("#mobile-menu").html(`<a href="#"><button class="nut-nav py-2 px-3">Tài Khoản</button></a>`);
     }
 }
 
