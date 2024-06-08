@@ -19,3 +19,7 @@
     border-width: 0;
     font-weight: 500;
 }
+
+.nut-chon-anime:hover {
+    opacity: 0.9;
+}

@@ -17,7 +17,7 @@
     <div id="nav"></div>
 
     <header class="vung-dau">
-        <div id="mobile-fix-header" class="container vung-dau-hien text-center">
+        <div id="mobile-fix-header" class="vung-dau-hien text-center">
             <h1 class="dam-chu">Nhiệm Vụ</h1>
             <br>
             <p class="text-muted">Với hệ thống nhiệm vụ đa dạng giúp người chơi nhận điểm và nhanh chóng lên cấp thẻ
@@ -32,6 +32,15 @@
         </div>
     </header>
 
+    <div class="mobile-fix-the the-nhiem-vu mt-5 py-5 px-3">
+        <div class="d-flex">
+            <button type="button" class="khung-chon px-2 py-2" onclick="Ngay()">Ngày</button>
+            <button type="button" class="khung-chon px-2 py-2 mx-3" onclick="Tuan()">Tuần</button>
+            <button type="button" class="khung-chon px-2 py-2" onclick="VinhVien()">Vĩnh Viễn</button>
+        </div>
+        <div id="nhiem-vu"></div>
+    </div>
+
     <footer class="border py-3 text-center mt-5">
         <span>&copy;2024 - TomiSakae - Web Gacha</span>
     </footer>
@@ -43,6 +52,7 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="../js/nav.js"></script>
     <script src="../js/header.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
