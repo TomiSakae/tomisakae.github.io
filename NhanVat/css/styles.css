@@ -1,0 +1,14 @@
+.vung-chon-anime {
+    border-radius: 10px;
+    background-color: #F9F9F9;
+}
+
+.vung-chon-anime:hover {
+    cursor: pointer;
+}
+
+.the-nhan-vat {
+    background-color: #F5F5F6;
+    border-radius: 15px;
+    cursor: pointer;
+}
