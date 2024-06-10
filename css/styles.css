@@ -1,0 +1,31 @@
+.vung-dang-nhap-pc {
+    background-color: white;
+    border-radius: 10px;
+    width: 60vw;
+    height: 80vh;
+}
+
+.vung-dang-nhap-mobile {
+    background-color: white;
+    border-radius: 10px;
+    width: 90vw;
+    height: 30vh;
+}
+
+.nhap-ten-pc {
+    width: 20vw;
+    border-radius: 5px;
+}
+
+.nhap-ten-mobile {
+    width: 80vw;
+    border-radius: 5px;
+}
+
+.nut-choi-pc {
+    width: 10vw;
+}
+
+.nut-choi-mobile {
+    width: 50vw;
+}
