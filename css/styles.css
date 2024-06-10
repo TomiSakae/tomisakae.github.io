@@ -8,8 +8,8 @@
 .vung-dang-nhap-mobile {
     background-color: white;
     border-radius: 10px;
-    width: 90vw;
-    height: 30vh;
+    width: 90%;
+    height: 30%;
 }
 
 .nhap-ten-pc {
@@ -26,5 +26,5 @@
 }
 
 .nut-choi-mobile {
-    width: 30vw;
+    width: 100%;
 }
