@@ -1,25 +1,29 @@
-.the-nhiem-vu {
-    border: 1px solid black;
-    border-radius: 25px;
-}
-
-.khung-nhiem-vu {
-    background-color: #F3F3F3;
-    border: 1px solid #C9C9C9;
-}
-
-.khung-dau {
-    background-color: #47BE7D;
-    border: 1px solid #C9C9C9;
-    color: white;
-}
-
-.khung-chon {
-    border: 1px solid #C9C9C9;
-    background-color: white;
+.vung-chon-nhiem-vu {
     border-radius: 10px;
+    background-color: #F5F5F6;
 }
 
-.khung-chon:hover {
+.vung-chon-nhiem-vu:hover {
+    cursor: pointer;
+}
+
+.the-nhan-vat {
+    background-color: #F5F5F6;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.nut-chon-nhiem-vu {
+    border-radius: 10px;
+    background-color: #F5F5F6;
+    border-width: 0;
+    font-weight: 500;
+}
+
+.nut-chon-nhiem-vu:hover {
     opacity: 0.9;
+}
+
+.offcanvas-chieu-dai-nv {
+    width: 250px;
 }

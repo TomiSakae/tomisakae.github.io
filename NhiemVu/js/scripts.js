@@ -2,164 +2,105 @@ function MobileFix() {
     let width = $(window).width();
 
     if (width <= 768) {
+        $("#mobile-fix-nhiem-vu").html(`
+            <div class="offcanvas offcanvas-start offcanvas-chieu-dai-nv" id="nhiem-vu">
+        <div class="offcanvas-body">
+            <div class="d-flex flex-column">
+                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Ngày</h6>
+                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Tuần</h6>
+                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Vĩnh Viễn</h6>
+            </div>
+        </div>
+    </div>
+            <button type="button" class="nut-chon-nhiem-vu mb-3 py-2 px-3" data-bs-toggle="offcanvas" data-bs-target="#nhiem-vu">DS Nhiệm Vụ</button>
+            <h4>Nhiệm Vụ Ngày</h4>
+        <p class="text-muted">Danh sách nhiệm vụ ngày</p>
+        <div class="row mobile-fix-row">
+            <div class="col-lg-5 the-nhan-vat py-4 px-4 text-center me-5 my-4">
+                <h6 class="mb-2">Đăng nhập</h6>
+                <p>Đăng nhập vào game</p>
+                <p>0/1</p>
+                <button type="button" class="btn btn-outline-primary mt-2 rounded">Nhận</button>
+            </div>
+            <div class="col-lg-5 the-nhan-vat py-4 px-4 text-center my-4">
+                <h6 class="mb-2">Đăng nhập</h6>
+                <p>Đăng nhập vào game</p>
+                <p>0/1</p>
+                <button type="button" class="btn btn-outline-primary mt-2 rounded">Nhận</button>
+            </div>
+        </div>
+
+        <div class="row mobile-fix-row">
+            <div class="col-lg-5 the-nhan-vat py-4 px-4 text-center me-5 my-4">
+                <h6 class="mb-2">Đăng nhập</h6>
+                <p>Đăng nhập vào game</p>
+                <p>0/1</p>
+                <button type="button" class="btn btn-outline-primary mt-2 rounded">Nhận</button>
+            </div>
+            <div class="col-lg-5 the-nhan-vat py-4 px-4 text-center my-4">
+                <h6 class="mb-2">Đăng nhập</h6>
+                <p>Đăng nhập vào game</p>
+                <p>0/1</p>
+                <button type="button" class="btn btn-outline-primary mt-2 rounded">Nhận</button>
+            </div>
+        </div>
+            `);
         $(".mobile-fix-the").removeClass("container");
         $(".mobile-fix-the").addClass("mx-3");
-        $(".mobile-fix-chu").removeClass("fs-6");
-        $(".mobile-fix-chu").addClass("small");
+        $(".mobile-fix-row").addClass("mx-2");
     }
 
     if (width > 768) {
         $(".mobile-fix-the").removeClass("mx-3");
         $(".mobile-fix-the").addClass("container");
-        $(".mobile-fix-chu").addClass("fs-6");
-        $(".mobile-fix-chu").removeClass("small");
+        $("#mobile-fix-nhiem-vu").html(`
+            <div class="row">
+            <div class="col-2 border-end">
+                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Ngày</h6>
+                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Tuần</h6>
+                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Vĩnh Viễn</h6>
+            </div>
+            <div class="col-10 px-5">
+                <h4>Nhiệm Vụ Ngày</h4>
+                <p class="text-muted">Danh sách nhiệm vụ ngày</p>
+
+                <div class="row my-4">
+                    <div class="col-lg-5 the-nhan-vat py-4 px-4 text-center me-5 my-4">
+                <h6 class="mb-2">Đăng nhập</h6>
+                <p>Đăng nhập vào game</p>
+                <p>0/1</p>
+                <button type="button" class="btn btn-outline-primary mt-2 rounded">Nhận</button>
+            </div>
+            <div class="col-lg-5 the-nhan-vat py-4 px-4 text-center my-4">
+                <h6 class="mb-2">Đăng nhập</h6>
+                <p>Đăng nhập vào game</p>
+                <p>0/1</p>
+                <button type="button" class="btn btn-outline-primary mt-2 rounded">Nhận</button>
+            </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-5 the-nhan-vat py-4 px-4 text-center me-5 my-4">
+                <h6 class="mb-2">Đăng nhập</h6>
+                <p>Đăng nhập vào game</p>
+                <p>0/1</p>
+                <button type="button" class="btn btn-outline-primary mt-2 rounded">Nhận</button>
+            </div>
+            <div class="col-lg-5 the-nhan-vat py-4 px-4 text-center my-4">
+                <h6 class="mb-2">Đăng nhập</h6>
+                <p>Đăng nhập vào game</p>
+                <p>0/1</p>
+                <button type="button" class="btn btn-outline-primary mt-2 rounded">Nhận</button>
+            </div>
+                </div>
+            </div>
+        </div>
+            `);
     }
-}
-
-function Ngay() {
-    $("#nhiem-vu").html(`
-        <h4 class="khung-dau py-3 text-center mt-2 rounded">Nhiệm Vụ Ngày</h4>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Đăng nhập vào game</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Nâng cấp thẻ nhân vật</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Nâng cấp kỹ năng</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Tham gia phiêu lưu</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Tham gia sự kiện</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        `);
-    MobileFix();
-}
-
-function Tuan() {
-    $("#nhiem-vu").html(`
-        <h4 class="khung-dau py-3 text-center mt-2 rounded">Nhiệm Vụ Tuần</h4>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Đăng nhập vào game</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Nâng cấp thẻ nhân vật</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Nâng cấp kỹ năng</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Tham gia phiêu lưu</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Tham gia sự kiện</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        `);
-    MobileFix();
-}
-
-function VinhVien() {
-    $("#nhiem-vu").html(`
-        <h4 class="khung-dau py-3 text-center mt-2 rounded">Nhiệm Vụ Vĩnh Viễn</h4>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Đăng nhập vào game</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Nâng cấp thẻ nhân vật</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Nâng cấp kỹ năng</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Tham gia phiêu lưu</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">Tham gia sự kiện</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="mobile-fix-chu khung-nhiem-vu py-2 px-1 rounded">0/1</p>
-            </div>
-        </div>
-        `);
-    MobileFix();
 }
 
 $(function () {
     MobileFix();
-    Ngay();
 });
 
 $(window).resize(function () {
