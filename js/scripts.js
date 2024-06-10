@@ -11,7 +11,7 @@ function UI() {
         <div class="vung-dang-nhap-mobile d-flex justify-content-center align-items-center">
             <div class="text-center">
                 <h6 class="mb-4">CHƠI NGAY</h6>
-                <input type="text" id="ten_nguoi_choi"
+                <input type="text" class="form-control nhap-ten-mobile mb-4" id="ten_nguoi_choi"
                     placeholder="Nhập tên người chơi..." name="ten_nguoi_choi">
             </div>
         </div>
