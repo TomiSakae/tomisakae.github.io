@@ -3,7 +3,6 @@ function UI() {
 
     if (width <= 768) {
         $("#vung_choi").html(`
-<div class="vh-100 bg-primary d-flex flex-column justify-content-center align-items-center">
         <div class="text-white text-center">
             <h3>TomiSakae</h3>
             <h5>Trắc Nghiệm Anime Online</h5>
@@ -20,13 +19,11 @@ function UI() {
             <button type="button" class="btn btn-light nut-choi-mobile rounded mb-3">Vào Phòng</button>
             <button type="button" class="btn btn-light nut-choi-mobile rounded mb-3">Tạo Phòng</button>
         </div>
-    </div>
             `);
     }
 
     if (width > 768) {
         $("#vung_choi").html(`
-            <div class="vh-100 bg-primary d-flex flex-column justify-content-center align-items-center">
         <div class="text-white text-center">
             <h3>TomiSakae</h3>
             <h5>Trắc Nghiệm Anime Online</h5>
@@ -43,7 +40,6 @@ function UI() {
                 </div>
             </div>
         </div>
-    </div>
             `);
     }
 }
