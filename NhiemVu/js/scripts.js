@@ -6,9 +6,9 @@ function MobileFix() {
             <div class="offcanvas offcanvas-start offcanvas-chieu-dai-nv" id="nhiem-vu">
         <div class="offcanvas-body">
             <div class="d-flex flex-column">
-                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Ngày</h6>
-                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Tuần</h6>
-                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Vĩnh Viễn</h6>
+                <h6 id="chon-nv1" class="vung-chon-nhiem-vu vung-chon-nhiem-vu-chon px-3 py-3">Nhiệm Vụ Ngày</h6>
+                <h6 id="chon-nv2" class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Tuần</h6>
+                <h6 id="chon-nv3" class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Vĩnh Viễn</h6>
             </div>
         </div>
     </div>
@@ -56,9 +56,9 @@ function MobileFix() {
         $("#mobile-fix-nhiem-vu").html(`
             <div class="row">
             <div class="col-2 border-end">
-                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Ngày</h6>
-                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Tuần</h6>
-                <h6 class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Vĩnh Viễn</h6>
+                <h6 id="chon-nv1" class="vung-chon-nhiem-vu vung-chon-nhiem-vu-chon px-3 py-3">Nhiệm Vụ Ngày</h6>
+                <h6 id="chon-nv2" class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Tuần</h6>
+                <h6 id="chon-nv3" class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Vĩnh Viễn</h6>
             </div>
             <div class="col-10 px-5">
                 <h4>Nhiệm Vụ Ngày</h4>
@@ -99,8 +99,27 @@ function MobileFix() {
     }
 }
 
+let nv_dang_chon = 1;
+function ChonNV() {
+    $("#chon-nv" + nv_dang_chon).addClass("vung-chon-nhiem-vu-chon");
+    // switch (nv_dang_chon) {
+    //     case 1:
+
+    //         break;
+    // }
+}
+
 $(function () {
     MobileFix();
+    ChonNV();
+    $("[id^='chon-nv']").click(function () {
+        let id = this.id;
+        let prefix = 'chon-nv';
+        let suffix = id.substring(prefix.length); // Lấy phần sau của 'chon-nv'
+        $("#chon-nv" + nv_dang_chon).removeClass("vung-chon-nhiem-vu-chon");
+        nv_dang_chon = Number(suffix);
+        ChonNV();
+    });
 });
 
 $(window).resize(function () {

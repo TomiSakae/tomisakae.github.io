@@ -1,10 +1,14 @@
 .vung-chon-nhiem-vu {
     border-radius: 10px;
+}
+
+.vung-chon-nhiem-vu-chon {
     background-color: #F5F5F6;
 }
 
 .vung-chon-nhiem-vu:hover {
     cursor: pointer;
+    background-color: #F5F5F6;
 }
 
 .the-nhan-vat {
