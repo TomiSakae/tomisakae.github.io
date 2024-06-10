@@ -6,7 +6,7 @@ function MobileFix() {
             <div class="offcanvas offcanvas-start offcanvas-chieu-dai-nv" id="nhiem-vu">
         <div class="offcanvas-body">
             <div class="d-flex flex-column">
-                <h6 id="chon-nv1" class="vung-chon-nhiem-vu vung-chon-nhiem-vu-chon px-3 py-3">Nhiệm Vụ Ngày</h6>
+                <h6 id="chon-nv1" class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Ngày</h6>
                 <h6 id="chon-nv2" class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Tuần</h6>
                 <h6 id="chon-nv3" class="vung-chon-nhiem-vu px-3 py-3">Nhiệm Vụ Vĩnh Viễn</h6>
             </div>
