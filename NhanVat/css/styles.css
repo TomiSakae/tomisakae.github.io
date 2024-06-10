@@ -1,16 +1,20 @@
 .vung-chon-anime {
     border-radius: 10px;
+}
+
+.vung-chon-anime-chon {
     background-color: #F5F5F6;
 }
 
 .vung-chon-anime:hover {
     cursor: pointer;
+    background-color: #F5F5F6;
 }
 
-.the-nhan-vat {
+.the-anime {
+    cursor: pointer;
     background-color: #F5F5F6;
     border-radius: 15px;
-    cursor: pointer;
 }
 
 .nut-chon-anime {
@@ -22,4 +26,8 @@
 
 .nut-chon-anime:hover {
     opacity: 0.9;
+}
+
+.offcanvas-chieu-dai-anime {
+    width: 250px;
 }
