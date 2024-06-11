@@ -3,9 +3,6 @@ function BatDau() {
     if (kt_che_do != 0) {
 
     }
-    else {
-
-    }
 }
 
 $("#chon_che_do").click(function () {

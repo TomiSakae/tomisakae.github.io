@@ -15,33 +15,37 @@
 
     <!-- The Modal -->
     <div class="modal" id="kt_che_do">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <!-- Modal body -->
-                <div class="py-4 px-3 rounded text-center">
-                    <h6 class="mb-4">Vui lòng chọn chế độ chơi!</h6>
-                    <button type="button" class="btn btn-danger text-end" data-bs-dismiss="modal">Đóng</button>
+                <div class="py-5 px-5 rounded text-center">
+                    <h5 class="mb-4">Anime <span id="anime_mua"></span> <span id="anime_nam"></span></h5>
+                    <button type="button" class="btn btn-success text-end" data-bs-dismiss="modal"
+                        onclick="Chien()">Chiến!</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="vh-100 bg-primary d-flex flex-column justify-content-center align-items-center">
+    <div id="load" class="vh-100 d-flex justify-content-center align-items-center">
+        <p>Đang tải dữ liệu Anime, vui lòng đợi...</p>
+    </div>
+
+    <div id="vung_choi" class="vh-100 d-none bg-primary d-flex flex-column justify-content-center align-items-center">
         <div class="text-white text-center">
             <h3>TomiSakae</h3>
             <h5>Trắc Nghiệm Anime Online</h5>
         </div>
-        <div class="vung-dang-nhap-mobile d-flex justify-content-center align-items-center">
+        <div class="vung-dang-nhap-pc d-flex justify-content-center align-items-center">
             <div class="text-center">
-                <h6 class="mb-2 mt-4">THỬ THÁCH</h6>
+                <h5 class="mb-2">THỬ THÁCH</h5>
                 <p class="mb-4">Vui lòng chọn chế độ chơi</p>
                 <p id="chon_che_do" class="che-do-choi py-2 px-3 d-inline-block">Cơ Bản</p>
-
+                <div class="d-flex flex-column justify-content-center align-items-center mt-2">
+                    <button id="nut_bat_dau" type="button" class="btn btn-outline-primary nut-choi-pc rounded mb-3"
+                        onclick="BatDau()" data-bs-toggle="modal" data-bs-target="#kt_che_do">Bắt Đầu</button>
+                </div>
             </div>
-        </div>
-        <div class="d-flex flex-column justify-content-center align-items-center mt-4">
-            <button id="nut_bat_dau" type="button" class="btn btn-light nut-choi-mobile rounded mb-3" onclick="BatDau()"
-                data-bs-toggle="modal" data-bs-target="#kt_che_do">Bắt Đầu</button>
         </div>
     </div>
 
