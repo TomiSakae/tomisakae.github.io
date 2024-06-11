@@ -197,7 +197,6 @@ function DapAn() {
 
         if (dap_an_dung == so_phia_sau) {
             $(this).addClass("khung-trac-nghiem-dung");
-            $(this).blur();
             diem_so += Number(thoi_gian_con_lai) * 100;
             $("#diem_so").text(Number(diem_so));
         }
@@ -206,6 +205,7 @@ function DapAn() {
             $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
 
         }
+        $(this).blur();
         KetThucCauHoi();
         $('[id^="dap_an"]').unbind("click");
     });
