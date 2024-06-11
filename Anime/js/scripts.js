@@ -41,7 +41,7 @@ $(document).ready(function () {
         try {
             let danh_sach_anime = [];
 
-            for (let page = 1; page <= 1; page++) {
+            for (let page = 1; page <= 4; page++) {
                 const response = await fetch(`${url}?page=${page}`);
                 const data = await response.json();
 
