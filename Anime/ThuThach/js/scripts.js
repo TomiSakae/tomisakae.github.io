@@ -161,7 +161,7 @@ function DemThoiGian() {
             $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
             KetThucCauHoi();
             // Bỏ sự kiện click
-            $('[id^="dap_an"]').unbind("click");
+            $('[id^="dap_an"]').off("click");
         }
     }, 1000); // Đếm mỗi 1 giây
 }
