@@ -174,6 +174,7 @@ function KetThucCauHoi() {
     $('[id^="dap_an"]').addClass("khung-trac-nghiem-fix");
     if (so_cau_hien_tai < 10) {
         setTimeout(function () {
+            $('[id^="dap_an"]').blur();
             TaoCauHoi();
             DapAn();
             DemThoiGian();
