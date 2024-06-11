@@ -48,9 +48,9 @@ $(document).ready(function () {
 
                 data.data.forEach(anime => {
                     const { id, attributes } = anime;
-                    const { subtype, ageRating } = attributes;
+                    const { subtype, ageRating, userCount } = attributes;
 
-                    if (!seenIds.has(id) && subtype === 'TV' && ageRating !== 'G') {
+                    if (!seenIds.has(id) && subtype === 'TV' && ageRating !== 'G' && userCount > 1000) {
                         seenIds.add(id);
                         allAnime.push(anime);
                         so_luong_anime++;
