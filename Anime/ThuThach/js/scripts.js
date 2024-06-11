@@ -161,7 +161,7 @@ function DemThoiGian() {
             $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
             KetThucCauHoi();
             // Bỏ sự kiện click
-            $('[id^="dap_an"]').off("click");
+            $('[id^="dap_an"]').unbind("click");
         }
     }, 1000); // Đếm mỗi 1 giây
 }
@@ -214,15 +214,14 @@ function DapAn() {
             $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
 
         }
-        // Blur phần tử và ép buộc vẽ lại
+
         $(this).blur();
         $(this).hide().show(0);
-
         // Đảm bảo phần tử mất focus
         document.activeElement.blur();
 
         KetThucCauHoi();
-        $('[id^="dap_an"]').off("click");
+        $('[id^="dap_an"]').unbind("click");
     });
 }
 
