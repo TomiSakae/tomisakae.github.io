@@ -1,7 +1,15 @@
 let kt_che_do = 0;
 function BatDau() {
     if (kt_che_do != 0) {
-        window.location.href = "../Anime/pc.html";
+        let width = $(window).width();
+
+        if (width <= 768) {
+            window.location.href = "../Anime/ThuThach/mobile.html";
+        }
+
+        if (width > 768) {
+            window.location.href = "../Anime/ThuThach/pc.html";
+        }
     }
 }
 

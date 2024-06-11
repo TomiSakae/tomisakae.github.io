@@ -4,6 +4,10 @@
     width: 100%;
 }
 
+.khung-trac-nghiem-mobile {
+    background-color: white;
+}
+
 .khung-trac-nghiem-fix {
     border: 1px solid black;
     border-radius: 15px;
@@ -33,4 +37,34 @@
 
 .nav-thong-tin {
     background-color: black;
+}
+
+.vung-anime-mobile {
+    background-color: white;
+    border-radius: 10px;
+    height: 45vh;
+}
+
+.anh-anime-mobile {
+    width: 45%;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.thoi-gian-mobile {
+    top: -40px;
+    left: -5px;
+}
+
+.so-diem-mobile {
+    top: -40px;
+    right: -5px;
+}
+
+.trac-nghiem-mobile {
+    height: 35vh;
+    overflow: auto;
+    scrollbar-width: none;
 }
