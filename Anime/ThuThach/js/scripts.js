@@ -36,42 +36,40 @@ $(document).ready(function () {
     }
 
     async function TimAnime() {
-        const url = 'https://api.jikan.moe/v4/seasons/' + nam_anime + '/' + tim_mua_anime;
+        let allAnime = [];
+        let seenIds = new Set();
+        let url = 'https://kitsu.io/api/edge/anime?filter[season]=' + tim_mua_anime + '&filter[seasonYear]=' + nam_anime + '&page[limit]=20';
+        let nextPage = true;
 
-        try {
-            let danh_sach_anime = [];
-
-            for (let page = 1; page <= 4; page++) {
-                const response = await fetch(`${url}?page=${page}`);
+        while (nextPage) {
+            try {
+                const response = await fetch(url);
                 const data = await response.json();
 
-                if (data.error) {
-                    console.error('Error fetching data:', data.message);
-                    return;
+                data.data.forEach(anime => {
+                    const { id, attributes } = anime;
+                    const { subtype, ageRating } = attributes;
+
+                    if (!seenIds.has(id) && subtype === 'TV' && ageRating !== 'G') {
+                        seenIds.add(id);
+                        allAnime.push(anime);
+                        so_luong_anime++;
+                    }
+                });
+
+                // Kiểm tra xem có trang tiếp theo hay không
+                if (data.links && data.links.next) {
+                    url = data.links.next;
+                } else {
+                    nextPage = false;
                 }
-
-                const du_lieu_anime = data.data;
-
-                if (du_lieu_anime.length === 0) break; // Khi không còn anime nào khác trên trang
-
-                danh_sach_anime = danh_sach_anime.concat(du_lieu_anime);
+            } catch (error) {
+                console.error('Error fetching anime list:', error);
+                nextPage = false;
             }
-
-            // Lọc ra chỉ anime TV mới mà không bao gồm anime TV chiếu tiếp
-            const anime_TV_moi = danh_sach_anime.filter(anime => anime.type === 'TV' && !anime.continuing);
-
-            //const anime = anime_TV_moi.map(anime);
-
-            anime_TV_moi.forEach(anime => {
-                so_luong_anime++;
-            });
-
-            ds_anime = anime_TV_moi;
-            console.log('Số lượng anime: ' + so_luong_anime);
-        } catch (error) {
-            console.error('Error fetching data:', error);
         }
 
+        ds_anime = allAnime;
         $("#anime_mua").text(ten_mua_anime);
         $("#anime_nam").text(nam_anime)
 
@@ -103,31 +101,23 @@ function TaoCauHoi() {
 
     // Tìm một anime có hình ảnh
 
-    let kt = 0;
-    let kt_loi;
     do {
-        try {
-            cau_hoi_anime = TaoSoNgauNhien(1, so_luong_anime);
-            kt_loi = ds_anime[cau_hoi_anime].images.webp.large_image_url;
-            kt = 1;
-        } catch (error) {
-            kt = 0;
-        }
-    } while ((kt == 0 || id_cau_hoi.includes(cau_hoi_anime)));
+        cau_hoi_anime = TaoSoNgauNhien(0, so_luong_anime);
+    } while (id_cau_hoi.includes(cau_hoi_anime));
 
     id_cau_hoi.push(cau_hoi_anime);
 
-    $("#anh_cau_hoi").attr('src', ds_anime[cau_hoi_anime].images.webp.large_image_url);
+    $("#anh_cau_hoi").attr('src', ds_anime[cau_hoi_anime].attributes.posterImage.large);
 
     dap_an_dung = TaoSoNgauNhien(1, 4);
 
-    $("#dap_an" + dap_an_dung).text(ds_anime[cau_hoi_anime].title);
+    $("#dap_an" + dap_an_dung).text(ds_anime[cau_hoi_anime].attributes.canonicalTitle);
 
     // Tạo một danh sách ngẫu nhiên của các đáp án (bao gồm cả đáp án đúng)
     let danh_sach_dap_an_ngau_nhien = [];
-    for (let i = 1; i < so_luong_anime; i++) {
+    for (let i = 0; i < so_luong_anime; i++) {
         if (i != cau_hoi_anime) {
-            danh_sach_dap_an_ngau_nhien.push(ds_anime[i].title);
+            danh_sach_dap_an_ngau_nhien.push(ds_anime[i].attributes.canonicalTitle);
         }
     }
     // Trộn ngẫu nhiên danh sách đáp án
