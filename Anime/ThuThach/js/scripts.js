@@ -177,7 +177,6 @@ function KetThucCauHoi() {
     $('[id^="dap_an"]').addClass("khung-trac-nghiem-fix");
     if (so_cau_hien_tai < 10) {
         setTimeout(function () {
-            $('[id^="dap_an"]').blur();
             TaoCauHoi();
             DapAn();
             DemThoiGian();
@@ -198,6 +197,7 @@ function DapAn() {
 
         if (dap_an_dung == so_phia_sau) {
             $(this).addClass("khung-trac-nghiem-dung");
+            $(this).blur();
             diem_so += Number(thoi_gian_con_lai) * 100;
             $("#diem_so").text(Number(diem_so));
         }
