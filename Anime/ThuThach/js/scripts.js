@@ -108,7 +108,7 @@ function TaoCauHoi() {
     do {
         try {
             cau_hoi_anime = TaoSoNgauNhien(1, so_luong_anime);
-            kt_loi = ds_anime[cau_hoi_anime].images.jpg.image_url;
+            kt_loi = ds_anime[cau_hoi_anime].images.webp.large_image_url;
             kt = 1;
         } catch (error) {
             kt = 0;
@@ -117,7 +117,7 @@ function TaoCauHoi() {
 
     id_cau_hoi.push(cau_hoi_anime);
 
-    $("#anh_cau_hoi").attr('src', ds_anime[cau_hoi_anime].images.jpg.image_url);
+    $("#anh_cau_hoi").attr('src', ds_anime[cau_hoi_anime].images.webp.large_image_url);
 
     dap_an_dung = TaoSoNgauNhien(1, 4);
 
@@ -170,7 +170,6 @@ function DemThoiGian() {
 
 function LoadAnh() {
     $("#anh_cau_hoi").on('load', function () {
-        DapAn();
         DemThoiGian();
     });
 }
@@ -183,6 +182,7 @@ function Chien() {
     so_cau_hien_tai = 0;
 
     TaoCauHoi();
+    DapAn();
     LoadAnh();
 }
 
@@ -203,6 +203,7 @@ function KetThucCauHoi() {
         setTimeout(function () {
             FixDapAnMobile();
             TaoCauHoi();
+            DapAn();
             LoadAnh();
         }, 3000); // 3000 milliseconds = 3 seconds
     }
