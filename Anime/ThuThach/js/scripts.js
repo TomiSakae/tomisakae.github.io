@@ -86,6 +86,7 @@ let so_cau_hien_tai = 0;
 let thoi_gian_con_lai = 15;
 let dem_tg;
 let diem_so = 0;
+let id_cau_hoi = [];
 function TaoCauHoi() {
     so_cau_hien_tai++;
     $("#cau_hoi_hien_tai").text(so_cau_hien_tai);
@@ -102,7 +103,9 @@ function TaoCauHoi() {
     // Tìm một anime có hình ảnh
     do {
         cau_hoi_anime = TaoSoNgauNhien(1, so_luong_anime);
-    } while (!ds_anime[cau_hoi_anime].images?.jpg?.image_url);
+    } while (ds_anime[cau_hoi_anime].images.jpg.image_url == undefined || id_cau_hoi.includes(cau_hoi_anime));
+
+    id_cau_hoi.push(cau_hoi_anime);
 
     $("#anh_cau_hoi").attr('src', ds_anime[cau_hoi_anime].images.jpg.image_url);
 
