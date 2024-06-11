@@ -8,7 +8,7 @@ let so_luong_anime = 0;
 $(document).ready(function () {
 
     let mua_anime = TaoSoNgauNhien(1, 4);
-    let nam_anime = TaoSoNgauNhien(2000, 2024);
+    let nam_anime = TaoSoNgauNhien(2010, 2024);
 
     if (nam_anime == 2024) {
         mua_anime = 1;
