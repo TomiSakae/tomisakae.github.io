@@ -101,9 +101,18 @@ function TaoCauHoi() {
     }
 
     // Tìm một anime có hình ảnh
+
+    let kt = 0;
+    let kt_loi;
     do {
-        cau_hoi_anime = TaoSoNgauNhien(1, so_luong_anime);
-    } while (ds_anime[cau_hoi_anime].images.jpg.image_url == undefined || id_cau_hoi.includes(cau_hoi_anime));
+        try {
+            cau_hoi_anime = TaoSoNgauNhien(1, so_luong_anime);
+            kt_loi = ds_anime[cau_hoi_anime].images.jpg.image_url;
+            kt = 1;
+        } catch (error) {
+            kt = 0;
+        }
+    } while ((kt == 0 || id_cau_hoi.includes(cau_hoi_anime)));
 
     id_cau_hoi.push(cau_hoi_anime);
 
@@ -205,7 +214,8 @@ function DapAn() {
             $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
 
         }
-        $(this).blur();
+        $(this).hide();
+        $(this).show();
         KetThucCauHoi();
         $('[id^="dap_an"]').unbind("click");
     });
