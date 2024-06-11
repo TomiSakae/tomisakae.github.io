@@ -180,12 +180,22 @@ function Chien() {
     DemThoiGian();
 }
 
+function FixDapAnMobile() {
+    $("#fix_mobile").html(`
+        <p id="dap_an1" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
+            <p id="dap_an2" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
+            <p id="dap_an3" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
+            <p id="dap_an4" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
+        `);
+}
+
 function KetThucCauHoi() {
     clearInterval(dem_tg); // Dừng đếm
     $('[id^="dap_an"]').removeClass("khung-trac-nghiem");
     $('[id^="dap_an"]').addClass("khung-trac-nghiem-fix");
     if (so_cau_hien_tai < 10) {
         setTimeout(function () {
+            FixDapAnMobile();
             TaoCauHoi();
             DapAn();
             DemThoiGian();
@@ -214,11 +224,6 @@ function DapAn() {
             $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
 
         }
-
-        $(this).blur();
-        $(this).hide().show(0);
-        // Đảm bảo phần tử mất focus
-        document.activeElement.blur();
 
         KetThucCauHoi();
         $('[id^="dap_an"]').unbind("click");
