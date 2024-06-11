@@ -82,8 +82,22 @@ $(document).ready(function () {
 });
 
 let dap_an_dung = 0;
+let so_cau_hien_tai = 0;
+let thoi_gian_con_lai = 15;
+let dem_tg;
+let diem_so = 0;
 function TaoCauHoi() {
+    so_cau_hien_tai++;
+    $("#cau_hoi_hien_tai").text(so_cau_hien_tai);
+    thoi_gian_con_lai = 15;
     let cau_hoi_anime;
+
+    if (so_cau_hien_tai > 1) {
+        $('[id^="dap_an"]').addClass("khung-trac-nghiem");
+        $('[id^="dap_an"]').removeClass("khung-trac-nghiem-fix");
+        $('[id^="dap_an"]').removeClass("khung-trac-nghiem-dung");
+        $('[id^="dap_an"]').removeClass("khung-trac-nghiem-sai");
+    }
 
     // Tìm một anime có hình ảnh
     do {
@@ -123,11 +137,16 @@ function TaoCauHoi() {
     }
 }
 
-let thoi_gian_con_lai = 15;
-let dem_tg;
+function QuayLai() {
+    window.location.href = "/";
+}
+
 function Chien() {
     $("#vung_choi").removeClass("d-none");
     $("#load").addClass("d-none");
+
+    diem_so = 0;
+    so_cau_hien_tai = 0;
 
     TaoCauHoi();
     DapAn();
@@ -153,9 +172,18 @@ function KetThucCauHoi() {
     clearInterval(dem_tg); // Dừng đếm
     $('[id^="dap_an"]').removeClass("khung-trac-nghiem");
     $('[id^="dap_an"]').addClass("khung-trac-nghiem-fix");
+    if (so_cau_hien_tai < 10) {
+        setTimeout(function () {
+            TaoCauHoi();
+            DapAn();
+        }, 3000); // 3000 milliseconds = 3 seconds
+    }
+    else {
+        $("#diem_so_cuoi").text(diem_so);
+        $("#ket_thuc_thu_thach").modal("show");
+    }
 }
 
-let diem_so = 0;
 function DapAn() {
     $('[id^="dap_an"]').click(function () {
         const id_phan_tu = $(this).attr("id");

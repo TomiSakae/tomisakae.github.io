@@ -27,11 +27,25 @@
         </div>
     </div>
 
-    <div id="load" class="vh-100 d-none d-flex justify-content-center align-items-center">
+    <div class="modal" id="ket_thuc_thu_thach">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="py-5 px-5 rounded text-center">
+                    <h5 class="mb-4">Chúc mừng bạn đã hoàn thành thử thách với số điểm là: <span
+                            id="diem_so_cuoi"></span></h5>
+                    <button type="button" class="btn btn-success text-end" data-bs-dismiss="modal"
+                        onclick="QuayLai()">Quay Lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="load" class="vh-100 d-flex justify-content-center align-items-center">
         <p>Đang tải dữ liệu Anime, vui lòng đợi...</p>
     </div>
 
-    <div id="vung_choi" class="vh-100 bg-primary d-flex flex-column justify-content-center align-items-center">
+    <div id="vung_choi" class="vh-100 d-none bg-primary d-flex flex-column justify-content-center align-items-center">
         <div class="text-white text-center">
             <h3>TomiSakae</h3>
             <h5>Trắc Nghiệm Anime Online</h5>
@@ -47,13 +61,13 @@
             </div>
             <div class="row mx-5">
                 <div class="col-5">
-                    <img id="anh_cau_hoi" src="https://cdn.myanimelist.net/images/anime/1758/141268.jpg">
+                    <img id="anh_cau_hoi" src="">
                 </div>
                 <div class="col-6 d-flex flex-column justify-content-center align-items-center text-center">
-                    <p id="dap_an1" class="khung-trac-nghiem py-2 px-3">Kono Subarashii Sekai ni Shukufuku wo! 3 </p>
-                    <p id="dap_an2" class="khung-trac-nghiem py-2 px-3">Kono Subarashii Sekai ni Shukufuku wo! 3 </p>
-                    <p id="dap_an3" class="khung-trac-nghiem py-2 px-3">Kono Subarashii Sekai ni Shukufuku wo! 3 </p>
-                    <p id="dap_an4" class="khung-trac-nghiem py-2 px-3">Kono Subarashii Sekai ni Shukufuku wo! 3 </p>
+                    <p id="dap_an1" class="khung-trac-nghiem py-2 px-3"></p>
+                    <p id="dap_an2" class="khung-trac-nghiem py-2 px-3"></p>
+                    <p id="dap_an3" class="khung-trac-nghiem py-2 px-3"></p>
+                    <p id="dap_an4" class="khung-trac-nghiem py-2 px-3"></p>
                 </div>
             </div>
         </div>
