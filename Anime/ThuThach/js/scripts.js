@@ -101,9 +101,17 @@ function TaoCauHoi() {
 
     // Tìm một anime có hình ảnh
 
+    let kt = 0;
+    let kt_loi;
     do {
-        cau_hoi_anime = TaoSoNgauNhien(0, so_luong_anime);
-    } while (id_cau_hoi.includes(cau_hoi_anime));
+        try {
+            cau_hoi_anime = TaoSoNgauNhien(0, so_luong_anime);
+            kt_loi = ds_anime[cau_hoi_anime].attributes.posterImage.large;
+            kt = 1;
+        } catch (error) {
+            kt = 0;
+        }
+    } while ((kt == 0 || id_cau_hoi.includes(cau_hoi_anime)));
 
     id_cau_hoi.push(cau_hoi_anime);
 
