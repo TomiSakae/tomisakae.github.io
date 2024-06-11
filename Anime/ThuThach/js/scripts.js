@@ -214,10 +214,15 @@ function DapAn() {
             $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
 
         }
-        $(this).hide();
-        $(this).show();
+        // Blur phần tử và ép buộc vẽ lại
+        $(this).blur();
+        $(this).hide().show(0);
+
+        // Đảm bảo phần tử mất focus
+        document.activeElement.blur();
+
         KetThucCauHoi();
-        $('[id^="dap_an"]').unbind("click");
+        $('[id^="dap_an"]').off("click");
     });
 }
 
