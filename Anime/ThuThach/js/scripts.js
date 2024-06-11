@@ -90,7 +90,8 @@ let id_cau_hoi = [];
 function TaoCauHoi() {
     so_cau_hien_tai++;
     $("#cau_hoi_hien_tai").text(so_cau_hien_tai);
-    thoi_gian_con_lai = 16;
+    thoi_gian_con_lai = 15;
+    $("#thoi_gian_con_lai").text(thoi_gian_con_lai);
     let cau_hoi_anime;
 
     if (so_cau_hien_tai > 1) {
@@ -154,6 +155,7 @@ function QuayLai() {
 }
 
 function DemThoiGian() {
+    clearInterval(dem_tg);
     dem_tg = setInterval(function () {
         thoi_gian_con_lai--; // Giảm thời gian còn lại mỗi giây
         $("#thoi_gian_con_lai").text(thoi_gian_con_lai);
@@ -166,6 +168,13 @@ function DemThoiGian() {
     }, 1000); // Đếm mỗi 1 giây
 }
 
+function LoadAnh() {
+    $("#anh_cau_hoi").on('load', function () {
+        DapAn();
+        DemThoiGian();
+    });
+}
+
 function Chien() {
     $("#vung_choi").removeClass("d-none");
     $("#load").addClass("d-none");
@@ -174,10 +183,7 @@ function Chien() {
     so_cau_hien_tai = 0;
 
     TaoCauHoi();
-    DapAn();
-
-    // Gọi hàm để đếm thời gian
-    DemThoiGian();
+    LoadAnh();
 }
 
 function FixDapAnMobile() {
@@ -197,8 +203,7 @@ function KetThucCauHoi() {
         setTimeout(function () {
             FixDapAnMobile();
             TaoCauHoi();
-            DapAn();
-            DemThoiGian();
+            LoadAnh();
         }, 3000); // 3000 milliseconds = 3 seconds
     }
     else {
