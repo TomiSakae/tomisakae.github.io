@@ -1,10 +1,11 @@
+function TaoSoNgauNhien(x, y) {
+    let so_ngau_nhien = Math.floor(Math.random() * (y - x + 1)) + x;
+    return so_ngau_nhien;
+}
 
+let ds_anime = [];
+let so_luong_anime = 0;
 $(document).ready(function () {
-
-    function TaoSoNgauNhien(x, y) {
-        let so_ngau_nhien = Math.floor(Math.random() * (y - x + 1)) + x;
-        return so_ngau_nhien;
-    }
 
     let mua_anime = TaoSoNgauNhien(1, 4);
     let nam_anime = TaoSoNgauNhien(2000, 2024);
@@ -39,9 +40,8 @@ $(document).ready(function () {
 
         try {
             let danh_sach_anime = [];
-            let so_luong_anime = 0;
 
-            for (let page = 1; page <= 4; page++) {
+            for (let page = 1; page <= 1; page++) {
                 const response = await fetch(`${url}?page=${page}`);
                 const data = await response.json();
 
@@ -64,8 +64,9 @@ $(document).ready(function () {
 
             anime_TV_moi.forEach(anime => {
                 so_luong_anime++;
-                console.log(anime.title);
             });
+
+            ds_anime = anime_TV_moi;
             console.log('Số lượng anime: ' + so_luong_anime);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -80,7 +81,100 @@ $(document).ready(function () {
     TimAnime();
 });
 
+let dap_an_dung = 0;
+function TaoCauHoi() {
+    let cau_hoi_anime;
+
+    // Tìm một anime có hình ảnh
+    do {
+        cau_hoi_anime = TaoSoNgauNhien(1, so_luong_anime);
+    } while (!ds_anime[cau_hoi_anime].images?.jpg?.image_url);
+
+    $("#anh_cau_hoi").attr('src', ds_anime[cau_hoi_anime].images.jpg.image_url);
+
+    dap_an_dung = TaoSoNgauNhien(1, 4);
+
+    $("#dap_an" + dap_an_dung).text(ds_anime[cau_hoi_anime].title);
+
+    // Tạo một danh sách ngẫu nhiên của các đáp án (bao gồm cả đáp án đúng)
+    let danh_sach_dap_an_ngau_nhien = [];
+    for (let i = 1; i < so_luong_anime; i++) {
+        if (i != cau_hoi_anime) {
+            danh_sach_dap_an_ngau_nhien.push(ds_anime[i].title);
+        }
+    }
+    // Trộn ngẫu nhiên danh sách đáp án
+    danh_sach_dap_an_ngau_nhien = shuffleArray(danh_sach_dap_an_ngau_nhien);
+
+    // Đặt các đáp án còn lại từ danh sách đã được trộn
+    for (let i = 1; i <= 4; i++) {
+        if (i != dap_an_dung) {
+            $("#dap_an" + i).text(danh_sach_dap_an_ngau_nhien.pop());
+        }
+    }
+
+    // Hàm để trộn ngẫu nhiên một mảng
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+}
+
+let thoi_gian_con_lai = 15;
+let dem_tg;
 function Chien() {
     $("#vung_choi").removeClass("d-none");
     $("#load").addClass("d-none");
+
+    TaoCauHoi();
+    DapAn();
+
+    function DemThoiGian() {
+        dem_tg = setInterval(function () {
+            thoi_gian_con_lai--; // Giảm thời gian còn lại mỗi giây
+            $("#thoi_gian_con_lai").text(thoi_gian_con_lai);
+            if (thoi_gian_con_lai <= 0) { // Nếu hết thời gian
+                $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
+                KetThucCauHoi();
+                // Bỏ sự kiện click
+                $('[id^="dap_an"]').unbind("click");
+            }
+        }, 1000); // Đếm mỗi 1 giây
+    }
+
+    // Gọi hàm để đếm thời gian
+    DemThoiGian();
 }
+
+function KetThucCauHoi() {
+    clearInterval(dem_tg); // Dừng đếm
+    $('[id^="dap_an"]').removeClass("khung-trac-nghiem");
+    $('[id^="dap_an"]').addClass("khung-trac-nghiem-fix");
+}
+
+let diem_so = 0;
+function DapAn() {
+    $('[id^="dap_an"]').click(function () {
+        const id_phan_tu = $(this).attr("id");
+
+        // Sử dụng biểu thức chính quy để trích xuất số từ id
+        const so_phia_sau = id_phan_tu.match(/\d+$/);
+
+        if (dap_an_dung == so_phia_sau) {
+            $(this).addClass("khung-trac-nghiem-dung");
+            diem_so += Number(thoi_gian_con_lai) * 100;
+            $("#diem_so").text(Number(diem_so));
+        }
+        else {
+            $(this).addClass("khung-trac-nghiem-sai");
+            $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
+
+        }
+        KetThucCauHoi();
+        $('[id^="dap_an"]').unbind("click");
+    });
+}
+

@@ -1,0 +1,36 @@
+.khung-trac-nghiem {
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.khung-trac-nghiem-fix {
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.khung-trac-nghiem-dung {
+    background-color: #198754;
+    color: white;
+    border-color: #198754;
+    border-radius: 15px;
+}
+
+.khung-trac-nghiem-sai {
+    background-color: #DC3545;
+    color: white;
+    border-color: #DC3545;
+    border-radius: 15px;
+}
+
+.khung-trac-nghiem:hover {
+    background-color: #198754;
+    color: white;
+    cursor: pointer;
+    border-color: #198754;
+}
+
+.nav-thong-tin {
+    background-color: black;
+}

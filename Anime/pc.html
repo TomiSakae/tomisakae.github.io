@@ -27,23 +27,33 @@
         </div>
     </div>
 
-    <div id="load" class="vh-100 d-flex justify-content-center align-items-center">
+    <div id="load" class="vh-100 d-none d-flex justify-content-center align-items-center">
         <p>Đang tải dữ liệu Anime, vui lòng đợi...</p>
     </div>
 
-    <div id="vung_choi" class="vh-100 d-none bg-primary d-flex flex-column justify-content-center align-items-center">
+    <div id="vung_choi" class="vh-100 bg-primary d-flex flex-column justify-content-center align-items-center">
         <div class="text-white text-center">
             <h3>TomiSakae</h3>
             <h5>Trắc Nghiệm Anime Online</h5>
         </div>
-        <div class="vung-dang-nhap-pc d-flex justify-content-center align-items-center">
-            <div class="text-center">
-                <h5 class="mb-2">THỬ THÁCH</h5>
-                <p class="mb-4">Vui lòng chọn chế độ chơi</p>
-                <p id="chon_che_do" class="che-do-choi py-2 px-3 d-inline-block">Cơ Bản</p>
-                <div class="d-flex flex-column justify-content-center align-items-center mt-2">
-                    <button id="nut_bat_dau" type="button" class="btn btn-outline-primary nut-choi-pc rounded mb-3"
-                        onclick="BatDau()" data-bs-toggle="modal" data-bs-target="#kt_che_do">Bắt Đầu</button>
+        <div class="vung-dang-nhap-pc d-flex flex-column">
+            <div class="nav-thong-tin px-5 py-2 d-flex text-white justify-content-between">
+                <span class="h5 mt-1">Thời gian còn lại: <span id="thoi_gian_con_lai">15</span></span>
+                <span class="h5 mt-1">Số điểm: <span id="diem_so">0</span></span>
+            </div>
+            <div class="text-center mt-3">
+                <h5 class="mb-2">CHẾ ĐỘ CƠ BẢN</h5>
+                <p class="mb-4">Câu <span id="cau_hoi_hien_tai">1</span>/10:</p>
+            </div>
+            <div class="row mx-5">
+                <div class="col-5">
+                    <img id="anh_cau_hoi" src="https://cdn.myanimelist.net/images/anime/1758/141268.jpg">
+                </div>
+                <div class="col-6 d-flex flex-column justify-content-center align-items-center text-center">
+                    <p id="dap_an1" class="khung-trac-nghiem py-2 px-3">Kono Subarashii Sekai ni Shukufuku wo! 3 </p>
+                    <p id="dap_an2" class="khung-trac-nghiem py-2 px-3">Kono Subarashii Sekai ni Shukufuku wo! 3 </p>
+                    <p id="dap_an3" class="khung-trac-nghiem py-2 px-3">Kono Subarashii Sekai ni Shukufuku wo! 3 </p>
+                    <p id="dap_an4" class="khung-trac-nghiem py-2 px-3">Kono Subarashii Sekai ni Shukufuku wo! 3 </p>
                 </div>
             </div>
         </div>
