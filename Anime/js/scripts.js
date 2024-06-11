@@ -89,7 +89,7 @@ let diem_so = 0;
 function TaoCauHoi() {
     so_cau_hien_tai++;
     $("#cau_hoi_hien_tai").text(so_cau_hien_tai);
-    thoi_gian_con_lai = 15;
+    thoi_gian_con_lai = 16;
     let cau_hoi_anime;
 
     if (so_cau_hien_tai > 1) {
@@ -141,6 +141,19 @@ function QuayLai() {
     window.location.href = "/";
 }
 
+function DemThoiGian() {
+    dem_tg = setInterval(function () {
+        thoi_gian_con_lai--; // Giảm thời gian còn lại mỗi giây
+        $("#thoi_gian_con_lai").text(thoi_gian_con_lai);
+        if (thoi_gian_con_lai <= 0) { // Nếu hết thời gian
+            $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
+            KetThucCauHoi();
+            // Bỏ sự kiện click
+            $('[id^="dap_an"]').unbind("click");
+        }
+    }, 1000); // Đếm mỗi 1 giây
+}
+
 function Chien() {
     $("#vung_choi").removeClass("d-none");
     $("#load").addClass("d-none");
@@ -150,19 +163,6 @@ function Chien() {
 
     TaoCauHoi();
     DapAn();
-
-    function DemThoiGian() {
-        dem_tg = setInterval(function () {
-            thoi_gian_con_lai--; // Giảm thời gian còn lại mỗi giây
-            $("#thoi_gian_con_lai").text(thoi_gian_con_lai);
-            if (thoi_gian_con_lai <= 0) { // Nếu hết thời gian
-                $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
-                KetThucCauHoi();
-                // Bỏ sự kiện click
-                $('[id^="dap_an"]').unbind("click");
-            }
-        }, 1000); // Đếm mỗi 1 giây
-    }
 
     // Gọi hàm để đếm thời gian
     DemThoiGian();
@@ -176,6 +176,7 @@ function KetThucCauHoi() {
         setTimeout(function () {
             TaoCauHoi();
             DapAn();
+            DemThoiGian();
         }, 3000); // 3000 milliseconds = 3 seconds
     }
     else {
