@@ -1,0 +1,19 @@
+.che-do-choi {
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.che-do-choi:hover {
+    background-color: #198754;
+    color: white;
+    cursor: pointer;
+    border-color: #198754;
+}
+
+.che-do-choi-chon {
+    background-color: #198754;
+    color: white;
+    border: 1px solid #198754;
+    border-radius: 15px;
+}

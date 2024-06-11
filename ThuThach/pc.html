@@ -7,10 +7,25 @@
     <title>TomiSakae</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../css/styles.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
+
+    <!-- The Modal -->
+    <div class="modal" id="kt_che_do">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="py-5 px-5 rounded text-center">
+                    <h5 class="mb-4">Vui lòng chọn chế độ chơi!</h5>
+                    <button type="button" class="btn btn-danger text-end" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="vh-100 bg-primary d-flex flex-column justify-content-center align-items-center">
         <div class="text-white text-center">
             <h3>TomiSakae</h3>
@@ -18,13 +33,12 @@
         </div>
         <div class="vung-dang-nhap-pc d-flex justify-content-center align-items-center">
             <div class="text-center">
-                <h5 class="mb-4">CHƠI NGAY</h5>
-                <input type="text" class="form-control nhap-ten-pc mb-4" id="ten_nguoi_choi"
-                    placeholder="Vui lòng nhập tên người chơi..." name="ten_nguoi_choi">
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                    <a href="ThuThach/pc.html" class="btn btn-outline-primary nut-choi-pc rounded mb-3">Thử Thách</a>
-                    <button type="button" class="btn btn-outline-primary nut-choi-pc rounded mb-3">Ghép Đấu</button>
-                    <button type="button" class="btn btn-outline-primary nut-choi-pc rounded mb-3">Vào Phòng</button>
+                <h5 class="mb-2">THỬ THÁCH</h5>
+                <p class="mb-4">Vui lòng chọn chế độ chơi</p>
+                <p id="chon_che_do" class="che-do-choi py-2 px-3 d-inline-block">Cơ Bản</p>
+                <div class="d-flex flex-column justify-content-center align-items-center mt-2">
+                    <button id="nut_bat_dau" type="button" class="btn btn-outline-primary nut-choi-pc rounded mb-3"
+                        onclick="BatDau()" data-bs-toggle="modal" data-bs-target="#kt_che_do">Bắt Đầu</button>
                 </div>
             </div>
         </div>
@@ -35,6 +49,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
