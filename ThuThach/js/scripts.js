@@ -1,7 +1,7 @@
 let kt_che_do = 0;
 function BatDau() {
     if (kt_che_do != 0) {
-        window.location.href = "Anime/pc.html";
+        window.location.href = "../Anime/pc.html";
     }
 }
 
