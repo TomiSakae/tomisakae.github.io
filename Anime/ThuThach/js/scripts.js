@@ -81,14 +81,14 @@ $(document).ready(function () {
 
 let dap_an_dung = 0;
 let so_cau_hien_tai = 0;
-let thoi_gian_con_lai = 15;
+let thoi_gian_con_lai = 30;
 let dem_tg;
 let diem_so = 0;
 let id_cau_hoi = [];
 function TaoCauHoi() {
     so_cau_hien_tai++;
     $("#cau_hoi_hien_tai").text(so_cau_hien_tai);
-    thoi_gian_con_lai = 15;
+    thoi_gian_con_lai = 30;
     $("#thoi_gian_con_lai").text(thoi_gian_con_lai);
     let cau_hoi_anime;
 
