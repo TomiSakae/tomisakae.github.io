@@ -4,11 +4,11 @@ function BatDau() {
         let width = $(window).width();
 
         if (width <= 768) {
-            window.location.href = "../Anime/ThuThach/mobile.html";
+            window.location.href = "../Anime/ThuThachCoBan/mobile.html";
         }
 
         if (width > 768) {
-            window.location.href = "../Anime/ThuThach/pc.html";
+            window.location.href = "../Anime/ThuThachCoBan/pc.html";
         }
     }
 }
