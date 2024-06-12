@@ -113,11 +113,18 @@
     border-radius: 5px;
     /* Bo góc */
     width: 100%;
+}
+
+.do-dai-tien-trinh-mobile {
+    height: 3%;
+}
+
+.do-dai-tien-trinh-pc {
     height: 5%;
 }
 
 #progress-bar {
-    height: 35px;
+    height: 100%;
     /* Chiều cao của thanh tiến trình */
     width: 0%;
     /* Bắt đầu từ 0% */
