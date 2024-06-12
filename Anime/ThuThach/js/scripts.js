@@ -117,6 +117,8 @@ function TaoCauHoi() {
 
     $("#anh_cau_hoi").attr('src', ds_anime[cau_hoi_anime].attributes.posterImage.large);
 
+    $("#anh_cau_hoi").addClass("d-none");
+
     dap_an_dung = TaoSoNgauNhien(1, 4);
 
     $("#dap_an" + dap_an_dung).text(ds_anime[cau_hoi_anime].attributes.canonicalTitle);
@@ -169,6 +171,9 @@ function DemThoiGian() {
 function LoadAnh() {
     $("#anh_cau_hoi").on('load', function () {
         DemThoiGian();
+        $("#load_anh").removeClass("d-none");
+        $("#fix_mobile").removeClass("d-none");
+        $("#anh_cau_hoi").removeClass("d-none");
     });
 }
 
@@ -199,7 +204,9 @@ function KetThucCauHoi() {
     $('[id^="dap_an"]').addClass("khung-trac-nghiem-fix");
     if (so_cau_hien_tai < 10) {
         setTimeout(function () {
+            $("#load_anh").addClass("d-none");
             FixDapAnMobile();
+            $("#fix_mobile").addClass("d-none");
             TaoCauHoi();
             DapAn();
             LoadAnh();
