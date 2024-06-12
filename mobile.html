@@ -11,20 +11,41 @@
 </head>
 
 <body>
+
+    <!-- The Modal -->
+    <div class="modal" id="kt_tai_khoan">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="py-4 px-4 rounded text-center">
+                    <h6>Không đăng nhập sẽ không thể mở khóa các tính năng khác của web!</h6>
+                    <div class="mt-4 d-flex justify-content-between align-items-center">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="">Đăng
+                            Nhập</button>
+                        <a href="ThuThach/mobile.html" class="btn btn-success">Tiếp
+                            Tục</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="vh-100 bg-primary d-flex flex-column justify-content-center align-items-center">
         <div class="text-white text-center">
             <h3>TomiSakae</h3>
             <h5>Trắc Nghiệm Anime Online</h5>
         </div>
-        <div class="vung-dang-nhap-mobile d-flex justify-content-center align-items-center">
+        <div class="vung-dang-nhap-mobile d-flex flex-column justify-content-center align-items-center">
             <div class="text-center">
                 <h6 class="mb-4">CHƠI NGAY</h6>
-                <input type="text" class="form-control nhap-ten-mobile mb-4" id="ten_nguoi_choi"
-                    placeholder="Nhập tên người chơi..." name="ten_nguoi_choi">
             </div>
+            <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3">Đăng
+                Nhập</button>
+            <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3">Đăng Ký</button>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center">
-            <a href="ThuThach/mobile.html" class="btn btn-light nut-choi-mobile rounded mt-3 mb-3">Thử Thách</a>
+            <button type="button" class="btn btn-light nut-choi-mobile rounded mt-3" data-bs-toggle="modal"
+                data-bs-target="#kt_tai_khoan">Thử Thách</button>
         </div>
     </div>
 
