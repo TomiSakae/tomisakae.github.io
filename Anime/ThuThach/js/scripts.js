@@ -206,6 +206,7 @@ function KetThucCauHoi() {
     $('[id^="dap_an"]').addClass("khung-trac-nghiem-fix");
     if (so_cau_hien_tai < 10) {
         setTimeout(function () {
+            $("#phong_to_anh").modal("hide");
             $("#load_anh").addClass("d-none");
             FixDapAnMobile();
             $("#fix_mobile").addClass("d-none");
@@ -245,3 +246,9 @@ function DapAn() {
     });
 }
 
+
+$("#anh_cau_hoi").click(function () {
+    let src = $(this).attr("src");
+    $("#phong_to_anh").modal("show");
+    $("#anh_phong_to").attr("src", src);
+});
