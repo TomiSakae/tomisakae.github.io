@@ -40,13 +40,26 @@ $(document).ready(function () {
         let seenIds = new Set();
         let url = 'https://kitsu.io/api/edge/anime?filter[season]=' + tim_mua_anime + '&filter[seasonYear]=' + nam_anime + '&page[limit]=20';
         let nextPage = true;
+        let pageCount = 0;
+        let totalItems = 0; // Số lượng mục tổng cộng
+        let so_luong_anime_goc = 0;
+
+        // Hiển thị thanh tiến trình
+        $("#progress-container").show();
 
         while (nextPage) {
             try {
                 const response = await fetch(url);
                 const data = await response.json();
+                pageCount++;
+
+                if (pageCount === 1) {
+                    // Giả sử API trả về số lượng mục tổng cộng trong lần gọi đầu tiên
+                    totalItems = data.meta.count;
+                }
 
                 data.data.forEach(anime => {
+                    so_luong_anime_goc++;
                     const { id, attributes } = anime;
                     const { subtype, ageRating, userCount } = attributes;
 
@@ -56,6 +69,11 @@ $(document).ready(function () {
                         so_luong_anime++;
                     }
                 });
+
+                // Cập nhật thanh tiến trình
+                const progressPercent = Math.min((so_luong_anime_goc / totalItems) * 100, 100); // Tính phần trăm tiến trình
+                $("#progress-bar").css('width', progressPercent + '%').attr('aria-valuenow', progressPercent);
+                $("#phan_tram_load").text(Math.round(progressPercent) + '%');
 
                 // Kiểm tra xem có trang tiếp theo hay không
                 if (data.links && data.links.next) {
