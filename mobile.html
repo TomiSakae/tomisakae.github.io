@@ -13,6 +13,71 @@
 <body>
 
     <!-- The Modal -->
+    <div class="modal" id="dang_ky">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="py-5 px-5 text-center">
+                    <h5>ĐĂNG KÝ</h5>
+                    <p class="small">Vui lòng điền thông tin để đăng ký tài khoản</p>
+                    <div class="form-floating mb-3 mt-3">
+                        <input type="text" class="form-control rounded" id="ten_nguoi_dung"
+                            placeholder="Nhập tên người dùng" name="ten_nguoi_dung" required>
+                        <label for="ten_nguoi_dung">Tên người dùng</label>
+                        <p class="d-none text-danger text-start mx-1 mt-1">Tên người dùng đã tồn tại!</p>
+                    </div>
+
+                    <div class="form-floating mb-3 mt-3">
+                        <input type="email" class="form-control rounded" id="email" placeholder="Nhập email"
+                            name="email" required>
+                        <label for="email">Email</label>
+                        <p class="d-none text-danger text-start mx-1 mt-1">Địa chỉ email không hợp lệ!</p>
+                    </div>
+
+                    <div class="form-floating mt-3 mb-3">
+                        <input type="password" class="form-control rounded" id="mat_khau" placeholder="Nhập mật khẩu"
+                            name="mat_khau" required>
+                        <label for="mat_khau">Mật khẩu</label>
+                        <p class="d-none text-danger text-start mx-1 mt-1">Mật khẩu phải từ 6 ký tự trở lên!</p>
+                    </div>
+
+                    <button type="button" class="btn btn-success mt-2" onclick="">Đăng
+                        Ký</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="dang_nhap">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="py-5 px-5 text-center">
+                    <h5>ĐĂNG NHẬP</h5>
+                    <p class="small">Vui lòng điền thông tin để đăng nhập tài khoản</p>
+                    <div class="form-floating mb-3 mt-3">
+                        <input type="email" class="form-control rounded" id="email" placeholder="Nhập email"
+                            name="email" required>
+                        <label for="email">Email</label>
+                        <p class="d-none text-danger text-start mx-1 mt-1">Địa chỉ email không hợp lệ!</p>
+                    </div>
+
+                    <div class="form-floating mt-3 mb-3">
+                        <input type="password" class="form-control rounded" id="mat_khau" placeholder="Nhập mật khẩu"
+                            name="mat_khau" required>
+                        <label for="mat_khau">Mật khẩu</label>
+                        <p class="d-none text-danger text-start mx-1 mt-1">Mật khẩu phải từ 6 ký tự trở lên!</p>
+                    </div>
+
+                    <button type="button" class="btn btn-success mt-2" onclick="">Đăng
+                        Nhập</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
     <div class="modal" id="kt_tai_khoan">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -20,8 +85,8 @@
                 <div class="py-4 px-4 rounded text-center">
                     <h6>Không đăng nhập sẽ không thể mở khóa các tính năng khác của web!</h6>
                     <div class="mt-4 d-flex justify-content-between align-items-center">
-                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="">Đăng
-                            Nhập</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Quay
+                            Lại</button>
                         <a href="ThuThach/mobile.html" class="btn btn-success">Tiếp
                             Tục</a>
                     </div>
@@ -39,9 +104,11 @@
             <div class="text-center">
                 <h6 class="mb-4">CHƠI NGAY</h6>
             </div>
-            <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3">Đăng
+            <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3"
+                data-bs-toggle="modal" data-bs-target="#dang_nhap">Đăng
                 Nhập</button>
-            <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3">Đăng Ký</button>
+            <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3"
+                data-bs-toggle="modal" data-bs-target="#dang_ky">Đăng Ký</button>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center">
             <button type="button" class="btn btn-light nut-choi-mobile rounded mt-3" data-bs-toggle="modal"
