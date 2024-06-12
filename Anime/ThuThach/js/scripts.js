@@ -171,6 +171,8 @@ function DemThoiGian() {
 function LoadAnh() {
     $("#anh_cau_hoi").on('load', function () {
         DemThoiGian();
+        $("#tai_cau_hoi").addClass("d-none");
+        $("#tai_xong_cau_hoi").removeClass("d-none");
         $("#load_anh").removeClass("d-none");
         $("#fix_mobile").removeClass("d-none");
         $("#anh_cau_hoi").removeClass("d-none");
@@ -207,6 +209,8 @@ function KetThucCauHoi() {
             $("#load_anh").addClass("d-none");
             FixDapAnMobile();
             $("#fix_mobile").addClass("d-none");
+            $("#tai_cau_hoi").removeClass("d-none");
+            $("#tai_xong_cau_hoi").addClass("d-none");
             TaoCauHoi();
             DapAn();
             LoadAnh();
