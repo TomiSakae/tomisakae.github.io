@@ -21,27 +21,35 @@
                     <h5>ĐĂNG KÝ</h5>
                     <p class="small">Vui lòng điền thông tin để đăng ký tài khoản</p>
                     <div class="form-floating mb-3 mt-3">
-                        <input type="text" class="form-control rounded" id="ten_nguoi_dung"
-                            placeholder="Nhập tên người dùng" name="ten_nguoi_dung" required>
-                        <label for="ten_nguoi_dung">Tên người dùng</label>
-                        <p class="d-none text-danger text-start mx-1 mt-1">Tên người dùng đã tồn tại!</p>
+                        <input type="text" class="form-control rounded" id="ten_nguoi_dung_dk"
+                            placeholder="Nhập tên người dùng" name="ten_nguoi_dung_dk" required>
+                        <label for="ten_nguoi_dung_dk">Tên người dùng</label>
+                        <p id="kt_ten_nguoi_dung_dk" class="small d-none text-danger text-start mx-1 mt-1">Tên người
+                            không
+                            được bỏ trống!
+                        </p>
                     </div>
 
                     <div class="form-floating mb-3 mt-3">
-                        <input type="email" class="form-control rounded" id="email" placeholder="Nhập email"
-                            name="email" required>
-                        <label for="email">Email</label>
-                        <p class="d-none text-danger text-start mx-1 mt-1">Địa chỉ email không hợp lệ!</p>
+                        <input type="email" class="form-control rounded" id="email_dk" placeholder="Nhập email"
+                            name="email_dk" required>
+                        <label for="email_dk">Email</label>
+                        <p id="kt_email_dk" class="small d-none text-danger text-start mx-1 mt-1">Địa chỉ email không
+                            hợp lệ!
+                        </p>
                     </div>
 
                     <div class="form-floating mt-3 mb-3">
-                        <input type="password" class="form-control rounded" id="mat_khau" placeholder="Nhập mật khẩu"
-                            name="mat_khau" required>
-                        <label for="mat_khau">Mật khẩu</label>
-                        <p class="d-none text-danger text-start mx-1 mt-1">Mật khẩu phải từ 6 ký tự trở lên!</p>
+                        <input type="password" class="form-control rounded" id="mat_khau_dk" placeholder="Nhập mật khẩu"
+                            name="mat_khau_dk" required>
+                        <label for="mat_khau_dk">Mật khẩu</label>
+                        <p id="kt_mat_khau_dk" class="small d-none text-danger text-start mx-1 mt-1">Mật khẩu phải từ 6
+                            ký tự
+                            trở lên!
+                        </p>
                     </div>
 
-                    <button type="button" class="btn btn-success mt-2" onclick="">Đăng
+                    <button type="button" class="btn btn-success mt-2" onclick="DangKy()">Đăng
                         Ký</button>
                 </div>
             </div>
@@ -57,20 +65,25 @@
                     <h5>ĐĂNG NHẬP</h5>
                     <p class="small">Vui lòng điền thông tin để đăng nhập tài khoản</p>
                     <div class="form-floating mb-3 mt-3">
-                        <input type="email" class="form-control rounded" id="email" placeholder="Nhập email"
-                            name="email" required>
-                        <label for="email">Email</label>
-                        <p class="d-none text-danger text-start mx-1 mt-1">Địa chỉ email không hợp lệ!</p>
+                        <input type="email" class="form-control rounded" id="email_dn" placeholder="Nhập email"
+                            name="email_dn" required>
+                        <label for="email_dn">Email</label>
+                        <p id="kt_email_dn" class="small d-none text-danger text-start mx-1 mt-1">Địa chỉ email không
+                            hợp lệ!
+                        </p>
                     </div>
 
                     <div class="form-floating mt-3 mb-3">
-                        <input type="password" class="form-control rounded" id="mat_khau" placeholder="Nhập mật khẩu"
-                            name="mat_khau" required>
-                        <label for="mat_khau">Mật khẩu</label>
-                        <p class="d-none text-danger text-start mx-1 mt-1">Mật khẩu phải từ 6 ký tự trở lên!</p>
+                        <input type="password" class="form-control rounded" id="mat_khau_dn" placeholder="Nhập mật khẩu"
+                            name="mat_khau_dn" required>
+                        <label for="mat_khau_dn">Mật khẩu</label>
+                        <p id="kt_mat_khau_dn" class="small d-none text-danger text-start mx-1 mt-1">Mật khẩu phải từ 6
+                            ký tự
+                            trở lên!
+                        </p>
                     </div>
 
-                    <button type="button" class="btn btn-success mt-2" onclick="">Đăng
+                    <button type="button" class="btn btn-success mt-2" onclick="DangNhap()">Đăng
                         Nhập</button>
                 </div>
             </div>
@@ -121,6 +134,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>
