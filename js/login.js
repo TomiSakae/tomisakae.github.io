@@ -142,7 +142,7 @@ function DangKy() {
         kt_mat_khau_dk = false;
     }
 
-    if ($("#mat_khau_xn_dk").val() != $("#mat_khau_dk").val()) {
+    if ($("#mat_khau_xn_dk").val() != $("#mat_khau_dk").val() || $("#mat_khau_xn_dk").val().length == 0) {
         $("#kt_mat_khau_xn_dk").removeClass("d-none");
         $("#mat_khau_xn_dk").addClass("border-danger");
         $("#mat_khau_xn_dk").removeClass("border-success");
