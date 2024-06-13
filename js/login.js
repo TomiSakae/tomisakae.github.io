@@ -24,6 +24,9 @@ $(function () {
         let email = $(this).val();
         let dinh_dang_email = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
+        $("#kt_tai_khoan_dn").addClass("d-none");
+        $("#kt_tai_khoan_dk").addClass("d-none");
+
         if (dinh_dang_email.test(email)) {
             $("#kt_email_" + suffix).addClass("d-none");
             $(this).addClass("border-success");
@@ -53,6 +56,8 @@ $(function () {
         // Trích xuất phần sau tiền tố "mat_khau_"
         let suffix = id.split('mat_khau_')[1];
         let mat_khau = $(this).val();
+
+        $("#kt_tai_khoan_dn").addClass("d-none");
 
         if (mat_khau.length >= 6) {
             $("#kt_mat_khau_" + suffix).addClass("d-none");
@@ -126,18 +131,21 @@ function DangKy() {
             .then(function (userCredential) {
                 let user = userCredential.user;
 
+                $("#dang_ky").modal("hide");
                 // Add user info to Firestore
                 return db.collection('users').doc(user.uid).set({
-                    username: $("#ten_nguoi_dung_dk").val(),
+                    ten_nguoi_dung: $("#ten_nguoi_dung_dk").val(),
                     email: $("#email_dk").val(),
-                    created_at: firebase.firestore.FieldValue.serverTimestamp()
+                    ngay_tao: firebase.firestore.FieldValue.serverTimestamp()
                 });
             })
             .then(function () {
-                console.log('User registered and data saved to Firestore');
+
             })
             .catch(function (error) {
-                console.error('Error registering user:', error.message);
+                $("#kt_tai_khoan_dk").removeClass("d-none");
+                $("#email_dk").addClass("border-danger");
+                $("#email_dk").removeClass("border-success");
             });
     }
 }
@@ -160,10 +168,14 @@ function DangNhap() {
     if (kt_email_dn == true && kt_mat_khau_dn == true) {
         auth.signInWithEmailAndPassword($("#email_dn").val(), $("#mat_khau_dn").val())
             .then(function (userCredential) {
-                console.log('User logged in');
+                $("#dang_nhap").modal("hide");
             })
             .catch(function (error) {
-                console.error('Error logging in user:', error.message);
+                $("#kt_tai_khoan_dn").removeClass("d-none");
+                $("#email_dn").addClass("border-danger");
+                $("#email_dn").removeClass("border-success");
+                $("#mat_khau_dn").addClass("border-danger");
+                $("#mat_khau_dn").removeClass("border-success");
             });
     }
 }
