@@ -4,6 +4,17 @@ let kt_ten_nguoi_dung_dk = false;
 let kt_mat_khau_dn = false;
 let kt_email_dn = false;
 
+// TODO: Replace the following with your app's Firebase project configuration
+// See: https://support.google.com/firebase/answer/7015592
+const firebaseConfig = {
+    apiKey: "AIzaSyCiFEJKubhDIZFdyB3yrPON0tLN0K4kWy4", authDomain: "tomisakae-c078f.firebaseapp.com", projectId: "tomisakae-c078f", storageBucket: "tomisakae-c078f.appspot.com", messagingSenderId: "1082522587085", appId: "1:1082522587085:web:29731e199f944171f8fe84", measurementId: "G-L8BP0T7QVF"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+// Initialize Cloud Firestore and get a reference to the service
+const db = firebase.firestore();
+const auth = firebase.auth();
+
 $(function () {
     $('[id^="email_"]').on("input", function () {
         // Lấy giá trị của thuộc tính ID
@@ -111,7 +122,23 @@ function DangKy() {
     }
 
     if (kt_email_dk == true && kt_mat_khau_dk == true && kt_ten_nguoi_dung_dk == true) {
-        alert("Đăng ký thành công");
+        auth.createUserWithEmailAndPassword($("#email_dk").val(), $("#mat_khau_dk").val())
+            .then(function (userCredential) {
+                let user = userCredential.user;
+
+                // Add user info to Firestore
+                return db.collection('users').doc(user.uid).set({
+                    username: $("#ten_nguoi_dung_dk").val(),
+                    email: $("#email_dk").val(),
+                    created_at: firebase.firestore.FieldValue.serverTimestamp()
+                });
+            })
+            .then(function () {
+                console.log('User registered and data saved to Firestore');
+            })
+            .catch(function (error) {
+                console.error('Error registering user:', error.message);
+            });
     }
 }
 
@@ -131,6 +158,12 @@ function DangNhap() {
     }
 
     if (kt_email_dn == true && kt_mat_khau_dn == true) {
-        alert("Đăng nhập thành công");
+        auth.signInWithEmailAndPassword($("#email_dn").val(), $("#mat_khau_dn").val())
+            .then(function (userCredential) {
+                console.log('User logged in');
+            })
+            .catch(function (error) {
+                console.error('Error logging in user:', error.message);
+            });
     }
 }
