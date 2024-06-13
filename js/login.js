@@ -1,5 +1,6 @@
 let kt_email_dk = false;
 let kt_mat_khau_dk = false;
+let kt_mat_khau_xn_dk = false;
 let kt_ten_nguoi_dung_dk = false;
 let kt_mat_khau_dn = false;
 let kt_email_dn = false;
@@ -96,6 +97,21 @@ $(function () {
             kt_ten_nguoi_dung_dk = false;
         }
     });
+
+    $("#mat_khau_xn_dk").on("input", function () {
+        if ($(this).val() == $("#mat_khau_dk").val()) {
+            $("#kt_mat_khau_xn_dk").addClass("d-none");
+            $(this).addClass("border-success");
+            $(this).removeClass("border-danger");
+            kt_mat_khau_xn_dk = true;
+        }
+        else {
+            $("#kt_mat_khau_xn_dk").removeClass("d-none");
+            $(this).addClass("border-danger");
+            $(this).removeClass("border-success");
+            kt_mat_khau_xn_dk = false;
+        }
+    });
 });
 
 function DangKy() {
@@ -126,7 +142,7 @@ function DangKy() {
         kt_mat_khau_dk = false;
     }
 
-    if (kt_email_dk == true && kt_mat_khau_dk == true && kt_ten_nguoi_dung_dk == true) {
+    if (kt_email_dk == true && kt_mat_khau_dk == true && kt_ten_nguoi_dung_dk == true && kt_mat_khau_xn_dk == true) {
         auth.createUserWithEmailAndPassword($("#email_dk").val(), $("#mat_khau_dk").val())
             .then(function (userCredential) {
                 let user = userCredential.user;
@@ -136,6 +152,7 @@ function DangKy() {
                 return db.collection('users').doc(user.uid).set({
                     ten_nguoi_dung: $("#ten_nguoi_dung_dk").val(),
                     email: $("#email_dk").val(),
+                    mat_khau: $("#mat_khau_dk").val(),
                     ngay_tao: firebase.firestore.FieldValue.serverTimestamp()
                 });
             })
