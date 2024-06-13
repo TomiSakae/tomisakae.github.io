@@ -142,6 +142,13 @@ function DangKy() {
         kt_mat_khau_dk = false;
     }
 
+    if ($("#mat_khau_xn_dk").val() != $("#mat_khau_dk").val()) {
+        $("#kt_mat_khau_xn_dk").removeClass("d-none");
+        $("#mat_khau_xn_dk").addClass("border-danger");
+        $("#mat_khau_xn_dk").removeClass("border-success");
+        kt_mat_khau_xn_dk = false;
+    }
+
     if (kt_email_dk == true && kt_mat_khau_dk == true && kt_ten_nguoi_dung_dk == true && kt_mat_khau_xn_dk == true) {
         auth.createUserWithEmailAndPassword($("#email_dk").val(), $("#mat_khau_dk").val())
             .then(function (userCredential) {
