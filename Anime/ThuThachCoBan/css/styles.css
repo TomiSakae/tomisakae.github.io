@@ -141,3 +141,26 @@
     transition: width 0.4s ease;
     /* Hiệu ứng chuyển động mượt mà */
 }
+
+.khung-ket-qua {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    color: white;
+    cursor: pointer;
+}
+
+.dau-khung-ket-qua {
+    border-top: 1px solid black;
+}
+
+.anh-ket-qua {
+    width: 20%;
+}
+
+.cau-dung {
+    background-color: #198754;
+}
+
+.cau-sai {
+    background-color: #DC3545;
+}

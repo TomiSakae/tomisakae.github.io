@@ -5,13 +5,36 @@ function TaoSoNgauNhien(x, y) {
 
 let ds_anime = [];
 let so_luong_anime = 0;
+let ds_anime_cau_hoi = [];
+let ds_dap_an = [];
+let dap_an_tra_loi = 0;
 $(document).ready(function () {
 
-    let mua_anime = TaoSoNgauNhien(1, 4);
-    let nam_anime = TaoSoNgauNhien(2010, 2024);
+    let date = new Date();
 
-    if (nam_anime == 2024) {
-        mua_anime = 1;
+    // Lấy ngày
+    let day = date.getDate();
+    // Lấy tháng (giá trị trả về từ 0 đến 11, nên cần cộng thêm 1)
+    let month = date.getMonth() + 1;
+
+    // Lấy năm
+    let year = date.getFullYear();
+
+    let nam_dau = year - 10;
+    let nam_cuoi = year;
+    let thang = month;
+
+    let mua_anime = TaoSoNgauNhien(1, 4);
+    let nam_anime = TaoSoNgauNhien(nam_dau, nam_cuoi);
+
+    if (nam_anime == nam_cuoi || nam_anime == nam_dau) {
+        if (thang >= 10) {
+            mua_anime = TaoSoNgauNhien(1, 3);
+        } else if (thang >= 7) {
+            mua_anime = TaoSoNgauNhien(1, 2);
+        } else if (thang >= 4) {
+            mua_anime = 1;
+        }
     }
 
     let ten_mua_anime = "";
@@ -88,8 +111,8 @@ $(document).ready(function () {
         }
 
         ds_anime = allAnime;
-        $("#anime_mua").text(ten_mua_anime);
-        $("#anime_nam").text(nam_anime)
+        $(".anime_mua").text(ten_mua_anime);
+        $(".anime_nam").text(nam_anime)
 
         $('#kt_che_do').modal('show');
     }
@@ -132,6 +155,7 @@ function TaoCauHoi() {
     } while ((kt == 0 || id_cau_hoi.includes(cau_hoi_anime)));
 
     id_cau_hoi.push(cau_hoi_anime);
+    ds_anime_cau_hoi.push(ds_anime[cau_hoi_anime]);
 
     $("#anh_cau_hoi").attr('src', ds_anime[cau_hoi_anime].attributes.posterImage.large);
 
@@ -179,6 +203,8 @@ function DemThoiGian() {
         $("#thoi_gian_con_lai").text(thoi_gian_con_lai);
         if (thoi_gian_con_lai <= 0) { // Nếu hết thời gian
             $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
+            ds_dap_an[dap_an_tra_loi] = 0;
+            dap_an_tra_loi++;
             KetThucCauHoi();
             // Bỏ sự kiện click
             $('[id^="dap_an"]').unbind("click");
@@ -236,9 +262,65 @@ function KetThucCauHoi() {
         }, 3000); // 3000 milliseconds = 3 seconds
     }
     else {
-        $("#diem_so_cuoi").text(diem_so);
-        $("#ket_thuc_thu_thach").modal("show");
+        KetQua();
+
     }
+}
+
+function KetQua() {
+    $("#ket_thuc_thu_thach").modal("show");
+    let code_nhap_vao = ``;
+    let so_cau_dung = 0;
+    let kt_dung_sai = "";
+    let kt_mobile = "";
+    let width = $(window).width();
+
+    if (width <= 768) {
+        kt_mobile = "small";
+    }
+    for (let i = 0; i < 10; i++) {
+        if (ds_dap_an[i] == 1) {
+            so_cau_dung++;
+            kt_dung_sai = "cau-dung";
+        }
+        else {
+            kt_dung_sai = "cau-sai";
+        }
+
+        if (i == 0) {
+            kt_dung_sai += " dau-khung-ket-qua";
+        }
+        code_nhap_vao += `
+        <div id="ket_qua`+ (i + 1) + `" class="` + kt_dung_sai + ` khung-ket-qua d-flex align-items-center">
+                    <img src="`+ ds_anime_cau_hoi[i].attributes.posterImage.large + `"
+                                            class="anh-ket-qua h-auto">
+                    <p class="`+ kt_mobile + ` mx-3">` + ds_anime_cau_hoi[i].attributes.canonicalTitle + `</p>
+        </div>
+        `;
+    }
+    $("#tong_ket_qua").html(code_nhap_vao);
+    $("#so_cau_dung").text(so_cau_dung);
+    if (so_cau_dung == 10) {
+        $("#hoan_hao").removeClass("d-none");
+        diem_so *= 2;
+    }
+    $("#tong_so_diem").text(diem_so);
+
+    $('[id^="ket_qua"]').click(function () {
+
+        const id_phan_tu = $(this).attr("id");
+
+        // Sử dụng biểu thức chính quy để trích xuất số từ id
+        const so_phia_sau = id_phan_tu.match(/\d+$/);
+
+        let searchTerm = ds_anime_cau_hoi[Number(so_phia_sau) - 1].attributes.canonicalTitle + " vietsub";
+
+        // Tạo URL tìm kiếm trên Google
+        let url = 'https://www.google.com/search?q=' + encodeURIComponent(searchTerm);
+
+        // Mở tab mới với URL tìm kiếm
+        window.open(url, '_blank');
+    });
 }
 
 function DapAn() {
@@ -252,13 +334,15 @@ function DapAn() {
             $(this).addClass("khung-trac-nghiem-dung");
             diem_so += Number(thoi_gian_con_lai) * 100;
             $("#diem_so").text(Number(diem_so));
+            ds_dap_an[dap_an_tra_loi] = 1;
         }
         else {
             $(this).addClass("khung-trac-nghiem-sai");
             $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
+            ds_dap_an[dap_an_tra_loi] = 0;
 
         }
-
+        dap_an_tra_loi++;
         KetThucCauHoi();
         $('[id^="dap_an"]').unbind("click");
     });
