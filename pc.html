@@ -12,6 +12,39 @@
 
 <body>
 
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="modal" id="dn_thanh_cong">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="py-5 px-5 rounded text-center">
+                    <h5>Chào mừng quay trở lại</h5>
+                    <p class="ten_nguoi_dung"></p>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Bắt
+                        Đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- The Modal -->
+    <div class="modal" id="dk_thanh_cong">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="py-5 px-5 rounded text-center">
+                    <h5>Chào mừng đến với TomiSakae</h5>
+                    <p class="ten_nguoi_dung"></p>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Bắt Đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- The Modal -->
     <div class="modal" id="dang_ky">
         <div class="modal-dialog modal-dialog-centered">
@@ -123,13 +156,17 @@
             <div class="text-center">
                 <h5 class="mb-4">CHƠI NGAY</h5>
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                    <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-pc rounded mb-3"
-                        data-bs-toggle="modal" data-bs-target="#dang_nhap">Đăng
-                        Nhập</button>
-                    <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-pc rounded mb-3"
-                        data-bs-toggle="modal" data-bs-target="#dang_ky">Đăng Ký</button>
-                    <button type="button" class="btn btn-outline-primary nut-choi-pc rounded mt-3"
-                        data-bs-toggle="modal" data-bs-target="#kt_tai_khoan">Thử Thách</button>
+                    <div id="nguoi_dung" class="d-flex flex-column justify-content-center align-items-center">
+                        <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-pc rounded mb-3"
+                            data-bs-toggle="modal" data-bs-target="#dang_nhap">Đăng
+                            Nhập</button>
+                        <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-pc rounded mb-3"
+                            data-bs-toggle="modal" data-bs-target="#dang_ky">Đăng Ký</button>
+                    </div>
+                    <div id="thu_thach">
+                        <button type="button" class="btn btn-outline-primary nut-choi-pc rounded mt-3"
+                            data-bs-toggle="modal" data-bs-target="#kt_tai_khoan">Thử Thách</button>
+                    </div>
                 </div>
             </div>
         </div>

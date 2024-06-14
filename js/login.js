@@ -4,6 +4,7 @@ let kt_mat_khau_xn_dk = false;
 let kt_ten_nguoi_dung_dk = false;
 let kt_mat_khau_dn = false;
 let kt_email_dn = false;
+let dl_nguoi_dung = null;
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://support.google.com/firebase/answer/7015592
@@ -114,7 +115,7 @@ $(function () {
     });
 });
 
-function DangKy() {
+async function DangKy() {
     if ($("#ten_nguoi_dung_dk").val().length >= 1) {
         $("#kt_ten_nguoi_dung_dk").addClass("d-none");
         $("#ten_nguoi_dung_dk").addClass("border-success");
@@ -150,31 +151,39 @@ function DangKy() {
     }
 
     if (kt_email_dk == true && kt_mat_khau_dk == true && kt_ten_nguoi_dung_dk == true && kt_mat_khau_xn_dk == true) {
-        auth.createUserWithEmailAndPassword($("#email_dk").val(), $("#mat_khau_dk").val())
-            .then(function (userCredential) {
-                let user = userCredential.user;
+        try {
+            showLoadingOverlay(); // Hiển thị overlay khi bắt đầu đăng ký
+            let userCredential = await auth.createUserWithEmailAndPassword($("#email_dk").val(), $("#mat_khau_dk").val());
+            let user = userCredential.user;
 
-                $("#dang_ky").modal("hide");
-                // Add user info to Firestore
-                return db.collection('users').doc(user.uid).set({
-                    ten_nguoi_dung: $("#ten_nguoi_dung_dk").val(),
-                    email: $("#email_dk").val(),
-                    mat_khau: $("#mat_khau_dk").val(),
-                    ngay_tao: firebase.firestore.FieldValue.serverTimestamp()
-                });
-            })
-            .then(function () {
-
-            })
-            .catch(function (error) {
-                $("#kt_tai_khoan_dk").removeClass("d-none");
-                $("#email_dk").addClass("border-danger");
-                $("#email_dk").removeClass("border-success");
+            // Add user info to Firestore
+            await db.collection('users').doc(user.uid).set({
+                ten_nguoi_dung: $("#ten_nguoi_dung_dk").val(),
+                email: $("#email_dk").val(),
+                mat_khau: $("#mat_khau_dk").val(),
+                ngay_tao: firebase.firestore.FieldValue.serverTimestamp()
             });
+
+            await TaiDLNguoiDung();
+            $("#dang_ky").modal("hide");
+            $("#dk_thanh_cong").modal("show");
+            $(".ten_nguoi_dung").text(dl_nguoi_dung.ten_nguoi_dung);
+        } catch (error) {
+            $("#kt_tai_khoan_dk").removeClass("d-none");
+            $("#email_dk").addClass("border-danger");
+            $("#email_dk").removeClass("border-success");
+        } finally {
+            hideLoadingOverlay(); // Ẩn overlay sau khi hoàn thành quá trình đăng ký
+        }
     }
+
 }
 
-function DangNhap() {
+
+async function DangNhap() {
+    let kt_email_dn = true;
+    let kt_mat_khau_dn = true;
+
     if ($("#email_dn").val().length == 0) {
         $("#kt_email_dn").removeClass("d-none");
         $("#email_dn").addClass("border-danger");
@@ -190,16 +199,117 @@ function DangNhap() {
     }
 
     if (kt_email_dn == true && kt_mat_khau_dn == true) {
-        auth.signInWithEmailAndPassword($("#email_dn").val(), $("#mat_khau_dn").val())
-            .then(function (userCredential) {
-                $("#dang_nhap").modal("hide");
-            })
-            .catch(function (error) {
-                $("#kt_tai_khoan_dn").removeClass("d-none");
-                $("#email_dn").addClass("border-danger");
-                $("#email_dn").removeClass("border-success");
-                $("#mat_khau_dn").addClass("border-danger");
-                $("#mat_khau_dn").removeClass("border-success");
-            });
+        try {
+            showLoadingOverlay();
+            let userCredential = await auth.signInWithEmailAndPassword($("#email_dn").val(), $("#mat_khau_dn").val());
+            await TaiDLNguoiDung();
+            $("#dang_nhap").modal("hide");
+            $("#dn_thanh_cong").modal("show");
+            $(".ten_nguoi_dung").text(dl_nguoi_dung.ten_nguoi_dung);
+        } catch (error) {
+            $("#kt_tai_khoan_dn").removeClass("d-none");
+            $("#email_dn").addClass("border-danger");
+            $("#email_dn").removeClass("border-success");
+            $("#mat_khau_dn").addClass("border-danger");
+            $("#mat_khau_dn").removeClass("border-success");
+        } finally {
+            hideLoadingOverlay(); // Ẩn overlay sau khi hoàn thành quá trình đăng ký
+        }
     }
+}
+
+// Example usage after registration or login
+auth.onAuthStateChanged(async function (user) {
+    if (user) {
+        showLoadingOverlay();
+        await TaiDLNguoiDung();
+        TaiKhoanDaDN();
+    } else {
+        console.log('Không có người dùng đăng nhập');
+        hideLoadingOverlay();
+        TaiKhoanChuaDN();
+    }
+});
+
+// Load user profile
+async function TaiDLNguoiDung() {
+    let user = auth.currentUser;
+    if (user) {
+        try {
+            let doc = await db.collection('users').doc(user.uid).get();
+            if (doc.exists) {
+                dl_nguoi_dung = doc.data();
+                // Cập nhật HTML sau khi tải dữ liệu xong
+
+            } else {
+                console.log('Không tìm thấy dữ liệu người dùng');
+            }
+        } catch (error) {
+            console.error('Lỗi khi tải dữ liệu người dùng:', error);
+        } finally {
+            hideLoadingOverlay(); // Ẩn overlay sau khi tải dữ liệu xong
+        }
+    }
+}
+
+
+function TaiKhoanDaDN() {
+    let width = $(window).width();
+
+    if (width <= 768) {
+        $("#thu_thach").html(`
+            <a href="ThuThach/mobile.html" class="btn btn-light nut-choi-mobile rounded mt-3">Thử Thách</a>
+        `);
+    }
+
+    if (width > 768) {
+        $("#thu_thach").html(`
+            <a href="ThuThach/pc.html" class="btn btn-outline-primary nut-choi-pc rounded mt-3">Thử Thách</a>
+        `);
+    }
+
+    $("#nguoi_dung").html(`
+        <p>`+ dl_nguoi_dung.ten_nguoi_dung + `</p>
+    `);
+}
+
+function TaiKhoanChuaDN() {
+    let width = $(window).width();
+
+    if (width <= 768) {
+        $("#thu_thach").html(`
+            <button type="button" class="btn btn-light nut-choi-mobile rounded mt-3" data-bs-toggle="modal"
+                    data-bs-target="#kt_tai_khoan">Thử Thách</button>
+        `);
+        $("#nguoi_dung").html(`
+            <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3"
+                    data-bs-toggle="modal" data-bs-target="#dang_nhap">Đăng
+                    Nhập</button>
+                <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3"
+                    data-bs-toggle="modal" data-bs-target="#dang_ky">Đăng Ký</button>
+       `);
+    }
+
+    if (width > 768) {
+        $("#thu_thach").html(`
+            <button type="button" class="btn btn-outline-primary nut-choi-pc rounded mt-3"
+                            data-bs-toggle="modal" data-bs-target="#kt_tai_khoan">Thử Thách</button>
+        `);
+        $("#nguoi_dung").html(`
+            <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-pc rounded mb-3"
+                               data-bs-toggle="modal" data-bs-target="#dang_nhap">Đăng
+                               Nhập</button>
+                           <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-pc rounded mb-3"
+                               data-bs-toggle="modal" data-bs-target="#dang_ky">Đăng Ký</button>
+       `);
+    }
+}
+
+function showLoadingOverlay() {
+    document.getElementById('loading-overlay').style.display = 'flex';
+}
+
+// Hide loading overlay
+function hideLoadingOverlay() {
+    document.getElementById('loading-overlay').style.display = 'none';
 }

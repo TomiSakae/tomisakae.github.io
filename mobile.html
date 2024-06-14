@@ -12,6 +12,39 @@
 
 <body>
 
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="modal" id="dn_thanh_cong">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="py-5 px-5 rounded text-center">
+                    <h5>Chào mừng quay trở lại</h5>
+                    <p class="ten_nguoi_dung"></p>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Bắt
+                        Đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- The Modal -->
+    <div class="modal" id="dk_thanh_cong">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="py-5 px-5 rounded text-center">
+                    <h5>Chào mừng đến với TomiSakae</h5>
+                    <p class="ten_nguoi_dung"></p>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Bắt Đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- The Modal -->
     <div class="modal" id="dang_ky">
         <div class="modal-dialog modal-dialog-centered">
@@ -19,7 +52,7 @@
                 <!-- Modal body -->
                 <div class="py-5 px-5 text-center">
                     <h5>ĐĂNG KÝ</h5>
-                    <p class="small">Vui lòng điền thông tin để đăng ký tài khoản</p>
+                    <p class="small">Vui lòng điền thông tin để đăng ký</p>
                     <div class="form-floating mb-3 mt-3">
                         <input type="text" class="form-control rounded" id="ten_nguoi_dung_dk"
                             placeholder="Nhập tên người dùng" name="ten_nguoi_dung_dk" required>
@@ -76,7 +109,7 @@
                 <!-- Modal body -->
                 <div class="py-5 px-5 text-center">
                     <h5>ĐĂNG NHẬP</h5>
-                    <p class="small">Vui lòng điền thông tin để đăng nhập tài khoản</p>
+                    <p class="small">Vui lòng điền thông tin để đăng nhập</p>
                     <div class="form-floating mb-3 mt-3">
                         <input type="email" class="form-control rounded" id="email_dn" placeholder="Nhập email"
                             name="email_dn" required>
@@ -132,15 +165,19 @@
             <div class="text-center">
                 <h6 class="mb-4">CHƠI NGAY</h6>
             </div>
-            <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3"
-                data-bs-toggle="modal" data-bs-target="#dang_nhap">Đăng
-                Nhập</button>
-            <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3"
-                data-bs-toggle="modal" data-bs-target="#dang_ky">Đăng Ký</button>
+            <div id="nguoi_dung" class="d-flex flex-column justify-content-center align-items-center">
+                <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3"
+                    data-bs-toggle="modal" data-bs-target="#dang_nhap">Đăng
+                    Nhập</button>
+                <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3"
+                    data-bs-toggle="modal" data-bs-target="#dang_ky">Đăng Ký</button>
+            </div>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center">
-            <button type="button" class="btn btn-light nut-choi-mobile rounded mt-3" data-bs-toggle="modal"
-                data-bs-target="#kt_tai_khoan">Thử Thách</button>
+            <div id="thu_thach">
+                <button type="button" class="btn btn-light nut-choi-mobile rounded mt-3" data-bs-toggle="modal"
+                    data-bs-target="#kt_tai_khoan">Thử Thách</button>
+            </div>
         </div>
     </div>
 
