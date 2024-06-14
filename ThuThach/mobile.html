@@ -7,6 +7,7 @@
     <title>TomiSakae</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link href="../css/styles.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 </head>
@@ -14,13 +15,35 @@
 <body>
 
     <!-- The Modal -->
-    <div class="modal" id="kt_che_do">
-        <div class="modal-dialog">
+    <div class="modal" id="lua_chon_che_do">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <!-- Modal body -->
-                <div class="py-4 px-3 rounded text-center">
-                    <h6 class="mb-4">Vui lòng chọn chế độ chơi!</h6>
-                    <button type="button" class="btn btn-danger text-end" data-bs-dismiss="modal">Đóng</button>
+                <div class="py-5 px-5 rounded text-center">
+                    <div id="che_do_mobile1" class="che-do-choi-mobile py-2 px-3 my-3">
+                        <p>
+                            <span class="h6">Cơ Bản</span>
+                            <br>
+                            <span class="small">Chế độ này bao gồm 10 câu hỏi về Anime được lựa chọn ngẫu nhiên theo
+                                mùa.</span>
+                        </p>
+                    </div>
+                    <div id="che_do_mobile2" class="che-do-choi-mobile py-2 px-3 my-3">
+                        <p>
+                            <span class="h6">Thách Thức</span>
+                            <br>
+                            <span class="small">Chế độ này sẽ có 50 câu hỏi và 5 cấp độ khác nhau với Anime theo
+                                mùa.</span>
+                        </p>
+                    </div>
+                    <div id="che_do_mobile3" class="che-do-choi-mobile py-2 px-3 my-3">
+                        <p>
+                            <span class="h6">Sinh Tồn</span>
+                            <br>
+                            <span class="small">Chế độ này chỉ được trả lời sai 3 câu hỏi dựa trên
+                                số lượng Anime của mùa đó.</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,13 +58,14 @@
             <div class="text-center">
                 <h6 class="mb-2 mt-4">THỬ THÁCH</h6>
                 <p class="mb-4">Vui lòng chọn chế độ chơi</p>
-                <p id="chon_che_do" class="che-do-choi py-2 px-3 d-inline-block">Cơ Bản</p>
-
+                <p id="ten_che_do" class="che-do-choi-mobile px-3 py-2 d-inline-block" data-bs-toggle="modal"
+                    data-bs-target="#lua_chon_che_do">Cơ Bản <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>
+                </p>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center mt-4">
-            <button id="nut_bat_dau" type="button" class="btn btn-light nut-choi-mobile rounded mb-3" onclick="BatDau()"
-                data-bs-toggle="modal" data-bs-target="#kt_che_do">Bắt Đầu</button>
+            <button id="nut_bat_dau" type="button" class="btn btn-light nut-choi-mobile rounded mb-3"
+                onclick="BatDau()">Bắt Đầu</button>
         </div>
     </div>
 
