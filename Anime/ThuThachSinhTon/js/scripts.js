@@ -9,6 +9,8 @@ let ds_anime_cau_hoi = [];
 let ds_dap_an = [];
 let dap_an_tra_loi = 0;
 let so_luong_cau_hoi = 0;
+let mang_con_lai = 3;
+let so_cau_da_tra_loi = 0;
 $(document).ready(function () {
 
     let date = new Date();
@@ -199,6 +201,7 @@ function DemThoiGian() {
             $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
             ds_dap_an[dap_an_tra_loi] = 0;
             dap_an_tra_loi++;
+            mang_con_lai--;
             KetThucCauHoi();
             // Bỏ sự kiện click
             $('[id^="dap_an"]').unbind("click");
@@ -227,7 +230,7 @@ function Chien() {
     TaoCauHoi();
     DapAn();
     LoadAnh();
-    $("#so_luong_cau_hoi").text(so_luong_cau_hoi);
+    $(".so_luong_cau_hoi").text(so_luong_cau_hoi);
 }
 
 function FixDapAnMobile() {
@@ -243,6 +246,14 @@ function KetThucCauHoi() {
     clearInterval(dem_tg); // Dừng đếm
     $('[id^="dap_an"]').removeClass("khung-trac-nghiem");
     $('[id^="dap_an"]').addClass("khung-trac-nghiem-fix");
+
+    $("#mang_con_lai").text(mang_con_lai);
+    so_cau_da_tra_loi++;
+    if (mang_con_lai == 0) {
+        KetQua();
+        return;
+    }
+
     if (so_cau_hien_tai < so_luong_cau_hoi) {
         setTimeout(function () {
             $("#phong_to_anh").modal("hide");
@@ -274,7 +285,7 @@ function KetQua() {
         kt_mobile = "small";
         anh_ket_qua = "anh-ket-qua-mobile";
     }
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < so_cau_da_tra_loi; i++) {
         if (ds_dap_an[i] == 1) {
             so_cau_dung++;
             kt_dung_sai = "cau-dung";
@@ -296,7 +307,7 @@ function KetQua() {
     }
     $("#tong_ket_qua").html(code_nhap_vao);
     $("#so_cau_dung").text(so_cau_dung);
-    if (so_cau_dung == 10) {
+    if (so_cau_dung == so_luong_cau_hoi) {
         $("#hoan_hao").removeClass("d-none");
         diem_so *= 2;
     }
@@ -336,7 +347,7 @@ function DapAn() {
             $(this).addClass("khung-trac-nghiem-sai");
             $("#dap_an" + dap_an_dung).addClass("khung-trac-nghiem-dung");
             ds_dap_an[dap_an_tra_loi] = 0;
-
+            mang_con_lai--;
         }
         dap_an_tra_loi++;
         KetThucCauHoi();

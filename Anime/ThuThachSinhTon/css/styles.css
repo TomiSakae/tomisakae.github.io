@@ -51,16 +51,20 @@
 
 .position-absolute {
     position: absolute;
+    top: -40px;
 }
 
 .thoi-gian-mobile {
-    top: -40px;
     left: -5px;
 }
 
 .so-diem-mobile {
-    top: -40px;
     right: -5px;
+}
+
+.so-mang-mobile {
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .trac-nghiem-mobile {
