@@ -274,9 +274,10 @@ function KetQua() {
     let kt_dung_sai = "";
     let kt_mobile = "";
     let width = $(window).width();
-
+    let anh_ket_qua = "anh-ket-qua";
     if (width <= 768) {
         kt_mobile = "small";
+        anh_ket_qua = "anh-ket-qua-mobile";
     }
     for (let i = 0; i < 10; i++) {
         if (ds_dap_an[i] == 1) {
@@ -293,8 +294,8 @@ function KetQua() {
         code_nhap_vao += `
         <div id="ket_qua`+ (i + 1) + `" class="` + kt_dung_sai + ` khung-ket-qua d-flex align-items-center">
                     <img src="`+ ds_anime_cau_hoi[i].attributes.posterImage.large + `"
-                                            class="anh-ket-qua h-auto">
-                    <p class="`+ kt_mobile + ` mx-3">` + ds_anime_cau_hoi[i].attributes.canonicalTitle + `</p>
+                                            class="`+ anh_ket_qua + ` h-auto">
+                    <p class="`+ kt_mobile + ` mx-auto my-auto">` + ds_anime_cau_hoi[i].attributes.canonicalTitle + `</p>
         </div>
         `;
     }
