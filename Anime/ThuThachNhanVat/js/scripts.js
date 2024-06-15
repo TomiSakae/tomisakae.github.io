@@ -120,13 +120,61 @@ $(document).ready(function () {
     TimAnime();
 });
 
+
+let ds_nhan_vat_chinh = [];
+let so_luong_nhan_vat_chinh = 0;
+let ds_nhan_vat_anime = [];
+let kt_nhan_vat = true;
+async function LocNhanVat(animeTitle) {
+    const jikanSearchUrl = `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(animeTitle)}&limit=1`;
+    ds_nhan_vat_chinh = [];
+    so_luong_nhan_vat_chinh = 0;
+    kt_nhan_vat = true;
+    try {
+        // Gọi API Jikan để tìm kiếm anime dựa trên tên
+        const searchResponse = await fetch(jikanSearchUrl);
+        const searchData = await searchResponse.json();
+
+        if (searchData.data && searchData.data.length > 0) {
+            const anime = searchData.data[0];
+            const animeId = anime.mal_id;
+
+            // Sử dụng ID của anime để lấy danh sách nhân vật
+            const charactersUrl = `https://api.jikan.moe/v4/anime/${animeId}/characters`;
+            const charactersResponse = await fetch(charactersUrl);
+            const charactersData = await charactersResponse.json();
+
+            if (charactersData.data && charactersData.data.length > 0) {
+                // Lọc ra chỉ những nhân vật chính
+                const mainCharacters = charactersData.data.filter(character => character.role === 'Main');
+
+                if (mainCharacters.length > 0) {
+                    // Hiển thị tên và URL hình ảnh của nhân vật chính lên console
+                    mainCharacters.forEach(character => {
+                        ds_nhan_vat_chinh.push(character.character.images.jpg.image_url);
+                        so_luong_nhan_vat_chinh++;
+                    });
+                } else {
+                    kt_nhan_vat = false;
+                }
+            } else {
+                kt_nhan_vat = false;
+            }
+        } else {
+            kt_nhan_vat = false;
+        }
+    } catch (error) {
+        console.error('Error fetching anime characters:', error);
+    }
+}
+
 let dap_an_dung = 0;
 let so_cau_hien_tai = 0;
 let thoi_gian_con_lai = 30;
 let dem_tg;
 let diem_so = 0;
 let id_cau_hoi = [];
-function TaoCauHoi() {
+async function TaoCauHoi() {
     so_cau_hien_tai++;
     $("#cau_hoi_hien_tai").text(so_cau_hien_tai);
     thoi_gian_con_lai = 30;
@@ -144,12 +192,17 @@ function TaoCauHoi() {
 
     do {
         cau_hoi_anime = TaoSoNgauNhien(0, so_luong_anime - 1);
-    } while (id_cau_hoi.includes(cau_hoi_anime));
+        await LocNhanVat(ds_anime[cau_hoi_anime].attributes.canonicalTitle);
+    } while (kt_nhan_vat == false && id_cau_hoi.includes(cau_hoi_anime));
 
     id_cau_hoi.push(cau_hoi_anime);
     ds_anime_cau_hoi.push(ds_anime[cau_hoi_anime]);
 
-    $("#anh_cau_hoi").attr('src', ds_anime[cau_hoi_anime].attributes.posterImage.large);
+    let nhan_vat_duoc_chon = TaoSoNgauNhien(0, so_luong_nhan_vat_chinh - 1);
+
+    $("#anh_cau_hoi").attr('src', ds_nhan_vat_chinh[nhan_vat_duoc_chon]);
+
+    ds_nhan_vat_anime.push(ds_nhan_vat_chinh[nhan_vat_duoc_chon]);
 
     $("#anh_cau_hoi").addClass("d-none");
 
@@ -285,7 +338,7 @@ function KetQua() {
         }
         code_nhap_vao += `
         <div id="ket_qua`+ (i + 1) + `" class="` + kt_dung_sai + ` khung-ket-qua d-flex align-items-center">
-                    <img src="`+ ds_anime_cau_hoi[i].attributes.posterImage.large + `"
+                    <img src="`+ ds_nhan_vat_anime[i] + `"
                                             class="`+ anh_ket_qua + ` h-auto">
                     <p class="`+ kt_mobile + ` mx-auto my-auto">` + ds_anime_cau_hoi[i].attributes.canonicalTitle + `</p>
         </div>
