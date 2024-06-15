@@ -54,7 +54,7 @@ $('[id^="che_do_mobile"]').click(function () {
             $("#ten_che_do").html(`Cơ Bản <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
             break;
         case 2:
-            $("#ten_che_do").html(`Thách Thức <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
+            $("#ten_che_do").html(`Nhân Vật <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
             break;
         case 3:
             $("#ten_che_do").html(`Sinh Tồn <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
