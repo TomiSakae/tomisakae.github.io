@@ -165,6 +165,7 @@ async function LocNhanVat(animeTitle) {
         }
     } catch (error) {
         console.error('Error fetching anime characters:', error);
+        kt_nhan_vat = false;
     }
 }
 
@@ -191,9 +192,11 @@ async function TaoCauHoi() {
     // Tìm một anime có hình ảnh
 
     do {
-        cau_hoi_anime = TaoSoNgauNhien(0, so_luong_anime - 1);
+        do {
+            cau_hoi_anime = TaoSoNgauNhien(0, so_luong_anime - 1);
+        } while (id_cau_hoi.includes(cau_hoi_anime));
         await LocNhanVat(ds_anime[cau_hoi_anime].attributes.canonicalTitle);
-    } while (kt_nhan_vat == false && id_cau_hoi.includes(cau_hoi_anime));
+    } while (!kt_nhan_vat);
 
     id_cau_hoi.push(cau_hoi_anime);
     ds_anime_cau_hoi.push(ds_anime[cau_hoi_anime]);
