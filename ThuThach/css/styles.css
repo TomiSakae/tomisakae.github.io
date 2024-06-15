@@ -32,3 +32,24 @@
     cursor: pointer;
     border-color: #198754;
 }
+
+.cap-do-1 {
+    border: 1px solid black;
+    border-radius: 25px;
+    color: black;
+    background-color: white;
+}
+
+.cap-do-2 {
+    border: 1px solid blue;
+    border-radius: 25px;
+    color: white;
+    background-color: blue;
+}
+
+.cap-do-3 {
+    border: 1px solid blueviolet;
+    border-radius: 25px;
+    color: white;
+    background-color: blueviolet;
+}

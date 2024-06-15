@@ -8,7 +8,7 @@ function BatDau() {
             window.location.href = "../Anime/ThuThachCoBan/mobile.html";
         }
         if (kt_che_do_mobile == 2) {
-            window.location.href = "../Anime/ThuThachThachThuc/mobile.html";
+            window.location.href = "../Anime/ThuThachNhanVat/mobile.html";
         }
         if (kt_che_do_mobile == 3) {
             window.location.href = "../Anime/ThuThachSinhTon/mobile.html";
@@ -19,7 +19,7 @@ function BatDau() {
             window.location.href = "../Anime/ThuThachCoBan/pc.html";
         }
         if (kt_che_do == 2) {
-            window.location.href = "../Anime/ThuThachThachThuc/pc.html";
+            window.location.href = "../Anime/ThuThachNhanVat/pc.html";
         }
         if (kt_che_do == 3) {
             window.location.href = "../Anime/ThuThachSinhTon/pc.html";
