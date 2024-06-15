@@ -8,6 +8,7 @@ let so_luong_anime = 0;
 let ds_anime_cau_hoi = [];
 let ds_dap_an = [];
 let dap_an_tra_loi = 0;
+let so_luong_cau_hoi = 0;
 $(document).ready(function () {
 
     let date = new Date();
@@ -90,6 +91,7 @@ $(document).ready(function () {
                         seenIds.add(id);
                         allAnime.push(anime);
                         so_luong_anime++;
+                        so_luong_cau_hoi++;
                     }
                 });
 
@@ -225,6 +227,7 @@ function Chien() {
     TaoCauHoi();
     DapAn();
     LoadAnh();
+    $("#so_luong_cau_hoi").text(so_luong_cau_hoi);
 }
 
 function FixDapAnMobile() {
@@ -240,7 +243,7 @@ function KetThucCauHoi() {
     clearInterval(dem_tg); // Dừng đếm
     $('[id^="dap_an"]').removeClass("khung-trac-nghiem");
     $('[id^="dap_an"]').addClass("khung-trac-nghiem-fix");
-    if (so_cau_hien_tai < 10) {
+    if (so_cau_hien_tai < so_luong_cau_hoi) {
         setTimeout(function () {
             $("#phong_to_anh").modal("hide");
             $("#load_anh").addClass("d-none");
