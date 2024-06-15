@@ -190,7 +190,6 @@ async function TaoCauHoi() {
     }
 
     // Tìm một anime có hình ảnh
-
     do {
         do {
             cau_hoi_anime = TaoSoNgauNhien(0, so_luong_anime - 1);
