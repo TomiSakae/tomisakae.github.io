@@ -173,7 +173,7 @@ let thoi_gian_con_lai = 30;
 let dem_tg;
 let diem_so = 0;
 let id_cau_hoi = [];
-function TaoCauHoi() {
+async function TaoCauHoi() {
     so_cau_hien_tai++;
     $("#cau_hoi_hien_tai").text(so_cau_hien_tai);
     thoi_gian_con_lai = 30;
@@ -197,7 +197,10 @@ function TaoCauHoi() {
     ds_anime_cau_hoi.push(ds_anime[cau_hoi_anime]);
 
     // Parse JSON string to JavaScript object
-    let du_lieu_cau_hoi = JSON.parse(GeminiAI(ds_anime[cau_hoi_anime].attributes.canonicalTitle));
+
+    let gemini_cau_hoi = await GeminiAI(ds_anime[cau_hoi_anime].attributes.canonicalTitle);
+
+    let du_lieu_cau_hoi = JSON.parse(gemini_cau_hoi);
 
     // Extract answers
     let ai_dap_an = [];
@@ -253,7 +256,7 @@ function LoadAnh() {
     });
 }
 
-function Chien() {
+$("#nut_chien").click(function () {
     $("#vung_choi").removeClass("d-none");
     $("#load").addClass("d-none");
 
@@ -263,7 +266,7 @@ function Chien() {
     TaoCauHoi();
     DapAn();
     LoadAnh();
-}
+});
 
 function FixDapAnMobile() {
     $("#fix_mobile").html(`
