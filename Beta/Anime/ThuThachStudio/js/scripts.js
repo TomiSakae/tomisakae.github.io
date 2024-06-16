@@ -139,6 +139,7 @@ async function LocStudio(animeTitle) {
             const anime = searchData.data[0];
             const animeId = anime.mal_id;
 
+            await sleep(500);
             // Sử dụng ID của anime để lấy thông tin chi tiết
             const detailsUrl = `https://api.jikan.moe/v4/anime/${animeId}`;
             const detailsResponse = await fetch(detailsUrl);
