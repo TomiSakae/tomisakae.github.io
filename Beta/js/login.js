@@ -302,6 +302,7 @@ function TaiKhoanDaDN() {
             <img src="`+ dl_nguoi_dung.anh_dai_dien + `" class="w-25 h-auto mt-2">
             <p class="mt-3">`+ dl_nguoi_dung.ten_nguoi_dung + `</p>
         `);
+        $("#chinh_choi_ngay").removeClass("mb-4").addClass("mb-2");
     }
 
     if (width > 768) {
