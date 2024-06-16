@@ -239,9 +239,9 @@ async function TaoCauHoi() {
     DemThoiGian();
 }
 
-function QuayLai() {
+$("#quay_lai").click(function () {
     window.location.href = "/";
-}
+});
 
 function DemThoiGian() {
     clearInterval(dem_tg);
