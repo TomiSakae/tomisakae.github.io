@@ -201,7 +201,6 @@ async function DangKy() {
                 await db.collection('users').doc(user.uid).set({
                     ten_nguoi_dung: $("#ten_nguoi_dung_dk").val(),
                     email: $("#email_dk").val(),
-                    mat_khau: $("#mat_khau_dk").val(),
                     anh_dai_dien: anh_dai_dien,
                     ngay_tao: firebase.firestore.FieldValue.serverTimestamp()
                 });
