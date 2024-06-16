@@ -1,4 +1,3 @@
-
 import {
     GoogleGenerativeAI,
     HarmCategory,
@@ -35,15 +34,17 @@ async function GeminiAI(input) {
             {
                 role: "model",
                 parts: [
-                    { text: "{\"cau_hoi\": \"Ban co biet anime nao co ten la?\", \"cau_tra_loi_1\": {\"noi_dung\": \"One Piece\", \"ket_qua\": false}, \"cau_tra_loi_2\": {\"noi_dung\": \"Naruto\", \"ket_qua\": true}, \"cau_tra_loi_3\": {\"noi_dung\": \"Conan\", \"ket_qua\": false}, \"cau_tra_loi_4\": {\"noi_dung\": \"Doraemon\", \"ket_qua\": false}}\n" },
+                    { text: "{\"cau_hoi\": \"Bạn có biết Anime nào có tên là?\", \"cau_tra_loi_1\": {\"noi_dung\": \"One Piece\", \"ket_qua\": false}, \"cau_tra_loi_2\": {\"noi_dung\": \"Naruto\", \"ket_qua\": true}, \"cau_tra_loi_3\": {\"noi_dung\": \"Conan\", \"ket_qua\": false}, \"cau_tra_loi_4\": {\"noi_dung\": \"Doraemon\", \"ket_qua\": false}}\n" },
                 ],
             },
         ],
     });
 
     const result = await chatSession.sendMessage(input);
+    console.log(result.response.text());
     return result.response.text();
 }
+
 
 function TaoSoNgauNhien(x, y) {
     let so_ngau_nhien = Math.floor(Math.random() * (y - x + 1)) + x;
@@ -198,9 +199,19 @@ async function TaoCauHoi() {
 
     // Parse JSON string to JavaScript object
 
-    let gemini_cau_hoi = await GeminiAI(ds_anime[cau_hoi_anime].attributes.canonicalTitle);
+    let du_lieu_cau_hoi;
+    let gemini_cau_hoi;
+    let kt_ai = 0;
+    do {
+        try {
+            gemini_cau_hoi = await GeminiAI(ds_anime[cau_hoi_anime].attributes.canonicalTitle);
+            du_lieu_cau_hoi = JSON.parse(gemini_cau_hoi);
+            kt_ai = 1;
+        } catch (error) {
+            kt_ai = 0;
+        }
+    } while (kt_ai == 0);
 
-    let du_lieu_cau_hoi = JSON.parse(gemini_cau_hoi);
 
     // Extract answers
     let ai_dap_an = [];
@@ -215,14 +226,18 @@ async function TaoCauHoi() {
 
     $("#ai_cau_hoi").text(du_lieu_cau_hoi.cau_hoi);
 
-    $("#ai_cau_hoi").addClass("d-none");
-
     for (let i = 1; i <= 4; i++) {
         $("#dap_an" + i).text(ai_dap_an[i - 1].noi_dung);
         if (ai_dap_an[i - 1].ket_qua == true) {
             dap_an_dung = i;
         }
     }
+
+    $("#tai_cau_hoi").addClass("d-none");
+    $("#tai_xong_cau_hoi").removeClass("d-none");
+    $("#ai_cau_hoi").removeClass("d-none");
+    $("#fix_mobile").removeClass("d-none");
+    DemThoiGian();
 }
 
 function QuayLai() {
@@ -245,17 +260,6 @@ function DemThoiGian() {
     }, 1000); // Đếm mỗi 1 giây
 }
 
-function LoadAnh() {
-    $("#ai_cau_hoi").on('load', function () {
-        DemThoiGian();
-        $("#tai_cau_hoi").addClass("d-none");
-        $("#tai_xong_cau_hoi").removeClass("d-none");
-        $("#load_anh").removeClass("d-none");
-        $("#fix_mobile").removeClass("d-none");
-        $("#ai_cau_hoi").removeClass("d-none");
-    });
-}
-
 $("#nut_chien").click(function () {
     $("#vung_choi").removeClass("d-none");
     $("#load").addClass("d-none");
@@ -265,16 +269,15 @@ $("#nut_chien").click(function () {
 
     TaoCauHoi();
     DapAn();
-    LoadAnh();
 });
 
 function FixDapAnMobile() {
     $("#fix_mobile").html(`
-        <p id="dap_an1" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
-            <p id="dap_an2" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
-            <p id="dap_an3" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
-            <p id="dap_an4" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
-        `);
+<p id="dap_an1" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
+    <p id="dap_an2" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
+    <p id="dap_an3" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
+    <p id="dap_an4" class="small khung-trac-nghiem khung-trac-nghiem-mobile py-2 px-3"></p>
+`);
 }
 
 function KetThucCauHoi() {
@@ -284,14 +287,13 @@ function KetThucCauHoi() {
     if (so_cau_hien_tai < 10) {
         setTimeout(function () {
             $("#phong_to_anh").modal("hide");
-            $("#load_anh").addClass("d-none");
             FixDapAnMobile();
             $("#fix_mobile").addClass("d-none");
+            $("#ai_cau_hoi").addClass("d-none");
             $("#tai_cau_hoi").removeClass("d-none");
             $("#tai_xong_cau_hoi").addClass("d-none");
             TaoCauHoi();
             DapAn();
-            LoadAnh();
         }, 3000); // 3000 milliseconds = 3 seconds
     }
     else {
@@ -325,12 +327,12 @@ function KetQua() {
             kt_dung_sai += " dau-khung-ket-qua";
         }
         code_nhap_vao += `
-        <div id="ket_qua`+ (i + 1) + `" class="` + kt_dung_sai + ` khung-ket-qua d-flex align-items-center">
-                    <img src="`+ ds_anime_cau_hoi[i].attributes.posterImage.large + `"
-                                            class="`+ anh_ket_qua + ` h-auto">
-                    <p class="`+ kt_mobile + ` mx-auto my-auto">` + ds_anime_cau_hoi[i].attributes.canonicalTitle + `</p>
-        </div>
-        `;
+<div id="ket_qua`+ (i + 1) + `" class="` + kt_dung_sai + ` khung-ket-qua d-flex align-items-center">
+            <img src="`+ ds_anime_cau_hoi[i].attributes.posterImage.large + `"
+                                    class="`+ anh_ket_qua + ` h-auto">
+            <p class="`+ kt_mobile + ` mx-auto my-auto">` + ds_anime_cau_hoi[i].attributes.canonicalTitle + `</p>
+</div>
+`;
     }
     $("#tong_ket_qua").html(code_nhap_vao);
     $("#so_cau_dung").text(so_cau_dung);

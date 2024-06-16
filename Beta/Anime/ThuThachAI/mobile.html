@@ -33,8 +33,8 @@
                 <!-- Modal body -->
                 <div class="py-5 px-5 rounded text-center">
                     <h5 class="mb-4">Anime TV <span class="anime_mua"></span> <span class="anime_nam"></span></h5>
-                    <button type="button" class="btn btn-success text-end" data-bs-dismiss="modal"
-                        onclick="Chien()">Chiến!</button>
+                    <button id="nut_chien" type="button" class="btn btn-success text-end"
+                        data-bs-dismiss="modal">Chiến!</button>
                 </div>
             </div>
         </div>
@@ -92,7 +92,7 @@
         </div>
         <div class="vung-anime-mobile d-flex flex-column">
             <div class="text-center mt-3">
-                <h5 class="mb-2">CHẾ ĐỘ CƠ BẢN</h5>
+                <h5 class="mb-2">CHẾ ĐỘ AI</h5>
                 <p class="mb-4">Câu <span id="cau_hoi_hien_tai">1</span>/10:</p>
 
                 <div id="tai_cau_hoi" class="text-center mt-5">
@@ -100,7 +100,7 @@
                     <img src="../../img/load_anh_gif.gif" class="w-25 h-auto">
                 </div>
 
-                <img id="anh_cau_hoi" src="" class="d-none anh-anime-mobile h-auto animate__animated animate__fadeIn">
+                <p id="ai_cau_hoi" class="text-center mt-5 d-none animate__animated animate__fadeIn"></p>
             </div>
         </div>
         <div id="fix_mobile" class="d-none mt-3 text-center trac-nghiem-mobile animate__animated animate__fadeIn">
@@ -117,7 +117,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
+    <script type="importmap">
+            {
+              "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+              }
+            }
+          </script>
+    <script src="js/scripts.js" type="module"></script>
 </body>
 
 </html>
