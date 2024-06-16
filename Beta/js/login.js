@@ -17,6 +17,39 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const auth = firebase.auth();
 
+let anh_dai_dien = "";
+$('#tim_anh').click(function () {
+    $('#anh_anime').html("");
+    let characterName = $('#anh_dai_dien').val().trim();
+    if (characterName) {
+        // Tìm kiếm nhân vật theo tên
+        $.get(`https://api.jikan.moe/v4/characters?q=${characterName}`, function (searchData) {
+            if (searchData.data && searchData.data.length > 0) {
+                let characterId = searchData.data[0].mal_id;
+
+                // Lấy chi tiết nhân vật bằng ID
+                $.get(`https://api.jikan.moe/v4/characters/${characterId}`, function (characterData) {
+                    if (characterData.data && characterData.data.images && characterData.data.images.jpg) {
+                        anh_dai_dien = characterData.data.images.jpg.image_url;
+                        $('#anh_anime').html(`<img src="${anh_dai_dien}" class="w-25 h-auto mt-2" alt="${characterName}">
+                            <button id="chon_anh" type="button" class="btn btn-primary mt-2">Chọn</button>
+                            `);
+                        $('#chon_anh').click(function () {
+                            $("#chon_anh_dai_dien").addClass("d-none");
+                            $("#anh_da_chon").removeClass("d-none");
+                            $("#anh_da_chon").attr("src", anh_dai_dien);
+                        });
+                    } else {
+                        $('#anh_anime').text("Hình ảnh không tồn tại!");
+                    }
+                });
+            } else {
+                $('#anh_anime').text("Không tìm thấy nhân vật!");
+            }
+        });
+    }
+});
+
 $(function () {
     $('[id^="email_"]').on("input", function () {
         // Lấy giá trị của thuộc tính ID
@@ -151,32 +184,37 @@ async function DangKy() {
     }
 
     if (kt_email_dk == true && kt_mat_khau_dk == true && kt_ten_nguoi_dung_dk == true && kt_mat_khau_xn_dk == true) {
-        try {
-            showLoadingOverlay(); // Hiển thị overlay khi bắt đầu đăng ký
-            let userCredential = await auth.createUserWithEmailAndPassword($("#email_dk").val(), $("#mat_khau_dk").val());
-            let user = userCredential.user;
 
-            // Add user info to Firestore
-            await db.collection('users').doc(user.uid).set({
-                ten_nguoi_dung: $("#ten_nguoi_dung_dk").val(),
-                email: $("#email_dk").val(),
-                mat_khau: $("#mat_khau_dk").val(),
-                ngay_tao: firebase.firestore.FieldValue.serverTimestamp()
-            });
+        $("#dang_ky").modal("hide");
+        $("#dk_thanh_cong").modal("show");
+        $(".ten_nguoi_dung").text($("#ten_nguoi_dung_dk").val());
 
-            await TaiDLNguoiDung();
-            $("#dang_ky").modal("hide");
-            $("#dk_thanh_cong").modal("show");
-            $(".ten_nguoi_dung").text(dl_nguoi_dung.ten_nguoi_dung);
-        } catch (error) {
-            $("#kt_tai_khoan_dk").removeClass("d-none");
-            $("#email_dk").addClass("border-danger");
-            $("#email_dk").removeClass("border-success");
-        } finally {
-            hideLoadingOverlay(); // Ẩn overlay sau khi hoàn thành quá trình đăng ký
-        }
+        // Add user info to Firestore
+        $("#nut_dk").click(async function () {
+            try {
+                showLoadingOverlay();
+                let userCredential = await auth.createUserWithEmailAndPassword($("#email_dk").val(), $("#mat_khau_dk").val());
+                let user = userCredential.user;
+                if (anh_dai_dien == "") {
+                    anh_dai_dien = "img/khong_co_anh.gif";
+                }
+                await db.collection('users').doc(user.uid).set({
+                    ten_nguoi_dung: $("#ten_nguoi_dung_dk").val(),
+                    email: $("#email_dk").val(),
+                    mat_khau: $("#mat_khau_dk").val(),
+                    anh_dai_dien: anh_dai_dien,
+                    ngay_tao: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                $("#dk_thanh_cong").modal("hide");
+            } catch (error) {
+                $("#kt_tai_khoan_dk").removeClass("d-none");
+                $("#email_dk").addClass("border-danger");
+                $("#email_dk").removeClass("border-success");
+            } finally {
+                hideLoadingOverlay(); // Ẩn overlay sau khi hoàn thành quá trình đăng ký
+            }
+        });
     }
-
 }
 
 
@@ -206,6 +244,7 @@ async function DangNhap() {
             $("#dang_nhap").modal("hide");
             $("#dn_thanh_cong").modal("show");
             $(".ten_nguoi_dung").text(dl_nguoi_dung.ten_nguoi_dung);
+            $("#anh_dai_dien_dn").attr("src", dl_nguoi_dung.anh_dai_dien);
         } catch (error) {
             $("#kt_tai_khoan_dn").removeClass("d-none");
             $("#email_dn").addClass("border-danger");
@@ -260,17 +299,21 @@ function TaiKhoanDaDN() {
         $("#thu_thach").html(`
             <a href="ThuThach/mobile.html" class="btn btn-light nut-choi-mobile rounded mt-3">Thử Thách</a>
         `);
+        $("#nguoi_dung").html(`
+            <img src="`+ dl_nguoi_dung.anh_dai_dien + `" class="w-25 h-auto mt-2">
+            <p class="mt-3">`+ dl_nguoi_dung.ten_nguoi_dung + `</p>
+        `);
     }
 
     if (width > 768) {
         $("#thu_thach").html(`
             <a href="ThuThach/pc.html" class="btn btn-outline-primary nut-choi-pc rounded mt-3">Thử Thách</a>
         `);
+        $("#nguoi_dung").html(`
+            <img src="`+ dl_nguoi_dung.anh_dai_dien + `" class="w-50 h-auto mt-2">
+            <p class="mt-3">`+ dl_nguoi_dung.ten_nguoi_dung + `</p>
+        `);
     }
-
-    $("#nguoi_dung").html(`
-        <p>`+ dl_nguoi_dung.ten_nguoi_dung + `</p>
-    `);
 }
 
 function TaiKhoanChuaDN() {

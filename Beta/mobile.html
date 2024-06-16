@@ -22,7 +22,8 @@
                 <!-- Modal body -->
                 <div class="py-5 px-5 rounded text-center">
                     <h5>Chào mừng quay trở lại</h5>
-                    <p class="ten_nguoi_dung"></p>
+                    <img id="anh_dai_dien_dn" src="" class="w-25 h-auto mt-2">
+                    <p class="ten_nguoi_dung mt-3"></p>
                     <button type="button" class="btn btn-success" data-bs-dismiss="modal">Bắt
                         Đầu</button>
                 </div>
@@ -38,8 +39,17 @@
                 <!-- Modal body -->
                 <div class="py-5 px-5 rounded text-center">
                     <h5>Chào mừng đến với TomiSakae</h5>
-                    <p class="ten_nguoi_dung"></p>
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Bắt Đầu</button>
+                    <img id="anh_da_chon" src="" class="d-none w-25 h-auto mt-2">
+                    <div id="chon_anh_dai_dien" class="">
+                        <label for="anh_dai_dien" class="mb-2">Nhập tên nhân vật để tìm ảnh đại diện:</label>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
+                            <button id="tim_anh" type="button" class="btn btn-primary mx-2">Tìm</button>
+                        </div>
+                        <div id="anh_anime" class="d-flex flex-column justify-content-center align-items-center"></div>
+                    </div>
+                    <p class="ten_nguoi_dung mt-3"></p>
+                    <button id="nut_dk" type="button" class="btn btn-success">Bắt Đầu</button>
                 </div>
             </div>
         </div>
@@ -144,7 +154,7 @@
             <div class="modal-content">
                 <!-- Modal body -->
                 <div class="py-4 px-4 rounded text-center">
-                    <h6>Không đăng nhập sẽ không thể mở khóa các tính năng khác của web!</h6>
+                    <h6>Không đăng nhập sẽ không thể lưu lại dữ liệu khi chơi!</h6>
                     <div class="mt-4 d-flex justify-content-between align-items-center">
                         <button type="button" class="btn btn-success" data-bs-dismiss="modal">Quay
                             Lại</button>
