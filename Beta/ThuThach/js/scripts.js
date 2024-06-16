@@ -13,6 +13,9 @@ function BatDau() {
         if (kt_che_do_mobile == 3) {
             window.location.href = "../Anime/ThuThachSinhTon/mobile.html";
         }
+        if (kt_che_do_mobile == 4) {
+            window.location.href = "../Anime/ThuThachTenNhanVat/mobile.html";
+        }
     }
     if (width > 768) {
         if (kt_che_do == 1) {
@@ -23,6 +26,9 @@ function BatDau() {
         }
         if (kt_che_do == 3) {
             window.location.href = "../Anime/ThuThachSinhTon/pc.html";
+        }
+        if (kt_che_do == 4) {
+            window.location.href = "../Anime/ThuThachTenNhanVat/pc.html";
         }
     }
 
@@ -58,6 +64,15 @@ $('[id^="che_do_mobile"]').click(function () {
             break;
         case 3:
             $("#ten_che_do").html(`Sinh Tồn <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
+            break;
+        case 4:
+            $("#ten_che_do").html(`Tên Nhân Vật <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
+            break;
+        case 5:
+            $("#ten_che_do").html(`Studio <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
+            break;
+        case 6:
+            $("#ten_che_do").html(`AI <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
             break;
     }
 
