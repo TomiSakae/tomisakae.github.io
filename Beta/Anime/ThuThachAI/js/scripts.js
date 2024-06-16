@@ -1,8 +1,9 @@
-const {
+
+import {
     GoogleGenerativeAI,
     HarmCategory,
     HarmBlockThreshold,
-} = require("@google/generative-ai");
+} from "@google/generative-ai";
 
 const apiKey = "AIzaSyC7suGvkLTcVUNihZI2Rf5j-Wa1Gf33MWY";
 const genAI = new GoogleGenerativeAI(apiKey);
@@ -195,38 +196,29 @@ function TaoCauHoi() {
     id_cau_hoi.push(cau_hoi_anime);
     ds_anime_cau_hoi.push(ds_anime[cau_hoi_anime]);
 
-    $("#anh_cau_hoi").attr('src', ds_anime[cau_hoi_anime].attributes.posterImage.large);
+    // Parse JSON string to JavaScript object
+    let du_lieu_cau_hoi = JSON.parse(GeminiAI(ds_anime[cau_hoi_anime].attributes.canonicalTitle));
 
-    $("#anh_cau_hoi").addClass("d-none");
-
-    dap_an_dung = TaoSoNgauNhien(1, 4);
-
-    $("#dap_an" + dap_an_dung).text(ds_anime[cau_hoi_anime].attributes.canonicalTitle);
-
-    // Tạo một danh sách ngẫu nhiên của các đáp án (bao gồm cả đáp án đúng)
-    let danh_sach_dap_an_ngau_nhien = [];
-    for (let i = 0; i < so_luong_anime; i++) {
-        if (i != cau_hoi_anime) {
-            danh_sach_dap_an_ngau_nhien.push(ds_anime[i].attributes.canonicalTitle);
+    // Extract answers
+    let ai_dap_an = [];
+    for (let key in du_lieu_cau_hoi) {
+        if (key.startsWith('cau_tra_loi_')) {
+            ai_dap_an.push({
+                noi_dung: du_lieu_cau_hoi[key].noi_dung,
+                ket_qua: du_lieu_cau_hoi[key].ket_qua
+            });
         }
     }
-    // Trộn ngẫu nhiên danh sách đáp án
-    danh_sach_dap_an_ngau_nhien = shuffleArray(danh_sach_dap_an_ngau_nhien);
 
-    // Đặt các đáp án còn lại từ danh sách đã được trộn
+    $("#ai_cau_hoi").text(du_lieu_cau_hoi.cau_hoi);
+
+    $("#ai_cau_hoi").addClass("d-none");
+
     for (let i = 1; i <= 4; i++) {
-        if (i != dap_an_dung) {
-            $("#dap_an" + i).text(danh_sach_dap_an_ngau_nhien.pop());
+        $("#dap_an" + i).text(ai_dap_an[i - 1].noi_dung);
+        if (ai_dap_an[i - 1].ket_qua == true) {
+            dap_an_dung = i;
         }
-    }
-
-    // Hàm để trộn ngẫu nhiên một mảng
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
     }
 }
 
@@ -251,13 +243,13 @@ function DemThoiGian() {
 }
 
 function LoadAnh() {
-    $("#anh_cau_hoi").on('load', function () {
+    $("#ai_cau_hoi").on('load', function () {
         DemThoiGian();
         $("#tai_cau_hoi").addClass("d-none");
         $("#tai_xong_cau_hoi").removeClass("d-none");
         $("#load_anh").removeClass("d-none");
         $("#fix_mobile").removeClass("d-none");
-        $("#anh_cau_hoi").removeClass("d-none");
+        $("#ai_cau_hoi").removeClass("d-none");
     });
 }
 
@@ -386,10 +378,3 @@ function DapAn() {
         $('[id^="dap_an"]').unbind("click");
     });
 }
-
-
-$("#anh_cau_hoi").click(function () {
-    let src = $(this).attr("src");
-    $("#phong_to_anh").modal("show");
-    $("#anh_phong_to").attr("src", src);
-});
