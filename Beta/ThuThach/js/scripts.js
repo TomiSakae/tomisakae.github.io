@@ -16,6 +16,9 @@ function BatDau() {
         if (kt_che_do_mobile == 4) {
             window.location.href = "../Anime/ThuThachTenNhanVat/mobile.html";
         }
+        if (kt_che_do_mobile == 5) {
+            window.location.href = "../Anime/ThuThachStudio/mobile.html";
+        }
     }
     if (width > 768) {
         if (kt_che_do == 1) {
@@ -29,6 +32,9 @@ function BatDau() {
         }
         if (kt_che_do == 4) {
             window.location.href = "../Anime/ThuThachTenNhanVat/pc.html";
+        }
+        if (kt_che_do == 5) {
+            window.location.href = "../Anime/ThuThachStudio/pc.html";
         }
     }
 
