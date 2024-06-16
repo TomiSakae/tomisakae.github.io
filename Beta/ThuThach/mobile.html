@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TomiSakae</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- The Modal -->
+    <div class="modal" id="lua_chon_che_do">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="py-5 px-5 rounded text-center">
+                    <div id="che_do_mobile1" class="che-do-choi-mobile py-2 px-3 my-3">
+                        <p class="mt-1">
+                            <span class="cap-do-1 small py-1 px-2">Cấp độ 1</span>
+                            <br>
+                            <span class="h6 d-inline-block mt-2">Cơ Bản</span>
+                            <br>
+                            <span class="small">Chế độ này bao gồm 10 câu hỏi về Anime được lựa chọn ngẫu nhiên theo
+                                mùa.</span>
+                        </p>
+                    </div>
+                    <div id="che_do_mobile2" class="che-do-choi-mobile py-2 px-3 my-3">
+                        <p class="mt-1">
+                            <span class="cap-do-2 small py-1 px-2">Cấp độ 2</span>
+                            <br>
+                            <span class="h6 d-inline-block mt-2">Nhân Vật</span>
+                            <br>
+                            <span class="small">Chế độ này bao gồm 10 câu hỏi về nhân vật được lựa chọn ngẫu nhiên theo
+                                mùa.</span>
+                        </p>
+                    </div>
+                    <div id="che_do_mobile3" class="che-do-choi-mobile py-2 px-3 my-3">
+                        <p class="mt-1">
+                            <span class="cap-do-3 small py-1 px-2">Cấp độ 3</span>
+                            <br>
+                            <span class="h6 d-inline-block mt-2">Sinh Tồn</span>
+                            <br>
+                            <span class="small">Chế độ này chỉ được trả lời sai 3 câu hỏi dựa trên
+                                số lượng Anime của mùa đó.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vh-100 bg-primary d-flex flex-column justify-content-center align-items-center">
+        <div class="text-white text-center">
+            <h3>TomiSakae</h3>
+            <h5>Trắc Nghiệm Anime Online</h5>
+        </div>
+        <div class="vung-dang-nhap-mobile d-flex justify-content-center align-items-center">
+            <div class="text-center">
+                <h6 class="mb-2 mt-4">THỬ THÁCH</h6>
+                <p class="mb-4">Vui lòng chọn chế độ chơi</p>
+                <p id="ten_che_do" class="che-do-choi-mobile px-3 py-2 d-inline-block" data-bs-toggle="modal"
+                    data-bs-target="#lua_chon_che_do">Cơ Bản <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>
+                </p>
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center mt-4">
+            <button id="nut_bat_dau" type="button" class="btn btn-light nut-choi-mobile rounded mb-3"
+                onclick="BatDau()">Bắt Đầu</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

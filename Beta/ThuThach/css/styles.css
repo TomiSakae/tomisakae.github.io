@@ -1,0 +1,55 @@
+.che-do-choi {
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid black;
+    max-width: 15vw;
+}
+
+.che-do-choi:hover {
+    background-color: #198754;
+    color: white;
+    cursor: pointer;
+    border-color: #198754;
+}
+
+.che-do-choi-chon {
+    background-color: #198754;
+    color: white;
+    border: 1px solid #198754;
+    border-radius: 15px;
+    max-width: 15vw;
+}
+
+.che-do-choi-mobile {
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.che-do-choi-mobile:hover {
+    background-color: #198754;
+    color: white;
+    cursor: pointer;
+    border-color: #198754;
+}
+
+.cap-do-1 {
+    border: 1px solid black;
+    border-radius: 25px;
+    color: black;
+    background-color: white;
+}
+
+.cap-do-2 {
+    border: 1px solid blue;
+    border-radius: 25px;
+    color: white;
+    background-color: blue;
+}
+
+.cap-do-3 {
+    border: 1px solid blueviolet;
+    border-radius: 25px;
+    color: white;
+    background-color: blueviolet;
+}
