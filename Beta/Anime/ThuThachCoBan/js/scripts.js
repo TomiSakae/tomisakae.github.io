@@ -240,8 +240,8 @@ function KetThucCauHoi() {
     clearInterval(dem_tg); // Dừng đếm
     $('[id^="dap_an"]').removeClass("khung-trac-nghiem");
     $('[id^="dap_an"]').addClass("khung-trac-nghiem-fix");
-    if (so_cau_hien_tai < 10) {
-        setTimeout(function () {
+    setTimeout(function () {
+        if (so_cau_hien_tai < 10) {
             $("#phong_to_anh").modal("hide");
             $("#load_anh").addClass("d-none");
             FixDapAnMobile();
@@ -251,12 +251,11 @@ function KetThucCauHoi() {
             TaoCauHoi();
             DapAn();
             LoadAnh();
-        }, 3000); // 3000 milliseconds = 3 seconds
-    }
-    else {
-        KetQua();
-
-    }
+        }
+        else {
+            KetQua();
+        }
+    }, 3000); // 3000 milliseconds = 3 seconds
 }
 
 function KetQua() {
