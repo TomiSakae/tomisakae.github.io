@@ -12,65 +12,10 @@
     height: 30vh;
 }
 
-.nhap-ten-pc {
-    width: 20vw;
-    border-radius: 5px;
-}
-
-.nhap-ten-mobile {
-    width: 80vw;
-    border-radius: 5px;
-}
-
 .nut-choi-pc {
     width: 10vw;
 }
 
 .nut-choi-mobile {
     width: 40vw;
-}
-
-.nut-dang-nhap-dang-ky-pc {
-    width: 8vw;
-}
-
-.nut-dang-nhap-dang-ky-mobile {
-    width: 35vw;
-}
-
-#loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    z-index: 2000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-    /* Ẩn overlay theo mặc định */
-}
-
-/* Spinner */
-.spinner {
-    border: 8px solid #f3f3f3;
-    /* Light grey */
-    border-top: 8px solid #3498db;
-    /* Blue */
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
 }
