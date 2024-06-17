@@ -11,151 +11,6 @@
 </head>
 
 <body>
-
-    <div id="loading-overlay">
-        <div class="spinner"></div>
-    </div>
-
-    <div class="modal" id="dn_thanh_cong">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <!-- Modal body -->
-                <div class="py-5 px-5 rounded text-center">
-                    <h5>Chào mừng quay trở lại</h5>
-                    <p class="ten_nguoi_dung"></p>
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Bắt
-                        Đầu</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- The Modal -->
-    <div class="modal" id="dk_thanh_cong">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <!-- Modal body -->
-                <div class="py-5 px-5 rounded text-center">
-                    <h5>Chào mừng đến với TomiSakae</h5>
-                    <p class="ten_nguoi_dung"></p>
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Bắt Đầu</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- The Modal -->
-    <div class="modal" id="dang_ky">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <!-- Modal body -->
-                <div class="py-5 px-5 text-center">
-                    <h5>ĐĂNG KÝ</h5>
-                    <p class="small">Vui lòng điền thông tin để đăng ký</p>
-                    <div class="form-floating mb-3 mt-3">
-                        <input type="text" class="form-control rounded" id="ten_nguoi_dung_dk"
-                            placeholder="Nhập tên người dùng" name="ten_nguoi_dung_dk" required>
-                        <label for="ten_nguoi_dung_dk">Tên người dùng</label>
-                        <p id="kt_ten_nguoi_dung_dk" class="small d-none text-danger text-start mx-1 mt-1">Tên người
-                            không
-                            được bỏ trống!
-                        </p>
-                    </div>
-
-                    <div class="form-floating mb-3 mt-3">
-                        <input type="email" class="form-control rounded" id="email_dk" placeholder="Nhập email"
-                            name="email_dk" required>
-                        <label for="email_dk">Email</label>
-                        <p id="kt_email_dk" class="small d-none text-danger text-start mx-1 mt-1">Địa chỉ email không
-                            hợp lệ!
-                        </p>
-                        <p id="kt_tai_khoan_dk" class="small d-none text-danger text-start mx-1 mt-1">Tài khoản của
-                            email này
-                            đã tồn tại!
-                        </p>
-                    </div>
-
-                    <div class="form-floating mt-3 mb-3">
-                        <input type="password" class="form-control rounded" id="mat_khau_dk" placeholder="Nhập mật khẩu"
-                            name="mat_khau_dk" required>
-                        <label for="mat_khau_dk">Mật khẩu</label>
-                        <p id="kt_mat_khau_dk" class="small d-none text-danger text-start mx-1 mt-1">Mật khẩu phải từ 6
-                            ký tự
-                            trở lên!
-                        </p>
-                    </div>
-                    <div class="form-floating mt-3 mb-3">
-                        <input type="password" class="form-control rounded" id="mat_khau_xn_dk"
-                            placeholder="Xác nhận mật khẩu" name="mat_khau_xn_dk" required>
-                        <label for="mat_khau_xn_dk">Xác nhận mật khẩu</label>
-                        <p id="kt_mat_khau_xn_dk" class="small d-none text-danger text-start mx-1 mt-1">Mật khẩu không
-                            trùng
-                            khớp!
-                        </p>
-                    </div>
-
-                    <button type="button" class="btn btn-success mt-2" onclick="DangKy()">Đăng
-                        Ký</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- The Modal -->
-    <div class="modal" id="dang_nhap">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <!-- Modal body -->
-                <div class="py-5 px-5 text-center">
-                    <h5>ĐĂNG NHẬP</h5>
-                    <p class="small">Vui lòng điền thông tin để đăng nhập</p>
-                    <div class="form-floating mb-3 mt-3">
-                        <input type="email" class="form-control rounded" id="email_dn" placeholder="Nhập email"
-                            name="email_dn" required>
-                        <label for="email_dn">Email</label>
-                        <p id="kt_email_dn" class="small d-none text-danger text-start mx-1 mt-1">Địa chỉ email không
-                            hợp lệ!
-                        </p>
-                    </div>
-
-                    <div class="form-floating mt-3 mb-3">
-                        <input type="password" class="form-control rounded" id="mat_khau_dn" placeholder="Nhập mật khẩu"
-                            name="mat_khau_dn" required>
-                        <label for="mat_khau_dn">Mật khẩu</label>
-                        <p id="kt_mat_khau_dn" class="small d-none text-danger text-start mx-1 mt-1">Mật khẩu phải từ 6
-                            ký tự
-                            trở lên!
-                        </p>
-                    </div>
-                    <p id="kt_tai_khoan_dn" class="small d-none text-danger text-start mx-1 mt-1">Sai email hoặc mật
-                        khẩu!
-                    </p>
-                    <button type="button" class="btn btn-success mt-2" onclick="DangNhap()">Đăng
-                        Nhập</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- The Modal -->
-    <div class="modal" id="kt_tai_khoan">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <!-- Modal body -->
-                <div class="py-4 px-4 rounded text-center">
-                    <h6>Không đăng nhập sẽ không thể mở khóa các tính năng khác của web!</h6>
-                    <div class="mt-4 d-flex justify-content-between align-items-center">
-                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Quay
-                            Lại</button>
-                        <a href="ThuThach/mobile.html" class="btn btn-success">Tiếp
-                            Tục</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="vh-100 bg-primary d-flex flex-column justify-content-center align-items-center">
         <div class="text-white text-center">
             <h3>TomiSakae</h3>
@@ -164,20 +19,11 @@
         <div class="vung-dang-nhap-mobile d-flex flex-column justify-content-center align-items-center">
             <div class="text-center">
                 <h6 class="mb-4">CHƠI NGAY</h6>
-            </div>
-            <div id="nguoi_dung" class="d-flex flex-column justify-content-center align-items-center">
-                <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3"
-                    data-bs-toggle="modal" data-bs-target="#dang_nhap">Đăng
-                    Nhập</button>
-                <button type="button" class="btn btn-primary nut-dang-nhap-dang-ky-mobile rounded mb-3"
-                    data-bs-toggle="modal" data-bs-target="#dang_ky">Đăng Ký</button>
+                <p>Phiên Bản 0.3</p>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center">
-            <div id="thu_thach">
-                <button type="button" class="btn btn-light nut-choi-mobile rounded mt-3" data-bs-toggle="modal"
-                    data-bs-target="#kt_tai_khoan">Thử Thách</button>
-            </div>
+            <a href="ThuThach/mobile.html" class="btn btn-light nut-choi-mobile rounded mt-3">Thử Thách</a>
         </div>
     </div>
 
@@ -186,10 +32,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-    <script src="js/login.js"></script>
 </body>
 
 </html>

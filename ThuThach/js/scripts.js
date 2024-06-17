@@ -13,6 +13,15 @@ function BatDau() {
         if (kt_che_do_mobile == 3) {
             window.location.href = "../Anime/ThuThachSinhTon/mobile.html";
         }
+        if (kt_che_do_mobile == 4) {
+            window.location.href = "../Anime/ThuThachTenNhanVat/mobile.html";
+        }
+        if (kt_che_do_mobile == 5) {
+            window.location.href = "../Anime/ThuThachStudio/mobile.html";
+        }
+        if (kt_che_do_mobile == 6) {
+            window.location.href = "../Anime/ThuThachAI/mobile.html";
+        }
     }
     if (width > 768) {
         if (kt_che_do == 1) {
@@ -23,6 +32,15 @@ function BatDau() {
         }
         if (kt_che_do == 3) {
             window.location.href = "../Anime/ThuThachSinhTon/pc.html";
+        }
+        if (kt_che_do == 4) {
+            window.location.href = "../Anime/ThuThachTenNhanVat/pc.html";
+        }
+        if (kt_che_do == 5) {
+            window.location.href = "../Anime/ThuThachStudio/pc.html";
+        }
+        if (kt_che_do == 6) {
+            window.location.href = "../Anime/ThuThachAI/pc.html";
         }
     }
 
@@ -36,7 +54,7 @@ $('[id^="chon_che_do"]').click(function () {
     $("#nut_bat_dau").removeAttr('data-bs-target');
     $(this).removeClass("che-do-choi");
     $(this).addClass("che-do-choi-chon");
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 6; i++) {
         if (i != number) {
             $("#chon_che_do" + i).removeClass("che-do-choi-chon");
             $("#chon_che_do" + i).addClass("che-do-choi");
@@ -58,6 +76,15 @@ $('[id^="che_do_mobile"]').click(function () {
             break;
         case 3:
             $("#ten_che_do").html(`Sinh Tồn <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
+            break;
+        case 4:
+            $("#ten_che_do").html(`Tên Nhân Vật <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
+            break;
+        case 5:
+            $("#ten_che_do").html(`Studio <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
+            break;
+        case 6:
+            $("#ten_che_do").html(`AI <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
             break;
     }
 
