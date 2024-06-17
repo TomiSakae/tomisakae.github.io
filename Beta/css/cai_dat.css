@@ -11,3 +11,17 @@
 .chon-quan-ly {
     background-color: #F0F0F8;
 }
+
+.khung-chon-mobile {
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.khung-chon-mobile:hover {
+    cursor: pointer;
+}
+
+.giao-dien-chon-cai-dat {
+    z-index: 1500;
+}

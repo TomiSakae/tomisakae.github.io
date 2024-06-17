@@ -299,10 +299,13 @@ function TaiKhoanDaDN() {
             <a href="ThuThach/mobile.html" class="btn btn-light nut-choi-mobile rounded mt-3">Thử Thách</a>
         `);
         $("#nguoi_dung").html(`
-            <img src="`+ dl_nguoi_dung.anh_dai_dien + `" class="w-25 h-auto mt-2">
+            <img id="cai_dat" src="`+ dl_nguoi_dung.anh_dai_dien + `" class="w-25 h-auto mt-2">
             <p class="mt-3">`+ dl_nguoi_dung.ten_nguoi_dung + `</p>
         `);
         $("#chinh_choi_ngay").removeClass("mb-4").addClass("mb-2");
+        $("#cai_dat").click(function () {
+            $("#giao_dien_cai_dat").modal("show");
+        });
     }
 
     if (width > 768) {
