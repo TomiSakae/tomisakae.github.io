@@ -310,9 +310,12 @@ function TaiKhoanDaDN() {
             <a href="ThuThach/pc.html" class="btn btn-outline-primary nut-choi-pc rounded mt-3">Thử Thách</a>
         `);
         $("#nguoi_dung").html(`
-            <img src="`+ dl_nguoi_dung.anh_dai_dien + `" class="w-50 h-auto mt-2">
+            <img id="cai_dat" src="`+ dl_nguoi_dung.anh_dai_dien + `" class="w-50 h-auto mt-2">
             <p class="mt-3">`+ dl_nguoi_dung.ten_nguoi_dung + `</p>
         `);
+        $("#cai_dat").click(function () {
+            $("#giao_dien_cai_dat").modal("show");
+        });
     }
 }
 

@@ -1,0 +1,13 @@
+.khung-chon-cai-dat {
+    border-radius: 15px;
+}
+
+.khung-chon-cai-dat:hover {
+    opacity: 0.9;
+    cursor: pointer;
+    background-color: #F0F0F8;
+}
+
+.chon-quan-ly {
+    background-color: #F0F0F8;
+}

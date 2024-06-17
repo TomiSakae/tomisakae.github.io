@@ -8,9 +8,42 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/cai_dat.css" rel="stylesheet">
 </head>
 
 <body>
+    <!-- The Modal -->
+    <div class="modal" id="giao_dien_cai_dat">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Quản Lý Waifu</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-2 border-end d-flex flex-column justify-content-center align-items-center">
+                            <p id="quan_ly1" class="chon-quan-ly khung-chon-cai-dat py-2 px-4">Tài Khoản</p>
+                            <p id="quan_ly2" class="khung-chon-cai-dat py-2 px-4">Hỗ Trợ</p>
+                            <p id="quan_ly3" class="khung-chon-cai-dat py-2 px-4">Đào Tạo</p>
+                            <p id="quan_ly4" class="khung-chon-cai-dat py-2 px-4">Nhiệm Vụ</p>
+                            <p id="quan_ly5" class="khung-chon-cai-dat py-2 px-4">Thành Tựu</p>
+                            <p id="quan_ly6" class="khung-chon-cai-dat py-2 px-4">Hòm Thư</p>
+                        </div>
+                        <div class="col-9">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
     <div id="loading-overlay">
         <div class="spinner"></div>
@@ -191,6 +224,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/cai_dat.js"></script>
 </body>
 
 </html>

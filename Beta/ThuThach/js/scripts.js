@@ -54,7 +54,7 @@ $('[id^="chon_che_do"]').click(function () {
     $("#nut_bat_dau").removeAttr('data-bs-target');
     $(this).removeClass("che-do-choi");
     $(this).addClass("che-do-choi-chon");
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 6; i++) {
         if (i != number) {
             $("#chon_che_do" + i).removeClass("che-do-choi-chon");
             $("#chon_che_do" + i).addClass("che-do-choi");
