@@ -69,6 +69,15 @@
     scrollbar-width: none;
 }
 
+.vung-cau-hoi {
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.vung-cau-hoi-mobile {
+    height: 20vh;
+}
+
 /* Animate.css */
 .animate__animated {
     -webkit-animation-duration: 1s;
