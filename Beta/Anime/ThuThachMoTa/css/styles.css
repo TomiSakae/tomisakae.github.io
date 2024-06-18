@@ -82,6 +82,12 @@
     height: 30vh;
 }
 
+.vung-tra-loi-pc {
+    overflow: auto;
+    scrollbar-width: none;
+    height: 25vh;
+}
+
 /* Animate.css */
 .animate__animated {
     -webkit-animation-duration: 1s;
