@@ -50,6 +50,10 @@ function TaoSoNgauNhien(x, y) {
     return so_ngau_nhien;
 }
 
+async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 let ds_anime = [];
 let so_luong_anime = 0;
 let ds_anime_cau_hoi = [];
@@ -210,6 +214,7 @@ async function TaoCauHoi() {
             kt_ai = 1;
         } catch (error) {
             kt_ai = 0;
+            sleep(500);
         }
     } while (kt_ai == 0);
 

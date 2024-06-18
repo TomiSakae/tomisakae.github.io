@@ -75,7 +75,11 @@
 }
 
 .vung-cau-hoi-mobile {
-    height: 20vh;
+    height: 27vh;
+}
+
+.vung-cau-hoi-pc {
+    height: 30vh;
 }
 
 /* Animate.css */
