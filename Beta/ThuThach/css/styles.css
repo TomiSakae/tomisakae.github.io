@@ -33,44 +33,73 @@
     border-color: #198754;
 }
 
-.cap-do-1 {
+.vung-che-do {
+    height: 50vh;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.cap-do-0 {
     border: 1px solid black;
     border-radius: 25px;
     color: black;
     background-color: white;
 }
 
-.cap-do-2 {
-    border: 1px solid blue;
-    border-radius: 25px;
-    color: white;
-    background-color: blue;
-}
-
-.cap-do-3 {
-    border: 1px solid blueviolet;
-    border-radius: 25px;
-    color: white;
-    background-color: blueviolet;
-}
-
-.cap-do-2-5 {
+.cap-do-0-5 {
     border: 1px solid green;
     border-radius: 25px;
     color: white;
     background-color: green;
 }
 
-.cap-do-4 {
+.cap-do-1 {
+    border: 1px solid blue;
+    border-radius: 25px;
+    color: white;
+    background-color: blue;
+}
+
+
+.cap-do-1-5 {
+    border: 1px solid yellow;
+    border-radius: 25px;
+    color: black;
+    background-color: yellow;
+}
+
+.cap-do-2 {
+    border: 1px solid blueviolet;
+    border-radius: 25px;
+    color: white;
+    background-color: blueviolet;
+}
+
+.cap-do-3 {
+    border: 1px solid orange;
+    border-radius: 25px;
+    color: white;
+    background-color: orange;
+}
+
+.cap-do-2-5 {
     border: 1px solid red;
     border-radius: 25px;
     color: white;
     background-color: red;
+
 }
 
-.cap-do-5 {
+.cap-do-4 {
     border: 1px solid black;
     border-radius: 25px;
     color: white;
     background-color: black;
+}
+
+.cap-do-5 {
+    border: 1px solid linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+    border-radius: 25px;
+    color: white;
+    background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
 }

@@ -22,6 +22,9 @@ function BatDau() {
         if (kt_che_do_mobile == 6) {
             window.location.href = "../Anime/ThuThachAI/mobile.html";
         }
+        if (kt_che_do_mobile == 7) {
+            window.location.href = "../Anime/ThuThachMoTa/mobile.html";
+        }
     }
     if (width > 768) {
         if (kt_che_do == 1) {
@@ -42,6 +45,9 @@ function BatDau() {
         if (kt_che_do == 6) {
             window.location.href = "../Anime/ThuThachAI/pc.html";
         }
+        if (kt_che_do == 7) {
+            window.location.href = "../Anime/ThuThachMoTa/pc.html";
+        }
     }
 
 }
@@ -54,7 +60,7 @@ $('[id^="chon_che_do"]').click(function () {
     $("#nut_bat_dau").removeAttr('data-bs-target');
     $(this).removeClass("che-do-choi");
     $(this).addClass("che-do-choi-chon");
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 9; i++) {
         if (i != number) {
             $("#chon_che_do" + i).removeClass("che-do-choi-chon");
             $("#chon_che_do" + i).addClass("che-do-choi");
@@ -85,6 +91,15 @@ $('[id^="che_do_mobile"]').click(function () {
             break;
         case 6:
             $("#ten_che_do").html(`AI <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
+            break;
+        case 7:
+            $("#ten_che_do").html(`Mô Tả <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
+            break;
+        case 8:
+            $("#ten_che_do").html(`Trailer <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
+            break;
+        case 9:
+            $("#ten_che_do").html(`Tùy Chỉnh <i id="lua_che_do" class="ms-2 fa-solid fa-repeat"></i>`);
             break;
     }
 
