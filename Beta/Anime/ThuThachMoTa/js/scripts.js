@@ -28,13 +28,13 @@ async function GeminiAI(input) {
             {
                 role: "user",
                 parts: [
-                    { text: "gemini sẽ tạo ra câu hỏi dựa trên tên anime nhập vào. Và xuất ra định dạng với cau_hoi:\"\" cau_tra_loi1:\"\" cau_tra_loi2 cau_tra_loi3 cau_tra_loi4 và mỗi câu trả lời có ket_qua: true hoặc false, và chỉ có 1 câu trả lời đúng nên ket_qua chỉ có 1 true và 3 false" },
+                    { text: "Gemini sẽ dịch bất cứ văn bản nào khác tiếng việt thành tiếng việt và chỉ trả lời văn bản đã dịch chứ không nói gì thêm!" },
                 ],
             },
             {
                 role: "model",
                 parts: [
-                    { text: "{\"cau_hoi\": \"Bạn có biết Anime nào có tên là?\", \"cau_tra_loi_1\": {\"noi_dung\": \"One Piece\", \"ket_qua\": false}, \"cau_tra_loi_2\": {\"noi_dung\": \"Naruto\", \"ket_qua\": true}, \"cau_tra_loi_3\": {\"noi_dung\": \"Conan\", \"ket_qua\": false}, \"cau_tra_loi_4\": {\"noi_dung\": \"Doraemon\", \"ket_qua\": false}}\n" },
+                    { text: "Được rồi. Hãy cho tôi xem văn bản bạn muốn tôi dịch sang tiếng Việt. \n" },
                 ],
             },
         ],
@@ -169,14 +169,14 @@ $(document).ready(function () {
 
 let dap_an_dung = 0;
 let so_cau_hien_tai = 0;
-let thoi_gian_con_lai = 30;
+let thoi_gian_con_lai = 60;
 let dem_tg;
 let diem_so = 0;
 let id_cau_hoi = [];
 async function TaoCauHoi() {
     so_cau_hien_tai++;
     $("#cau_hoi_hien_tai").text(so_cau_hien_tai);
-    thoi_gian_con_lai = 30;
+    thoi_gian_con_lai = 60;
     $("#thoi_gian_con_lai").text(thoi_gian_con_lai);
     let cau_hoi_anime;
 
@@ -198,38 +198,51 @@ async function TaoCauHoi() {
 
     // Parse JSON string to JavaScript object
 
+    $("#tai_dl_anh").attr('src', ds_anime[cau_hoi_anime].attributes.posterImage.large);
+
     let du_lieu_cau_hoi;
     let gemini_cau_hoi;
     let kt_ai = 0;
     do {
         try {
-            gemini_cau_hoi = await GeminiAI(ds_anime[cau_hoi_anime].attributes.canonicalTitle);
-            du_lieu_cau_hoi = JSON.parse(gemini_cau_hoi);
+            gemini_cau_hoi = await GeminiAI(ds_anime[cau_hoi_anime].synopsis);
+            du_lieu_cau_hoi = gemini_cau_hoi;
             kt_ai = 1;
         } catch (error) {
             kt_ai = 0;
         }
     } while (kt_ai == 0);
 
+    $("#ai_cau_hoi").text(du_lieu_cau_hoi);
 
-    // Extract answers
-    let ai_dap_an = [];
-    for (let key in du_lieu_cau_hoi) {
-        if (key.startsWith('cau_tra_loi_')) {
-            ai_dap_an.push({
-                noi_dung: du_lieu_cau_hoi[key].noi_dung,
-                ket_qua: du_lieu_cau_hoi[key].ket_qua
-            });
+    dap_an_dung = TaoSoNgauNhien(1, 4);
+
+    $("#dap_an" + dap_an_dung).text(ds_anime[cau_hoi_anime].attributes.canonicalTitle);
+
+    // Tạo một danh sách ngẫu nhiên của các đáp án (bao gồm cả đáp án đúng)
+    let danh_sach_dap_an_ngau_nhien = [];
+    for (let i = 0; i < so_luong_anime; i++) {
+        if (i != cau_hoi_anime) {
+            danh_sach_dap_an_ngau_nhien.push(ds_anime[i].attributes.canonicalTitle);
+        }
+    }
+    // Trộn ngẫu nhiên danh sách đáp án
+    danh_sach_dap_an_ngau_nhien = shuffleArray(danh_sach_dap_an_ngau_nhien);
+
+    // Đặt các đáp án còn lại từ danh sách đã được trộn
+    for (let i = 1; i <= 4; i++) {
+        if (i != dap_an_dung) {
+            $("#dap_an" + i).text(danh_sach_dap_an_ngau_nhien.pop());
         }
     }
 
-    $("#ai_cau_hoi").text(du_lieu_cau_hoi.cau_hoi);
-
-    for (let i = 1; i <= 4; i++) {
-        $("#dap_an" + i).text(ai_dap_an[i - 1].noi_dung);
-        if (ai_dap_an[i - 1].ket_qua == true) {
-            dap_an_dung = i;
+    // Hàm để trộn ngẫu nhiên một mảng
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
         }
+        return array;
     }
 
     $("#tai_cau_hoi").addClass("d-none");
