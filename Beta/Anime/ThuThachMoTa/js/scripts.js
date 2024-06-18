@@ -205,7 +205,7 @@ async function TaoCauHoi() {
     let kt_ai = 0;
     do {
         try {
-            gemini_cau_hoi = await GeminiAI(ds_anime[cau_hoi_anime].synopsis);
+            gemini_cau_hoi = await GeminiAI(ds_anime[cau_hoi_anime].attributes.synopsis);
             du_lieu_cau_hoi = gemini_cau_hoi;
             kt_ai = 1;
         } catch (error) {
