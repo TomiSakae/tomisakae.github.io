@@ -198,6 +198,8 @@ async function TaoCauHoi() {
 
     // Parse JSON string to JavaScript object
 
+    $("#tai_dl_anh").attr('src', ds_anime[cau_hoi_anime].attributes.posterImage.large);
+
     let du_lieu_cau_hoi;
     let gemini_cau_hoi;
     let kt_ai = 0;

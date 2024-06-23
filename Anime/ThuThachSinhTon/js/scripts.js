@@ -249,12 +249,12 @@ function KetThucCauHoi() {
 
     $("#mang_con_lai").text(mang_con_lai);
     so_cau_da_tra_loi++;
-    if (mang_con_lai == 0) {
-        KetQua();
-        return;
-    }
 
     setTimeout(function () {
+        if (mang_con_lai == 0) {
+            KetQua();
+            return;
+        }
         if (so_cau_hien_tai < so_luong_cau_hoi) {
             $("#phong_to_anh").modal("hide");
             $("#load_anh").addClass("d-none");
