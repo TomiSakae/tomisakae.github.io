@@ -56,7 +56,7 @@ $(document).ready(function () {
 
     const giam_thoi_gian = setInterval(function () {
         thoi_gian_choi--;
-        if (thoi_gian_choi <= 0) {
+        if (thoi_gian_choi < 0) {
             clearInterval(giam_thoi_gian);
         } else {
             $("#thoi_gian_con_lai").text(thoi_gian_choi);
