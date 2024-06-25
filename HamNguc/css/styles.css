@@ -22,3 +22,7 @@
 .khung-anh {
     border: 1px solid black;
 }
+
+.lam-mo-anh {
+    opacity: 0.5;
+}
