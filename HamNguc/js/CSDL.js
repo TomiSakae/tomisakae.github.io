@@ -22,7 +22,8 @@ request.onsuccess = function (event) {
             hang: "F",
             url_anh: "AnimeCard/The_iDOLM@STER_Cinderella_Girls/anzu-futaba-2.jpg",
             ten: "Anzu Futaba",
-            ky_nang: "Tăng chỉ số ATK thêm 10."
+            ky_nang: "Tăng chỉ số ATK thêm 10.",
+            cd: 30
         },
         {
             id: 2,
@@ -30,7 +31,8 @@ request.onsuccess = function (event) {
             hang: "F",
             url_anh: "AnimeCard/The_iDOLM@STER_Cinderella_Girls/kaede-takagaki-3.jpg",
             ten: "Kaede Takagaki",
-            ky_nang: "Tăng thời gian thêm 5 giây."
+            ky_nang: "Tăng thời gian thêm 5 giây.",
+            cd: 30
         },
         {
             id: 3,
@@ -38,7 +40,8 @@ request.onsuccess = function (event) {
             hang: "F",
             url_anh: "AnimeCard/The_iDOLM@STER_Cinderella_Girls/mika-jougasaki-3.jpg",
             ten: "Mika Jougasaki",
-            ky_nang: "Tăng chỉ số ATK thêm 1 với mỗi lần nhấn trong 1 giây."
+            ky_nang: "Tăng chỉ số ATK thêm 1 với mỗi lần nhấn trong 1 giây.",
+            cd: 30
         },
         {
             id: 4,
@@ -46,7 +49,8 @@ request.onsuccess = function (event) {
             hang: "F",
             url_anh: "AnimeCard/The_iDOLM@STER_Cinderella_Girls/mio-honda-3.jpg",
             ten: "Mio Honda",
-            ky_nang: "Tăng thời gian thêm 1 giây với mỗi lần nhấn trong 1 giây."
+            ky_nang: "Tăng thời gian thêm 1 giây với mỗi lần nhấn trong 1 giây.",
+            cd: 30
         },
         // Thêm nhiều đối tượng dữ liệu tùy ý
     ];
