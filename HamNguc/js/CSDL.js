@@ -18,7 +18,7 @@ request.onsuccess = function (event) {
     const dataList = [
         {
             id: 1,
-            sl: 1,
+            sl: 0,
             hang: "F",
             url_anh: "AnimeCard/The_iDOLM@STER_Cinderella_Girls/anzu-futaba-2.jpg",
             ten: "Anzu Futaba",
@@ -26,7 +26,7 @@ request.onsuccess = function (event) {
         },
         {
             id: 2,
-            sl: 1,
+            sl: 0,
             hang: "F",
             url_anh: "AnimeCard/The_iDOLM@STER_Cinderella_Girls/kaede-takagaki-3.jpg",
             ten: "Kaede Takagaki",
@@ -34,7 +34,7 @@ request.onsuccess = function (event) {
         },
         {
             id: 3,
-            sl: 1,
+            sl: 0,
             hang: "F",
             url_anh: "AnimeCard/The_iDOLM@STER_Cinderella_Girls/mika-jougasaki-3.jpg",
             ten: "Mika Jougasaki",
@@ -42,7 +42,7 @@ request.onsuccess = function (event) {
         },
         {
             id: 4,
-            sl: 1,
+            sl: 0,
             hang: "F",
             url_anh: "AnimeCard/The_iDOLM@STER_Cinderella_Girls/mio-honda-3.jpg",
             ten: "Mio Honda",

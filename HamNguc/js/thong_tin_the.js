@@ -13,7 +13,9 @@ request.onsuccess = function (event) {
 
     // Lấy tất cả dữ liệu từ cơ sở dữ liệu
 
-
+    mang_doi_hinh.forEach(id => {
+        LapDoiHinh(Number(id));
+    });
 };
 
 request.onerror = function (event) {
@@ -52,7 +54,6 @@ function getAllData(db) {
         $("#vung_xep_doi_hinh").html(code);
         DoiHinh();
         mang_doi_hinh.forEach(id => {
-            LapDoiHinh(Number(id));
             const selector = `#doi_hinh${id}`;
             $(selector).addClass('lam-mo-anh').off('click');
         });
@@ -135,6 +136,9 @@ function ThongTinTheBai() {
         // Sử dụng biểu thức chính quy để trích xuất số từ id
         const so_phia_sau = id_phan_tu.match(/\d+$/);
 
+        $("#vao_thu_thap").click(function () {
+            window.location.href = "ThuThap/AnhAnime" + Number(so_phia_sau) + ".html";
+        });
         request = indexedDB.open('AnimeCard', 4);
         request.onsuccess = function (event) {
             const db = event.target.result;
