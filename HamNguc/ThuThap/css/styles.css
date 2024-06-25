@@ -73,3 +73,8 @@
     top: 5px;
     left: 5px;
 }
+
+body {
+    user-select: none;
+    /* Ngăn chặn việc chọn */
+}
