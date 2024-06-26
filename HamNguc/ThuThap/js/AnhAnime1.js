@@ -21,35 +21,9 @@ $(document).ready(function () {
             $("#mau_hien_tai").text(mau);
             capNhatThanhMau(); // Cập nhật chiều rộng của thanh máu
         }
-    });
-
-    $('.anh-ky-nang').click(function () {
-        const $this = $(this);
-        const cooldownTime = parseInt($this.data('cooldown-time')); // Lấy thời gian cooldown từ thuộc tính data
-
-        const $overlay = $this.siblings('.cooldown-overlay');
-        const $cooldownText = $overlay.find('.cooldown-text');
-
-        // Kiểm tra nếu ảnh đang trong thời gian hồi chiêu
-        if ($overlay.is(':visible')) {
-            return; // Nếu đang hồi chiêu thì không làm gì
+        else {
+            Thang();
         }
-
-        // Hiển thị overlay hồi chiêu
-        $overlay.show();
-
-        let remainingTime = cooldownTime / 1000; // Chuyển đổi thời gian hồi chiêu sang giây
-        $cooldownText.text(remainingTime); // Hiển thị thời gian hồi chiêu ban đầu
-
-        const interval = setInterval(function () {
-            remainingTime -= 1;
-            if (remainingTime <= 0) {
-                clearInterval(interval);
-                $overlay.hide();
-            } else {
-                $cooldownText.text(remainingTime);
-            }
-        }, 1000);
     });
 
     let thoi_gian_choi = 100;
@@ -58,8 +32,31 @@ $(document).ready(function () {
         thoi_gian_choi--;
         if (thoi_gian_choi < 0) {
             clearInterval(giam_thoi_gian);
+            Thua();
         } else {
             $("#thoi_gian_con_lai").text(thoi_gian_choi);
         }
     }, 1000);
+
 });
+
+function Thua() {
+    $("#ket_thuc_thu_thap").modal("show");
+
+    $("#thang_thua").text("Thu Thập Thất Bại!");
+}
+
+function Thang() {
+    $("#ket_thuc_thu_thap").modal("show");
+
+    $("#thang_thua").text("Thu Thập Thành Công!");
+
+    let mang_thu_thap = JSON.parse(localStorage.getItem("mtt"));
+
+    mang_thu_thap[0] += 1;
+    localStorage.setItem("mtt", JSON.stringify(mang_thu_thap));
+}
+
+function QuayLai() {
+    window.location.href = "/";
+}

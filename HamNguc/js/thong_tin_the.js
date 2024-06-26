@@ -158,6 +158,7 @@ function HienThongTin(dl_anh_anime_id) {
     $("#anh_the_bai").attr('src', dl_anh_anime_id.url_anh);
     $("#ten_the_bai").text(dl_anh_anime_id.ten);
     $("#ky_nang").text(dl_anh_anime_id.ky_nang);
+    $("#hoi_chieu").text(dl_anh_anime_id.cd);
 }
 
 $(function () {
