@@ -1,3 +1,8 @@
+let ATK = 1;
+let mau_ban_dau = 0;
+let mau_toi_da = 0;
+let thoi_gian = 0;
+
 let request = indexedDB.open('AnimeCard', 4);
 
 request.onupgradeneeded = function (event) {
@@ -38,8 +43,8 @@ async function HienDoiHinh() {
                 request.onsuccess = function (event) {
                     const dl_anh_anime_id = event.target.result;
                     code += `
-                    <div id="`+ id + `" class="vi-tri-anh">
-                        <img src="../`+ dl_anh_anime_id.url_anh + `" class="anh-ky-nang"
+                    <div class="vi-tri-anh">
+                        <img id="`+ id + `" src="../` + dl_anh_anime_id.url_anh + `" class="anh-ky-nang"
                             data-cooldown-time="`+ dl_anh_anime_id.cd * 1000 + `">
                         <div class="cooldown-overlay">
                             <span class="cooldown-text"></span>
@@ -95,6 +100,21 @@ function GanKyNang() {
             return; // Nếu đang hồi chiêu thì không làm gì
         }
 
+        switch (id) {
+            case 1:
+                KyNangAnhAnime1();
+                break;
+            case 2:
+                KyNangAnhAnime2();
+                break;
+            case 3:
+                KyNangAnhAnime3();
+                break;
+            case 4:
+                KyNangAnhAnime4();
+                break;
+        }
+
         // Hiển thị overlay hồi chiêu
         $overlay.show();
 
@@ -113,3 +133,34 @@ function GanKyNang() {
     });
 }
 
+function KyNangAnhAnime1() {
+    mau_ban_dau -= 10;
+    window.capNhatThanhMau();
+}
+
+function KyNangAnhAnime2() {
+    thoi_gian += 5;
+    $("#thoi_gian_con_lai").text(thoi_gian);
+}
+
+function KyNangAnhAnime3() {
+    $("#nhan_anh_thu_thap").click(function BoDemKyNang3() {
+        mau_ban_dau -= 1;
+        window.capNhatThanhMau();
+        const tg_nhan = setInterval(function () {
+            $("#nhan_anh_thu_thap").off("click", BoDemKyNang3);
+            clearInterval(tg_nhan);
+        }, 1000);
+    });
+}
+
+function KyNangAnhAnime4() {
+    $("#nhan_anh_thu_thap").click(function BoDemKyNang4() {
+        thoi_gian += 1;
+        $("#thoi_gian_con_lai").text(thoi_gian);
+        const tg_nhan = setInterval(function () {
+            $("#nhan_anh_thu_thap").off("click", BoDemKyNang4);
+            clearInterval(tg_nhan);
+        }, 1000);
+    });
+}

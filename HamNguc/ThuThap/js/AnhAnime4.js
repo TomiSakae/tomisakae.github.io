@@ -1,10 +1,9 @@
 $(document).ready(function () {
     // Thiết lập mức máu bắt đầu (có thể thay đổi giá trị ở đây)
-    mau_ban_dau = 100; // Thay đổi giá trị này cho mức máu bắt đầu: 230, 500, 100000
+    mau_ban_dau = 200; // Thay đổi giá trị này cho mức máu bắt đầu: 230, 500, 100000
     mau_toi_da = mau_ban_dau; // Lưu mức máu ban đầu để tính toán tỉ lệ
 
     $("#mau_toi_da").text(mau_toi_da);
-
     const $thanhMau = $(".thanh-mau");
     const $nhan_anh = $("#nhan_anh_thu_thap");
 
@@ -57,7 +56,7 @@ function Thang() {
 
     let mang_thu_thap = JSON.parse(localStorage.getItem("mtt"));
 
-    mang_thu_thap[0] += 1;
+    mang_thu_thap[3] += 1;
     localStorage.setItem("mtt", JSON.stringify(mang_thu_thap));
 }
 
