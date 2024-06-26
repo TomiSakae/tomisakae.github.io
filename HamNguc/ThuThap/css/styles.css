@@ -78,3 +78,7 @@ body {
     user-select: none;
     /* Ngăn chặn việc chọn */
 }
+
+.thong-tin {
+    border-bottom: 1px solid black;
+}

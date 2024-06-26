@@ -3,6 +3,17 @@ $(document).ready(function () {
     mau_ban_dau = 200; // Thay đổi giá trị này cho mức máu bắt đầu: 230, 500, 100000
     mau_toi_da = mau_ban_dau; // Lưu mức máu ban đầu để tính toán tỉ lệ
 
+    let thong_tin = ``;
+
+    thong_tin += `
+    <div class="thong-tin pb-2 mb-2">
+        <h6>Chỉ Số</h6>
+        <span class="small">Sức tấn công: 1</span>
+    </div>
+    `;
+
+    $("#thong_tin_tran_dau").html(thong_tin);
+
     $("#mau_toi_da").text(mau_toi_da);
     const $thanhMau = $(".thanh-mau");
     const $nhan_anh = $("#nhan_anh_thu_thap");

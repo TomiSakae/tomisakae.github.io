@@ -5,6 +5,17 @@ $(document).ready(function () {
 
     $("#mau_toi_da").text(mau_toi_da);
 
+    let thong_tin = ``;
+
+    thong_tin += `
+    <div class="thong-tin pb-2 mb-2">
+        <h6>Chỉ Số</h6>
+        <span class="small">Sức tấn công: 1</span>
+    </div>
+    `;
+
+    $("#thong_tin_tran_dau").html(thong_tin);
+
     const $thanhMau = $(".thanh-mau");
     const $nhan_anh = $("#nhan_anh_thu_thap");
 
