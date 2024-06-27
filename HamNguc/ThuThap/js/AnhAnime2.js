@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     $("#mau_toi_da").text(mau_toi_da);
 
-    thoi_gian = 100;
+    thoi_gian = 80;
     $("#thoi_gian_con_lai").text(thoi_gian);
 
     let thong_tin = ``;
@@ -75,9 +75,14 @@ $(document).ready(function () {
                 </div>
                 `;
             $("#thong_tin_tran_dau").html(thong_tin);
+            let kt_kich_hoat = false;
             $nhan_anh.click(function () {
                 if (mau_ban_dau > 0) {
                     mau_ban_dau -= ATK; // Giảm máu xuống 1 mỗi lần nhấn
+                    if (mau_ban_dau <= 60 && kt_kich_hoat == false) {
+                        KyNangBaoVe1();
+                        kt_kich_hoat = true;
+                    }
                     if (mau_ban_dau < 0) {
                         mau_ban_dau = 0;
                     }
@@ -132,4 +137,17 @@ $(document).ready(function () {
 
 function QuayLai() {
     window.location.href = "/HamNguc/";
+}
+
+function KyNangBaoVe1() {
+    thong_tin = `
+    <div class="pb-2 mb-2">
+        <h6>Kích hoạt kỹ năng bảo vệ!</h6>
+        <p>Giảm thời gian hiện tại xuống thêm 5 giây.</p>
+    </div>
+    `;
+    $("#thong_tin_tran_dau").html(thong_tin);
+
+    thoi_gian -= 5;
+    $("#thoi_gian_con_lai").text(thoi_gian);
 }
