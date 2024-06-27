@@ -43,6 +43,7 @@ $(document).ready(function () {
                     `;
                 $("#thong_tin_tran_dau").html(thong_tin);
                 $("#mau_bao_ve1").removeClass("an-mau");
+                mau_ban_dau = 0;
                 const mau_dau_game = setInterval(function () {
                     mau_ban_dau += 1;
                     window.capNhatThanhMau();
