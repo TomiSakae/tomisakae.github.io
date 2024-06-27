@@ -79,6 +79,6 @@ body {
     /* Ngăn chặn việc chọn */
 }
 
-.thong-tin {
-    border-bottom: 1px solid black;
+.an-mau {
+    opacity: 0;
 }
