@@ -96,7 +96,6 @@ $(document).ready(function () {
                     $("#thoi_gian_con_lai").text(thoi_gian);
                 }
             }, 1000);
-            GanKyNang();
 
             function Thua() {
                 $("#ket_thuc_thu_thap").modal("show");

@@ -82,6 +82,7 @@ async function HienDoiHinh() {
     }
 
     $("#noi_hien_anh").html(code);
+    GanKyNang();
 }
 
 
