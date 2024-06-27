@@ -5,6 +5,9 @@ $(document).ready(function () {
 
     $("#mau_toi_da").text(mau_toi_da);
 
+    thoi_gian = 100;
+    $("#thoi_gian_con_lai").text(thoi_gian);
+
     let thong_tin = ``;
     let luong_thong_tin = 1;
 
@@ -46,14 +49,6 @@ $(document).ready(function () {
                     if (mau_ban_dau == mau_toi_da) {
                         clearInterval(mau_dau_game);
                         mau_dau_game_cleared = true;
-                        thong_tin = `
-                <div class="pb-2 mb-2">
-                    <p>Không còn kỹ năng nào khác được kích hoạt!</p>
-                    <h6>Chỉ số hiện tại:</h6>
-                    <p class="small">Sức tấn công: 1</p>
-                </div>
-                `;
-                        $("#thong_tin_tran_dau").html(thong_tin);
                         checkAllIntervalsCleared();
                     }
                 }, 25);
@@ -71,6 +66,14 @@ $(document).ready(function () {
 
     function checkAllIntervalsCleared() {
         if (thong_tin_dau_game_cleared && mau_dau_game_cleared) {
+            thong_tin = `
+                <div class="pb-2 mb-2">
+                    <p>Không còn kỹ năng nào khác được kích hoạt!</p>
+                    <h6>Chỉ số hiện tại:</h6>
+                    <p class="small">Sức tấn công: 1</p>
+                </div>
+                `;
+            $("#thong_tin_tran_dau").html(thong_tin);
             $nhan_anh.click(function () {
                 if (mau_ban_dau > 0) {
                     mau_ban_dau -= ATK; // Giảm máu xuống 1 mỗi lần nhấn
@@ -83,9 +86,6 @@ $(document).ready(function () {
                     Thang();
                 }
             });
-
-            thoi_gian = 100;
-            $("#thoi_gian_con_lai").text(thoi_gian);
 
             const giam_thoi_gian = setInterval(function () {
                 thoi_gian--;
