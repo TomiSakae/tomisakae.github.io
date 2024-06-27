@@ -97,6 +97,25 @@ $(document).ready(function () {
                 }
             }, 1000);
             GanKyNang();
+
+            function Thua() {
+                $("#ket_thuc_thu_thap").modal("show");
+
+                $("#thang_thua").text("Thu Thập Thất Bại!");
+                clearInterval(giam_thoi_gian);
+            }
+
+            function Thang() {
+                $("#ket_thuc_thu_thap").modal("show");
+
+                $("#thang_thua").text("Thu Thập Thành Công!");
+                clearInterval(giam_thoi_gian);
+
+                let mang_thu_thap = JSON.parse(localStorage.getItem("mtt"));
+
+                mang_thu_thap[0] += 1;
+                localStorage.setItem("mtt", JSON.stringify(mang_thu_thap));
+            }
         }
     }
 
@@ -113,25 +132,6 @@ $(document).ready(function () {
     };
 
 });
-
-function Thua() {
-    $("#ket_thuc_thu_thap").modal("show");
-
-    $("#thang_thua").text("Thu Thập Thất Bại!");
-    clearInterval(giam_thoi_gian);
-}
-
-function Thang() {
-    $("#ket_thuc_thu_thap").modal("show");
-
-    $("#thang_thua").text("Thu Thập Thành Công!");
-    clearInterval(giam_thoi_gian);
-
-    let mang_thu_thap = JSON.parse(localStorage.getItem("mtt"));
-
-    mang_thu_thap[0] += 1;
-    localStorage.setItem("mtt", JSON.stringify(mang_thu_thap));
-}
 
 function QuayLai() {
     window.location.href = "/HamNguc/";
