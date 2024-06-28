@@ -70,8 +70,6 @@ $(document).ready(function () {
             thong_tin = `
                 <div class="pb-2 mb-2">
                     <p>Không còn kỹ năng nào khác được kích hoạt!</p>
-                    <h6>Chỉ số hiện tại:</h6>
-                    <p class="small">Sức tấn công: 1</p>
                 </div>
                 `;
             $("#thong_tin_tran_dau").html(thong_tin);
@@ -95,7 +93,7 @@ $(document).ready(function () {
 
             const giam_thoi_gian = setInterval(function () {
                 thoi_gian--;
-                if (thoi_gian < 0) {
+                if (thoi_gian <= 0) {
                     clearInterval(giam_thoi_gian);
                     Thua();
                 } else {
@@ -144,17 +142,17 @@ function KyNangBaoVe2() {
     thong_tin = `
     <div class="pb-2 mb-2">
         <h6>Kích hoạt kỹ năng bảo vệ!</h6>
-        <p>Tăng 1 máu tương ứng với số lần nhấn trong 1 giây</p>
+        <p>Tăng 5 máu tương ứng với số lần nhấn trong 5 giây</p>
     </div>
     `;
     $("#thong_tin_tran_dau").html(thong_tin);
 
     $("#nhan_anh_thu_thap").click(function BoDemKyNangBV2() {
-        mau_ban_dau += 1;
+        mau_ban_dau += 5;
         window.capNhatThanhMau();
         const tg_nhan = setInterval(function () {
             $("#nhan_anh_thu_thap").off("click", BoDemKyNangBV2);
             clearInterval(tg_nhan);
-        }, 1000);
+        }, 5000);
     });
 }

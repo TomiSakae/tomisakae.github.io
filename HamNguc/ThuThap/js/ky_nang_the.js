@@ -136,6 +136,10 @@ function GanKyNang() {
 function KyNangAnhAnime1() {
     mau_ban_dau -= 10;
     window.capNhatThanhMau();
+    if (mau_ban_dau <= 0) {
+        mau_ban_dau = 0;
+    }
+    window.capNhatThanhMau();
 }
 
 function KyNangAnhAnime2() {
@@ -146,6 +150,9 @@ function KyNangAnhAnime2() {
 function KyNangAnhAnime3() {
     $("#nhan_anh_thu_thap").click(function BoDemKyNang3() {
         mau_ban_dau -= 1;
+        if (mau_ban_dau <= 0) {
+            mau_ban_dau = 0;
+        }
         window.capNhatThanhMau();
         const tg_nhan = setInterval(function () {
             $("#nhan_anh_thu_thap").off("click", BoDemKyNang3);
