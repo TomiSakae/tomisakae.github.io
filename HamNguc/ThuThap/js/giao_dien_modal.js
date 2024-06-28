@@ -78,5 +78,36 @@ $(document).ready(function () {
         <i class="fa-solid fa-bolt my-2" data-bs-toggle="modal" data-bs-target="#hien_vung_ky_nang_anh"></i>
         <i class="fa-solid fa-bars my-2" data-bs-toggle="modal" data-bs-target="#hien_chi_so_anh"></i>
     </div>
+
+    <div class="modal" id="hien_buff">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="text-end"><button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <p class="text-center">Không có buff nào đang kích hoạt</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="hien_debuff">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="text-end"><button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <p class="text-center">Không có debuff nào đang kích hoạt</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="icon-container-buff d-flex flex-column justify-content-center align-items-center">
+     <i class="fa-solid fa-circle-down my-2" data-bs-toggle="modal" data-bs-target="#hien_debuff"></i>
+        <i class="fa-solid fa-circle-up my-2" data-bs-toggle="modal" data-bs-target="#hien_buff"></i>
+    </div>
     `);
 });

@@ -48,6 +48,7 @@ $(document).ready(function () {
                     mau_ban_dau += 1;
                     window.capNhatThanhMau();
                     if (mau_ban_dau == mau_toi_da) {
+                        $("#sl_thanh_mau").text("x1");
                         clearInterval(mau_dau_game);
                         mau_dau_game_cleared = true;
                         checkAllIntervalsCleared();
