@@ -82,3 +82,13 @@ body {
 .an-mau {
     opacity: 0;
 }
+
+.icon-container {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 10px;
+    border: 1px solid black;
+    z-index: 10;
+}
