@@ -1,11 +1,11 @@
 $(document).ready(function () {
     // Thiết lập mức máu bắt đầu (có thể thay đổi giá trị ở đây)
     mau_ban_dau = 0; // Thay đổi giá trị này cho mức máu bắt đầu: 230, 500, 100000
-    mau_toi_da = 150; // Lưu mức máu ban đầu để tính toán tỉ lệ
+    mau_toi_da = 100; // Lưu mức máu ban đầu để tính toán tỉ lệ
 
     $("#mau_toi_da").text(mau_toi_da);
 
-    thoi_gian = 60;
+    thoi_gian = 100;
     $("#thoi_gian_con_lai").text(thoi_gian);
 
     let thong_tin = ``;
@@ -53,7 +53,7 @@ $(document).ready(function () {
                         mau_dau_game_cleared = true;
                         checkAllIntervalsCleared();
                     }
-                }, 15);
+                }, 25);
                 break;
         }
 
@@ -74,14 +74,9 @@ $(document).ready(function () {
                 </div>
                 `;
             $("#thong_tin_tran_dau").html(thong_tin);
-            let kt_kich_hoat = false;
             $nhan_anh.click(function () {
                 if (mau_ban_dau > 0) {
                     mau_ban_dau -= ATK; // Giảm máu xuống 1 mỗi lần nhấn
-                    if (mau_ban_dau <= 75 && kt_kich_hoat == false) {
-                        KyNangBaoVe2();
-                        kt_kich_hoat = true;
-                    }
                     if (mau_ban_dau < 0) {
                         mau_ban_dau = 0;
                     }
@@ -105,20 +100,15 @@ $(document).ready(function () {
             function Thua() {
                 $("#ket_thuc_thu_thap").modal("show");
 
-                $("#thang_thua").text("Thu Thập Thất Bại!");
+                $("#thang_thua").text("Bạn đã thua...");
                 clearInterval(giam_thoi_gian);
             }
 
             function Thang() {
                 $("#ket_thuc_thu_thap").modal("show");
 
-                $("#thang_thua").text("Thu Thập Thành Công!");
+                $("#thang_thua").text("Bạn đã chiến thắng!");
                 clearInterval(giam_thoi_gian);
-
-                let mang_thu_thap = JSON.parse(localStorage.getItem("mtt"));
-
-                mang_thu_thap[2] += 1;
-                localStorage.setItem("mtt", JSON.stringify(mang_thu_thap));
             }
         }
     }
@@ -132,28 +122,9 @@ $(document).ready(function () {
         const phanTramMau = (mau_ban_dau / mau_toi_da) * 100; // Tính toán tỉ lệ phần trăm
         $thanhMau.css("width", phanTramMau + "%");
     };
+
 });
 
 function QuayLai() {
-    window.location.href = "/HamNguc/";
-}
-
-
-function KyNangBaoVe2() {
-    thong_tin = `
-    <div class="pb-2 mb-2">
-        <h6>Kích hoạt kỹ năng bảo vệ!</h6>
-        <p>Tăng 5 máu tương ứng với số lần nhấn trong 5 giây</p>
-    </div>
-    `;
-    $("#thong_tin_tran_dau").html(thong_tin);
-
-    $("#nhan_anh_thu_thap").click(function BoDemKyNangBV2() {
-        mau_ban_dau += 5;
-        window.capNhatThanhMau();
-        const tg_nhan = setInterval(function () {
-            $("#nhan_anh_thu_thap").off("click", BoDemKyNangBV2);
-            clearInterval(tg_nhan);
-        }, 5000);
-    });
+    window.location.href = "/";
 }
