@@ -1,21 +1,146 @@
-.vung-dang-nhap-pc {
+.khung-trac-nghiem {
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 100%;
+    background-color: white;
+}
+
+.khung-trac-nghiem-fix {
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 100%;
+    background-color: white;
+}
+
+.khung-trac-nghiem-dung {
+    background-color: #198754;
+    color: white;
+    border-color: #198754;
+    border-radius: 15px;
+}
+
+.khung-trac-nghiem-sai {
+    background-color: #DC3545;
+    color: white;
+    border-color: #DC3545;
+    border-radius: 15px;
+}
+
+.khung-trac-nghiem:hover {
+    background-color: #198754;
+    color: white;
+    cursor: pointer;
+    border-color: #198754;
+}
+
+.nav-thong-tin {
+    background-color: black;
+}
+
+.vung-anime {
     background-color: white;
     border-radius: 10px;
-    width: 60vw;
-    height: 80vh;
+    height: 45vh;
 }
 
-.vung-dang-nhap-mobile {
+.anh-anime {
+    width: 40%;
+}
+
+.trac-nghiem {
+    height: 35vh;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+/* Animate.css */
+.animate__animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+/* Fading entrances  */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate__fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+#progress-container {
+    display: none;
+    margin-top: 20px;
     background-color: white;
-    border-radius: 10px;
-    width: 90vw;
-    height: 30vh;
+    /* Nền trắng */
+    border: 1px solid #ddd;
+    /* Viền nhạt */
+    border-radius: 5px;
+    /* Bo góc */
+    width: 100%;
 }
 
-.nut-choi-pc {
-    width: 10vw;
+.do-dai-tien-trinh {
+    height: 3%;
 }
 
-.nut-choi-mobile {
-    width: 40vw;
+#progress-bar {
+    height: 100%;
+    /* Chiều cao của thanh tiến trình */
+    width: 0%;
+    /* Bắt đầu từ 0% */
+    background-color: green;
+    /* Màu nền xanh */
+    border-radius: 5px;
+    /* Bo góc */
+    text-align: center;
+    /* Canh giữa nội dung bên trong */
+    line-height: 30px;
+    /* Canh giữa chữ theo chiều dọc */
+    color: white;
+    /* Màu chữ */
+    transition: width 0.4s ease;
+    /* Hiệu ứng chuyển động mượt mà */
+}
+
+.khung-ket-qua {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    color: white;
+    cursor: pointer;
+}
+
+.dau-khung-ket-qua {
+    border-top: 1px solid black;
+}
+
+.anh-ket-qua {
+    width: 20%;
+}
+
+.cau-dung {
+    background-color: #198754;
+}
+
+.cau-sai {
+    background-color: #DC3545;
 }
