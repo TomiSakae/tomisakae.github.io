@@ -9,9 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'custom-background': "url('/nen_web.jpg')",
+      },
+      colors: {
+        'gradient-bg-start': '#ffd500',
+        'gradient-bg-end': '#ff4300',
+        'gradient-br-start': '#867001',
+        'gradient-br-end': '#942500',
       },
     },
   },
