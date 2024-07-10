@@ -6,7 +6,7 @@ import { KitsuResponse } from '../types/types';
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 const AnimeList = () => {
-  const { data, error } = useSWR<KitsuResponse>('https://kitsu.io/api/edge/anime?filter[season]=winter&filter[seasonYear]=2024', fetcher);
+  const { data, error } = useSWR<KitsuResponse>('https://kitsu.io/api/edge/anime?filter[season]=winter&filter[seasonYear]=2024&page[limit]=20&page[offset]=20', fetcher);
 
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
