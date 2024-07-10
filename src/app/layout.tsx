@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ZZZ Chương Zero",
-  description: "Đem tới trải nghiệm cốt truyện chương 0 của tựa game Zenless Zone Zero đến với mọi người bằng hình thức truyện chat!",
+  title: "TomiSakae",
+  description: "Trang Web giải trí về Anime!",
 };
 
 export default function RootLayout({
