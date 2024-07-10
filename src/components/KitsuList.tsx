@@ -16,7 +16,7 @@ const AnimeList = () => {
 
   const getKey = (pageIndex: number, previousPageData: KitsuResponse | null) => {
     if (previousPageData && !previousPageData.data.length) return null;
-    return `https://kitsu.io/api/edge/anime?filter[season]=winter&filter[seasonYear]=2020&page[limit]=${PAGE_SIZE}&page[offset]=${pageIndex * PAGE_SIZE}`;
+    return `https://kitsu.io/api/edge/anime?filter[season]=winter&filter[seasonYear]=2024&page[limit]=${PAGE_SIZE}&page[offset]=${pageIndex * PAGE_SIZE}`;
   };
 
   const { data, error, size, setSize, isValidating } = useSWRInfinite<KitsuResponse>(getKey, fetcher, {
