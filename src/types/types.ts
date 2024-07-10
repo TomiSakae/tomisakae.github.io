@@ -9,6 +9,7 @@ export interface Anime {
       posterImage: {
         large: string;
       };
+      subtype: string;
     };
   }
   
