@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className="text-2xl mb-5">TomiSakae</h1>
         <div className="text-lg">
             <p>Cốt Truyện Zenless Zone Zero </p>
-            <p>Chương 0 Và Chương 1</p>
+            <p>Chương Zero</p>
           <p className="mt-5 rounded-3xl bg-gradient-to-r from-gradient-bg-start to-gradient-bg-end py-2 px-4">Đang phát triển...</p>
         </div>
       </div>
