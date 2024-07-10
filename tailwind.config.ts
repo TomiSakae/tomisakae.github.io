@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'custom-background': "url('/nen_web.jpg')",
+        'custom-background': "url('/nen_web.png')",
       },
       colors: {
         'gradient-bg-start': '#ffd500',
