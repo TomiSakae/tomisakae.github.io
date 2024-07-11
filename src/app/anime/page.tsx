@@ -92,7 +92,7 @@ const AnimePage = () => {
                                 window.open(youtubeUrl, '_blank');
                             }}
                         >
-                            Xem
+                            VietSub
                         </button>
                         <button
                             className="bg-blue-500 hover:bg-blue-600 font-bold text-white py-2 pl-4 rounded-l-md"
@@ -203,7 +203,7 @@ const AnimePage = () => {
                     </div>
                     <div className="border px-1 py-1 mx-4 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
                         const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '-').replace(/[!:\s]/g, ''); // Định dạng tên anime cho URL
+                        const formattedAnimeTitle = animeTitle.replace(/[!:#%&+={}?/\\[\]'"*;,]/g, '').replace(/[^\w\s-]/g, '').replace(/\s+/g, '-'); // Định dạng tên anime cho URL
                         const searchUrl = `https://kitsu.io/anime/${formattedAnimeTitle}`;
                         window.open(searchUrl, '_blank');
                     }}>
