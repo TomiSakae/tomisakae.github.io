@@ -88,9 +88,11 @@ const KitsuList: React.FC<Props> = ({ subtype }) => {
               <Image 
                 src={anime.attributes.posterImage.large} 
                 alt={anime.attributes.titles.en_jp || anime.attributes.titles.en} 
-                layout="fill"
+                width={550}
+                height={780}
+                priority={true}
                 className="rounded-xl"
-                loading="lazy"
+                placeholder="empty"
               />
             </div>
             <h3 className="text-xs font-semibold mt-2 overflow-hidden truncate">{anime.attributes.titles.en_jp || anime.attributes.titles.en}</h3>

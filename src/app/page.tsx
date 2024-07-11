@@ -8,7 +8,10 @@ import { useFloating, autoUpdate, offset, flip } from '@floating-ui/react-dom';
 
 export default function Home() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [subtype, setSubtype] = useState('TV');
+  const [subtype, setSubtype] = useState(() => {
+    // Khởi tạo giá trị subtype từ sessionStorage, mặc định là 'TV' nếu không có
+    return sessionStorage.getItem('anime') || 'TV';
+  });
   const buttonRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
 
@@ -48,6 +51,8 @@ export default function Home() {
   }, [isPopupOpen]);
 
   const handleOptionClick = (option: string) => {
+    // Lưu subtype vào sessionStorage
+    sessionStorage.setItem('anime', option);
     setSubtype(option);
     setIsPopupOpen(false);
   };
@@ -73,7 +78,11 @@ export default function Home() {
           <div className="fixed inset-0 bg-black opacity-0 z-20" onClick={togglePopup}></div>
           <div
             ref={popupRef}
-            style={{ position: isPositioned ? 'fixed' : 'absolute', top: y ?? '', left: x ?? '' }}
+            style={{
+              position: 'fixed',
+              top: `${y}px`, // Ensure y is in pixels for fixed positioning
+              left: `${x}px`, // Ensure x is in pixels for fixed positioning
+            }}
             className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-12 text-white font-bold"
           >
             {/* Nội dung của popup */}
