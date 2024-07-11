@@ -91,10 +91,10 @@ export default function Home() {
     <main className="pt-12">
       <nav className="bg-black pb-3 fixed w-full top-0 z-10">
         <div className="bg-stone-700 text-sm font-bold py-3 mb-3 container mx-auto flex items-center justify-center relative">
-        <h1 className={`py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'winter' ? 'bg-white text-drak' : 'text-white'}`} onClick={() => setSeason('winter')}>Đông</h1>
-          <h1 className={`text-sakura-color py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'spring' ? 'bg-white' : ''}`} onClick={() => setSeason('spring')}>Xuân</h1>
-          <h1 className={`text-yellow-400 py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'summer' ? 'bg-white' : ''}`} onClick={() => setSeason('summer')}>Hè</h1>
-          <h1 className={`text-orange-500 py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'fall' ? 'bg-white' : ''}`} onClick={() => setSeason('fall')}>Thu</h1>
+        <h1 className={`py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'winter' ? 'bg-white text-drak' : 'text-white'}`} onClick={() => {setSeason('winter'); sessionStorage.setItem("anime_season", "winter");}}>Đông</h1>
+          <h1 className={`text-sakura-color py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'spring' ? 'bg-white' : ''}`} onClick={() => {setSeason('spring'); sessionStorage.setItem("anime_season", "spring");}}>Xuân</h1>
+          <h1 className={`text-yellow-400 py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'summer' ? 'bg-white' : ''}`} onClick={() => {setSeason('summer'); sessionStorage.setItem("anime_season", "summer");}}>Hè</h1>
+          <h1 className={`text-orange-500 py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'fall' ? 'bg-white' : ''}`} onClick={() => {setSeason('fall'); sessionStorage.setItem("anime_season", "fall");}}>Thu</h1>
         </div>
         <div className="font-bold text-white container mx-auto flex items-center relative">
           <div
