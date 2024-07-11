@@ -1,5 +1,5 @@
 export default function Home() {
     return (
-     <p>Test</p>
+     <p>Đang phát triển...</p>
     );
   }
