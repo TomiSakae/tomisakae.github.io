@@ -71,6 +71,53 @@ const AnimePage = () => {
                     <h3 className="text-white text-center text-lg font-semibold mt-2 mx-4">
                         {animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
                     </h3>
+                    <div className="flex justify-center items-center mt-4">
+                        <button
+                            className="bg-green-500 hover:bg-green-600 font-bold text-white py-2 px-4 rounded-md"
+                            onClick={()=>{
+                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                const formattedAnimeTitle = encodeURIComponent(`${animeTitle} official trailer`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                                const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                                window.open(youtubeUrl, '_blank');
+                            }}
+                        >
+                            Trailer
+                        </button>
+                        <button
+                            className="bg-red-500 hover:bg-red-600 font-bold text-white py-2 px-4 mx-4 rounded-md"
+                            onClick={()=>{
+                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                const formattedAnimeTitle = encodeURIComponent(`${animeTitle} vietsub`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                                const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                                window.open(youtubeUrl, '_blank');
+                            }}
+                        >
+                            Xem
+                        </button>
+                        <button
+                            className="bg-blue-500 hover:bg-blue-600 font-bold text-white py-2 pl-4 rounded-l-md"
+                            onClick={()=>{
+                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                const formattedAnimeTitle = encodeURIComponent(`${animeTitle} OP`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                                const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                                window.open(youtubeUrl, '_blank');
+                            }}
+                        >
+                            OP
+                        </button>
+                        <h1 className="bg-blue-500 font-bold text-white py-2">/</h1>
+                        <button
+                            className="bg-blue-500 hover:bg-blue-600 font-bold text-white py-2 pr-4 rounded-r-md"
+                            onClick={()=>{
+                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                const formattedAnimeTitle = encodeURIComponent(`${animeTitle} ED`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                                const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                                window.open(youtubeUrl, '_blank');
+                            }}
+                        >
+                            ED
+                        </button>
+                    </div>
                     <div className="relative my-4 mx-4 mt-10">
                         <hr className="border-gray-600" />
                         <div className="absolute inset-0 flex justify-center items-center">
