@@ -30,7 +30,7 @@ const AnimePage = () => {
     if (error) return <div>Đã xảy ra lỗi khi tải dữ liệu anime</div>;
 
     return (
-        <div className="container mx-auto bg-black py-16">
+        <div className="container mx-auto bg-black py-16 h-screen">
             <nav className="bg-black fixed w-full top-0 z-10">
                 <div className="bg-zinc-800 text-sm font-bold py-2 mb-3 container mx-auto flex items-center justify-center relative">
                     <div
@@ -71,7 +71,123 @@ const AnimePage = () => {
                     <h3 className="text-white text-center text-lg font-semibold mt-2 mx-4">
                         {animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
                     </h3>
+                    <div className="relative my-4 mx-4 mt-10">
+                        <hr className="border-gray-600" />
+                        <div className="absolute inset-0 flex justify-center items-center">
+                            <h1 className="bg-black text-white font-bold text-md px-2">
+                                Xem Ngay
+                            </h1>
+                        </div>
+                    </div>
+                <div className="flex justify-center items-center mt-10">
+                    <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '+'); // Định dạng tên anime cho URL
+                        const searchUrl = `https://animevietsub.dev/tim-kiem/${formattedAnimeTitle}/`;
+                        window.open(searchUrl, '_blank');
+                    }}>
+                        <Image 
+                            src={"https://animevietsub.dev/favicon.ico"} 
+                            alt={"AnimeVietSubIcon"} 
+                            width={30}
+                            height={30}
+                            priority={true}
+                            className="rounded-lg"
+                            placeholder="empty"
+                                            />
+                    </div>
+                    <div className="border px-1 py-1 mx-4 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
+                        const searchUrl = `https://animet1.net/tim-kiem/${formattedAnimeTitle}.html`;
+                        window.open(searchUrl, '_blank');
+                    }}>
+                        <Image 
+                            src={"https://animet1.net/Theme_Anime/img/favicon.ico"} 
+                            alt={"AnimetIcon"} 
+                            width={30}
+                            height={30}
+                            priority={true}
+                            className="rounded-lg"
+                            placeholder="empty"
+                                            />
+                    </div>
+                    <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
+                        const searchUrl = `https://animetvn4.com/tim-kiem/${formattedAnimeTitle}.html`;
+                        window.open(searchUrl, '_blank');
+                    }}>
+                        <Image 
+                            src={"https://animetvn4.com/images/favicon.ico"} 
+                            alt={"AnimeTVNIcon"} 
+                            width={30}
+                            height={30}
+                            priority={true}
+                            className="rounded-lg"
+                            placeholder="empty"
+                                            />
+                    </div>
                 </div>
+                <div className="relative my-4 mx-4 mt-10">
+                        <hr className="border-gray-600" />
+                        <div className="absolute inset-0 flex justify-center items-center">
+                            <h1 className="bg-black text-white font-bold text-md px-2">
+                                Thêm Thông Tin
+                            </h1>
+                        </div>
+                    </div>
+                    <div className="flex justify-center items-center mt-10">
+                    <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
+                        const searchUrl = `https://myanimelist.net/search/all?q=${formattedAnimeTitle}&cat=all/`;
+                        window.open(searchUrl, '_blank');
+                    }}>
+                        <Image 
+                            src={"https://cdn.myanimelist.net/images/favicon.ico"} 
+                            alt={"MALIcon"} 
+                            width={30}
+                            height={30}
+                            priority={true}
+                            className="rounded-lg"
+                            placeholder="empty"
+                                            />
+                    </div>
+                    <div className="border px-1 py-1 mx-4 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '-').replace(/[!:\s]/g, ''); // Định dạng tên anime cho URL
+                        const searchUrl = `https://kitsu.io/anime/${formattedAnimeTitle}`;
+                        window.open(searchUrl, '_blank');
+                    }}>
+                        <Image 
+                            src={"https://kitsu.io/favicon-32x32-3e0ecb6fc5a6ae681e65dcbc2bdf1f17.png"} 
+                            alt={"KitsuIcon"} 
+                            width={30}
+                            height={30}
+                            priority={true}
+                            className="rounded-lg"
+                            placeholder="empty"
+                                            />
+                    </div>
+                    <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
+                        const searchUrl = `https://anilist.co/search/anime?search=${formattedAnimeTitle}`;
+                        window.open(searchUrl, '_blank');
+                    }}>
+                        <Image 
+                            src={"https://anilist.co/img/icons/favicon-32x32.png"} 
+                            alt={"AniListIcon"} 
+                            width={30}
+                            height={30}
+                            priority={true}
+                            className="rounded-lg"
+                            placeholder="empty"
+                                            />
+                    </div>
+                </div>
+            </div>
             ) : (
                 <div>Đang tải dữ liệu...</div>
             )}
@@ -80,9 +196,11 @@ const AnimePage = () => {
 }
 
 const Anime = ()=>{
-    <Suspense>
-      <AnimePage />
-    </Suspense>
+    return (
+        <Suspense>
+            <AnimePage />
+        </Suspense>
+    );
 }
 
 export default Anime;

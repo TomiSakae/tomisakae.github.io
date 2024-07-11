@@ -4,7 +4,7 @@ const nextConfig = {
     reactStrictMode: true,
     images: {
         unoptimized: true,
-        domains: ['media.kitsu.io'],
+        domains: ['*'],
     },
 }
 
