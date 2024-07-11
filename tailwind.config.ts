@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "sakura-color": "#F0C0C0", // Định nghĩa màu hoa anh đào
+        
       },
     },
   },

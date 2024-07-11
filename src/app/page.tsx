@@ -129,11 +129,11 @@ const Anime = () => {
   return (
     <main className="pt-12">
       <nav className="bg-black pb-3 fixed w-full top-0 z-10">
-        <div className="bg-stone-700 text-sm font-bold py-3 mb-3 container mx-auto flex items-center justify-center relative">
-          <h1 className={`py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'winter' ? 'bg-white text-drak' : 'text-white'}`} onClick={() => setSeason('winter')}>Đông</h1>
-          <h1 className={`text-sakura-color py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'spring' ? 'bg-white' : ''}`} onClick={() => setSeason('spring')}>Xuân</h1>
-          <h1 className={`text-yellow-400 py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'summer' ? 'bg-white' : ''}`} onClick={() => setSeason('summer')}>Hè</h1>
-          <h1 className={`text-orange-500 py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'fall' ? 'bg-white' : ''}`} onClick={() => setSeason('fall')}>Thu</h1>
+        <div className="bg-zinc-800 text-sm font-bold py-2 mb-3 container mx-auto flex items-center justify-center relative">
+          <h1 className={`py-2 px-5 rounded-lg cursor-pointer ${season === 'winter' ? 'bg-white text-dark' : 'text-gray-300'}`} onClick={() => setSeason('winter')}>Đông</h1>
+          <h1 className={`py-2 px-5 rounded-lg cursor-pointer ${season === 'spring' ? 'bg-rose-300 text-white' : 'text-gray-300'}`} onClick={() => setSeason('spring')}>Xuân</h1>
+          <h1 className={`py-2 px-5 rounded-lg cursor-pointer ${season === 'summer' ? 'bg-yellow-400 text-white' : 'text-gray-300'}`} onClick={() => setSeason('summer')}>Hè</h1>
+          <h1 className={`py-2 px-5 rounded-lg cursor-pointer ${season === 'fall' ? 'bg-orange-500 text-white' : 'text-gray-300'}`} onClick={() => setSeason('fall')}>Thu</h1>
         </div>
         <div className="font-bold text-white container mx-auto flex items-center relative">
           <div
@@ -169,7 +169,7 @@ const Anime = () => {
               {['TV', 'ONA', 'OVA', 'Special', 'Movie', 'Music'].map(option => (
                 <li
                   key={option}
-                  className="cursor-pointer px-2 py-1"
+                  className="cursor-pointer px-2 py-2 text-sm"
                   onClick={() => handleTvOptionClick(option)}
                 >
                   {option}
@@ -188,7 +188,7 @@ const Anime = () => {
               position: 'fixed',
               top: `${calendarY}px`,
               right: `${calendarX}px`,
-              maxHeight: '200px', // Chiều cao cố định của popup
+              maxHeight: '230px', // Chiều cao cố định của popup
               overflowY: 'auto', // Cho phép thanh cuộn khi nội dung vượt quá chiều cao
             }}
             className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-24 text-white font-bold"
@@ -198,7 +198,7 @@ const Anime = () => {
               {Array.from({ length: new Date().getFullYear() - 1916 }, (_, index) => new Date().getFullYear() - index).map(year => (
                 <li
                   key={year}
-                  className="cursor-pointer px-2 py-1"
+                  className="cursor-pointer px-2 py-2 text-sm"
                   onClick={() => handleCalendarOptionClick(`Năm ${year}`)}
                 >
                   Năm {year}
