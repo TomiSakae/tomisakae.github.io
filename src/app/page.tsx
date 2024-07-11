@@ -15,7 +15,11 @@ export default function Home() {
   });
   const [year, setYear] = useState(() => {
     // Khởi tạo giá trị year từ sessionStorage, mặc định là '2024' nếu không có
-    return sessionStorage.getItem('anime_year') || '2024';
+    return sessionStorage.getItem('anime_year') || new Date().getFullYear().toString();
+  });
+  const [season, setSeason] = useState(() => {
+    // Khởi tạo giá trị year từ sessionStorage, mặc định là '2024' nếu không có
+    return sessionStorage.getItem('anime_season') || 'winter';
   });
   const tvButtonRef = useRef<HTMLDivElement>(null);
   const calendarButtonRef = useRef<HTMLDivElement>(null);
@@ -85,7 +89,13 @@ export default function Home() {
 
   return (
     <main className="pt-12">
-      <nav className="bg-black pt-3 pb-3 fixed w-full top-0 z-10">
+      <nav className="bg-black pb-3 fixed w-full top-0 z-10">
+        <div className="bg-stone-700 text-sm font-bold py-3 mb-3 container mx-auto flex items-center justify-center relative">
+        <h1 className={`py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'winter' ? 'bg-white text-drak' : 'text-white'}`} onClick={() => setSeason('winter')}>Đông</h1>
+          <h1 className={`text-sakura-color py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'spring' ? 'bg-white' : ''}`} onClick={() => setSeason('spring')}>Xuân</h1>
+          <h1 className={`text-yellow-400 py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'summer' ? 'bg-white' : ''}`} onClick={() => setSeason('summer')}>Hè</h1>
+          <h1 className={`text-orange-500 py-2 px-6 mx-1 rounded-lg cursor-pointer ${season === 'fall' ? 'bg-white' : ''}`} onClick={() => setSeason('fall')}>Thu</h1>
+        </div>
         <div className="font-bold text-white container mx-auto flex items-center relative">
           <div
             className="absolute left-0 flex items-center ml-4 cursor-pointer"
@@ -95,7 +105,7 @@ export default function Home() {
             <p className="text-sm">{subtype}</p>
             <MdExpandMore className="ml-1 text-xl" />
           </div>
-          <h1 className="text-sm mx-auto">Mùa Đông {year}</h1>
+          <h1 className="text-sm mx-auto">{season === 'winter' ? 'Mùa Đông' : season === 'spring' ? 'Mùa Xuân': season === 'summer' ? 'Mùa Hè': season === 'fall' ? 'Mùa Thu': ''} {year}</h1>
           <div 
           className="absolute right-0 text-sm mr-4 cursor-pointer"
           onClick={toggleCalendarPopup}
@@ -113,7 +123,7 @@ export default function Home() {
               top: `${tvY}px`, // Đảm bảo y là pixel cho vị trí cố định
               left: `${tvX}px`, // Đảm bảo x là pixel cho vị trí cố định
             }}
-            className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-12 text-white font-bold"
+            className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-24 text-white font-bold"
           >
             {/* Nội dung của popup TV */}
             <ul>
@@ -140,7 +150,7 @@ export default function Home() {
               top: `${tvY}px`,
               left: `${tvX}px`,
             }}
-            className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-12 text-white font-bold"
+            className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-24 text-white font-bold"
           >
             {/* Nội dung của popup TV */}
             <ul>
@@ -169,25 +179,25 @@ export default function Home() {
               maxHeight: '200px', // Chiều cao cố định của popup
               overflowY: 'auto', // Cho phép thanh cuộn khi nội dung vượt quá chiều cao
             }}
-            className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-12 text-white font-bold"
+            className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-24 text-white font-bold"
           >
             {/* Nội dung của popup Calendar */}
             <ul>
-              {Array.from({ length: 21 }, (_, index) => 2024 - index).map(year => (
-                <li
-                  key={year}
-                  className="cursor-pointer px-2 py-1"
-                  onClick={() => handleCalendarOptionClick(`Năm ${year}`)}
-                >
-                  Năm {year}
-                </li>
-              ))}
+            {Array.from({ length: new Date().getFullYear() - 1916 }, (_, index) => new Date().getFullYear() - index).map(year => (
+              <li
+                key={year}
+                className="cursor-pointer px-2 py-1"
+                onClick={() => handleCalendarOptionClick(`Năm ${year}`)}
+              >
+                Năm {year}
+              </li>
+            ))}
             </ul>
           </div>
         </>
       )}
-      <div className="container mx-auto">
-        <KitsuList subtype={subtype} year={year} />
+      <div className="container mx-auto mt-12">
+        <KitsuList subtype={subtype} year={year} season={season}/>
       </div>
     </main>
   );
