@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, Suspense } from 'react';
 import KitsuList from '../components/KitsuList';
 import { FaCalendar } from "react-icons/fa";
 import { MdExpandMore } from "react-icons/md";
+import { MdExpandLess } from "react-icons/md";
 import { useFloating, autoUpdate, offset, flip } from '@floating-ui/react-dom';
 import { useRouter, useSearchParams } from 'next/navigation';
 
@@ -142,7 +143,7 @@ const Anime = () => {
             ref={tvButtonRef}
           >
             <p className="text-sm">{subtype}</p>
-            <MdExpandMore className="ml-1 text-xl" />
+            {isTvPopupOpen ? (<MdExpandLess className="ml-1 text-xl" />) : (<MdExpandMore className="ml-1 text-xl" />)}
           </div>
           <h1 className="text-sm mx-auto">{season === 'winter' ? 'Mùa Đông' : season === 'spring' ? 'Mùa Xuân' : season === 'summer' ? 'Mùa Hè' : season === 'fall' ? 'Mùa Thu' : ''} {year}</h1>
           <div 
@@ -188,7 +189,7 @@ const Anime = () => {
               position: 'fixed',
               top: `${calendarY}px`,
               right: `${calendarX}px`,
-              maxHeight: '230px', // Chiều cao cố định của popup
+              maxHeight: '220px', // Chiều cao cố định của popup
               overflowY: 'auto', // Cho phép thanh cuộn khi nội dung vượt quá chiều cao
             }}
             className="bg-black shadow-lg rounded px-4 w-30 z-30 mt-24 text-white font-bold"
