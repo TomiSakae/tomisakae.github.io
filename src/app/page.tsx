@@ -20,7 +20,23 @@ const Anime = () => {
   const [isCalendarPopupOpen, setIsCalendarPopupOpen] = useState(false);
   const [subtype, setSubtype] = useState(() => getQueryParam('subtype', 'TV'));
   const [year, setYear] = useState(() => getQueryParam('year', new Date().getFullYear().toString()));
-  const [season, setSeason] = useState(() => getQueryParam('season', 'winter'));
+  
+  const getCurrentSeason = () => {
+    const currentMonth = new Date().getMonth() + 1; // Lấy tháng hiện tại (từ 0 đến 11)
+    
+    // Xác định mùa dựa trên tháng
+    if (currentMonth >= 1 && currentMonth <= 3) {
+      return 'winter';
+    } else if (currentMonth >= 4 && currentMonth <= 6) {
+      return 'spring';
+    } else if (currentMonth >= 7 && currentMonth <= 9) {
+      return 'summer';
+    } else {
+      return 'fall';
+    }
+  };
+  
+  const [season, setSeason] = useState(() => getQueryParam('season', getCurrentSeason()));
   
   const tvButtonRef = useRef<HTMLDivElement>(null);
   const calendarButtonRef = useRef<HTMLDivElement>(null);
@@ -85,7 +101,7 @@ const Anime = () => {
   useEffect(() => {
     const newSubtype = getQueryParam('subtype', 'TV');
     const newYear = getQueryParam('year', new Date().getFullYear().toString());
-    const newSeason = getQueryParam('season', 'winter');
+    const newSeason = getQueryParam('season', getCurrentSeason());
   
     if (subtype !== newSubtype) {
       setSubtype(newSubtype);
