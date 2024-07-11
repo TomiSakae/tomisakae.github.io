@@ -11,16 +11,17 @@ const PAGE_SIZE = 20;
 
 interface Props {
   subtype: string;
+  year: string;
 }
 
-const KitsuList: React.FC<Props> = ({ subtype }) => {
+const KitsuList: React.FC<Props> = ({ subtype, year }) => {
   const [animeList, setAnimeList] = useState<KitsuResponse['data']>([]);
   const [seenAnimeKeys, setSeenAnimeKeys] = useState<Set<string>>(new Set());
   const [isLoadingMore, setIsLoadingMore] = useState(false); // State để kiểm soát hiển thị loading
 
   const getKey = (pageIndex: number, previousPageData: KitsuResponse | null) => {
     if (previousPageData && !previousPageData.data.length) return null;
-    return `https://kitsu.io/api/edge/anime?filter[season]=winter&filter[seasonYear]=2024&filter[subtype]=${subtype}&page[limit]=${PAGE_SIZE}&page[offset]=${pageIndex * PAGE_SIZE}`;
+    return `https://kitsu.io/api/edge/anime?filter[season]=winter&filter[seasonYear]=${year}&filter[subtype]=${subtype}&page[limit]=${PAGE_SIZE}&page[offset]=${pageIndex * PAGE_SIZE}`;
   };
 
   const { data, error, size, setSize, isValidating } = useSWRInfinite<KitsuResponse>(getKey, fetcher, {

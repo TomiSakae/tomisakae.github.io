@@ -7,38 +7,55 @@ import { MdExpandMore } from "react-icons/md";
 import { useFloating, autoUpdate, offset, flip } from '@floating-ui/react-dom';
 
 export default function Home() {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isTvPopupOpen, setIsTvPopupOpen] = useState(false);
+  const [isCalendarPopupOpen, setIsCalendarPopupOpen] = useState(false);
   const [subtype, setSubtype] = useState(() => {
     // Khởi tạo giá trị subtype từ sessionStorage, mặc định là 'TV' nếu không có
     return sessionStorage.getItem('anime') || 'TV';
   });
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const popupRef = useRef<HTMLDivElement>(null);
+  const [year, setYear] = useState(() => {
+    // Khởi tạo giá trị year từ sessionStorage, mặc định là '2024' nếu không có
+    return sessionStorage.getItem('anime_year') || '2024';
+  });
+  const tvButtonRef = useRef<HTMLDivElement>(null);
+  const calendarButtonRef = useRef<HTMLDivElement>(null);
+  const tvPopupRef = useRef<HTMLDivElement>(null);
+  const calendarPopupRef = useRef<HTMLDivElement>(null);
 
-  const { x, y, floatingStyles, isPositioned } = useFloating({
+  const { x: tvX, y: tvY, floatingStyles: tvFloatingStyles, isPositioned: tvIsPositioned } = useFloating({
     placement: 'bottom-start',
     strategy: 'fixed',
     whileElementsMounted: autoUpdate,
     middleware: [offset(8), flip()],
   });
 
-  const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
+  const { x: calendarX, y: calendarY, floatingStyles: calendarFloatingStyles, isPositioned: calendarIsPositioned } = useFloating({
+    placement: 'bottom-end', // Đặt popup của calendar bên phải
+    strategy: 'fixed',
+    whileElementsMounted: autoUpdate,
+    middleware: [offset(8), flip()],
+  });
+
+  const toggleTvPopup = () => {
+    setIsTvPopupOpen(!isTvPopupOpen);
+  };
+
+  const toggleCalendarPopup = () => {
+    setIsCalendarPopupOpen(!isCalendarPopupOpen);
   };
 
   const closePopup = (e: MouseEvent) => {
     if (
-      popupRef.current &&
-      !popupRef.current.contains(e.target as Node) &&
-      buttonRef.current &&
-      !buttonRef.current.contains(e.target as Node)
+      (tvPopupRef.current && !tvPopupRef.current.contains(e.target as Node) && tvButtonRef.current && !tvButtonRef.current.contains(e.target as Node)) ||
+      (calendarPopupRef.current && !calendarPopupRef.current.contains(e.target as Node) && calendarButtonRef.current && !calendarButtonRef.current.contains(e.target as Node))
     ) {
-      setIsPopupOpen(false);
+      setIsTvPopupOpen(false);
+      setIsCalendarPopupOpen(false);
     }
   };
 
   useEffect(() => {
-    if (isPopupOpen) {
+    if (isTvPopupOpen || isCalendarPopupOpen) {
       document.body.style.overflow = 'hidden'; // Ngăn không cho cuộn khi popup mở
       document.addEventListener('mousedown', closePopup);
     } else {
@@ -48,13 +65,22 @@ export default function Home() {
     return () => {
       document.removeEventListener('mousedown', closePopup);
     };
-  }, [isPopupOpen]);
+  }, [isTvPopupOpen, isCalendarPopupOpen]);
 
-  const handleOptionClick = (option: string) => {
+  const handleTvOptionClick = (option: string) => {
     // Lưu subtype vào sessionStorage
     sessionStorage.setItem('anime', option);
     setSubtype(option);
-    setIsPopupOpen(false);
+    setIsTvPopupOpen(false);
+  };
+
+  const handleCalendarOptionClick = (option: string) => {
+    // Lưu subtype vào sessionStorage
+    // Lấy năm từ option
+    const year = option.split(' ')[1]; // Lấy phần số năm từ chuỗi 'Năm xxxx'
+    sessionStorage.setItem('anime_year', year);
+    setYear(year);
+    setIsCalendarPopupOpen(false);
   };
 
   return (
@@ -63,35 +89,39 @@ export default function Home() {
         <div className="font-bold text-white container mx-auto flex items-center relative">
           <div
             className="absolute left-0 flex items-center ml-4 cursor-pointer"
-            onClick={togglePopup}
-            ref={buttonRef}
+            onClick={toggleTvPopup}
+            ref={tvButtonRef}
           >
             <p className="text-sm">{subtype}</p>
             <MdExpandMore className="ml-1 text-xl" />
           </div>
-          <h1 className="text-sm mx-auto">Mùa Đông 2024</h1>
-          <FaCalendar className="absolute right-0 text-sm mr-4" />
+          <h1 className="text-sm mx-auto">Mùa Đông {year}</h1>
+          <div 
+          className="absolute right-0 text-sm mr-4 cursor-pointer"
+          onClick={toggleCalendarPopup}
+          ref={calendarButtonRef}
+          ><FaCalendar/></div>
         </div>
       </nav>
-      {isPopupOpen && (
+      {isTvPopupOpen && (
         <>
-          <div className="fixed inset-0 bg-black opacity-0 z-20" onClick={togglePopup}></div>
+          <div className="fixed inset-0 bg-black opacity-0 z-20" onClick={toggleTvPopup}></div>
           <div
-            ref={popupRef}
+            ref={tvPopupRef}
             style={{
               position: 'fixed',
-              top: `${y}px`, // Ensure y is in pixels for fixed positioning
-              left: `${x}px`, // Ensure x is in pixels for fixed positioning
+              top: `${tvY}px`, // Đảm bảo y là pixel cho vị trí cố định
+              left: `${tvX}px`, // Đảm bảo x là pixel cho vị trí cố định
             }}
             className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-12 text-white font-bold"
           >
-            {/* Nội dung của popup */}
+            {/* Nội dung của popup TV */}
             <ul>
               {['TV', 'ONA', 'OVA', 'Special', 'Movie', 'Music'].map(option => (
                 <li
                   key={option}
                   className="cursor-pointer px-2 py-1"
-                  onClick={() => handleOptionClick(option)}
+                  onClick={() => handleTvOptionClick(option)}
                 >
                   {option}
                 </li>
@@ -100,8 +130,64 @@ export default function Home() {
           </div>
         </>
       )}
+      {isTvPopupOpen && (
+        <>
+          <div className="fixed inset-0 bg-black opacity-0 z-20" onClick={toggleTvPopup}></div>
+          <div
+            ref={tvPopupRef}
+            style={{
+              position: 'fixed',
+              top: `${tvY}px`,
+              left: `${tvX}px`,
+            }}
+            className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-12 text-white font-bold"
+          >
+            {/* Nội dung của popup TV */}
+            <ul>
+              {['TV', 'ONA', 'OVA', 'Special', 'Movie', 'Music'].map(option => (
+                <li
+                  key={option}
+                  className="cursor-pointer px-2 py-1"
+                  onClick={() => handleTvOptionClick(option)}
+                >
+                  {option}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      )}
+      {isCalendarPopupOpen && (
+        <>
+          <div className="fixed inset-0 bg-black opacity-0 z-20" onClick={toggleCalendarPopup}></div>
+          <div
+            ref={calendarPopupRef}
+            style={{
+              position: 'fixed',
+              top: `${calendarY}px`,
+              right: `${calendarX}px`,
+              maxHeight: '200px', // Chiều cao cố định của popup
+              overflowY: 'auto', // Cho phép thanh cuộn khi nội dung vượt quá chiều cao
+            }}
+            className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-12 text-white font-bold"
+          >
+            {/* Nội dung của popup Calendar */}
+            <ul>
+              {Array.from({ length: 21 }, (_, index) => 2024 - index).map(year => (
+                <li
+                  key={year}
+                  className="cursor-pointer px-2 py-1"
+                  onClick={() => handleCalendarOptionClick(`Năm ${year}`)}
+                >
+                  Năm {year}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      )}
       <div className="container mx-auto">
-        <KitsuList subtype={subtype} />
+        <KitsuList subtype={subtype} year={year} />
       </div>
     </main>
   );
