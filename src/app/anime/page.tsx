@@ -1,11 +1,11 @@
 'use client'
-import { useEffect } from 'react';
+import { useEffect, Suspense  } from 'react';
 import useSWR from 'swr';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { MdKeyboardReturn } from "react-icons/md";
 
-function AnimePage() {
+const AnimePage = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const animeId = searchParams.get('id') || '';
@@ -79,4 +79,10 @@ function AnimePage() {
     );
 }
 
-export default AnimePage;
+const Anime = ()=>{
+    <Suspense>
+      <AnimePage />
+    </Suspense>
+}
+
+export default Anime;
