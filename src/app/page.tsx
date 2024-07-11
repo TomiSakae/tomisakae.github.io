@@ -86,7 +86,7 @@ export default function Home() {
     const newSubtype = getQueryParam('subtype', 'TV');
     const newYear = getQueryParam('year', new Date().getFullYear().toString());
     const newSeason = getQueryParam('season', 'winter');
-
+  
     if (subtype !== newSubtype) {
       setSubtype(newSubtype);
     }
@@ -96,6 +96,7 @@ export default function Home() {
     if (season !== newSeason) {
       setSeason(newSeason);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   const handleTvOptionClick = (option: string) => {
