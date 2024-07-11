@@ -1,22 +1,26 @@
 'use client'
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import useSWRInfinite from 'swr/infinite';
 import Image from 'next/image';
+import Link from 'next/link';
 import { KitsuResponse } from '../types/types';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 const PAGE_SIZE = 20;
 
-const AnimeList = () => {
+interface Props {
+  subtype: string;
+}
+
+const KitsuList: React.FC<Props> = ({ subtype }) => {
   const [animeList, setAnimeList] = useState<KitsuResponse['data']>([]);
   const [seenAnimeKeys, setSeenAnimeKeys] = useState<Set<string>>(new Set());
   const [isLoadingMore, setIsLoadingMore] = useState(false); // State để kiểm soát hiển thị loading
 
   const getKey = (pageIndex: number, previousPageData: KitsuResponse | null) => {
     if (previousPageData && !previousPageData.data.length) return null;
-    return `https://kitsu.io/api/edge/anime?filter[season]=winter&filter[seasonYear]=2024&page[limit]=${PAGE_SIZE}&page[offset]=${pageIndex * PAGE_SIZE}`;
+    return `https://kitsu.io/api/edge/anime?filter[season]=winter&filter[seasonYear]=2024&filter[subtype]=${subtype}&page[limit]=${PAGE_SIZE}&page[offset]=${pageIndex * PAGE_SIZE}`;
   };
 
   const { data, error, size, setSize, isValidating } = useSWRInfinite<KitsuResponse>(getKey, fetcher, {
@@ -25,31 +29,42 @@ const AnimeList = () => {
   });
 
   useEffect(() => {
+    // Reset animeList when subtype changes
+    setAnimeList([]);
+    setSeenAnimeKeys(new Set());
+    setIsLoadingMore(false);
+    setSize(1); // Trigger re-fetching with the new subtype
+  }, [subtype, setSize]);
+
+  useEffect(() => {
     if (data) {
       let newAnimeList: KitsuResponse['data'][0][] = [];
       data.forEach(page => {
         newAnimeList = [...newAnimeList, ...page.data];
       });
-
+  
       const filteredAnimeList = newAnimeList.filter(anime => {
-        if (anime.attributes.subtype === 'TV' && !seenAnimeKeys.has(anime.id)) {
+        if (!seenAnimeKeys.has(anime.id)) {
           seenAnimeKeys.add(anime.id);
           return true;
         }
         return false;
       });
-
-      setAnimeList(prevList => [...prevList, ...filteredAnimeList]);
-
-     // Nếu trang hiện tại có số lượng anime nhỏ hơn PAGE_SIZE và không đang trong quá trình xác thực mới, có thể đã hết dữ liệu
-     if (data[data.length - 1].data.length < PAGE_SIZE && !isValidating) {
-      setIsLoadingMore(false); // Ngừng hiển thị loading khi hết dữ liệu
-    } else {
-      setIsLoadingMore(true); // Hiển thị loading ở cuối danh sách khi đang load thêm
-      setSize(size => size + 1); // Tăng kích thước để fetch trang kế tiếp
+  
+      const newData = filteredAnimeList.filter(anime => !animeList.some(a => a.id === anime.id));
+  
+      if (newData.length > 0) {
+        setAnimeList(prevList => [...prevList, ...newData]);
+      }
+  
+      if (data[data.length - 1].data.length < PAGE_SIZE && !isValidating) {
+        setIsLoadingMore(false);
+      } else {
+        setIsLoadingMore(true);
+        setSize(size => size + 1);
+      }
     }
-  }
-}, [data, setSize, seenAnimeKeys, isValidating]);
+  }, [data, setSize, seenAnimeKeys, isValidating, animeList]); // Thêm animeList vào dependency array của useEffect
 
   if (error) return <div>Không thể tải dữ liệu</div>;
   if (!data) return (
@@ -72,17 +87,17 @@ const AnimeList = () => {
             <div className="relative w-full h-0 pb-[142.85%] rounded-xl overflow-hidden">
               <Image 
                 src={anime.attributes.posterImage.large} 
-                alt={anime.attributes.titles.en || anime.attributes.titles.en_jp} 
+                alt={anime.attributes.titles.en_jp || anime.attributes.titles.en} 
                 layout="fill"
                 className="rounded-xl"
                 loading="lazy"
               />
             </div>
-            <h3 className="text-xs font-semibold mt-2 overflow-hidden truncate">{anime.attributes.titles.en || anime.attributes.titles.en_jp}</h3>
+            <h3 className="text-xs font-semibold mt-2 overflow-hidden truncate">{anime.attributes.titles.en_jp || anime.attributes.titles.en}</h3>
           </Link>
         </div>
       ))}
-     {isLoadingMore && (
+      {isLoadingMore && (
         <div className="animate-pulse overflow-hidden px-4 py-3">
           <div className="relative w-full h-0 pb-[142.85%] rounded-xl bg-gray-300"></div>
           <div className="mt-2 h-4 bg-gray-300 rounded"></div>
@@ -92,4 +107,4 @@ const AnimeList = () => {
   );
 };
 
-export default AnimeList;
+export default KitsuList;
