@@ -1,13 +1,13 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, Suspense } from 'react';
 import KitsuList from '../components/KitsuList';
 import { FaCalendar } from "react-icons/fa";
 import { MdExpandMore } from "react-icons/md";
 import { useFloating, autoUpdate, offset, flip } from '@floating-ui/react-dom';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function Home() {
+const Anime = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -198,3 +198,13 @@ export default function Home() {
     </main>
   );
 }
+
+const Home = () => {
+  return (
+    <Suspense>
+      <Anime />
+    </Suspense>
+  );
+};
+
+export default Home;
