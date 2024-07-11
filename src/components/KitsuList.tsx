@@ -84,7 +84,7 @@ const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
       {animeList.map(anime => (
-        <div key={anime.id} className="px-4 py-3 hover:text-green-500 text-gray-500">
+        <div key={anime.id} className="px-4 py-3 hover:text-red-600 text-white">
           <Link href="/anime">
             <div className="relative w-full h-0 pb-[142.85%] rounded-xl overflow-hidden">
               <Image 

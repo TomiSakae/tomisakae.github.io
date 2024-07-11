@@ -162,14 +162,14 @@ const Anime = () => {
               top: `${tvY}px`, // Đảm bảo y là pixel cho vị trí cố định
               left: `${tvX}px`, // Đảm bảo x là pixel cho vị trí cố định
             }}
-            className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-24 text-white font-bold"
+            className="bg-black shadow-lg rounded px-4 w-30 z-30 mt-24 text-white font-bold"
           >
             {/* Nội dung của popup TV */}
             <ul>
               {['TV', 'ONA', 'OVA', 'Special', 'Movie', 'Music'].map(option => (
                 <li
                   key={option}
-                  className="cursor-pointer px-2 py-2 text-sm"
+                  className="cursor-pointer py-2 text-sm"
                   onClick={() => handleTvOptionClick(option)}
                 >
                   {option}
@@ -191,14 +191,14 @@ const Anime = () => {
               maxHeight: '230px', // Chiều cao cố định của popup
               overflowY: 'auto', // Cho phép thanh cuộn khi nội dung vượt quá chiều cao
             }}
-            className="bg-black shadow-lg rounded px-4 py-2 w-30 z-30 mt-24 text-white font-bold"
+            className="bg-black shadow-lg rounded px-4 w-30 z-30 mt-24 text-white font-bold"
           >
             {/* Nội dung của popup Calendar */}
             <ul>
               {Array.from({ length: new Date().getFullYear() - 1916 }, (_, index) => new Date().getFullYear() - index).map(year => (
                 <li
                   key={year}
-                  className="cursor-pointer px-2 py-2 text-sm"
+                  className="cursor-pointer py-2 text-sm"
                   onClick={() => handleCalendarOptionClick(`Năm ${year}`)}
                 >
                   Năm {year}
@@ -208,7 +208,7 @@ const Anime = () => {
           </div>
         </>
       )}
-      <div className="container mx-auto mt-12">
+      <div className="container mx-auto mt-12 bg-black">
         <KitsuList subtype={subtype} year={year} season={season} />
       </div>
     </main>
