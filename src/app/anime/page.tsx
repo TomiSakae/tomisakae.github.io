@@ -1,11 +1,28 @@
 'use client'
-import { useEffect, Suspense  } from 'react';
+import { useEffect, Suspense, useState  } from 'react';
 import useSWR from 'swr';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { MdKeyboardReturn } from "react-icons/md";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const AnimePage = () => {
+    const [copied, setCopied] = useState(false);
+    const notify = () => {
+            toast.success('Đã copy!', {
+            position: "bottom-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+            setCopied(true);
+            };
     const router = useRouter();
     const searchParams = useSearchParams();
     const animeId = searchParams.get('id') || '';
@@ -20,12 +37,16 @@ const AnimePage = () => {
     };
 
     // Sử dụng SWR để fetch dữ liệu và tự động cache
-    const { data: animeData, error, mutate, isValidating } = useSWR(animeId ? `https://kitsu.io/api/edge/anime/${animeId}` : null, fetcher);
-
-    useEffect(() => {
-        // Trigger re-fetching data when animeId changes
-        mutate();
-    }, [animeId, mutate]);
+    const { data: animeData, error, isValidating } = useSWR(
+        animeId ? `https://kitsu.io/api/edge/anime/${animeId}` : null,
+        fetcher,
+        {
+            revalidateOnFocus: false, // Không fetch lại khi focus vào cửa sổ
+            revalidateOnReconnect: false, // Không fetch lại khi kết nối internet trở lại
+            shouldRetryOnError: false, // Không retry khi gặp lỗi
+            dedupingInterval: 60000, // Chỉ fetch lại sau 60 giây kể từ lần fetch gần nhất
+        }
+    );
 
     if (error) return <div>Đã xảy ra lỗi khi tải dữ liệu anime</div>;
 
@@ -68,9 +89,23 @@ const AnimePage = () => {
                             </div>
                         </div>
                     </div>
-                    <h3 className="text-white text-center text-lg font-semibold mt-2 mx-4">
-                        {animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
-                    </h3>
+                    <CopyToClipboard text={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en} onCopy={notify}>
+                        <h3 className="text-white text-center text-lg font-semibold mt-2 mx-4 cursor-pointer">
+                            {animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
+                        </h3>
+                    </CopyToClipboard>
+                    <ToastContainer
+                        position="bottom-center"
+                        autoClose={3000}
+                        hideProgressBar={false}
+                        newestOnTop
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover={false}
+                        theme="dark"
+                    />
                     <div className="flex justify-center items-center mt-4">
                         <button
                             className="bg-green-500 hover:bg-green-600 font-bold text-white py-2 px-4 rounded-md"

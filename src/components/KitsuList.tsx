@@ -27,6 +27,7 @@ const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
 
   const { data, error, size, setSize, isValidating } = useSWRInfinite<KitsuResponse>(getKey, fetcher, {
     revalidateOnFocus: false,
+    revalidateOnReconnect: false,
     shouldRetryOnError: false,
   });
 
