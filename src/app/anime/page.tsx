@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoMdClose } from "react-icons/io";
-import ImageDownloader from '../../components/ImageDownloader';
 
 const AnimePage = () => {
     const [copied, setCopied] = useState(false);
@@ -307,7 +306,6 @@ const AnimePage = () => {
                                     className="rounded-lg"
                                     placeholder="empty"
                                 />
-                                <ImageDownloader imageUrl={animeData.data.attributes.posterImage.large} fileName={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en} />
                             </motion.div>
                         )}
                     </AnimatePresence>
