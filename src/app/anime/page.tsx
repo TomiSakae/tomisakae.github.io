@@ -92,8 +92,7 @@ const AnimePage = () => {
                     >
                         <div className="grid grid-cols-4">
                             <div className="px-4 py-3 col-start-2 col-span-2">
-                                <div className="relative mx-auto h-0 pb-[142.85%] rounded-lg overflow-hidden" onClick={() => setIsZoomed(items[0].id)}>
-
+                                <div className="relative mx-auto h-0 pb-[142.85%] rounded-lg overflow-hidden cursor-pointer" onClick={() => setIsZoomed(items[0].id)}>
                                     <Image
                                         src={animeData.data.attributes.posterImage.large}
                                         alt={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
@@ -146,29 +145,31 @@ const AnimePage = () => {
                             >
                                 VietSub
                             </button>
-                            <button
-                                className="bg-blue-500 hover:bg-blue-600 font-bold text-white py-2 pl-4 rounded-l-md"
-                                onClick={() => {
-                                    const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                                    const formattedAnimeTitle = encodeURIComponent(`${animeTitle} OP`); // Định dạng tên anime và chuỗi "trailer" cho URL
-                                    const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
-                                    window.open(youtubeUrl, '_blank');
-                                }}
-                            >
-                                OP
-                            </button>
-                            <h1 className="bg-blue-500 font-bold text-white py-2">/</h1>
-                            <button
-                                className="bg-blue-500 hover:bg-blue-600 font-bold text-white py-2 pr-4 rounded-r-md"
-                                onClick={() => {
-                                    const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                                    const formattedAnimeTitle = encodeURIComponent(`${animeTitle} ED`); // Định dạng tên anime và chuỗi "trailer" cho URL
-                                    const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
-                                    window.open(youtubeUrl, '_blank');
-                                }}
-                            >
-                                ED
-                            </button>
+                            <div className="bg-blue-500 hover:bg-blue-600 flex rounded-l-md rounded-r-md">
+                                <button
+                                    className="font-bold text-white py-2 pl-4"
+                                    onClick={() => {
+                                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                        const formattedAnimeTitle = encodeURIComponent(`${animeTitle} OP`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                                        const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                                        window.open(youtubeUrl, '_blank');
+                                    }}
+                                >
+                                    OP
+                                </button>
+                                <h1 className="font-bold text-white py-2">/</h1>
+                                <button
+                                    className="font-bold text-white py-2 pr-4"
+                                    onClick={() => {
+                                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                        const formattedAnimeTitle = encodeURIComponent(`${animeTitle} ED`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                                        const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                                        window.open(youtubeUrl, '_blank');
+                                    }}
+                                >
+                                    ED
+                                </button>
+                            </div>
                         </div>
                         <div className="relative my-4 mx-4 mt-10">
                             <hr className="border-gray-600" />
@@ -292,20 +293,21 @@ const AnimePage = () => {
                             <motion.div
                                 layoutId={isZoomed}
                                 className="fixed z-20 top-0 my-20 mx-10"
-                                initial={{ opacity: 0.5 }}
+                                initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                             >
-                                <div className="text-end mb-2"><motion.button className="text-white font-bold text-2xl" onClick={() => setIsZoomed("")}><IoMdClose /></motion.button></div>
-                                <Image
-                                    src={animeData.data.attributes.posterImage.large}
-                                    alt={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
-                                    width={550}
-                                    height={780}
-                                    priority={true}
-                                    className="rounded-lg"
-                                    placeholder="empty"
-                                />
+                                <motion.button onClick={() => setIsZoomed("")}>
+                                    <Image
+                                        src={animeData.data.attributes.posterImage.large}
+                                        alt={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
+                                        width={550}
+                                        height={780}
+                                        priority={true}
+                                        className="rounded-lg"
+                                        placeholder="empty"
+                                    />
+                                </motion.button>
                             </motion.div>
                         )}
                     </AnimatePresence>

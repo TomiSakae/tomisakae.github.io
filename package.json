@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.1",
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
     "framer-motion": "^11.3.2",
     "next": "14.2.4",
     "react": "^18",
