@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image';
+import Gemini from '../components/GeminiAPI';
 
 // Định nghĩa một mảng JSON chứa thông tin của từng icon
 const iconData = [
@@ -234,11 +235,11 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                                         onClick={() => {
                                             const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                                             const formattedAnimeTitle = icons.formatUrl(animeTitle); // Định dạng tên anime cho URL
-                                            window.open(icon.searchUrl(formattedAnimeTitle), '_blank');
+                                            window.open(icons.searchUrl(formattedAnimeTitle), '_blank');
                                         }}>
                                         <Image
                                             src={icons.url}
-                                            alt={`${icon.name} Icon`}
+                                            alt={`${icons.name} Icon`}
                                             width={30}
                                             height={30}
                                             priority={true}
