@@ -18,8 +18,8 @@ const AnimePage = () => {
     ];
     const notify = () => {
         toast.success('Đã copy!', {
-            position: "bottom-center",
-            autoClose: 3000,
+            position: "top-right",
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,
@@ -111,8 +111,8 @@ const AnimePage = () => {
                             </h3>
                         </CopyToClipboard>
                         <ToastContainer
-                            position="bottom-center"
-                            autoClose={3000}
+                            position="top-right"
+                            autoClose={1000}
                             hideProgressBar={false}
                             newestOnTop
                             closeOnClick
@@ -121,6 +121,7 @@ const AnimePage = () => {
                             draggable
                             pauseOnHover={false}
                             theme="dark"
+                            className="custom-toastify"
                         />
                         <AnimeURL animeData={animeData} />
                     </motion.div>
@@ -128,7 +129,7 @@ const AnimePage = () => {
                         {isZoomed && (
                             <motion.div
                                 layoutId={isZoomed}
-                                className="fixed z-20 top-0 my-20 mx-10"
+                                className="fixed z-20 top-0 h-screen w-screen"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -140,7 +141,7 @@ const AnimePage = () => {
                                         width={550}
                                         height={780}
                                         priority={true}
-                                        className="rounded-lg"
+                                        className="rounded-lg h-auto w-4/5 mx-auto mt-20"
                                         placeholder="empty"
                                     />
                                 </motion.button>

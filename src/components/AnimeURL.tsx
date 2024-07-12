@@ -6,27 +6,27 @@ import Image from 'next/image';
 const iconData = [
     {
         id: 1,
-        name: 'Xem Ngay',
+        name: 'Anime',
         searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} vietsub`,
     },
     {
         id: 2,
-        name: 'Thêm Thông Tin',
+        name: 'Thông Tin',
         searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} info, news`,
     },
     {
         id: 3,
-        name: 'Đọc Manga',
+        name: 'Manga',
         searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} đọc manga`,
     },
     {
         id: 4,
-        name: 'Đọc Light Novel',
+        name: 'Light Novel',
         searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} đọc light novel`,
     },
     {
         id: 5,
-        name: 'Xem Ảnh',
+        name: 'Ảnh',
         searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} gallery`,
     },
 ];
@@ -215,7 +215,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                 <div key={index}>
                     <div className="relative my-4 mx-4 mt-10">
                         <div className="absolute inset-0 flex justify-center items-center">
-                            <h1 className={`py-2 px-4 rounded-t-2xl font-bold text-md px-2 cursor-pointer ${icon.id === 1 ? 'bg-rose-400 hover:text-red-500 text-white' : icon.id === 2 ? 'bg-blue-900 hover:text-red-500 text-white' : icon.id === 3 ? 'bg-yellow-200 hover:text-red-500 text-black' : icon.id === 4 ? 'bg-purple-50 hover:text-red-500 text-black' : 'bg-gray-200 hover:text-red-500 text-black'}`} onClick={() => {
+                            <h1 className={`pt-2 px-4 rounded-t-2xl font-bold text-md px-2 cursor-pointer ${icon.id === 1 ? 'bg-rose-400 hover:text-red-500 text-white' : icon.id === 2 ? 'bg-blue-900 hover:text-red-500 text-white' : icon.id === 3 ? 'bg-yellow-200 hover:text-red-500 text-black' : icon.id === 4 ? 'bg-purple-50 hover:text-red-500 text-black' : 'bg-gray-200 hover:text-red-500 text-black'}`} onClick={() => {
                                 const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                                 // Định dạng tên anime cho URL
                                 window.open(icon.searchUrl(animeTitle), '_blank');
@@ -224,7 +224,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                             </h1>
                         </div>
                     </div>
-                    <div className={`rounded-2xl mx-4 py-6 flex justify-center items-center mt-12 ${icon.id === 1 ? 'bg-rose-400' : icon.id === 2 ? 'bg-blue-900' : icon.id === 3 ? 'bg-yellow-200' : icon.id === 4 ? 'bg-purple-50' : 'bg-gray-200'}`}>
+                    <div className={`rounded-2xl mx-4 pt-8 pb-6 flex justify-center items-center mt-12 ${icon.id === 1 ? 'bg-rose-400' : icon.id === 2 ? 'bg-blue-900' : icon.id === 3 ? 'bg-yellow-200' : icon.id === 4 ? 'bg-purple-50' : 'bg-gray-200'}`}>
                         {iconShowData.map((icons, idx) => {
                             // Kiểm tra nếu icons.id === icon.id thì mới hiển thị iconShowData
                             if (icons.id === icon.id) {

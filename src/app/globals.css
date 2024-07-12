@@ -31,3 +31,8 @@ body {
     text-wrap: balance;
   }
 } */
+
+.custom-toastify {
+  width: 50% !important;
+  margin-left: 50% !important;
+}
