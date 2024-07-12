@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image';
-import Gemini from '../components/GeminiAPI';
 
 // Định nghĩa một mảng JSON chứa thông tin của từng icon
 const iconData = [
@@ -215,9 +214,8 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
             {iconData.map((icon, index) => (
                 <div key={index}>
                     <div className="relative my-4 mx-4 mt-10">
-                        <hr className="border-gray-600" />
                         <div className="absolute inset-0 flex justify-center items-center">
-                            <h1 className="bg-black hover:text-red-500 text-white font-bold text-md px-2 cursor-pointer" onClick={() => {
+                            <h1 className={`py-2 px-4 rounded-t-2xl font-bold text-md px-2 cursor-pointer ${icon.id === 1 ? 'bg-rose-400 hover:text-red-500 text-white' : icon.id === 2 ? 'bg-blue-900 hover:text-red-500 text-white' : icon.id === 3 ? 'bg-yellow-200 hover:text-red-500 text-black' : icon.id === 4 ? 'bg-purple-50 hover:text-red-500 text-black' : 'bg-gray-200 hover:text-red-500 text-black'}`} onClick={() => {
                                 const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                                 // Định dạng tên anime cho URL
                                 window.open(icon.searchUrl(animeTitle), '_blank');
@@ -226,12 +224,12 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                             </h1>
                         </div>
                     </div>
-                    <div className="flex justify-center items-center mt-10">
+                    <div className={`rounded-2xl mx-4 py-6 flex justify-center items-center mt-12 ${icon.id === 1 ? 'bg-rose-400' : icon.id === 2 ? 'bg-blue-900' : icon.id === 3 ? 'bg-yellow-200' : icon.id === 4 ? 'bg-purple-50' : 'bg-gray-200'}`}>
                         {iconShowData.map((icons, idx) => {
                             // Kiểm tra nếu icons.id === icon.id thì mới hiển thị iconShowData
                             if (icons.id === icon.id) {
                                 return (
-                                    <div key={idx} className="border px-1 py-1 mx-2 rounded-md border-gray-800 shadow-2xl cursor-pointer"
+                                    <div key={idx} className="border bg-black px-1 py-1 mx-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
                                         onClick={() => {
                                             const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                                             const formattedAnimeTitle = icons.formatUrl(animeTitle); // Định dạng tên anime cho URL
