@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, Suspense, useState  } from 'react';
+import { useEffect, Suspense, useState } from 'react';
 import useSWR from 'swr';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -7,11 +7,18 @@ import { MdKeyboardReturn } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { motion, AnimatePresence } from 'framer-motion';
+import { IoMdClose } from "react-icons/io";
+import ImageDownloader from '../../components/ImageDownloader';
 
 const AnimePage = () => {
     const [copied, setCopied] = useState(false);
+    const [isZoomed, setIsZoomed] = useState("");
+    let items = [
+        { id: "", img: "" },
+    ];
     const notify = () => {
-            toast.success('Đã copy!', {
+        toast.success('Đã copy!', {
             position: "bottom-center",
             autoClose: 3000,
             hideProgressBar: false,
@@ -20,9 +27,9 @@ const AnimePage = () => {
             draggable: true,
             progress: undefined,
             theme: "dark",
-            });
-            setCopied(true);
-            };
+        });
+        setCopied(true);
+    };
     const router = useRouter();
     const searchParams = useSearchParams();
     const animeId = searchParams.get('id') || '';
@@ -49,6 +56,11 @@ const AnimePage = () => {
     );
 
     if (error) return <div>Đã xảy ra lỗi khi tải dữ liệu anime</div>;
+    if (animeData) {
+        items = [
+            { id: "1", img: animeData.data.attributes.posterImage.large },
+        ];
+    }
 
     return (
         <div className="container mx-auto bg-black py-16 h-screen">
@@ -58,7 +70,7 @@ const AnimePage = () => {
                         className="absolute left-0 flex items-center ml-4 cursor-pointer"
                         onClick={() => router.back()} // Thêm onClick để quay lại trang trước
                     >
-                        <MdKeyboardReturn className="ml-1 text-xl text-white"/>
+                        <MdKeyboardReturn className="ml-1 text-xl text-white" />
                     </div>
                     <h1 className={"text-white text-lg"}>TomiSakae</h1>
                 </div>
@@ -74,202 +86,232 @@ const AnimePage = () => {
                 </div>
             ) : animeData ? (
                 <div>
-                    <div className="grid grid-cols-4">
-                        <div className="px-4 py-3 col-start-2 col-span-2">
-                            <div className="relative mx-auto h-0 pb-[142.85%] rounded-lg overflow-hidden">
-                                <Image 
-                                    src={animeData.data.attributes.posterImage.large} 
-                                    alt={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en} 
-                                    width={550}
-                                    height={780}
+                    <motion.div
+                        key={items[0].id}
+                        layoutId={items[0].id}
+
+                    >
+                        <div className="grid grid-cols-4">
+                            <div className="px-4 py-3 col-start-2 col-span-2">
+                                <div className="relative mx-auto h-0 pb-[142.85%] rounded-lg overflow-hidden" onClick={() => setIsZoomed(items[0].id)}>
+
+                                    <Image
+                                        src={animeData.data.attributes.posterImage.large}
+                                        alt={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
+                                        width={550}
+                                        height={780}
+                                        priority={true}
+                                        className="rounded-lg"
+                                        placeholder="empty"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <CopyToClipboard text={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en} onCopy={notify}>
+                            <h3 className="text-white text-center text-lg font-semibold mt-2 mx-4 cursor-pointer">
+                                {animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
+                            </h3>
+                        </CopyToClipboard>
+                        <ToastContainer
+                            position="bottom-center"
+                            autoClose={3000}
+                            hideProgressBar={false}
+                            newestOnTop
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover={false}
+                            theme="dark"
+                        />
+                        <div className="flex justify-center items-center mt-4">
+                            <button
+                                className="bg-green-500 hover:bg-green-600 font-bold text-white py-2 px-4 rounded-md"
+                                onClick={() => {
+                                    const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                    const formattedAnimeTitle = encodeURIComponent(`${animeTitle} official trailer`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                                    const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                                    window.open(youtubeUrl, '_blank');
+                                }}
+                            >
+                                Trailer
+                            </button>
+                            <button
+                                className="bg-red-500 hover:bg-red-600 font-bold text-white py-2 px-4 mx-4 rounded-md"
+                                onClick={() => {
+                                    const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                    const formattedAnimeTitle = encodeURIComponent(`${animeTitle} vietsub`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                                    const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                                    window.open(youtubeUrl, '_blank');
+                                }}
+                            >
+                                VietSub
+                            </button>
+                            <button
+                                className="bg-blue-500 hover:bg-blue-600 font-bold text-white py-2 pl-4 rounded-l-md"
+                                onClick={() => {
+                                    const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                    const formattedAnimeTitle = encodeURIComponent(`${animeTitle} OP`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                                    const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                                    window.open(youtubeUrl, '_blank');
+                                }}
+                            >
+                                OP
+                            </button>
+                            <h1 className="bg-blue-500 font-bold text-white py-2">/</h1>
+                            <button
+                                className="bg-blue-500 hover:bg-blue-600 font-bold text-white py-2 pr-4 rounded-r-md"
+                                onClick={() => {
+                                    const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                    const formattedAnimeTitle = encodeURIComponent(`${animeTitle} ED`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                                    const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                                    window.open(youtubeUrl, '_blank');
+                                }}
+                            >
+                                ED
+                            </button>
+                        </div>
+                        <div className="relative my-4 mx-4 mt-10">
+                            <hr className="border-gray-600" />
+                            <div className="absolute inset-0 flex justify-center items-center">
+                                <h1 className="bg-black text-white font-bold text-md px-2">
+                                    Xem Ngay
+                                </h1>
+                            </div>
+                        </div>
+                        <div className="flex justify-center items-center mt-10">
+                            <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={() => {
+                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                const formattedAnimeTitle = animeTitle.replace(/\s+/g, '+'); // Định dạng tên anime cho URL
+                                const searchUrl = `https://animevietsub.dev/tim-kiem/${formattedAnimeTitle}/`;
+                                window.open(searchUrl, '_blank');
+                            }}>
+                                <Image
+                                    src={"https://animevietsub.dev/favicon.ico"}
+                                    alt={"AnimeVietSubIcon"}
+                                    width={30}
+                                    height={30}
+                                    priority={true}
+                                    className="rounded-lg"
+                                    placeholder="empty"
+                                />
+                            </div>
+                            <div className="border px-1 py-1 mx-4 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={() => {
+                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
+                                const searchUrl = `https://animet1.net/tim-kiem/${formattedAnimeTitle}.html`;
+                                window.open(searchUrl, '_blank');
+                            }}>
+                                <Image
+                                    src={"https://animet1.net/Theme_Anime/img/favicon.ico"}
+                                    alt={"AnimetIcon"}
+                                    width={30}
+                                    height={30}
+                                    priority={true}
+                                    className="rounded-lg"
+                                    placeholder="empty"
+                                />
+                            </div>
+                            <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={() => {
+                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
+                                const searchUrl = `https://animetvn4.com/tim-kiem/${formattedAnimeTitle}.html`;
+                                window.open(searchUrl, '_blank');
+                            }}>
+                                <Image
+                                    src={"https://animetvn4.com/images/favicon.ico"}
+                                    alt={"AnimeTVNIcon"}
+                                    width={30}
+                                    height={30}
                                     priority={true}
                                     className="rounded-lg"
                                     placeholder="empty"
                                 />
                             </div>
                         </div>
-                    </div>
-                    <CopyToClipboard text={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en} onCopy={notify}>
-                        <h3 className="text-white text-center text-lg font-semibold mt-2 mx-4 cursor-pointer">
-                            {animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
-                        </h3>
-                    </CopyToClipboard>
-                    <ToastContainer
-                        position="bottom-center"
-                        autoClose={3000}
-                        hideProgressBar={false}
-                        newestOnTop
-                        closeOnClick
-                        rtl={false}
-                        pauseOnFocusLoss
-                        draggable
-                        pauseOnHover={false}
-                        theme="dark"
-                    />
-                    <div className="flex justify-center items-center mt-4">
-                        <button
-                            className="bg-green-500 hover:bg-green-600 font-bold text-white py-2 px-4 rounded-md"
-                            onClick={()=>{
-                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                                const formattedAnimeTitle = encodeURIComponent(`${animeTitle} official trailer`); // Định dạng tên anime và chuỗi "trailer" cho URL
-                                const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
-                                window.open(youtubeUrl, '_blank');
-                            }}
-                        >
-                            Trailer
-                        </button>
-                        <button
-                            className="bg-red-500 hover:bg-red-600 font-bold text-white py-2 px-4 mx-4 rounded-md"
-                            onClick={()=>{
-                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                                const formattedAnimeTitle = encodeURIComponent(`${animeTitle} vietsub`); // Định dạng tên anime và chuỗi "trailer" cho URL
-                                const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
-                                window.open(youtubeUrl, '_blank');
-                            }}
-                        >
-                            VietSub
-                        </button>
-                        <button
-                            className="bg-blue-500 hover:bg-blue-600 font-bold text-white py-2 pl-4 rounded-l-md"
-                            onClick={()=>{
-                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                                const formattedAnimeTitle = encodeURIComponent(`${animeTitle} OP`); // Định dạng tên anime và chuỗi "trailer" cho URL
-                                const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
-                                window.open(youtubeUrl, '_blank');
-                            }}
-                        >
-                            OP
-                        </button>
-                        <h1 className="bg-blue-500 font-bold text-white py-2">/</h1>
-                        <button
-                            className="bg-blue-500 hover:bg-blue-600 font-bold text-white py-2 pr-4 rounded-r-md"
-                            onClick={()=>{
-                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                                const formattedAnimeTitle = encodeURIComponent(`${animeTitle} ED`); // Định dạng tên anime và chuỗi "trailer" cho URL
-                                const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
-                                window.open(youtubeUrl, '_blank');
-                            }}
-                        >
-                            ED
-                        </button>
-                    </div>
-                    <div className="relative my-4 mx-4 mt-10">
-                        <hr className="border-gray-600" />
-                        <div className="absolute inset-0 flex justify-center items-center">
-                            <h1 className="bg-black text-white font-bold text-md px-2">
-                                Xem Ngay
-                            </h1>
+                        <div className="relative my-4 mx-4 mt-10">
+                            <hr className="border-gray-600" />
+                            <div className="absolute inset-0 flex justify-center items-center">
+                                <h1 className="bg-black text-white font-bold text-md px-2">
+                                    Thêm Thông Tin
+                                </h1>
+                            </div>
                         </div>
-                    </div>
-                <div className="flex justify-center items-center mt-10">
-                    <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
-                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '+'); // Định dạng tên anime cho URL
-                        const searchUrl = `https://animevietsub.dev/tim-kiem/${formattedAnimeTitle}/`;
-                        window.open(searchUrl, '_blank');
-                    }}>
-                        <Image 
-                            src={"https://animevietsub.dev/favicon.ico"} 
-                            alt={"AnimeVietSubIcon"} 
-                            width={30}
-                            height={30}
-                            priority={true}
-                            className="rounded-lg"
-                            placeholder="empty"
-                                            />
-                    </div>
-                    <div className="border px-1 py-1 mx-4 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
-                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
-                        const searchUrl = `https://animet1.net/tim-kiem/${formattedAnimeTitle}.html`;
-                        window.open(searchUrl, '_blank');
-                    }}>
-                        <Image 
-                            src={"https://animet1.net/Theme_Anime/img/favicon.ico"} 
-                            alt={"AnimetIcon"} 
-                            width={30}
-                            height={30}
-                            priority={true}
-                            className="rounded-lg"
-                            placeholder="empty"
-                                            />
-                    </div>
-                    <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
-                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
-                        const searchUrl = `https://animetvn4.com/tim-kiem/${formattedAnimeTitle}.html`;
-                        window.open(searchUrl, '_blank');
-                    }}>
-                        <Image 
-                            src={"https://animetvn4.com/images/favicon.ico"} 
-                            alt={"AnimeTVNIcon"} 
-                            width={30}
-                            height={30}
-                            priority={true}
-                            className="rounded-lg"
-                            placeholder="empty"
-                                            />
-                    </div>
-                </div>
-                <div className="relative my-4 mx-4 mt-10">
-                        <hr className="border-gray-600" />
-                        <div className="absolute inset-0 flex justify-center items-center">
-                            <h1 className="bg-black text-white font-bold text-md px-2">
-                                Thêm Thông Tin
-                            </h1>
+                        <div className="flex justify-center items-center mt-10">
+                            <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={() => {
+                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
+                                const searchUrl = `https://myanimelist.net/search/all?q=${formattedAnimeTitle}&cat=all/`;
+                                window.open(searchUrl, '_blank');
+                            }}>
+                                <Image
+                                    src={"https://cdn.myanimelist.net/images/favicon.ico"}
+                                    alt={"MALIcon"}
+                                    width={30}
+                                    height={30}
+                                    priority={true}
+                                    className="rounded-lg"
+                                    placeholder="empty"
+                                />
+                            </div>
+                            <div className="border px-1 py-1 mx-4 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={() => {
+                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                const formattedAnimeTitle = animeTitle.replace(/[!:#%&+={}?/\\[\]'"*;,]/g, '').replace(/[^\w\s-]/g, '').replace(/\s+/g, '-'); // Định dạng tên anime cho URL
+                                const searchUrl = `https://kitsu.io/anime/${formattedAnimeTitle}`;
+                                window.open(searchUrl, '_blank');
+                            }}>
+                                <Image
+                                    src={"https://kitsu.io/favicon-32x32-3e0ecb6fc5a6ae681e65dcbc2bdf1f17.png"}
+                                    alt={"KitsuIcon"}
+                                    width={30}
+                                    height={30}
+                                    priority={true}
+                                    className="rounded-lg"
+                                    placeholder="empty"
+                                />
+                            </div>
+                            <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={() => {
+                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
+                                const searchUrl = `https://anilist.co/search/anime?search=${formattedAnimeTitle}`;
+                                window.open(searchUrl, '_blank');
+                            }}>
+                                <Image
+                                    src={"https://anilist.co/img/icons/favicon-32x32.png"}
+                                    alt={"AniListIcon"}
+                                    width={30}
+                                    height={30}
+                                    priority={true}
+                                    className="rounded-lg"
+                                    placeholder="empty"
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex justify-center items-center mt-10">
-                    <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
-                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
-                        const searchUrl = `https://myanimelist.net/search/all?q=${formattedAnimeTitle}&cat=all/`;
-                        window.open(searchUrl, '_blank');
-                    }}>
-                        <Image 
-                            src={"https://cdn.myanimelist.net/images/favicon.ico"} 
-                            alt={"MALIcon"} 
-                            width={30}
-                            height={30}
-                            priority={true}
-                            className="rounded-lg"
-                            placeholder="empty"
-                                            />
-                    </div>
-                    <div className="border px-1 py-1 mx-4 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
-                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                        const formattedAnimeTitle = animeTitle.replace(/[!:#%&+={}?/\\[\]'"*;,]/g, '').replace(/[^\w\s-]/g, '').replace(/\s+/g, '-'); // Định dạng tên anime cho URL
-                        const searchUrl = `https://kitsu.io/anime/${formattedAnimeTitle}`;
-                        window.open(searchUrl, '_blank');
-                    }}>
-                        <Image 
-                            src={"https://kitsu.io/favicon-32x32-3e0ecb6fc5a6ae681e65dcbc2bdf1f17.png"} 
-                            alt={"KitsuIcon"} 
-                            width={30}
-                            height={30}
-                            priority={true}
-                            className="rounded-lg"
-                            placeholder="empty"
-                                            />
-                    </div>
-                    <div className="border px-1 py-1 rounded-md border-gray-800 shadow-2xl cursor-pointer" onClick={()=>{
-                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                        const formattedAnimeTitle = animeTitle.replace(/\s+/g, '%20'); // Định dạng tên anime cho URL
-                        const searchUrl = `https://anilist.co/search/anime?search=${formattedAnimeTitle}`;
-                        window.open(searchUrl, '_blank');
-                    }}>
-                        <Image 
-                            src={"https://anilist.co/img/icons/favicon-32x32.png"} 
-                            alt={"AniListIcon"} 
-                            width={30}
-                            height={30}
-                            priority={true}
-                            className="rounded-lg"
-                            placeholder="empty"
-                                            />
-                    </div>
+                    </motion.div>
+                    <AnimatePresence>
+                        {isZoomed && (
+                            <motion.div
+                                layoutId={isZoomed}
+                                className="fixed z-20 top-0 my-20 mx-10"
+                                initial={{ opacity: 0.5 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                            >
+                                <div className="text-end mb-2"><motion.button className="text-white font-bold text-2xl" onClick={() => setIsZoomed("")}><IoMdClose /></motion.button></div>
+                                <Image
+                                    src={animeData.data.attributes.posterImage.large}
+                                    alt={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
+                                    width={550}
+                                    height={780}
+                                    priority={true}
+                                    className="rounded-lg"
+                                    placeholder="empty"
+                                />
+                                <ImageDownloader imageUrl={animeData.data.attributes.posterImage.large} fileName={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en} />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
-            </div>
             ) : (
                 <div>Đang tải dữ liệu...</div>
             )}
@@ -277,7 +319,7 @@ const AnimePage = () => {
     );
 }
 
-const Anime = ()=>{
+const Anime = () => {
     return (
         <Suspense>
             <AnimePage />

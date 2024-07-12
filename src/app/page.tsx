@@ -21,10 +21,10 @@ const Anime = () => {
   const [isCalendarPopupOpen, setIsCalendarPopupOpen] = useState(false);
   const [subtype, setSubtype] = useState(() => getQueryParam('subtype', 'TV'));
   const [year, setYear] = useState(() => getQueryParam('year', new Date().getFullYear().toString()));
-  
+
   const getCurrentSeason = () => {
     const currentMonth = new Date().getMonth() + 1; // Lấy tháng hiện tại (từ 0 đến 11)
-    
+
     // Xác định mùa dựa trên tháng
     if (currentMonth >= 1 && currentMonth <= 3) {
       return 'winter';
@@ -36,9 +36,9 @@ const Anime = () => {
       return 'fall';
     }
   };
-  
+
   const [season, setSeason] = useState(() => getQueryParam('season', getCurrentSeason()));
-  
+
   const tvButtonRef = useRef<HTMLDivElement>(null);
   const calendarButtonRef = useRef<HTMLDivElement>(null);
   const tvPopupRef = useRef<HTMLDivElement>(null);
@@ -103,7 +103,7 @@ const Anime = () => {
     const newSubtype = getQueryParam('subtype', 'TV');
     const newYear = getQueryParam('year', new Date().getFullYear().toString());
     const newSeason = getQueryParam('season', getCurrentSeason());
-  
+
     if (subtype !== newSubtype) {
       setSubtype(newSubtype);
     }
@@ -146,11 +146,11 @@ const Anime = () => {
             {isTvPopupOpen ? (<MdExpandLess className="ml-1 text-xl" />) : (<MdExpandMore className="ml-1 text-xl" />)}
           </div>
           <h1 className="text-sm mx-auto">{season === 'winter' ? 'Mùa Đông' : season === 'spring' ? 'Mùa Xuân' : season === 'summer' ? 'Mùa Hè' : season === 'fall' ? 'Mùa Thu' : ''} {year}</h1>
-          <div 
+          <div
             className="absolute right-0 text-sm mr-4 cursor-pointer"
             onClick={toggleCalendarPopup}
             ref={calendarButtonRef}
-          ><FaCalendar/></div>
+          ><FaCalendar /></div>
         </div>
       </nav>
       {isTvPopupOpen && (

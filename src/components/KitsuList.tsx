@@ -45,7 +45,7 @@ const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
       data.forEach(page => {
         newAnimeList = [...newAnimeList, ...page.data];
       });
-  
+
       const filteredAnimeList = newAnimeList.filter(anime => {
         if (!seenAnimeKeys.has(anime.id)) {
           seenAnimeKeys.add(anime.id);
@@ -53,13 +53,13 @@ const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
         }
         return false;
       });
-  
+
       const newData = filteredAnimeList.filter(anime => !animeList.some(a => a.id === anime.id));
-  
+
       if (newData.length > 0) {
         setAnimeList(prevList => [...prevList, ...newData]);
       }
-  
+
       if (data[data.length - 1].data.length < PAGE_SIZE && !isValidating) {
         setIsLoadingMore(false);
       } else {
@@ -88,9 +88,9 @@ const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
         <div key={anime.id} className="px-4 py-3 hover:text-red-600 text-white">
           <Link href={`/anime/?id=${anime.id}`}>
             <div className="relative w-full h-0 pb-[142.85%] rounded-xl overflow-hidden">
-              <Image 
-                src={anime.attributes.posterImage.large} 
-                alt={anime.attributes.titles.en_jp || anime.attributes.titles.en} 
+              <Image
+                src={anime.attributes.posterImage.large}
+                alt={anime.attributes.titles.en_jp || anime.attributes.titles.en}
                 width={550}
                 height={780}
                 priority={true}
