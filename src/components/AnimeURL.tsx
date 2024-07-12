@@ -1,9 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react';
-import useSWR from 'swr';
 import Image from 'next/image';
-import 'react-toastify/dist/ReactToastify.css';
 
 // Định nghĩa một mảng JSON chứa thông tin của từng icon
 const iconData = [
