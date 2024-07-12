@@ -133,7 +133,7 @@ const Anime = () => {
         <div className="bg-zinc-800 text-sm font-bold py-2 mb-3 container mx-auto flex items-center justify-center relative">
           <h1 className={`py-2 px-5 mx-1 rounded-lg cursor-pointer ${season === 'winter' ? 'bg-white text-dark' : 'text-gray-300'}`} onClick={() => setSeason('winter')}>Đông</h1>
           <h1 className={`py-2 px-5 mx-1 rounded-lg cursor-pointer ${season === 'spring' ? 'bg-rose-300 text-white' : 'text-gray-300'}`} onClick={() => setSeason('spring')}>Xuân</h1>
-          <h1 className={`py-2 px-5 mx-1 rounded-lg cursor-pointer ${season === 'summer' ? 'bg-yellow-400 text-white' : 'text-gray-300'}`} onClick={() => setSeason('summer')}>Hè</h1>
+          <h1 className={`py-2 px-5 mx-1 rounded-lg cursor-pointer ${season === 'summer' ? 'bg-blue-400 text-white' : 'text-gray-300'}`} onClick={() => setSeason('summer')}>Hè</h1>
           <h1 className={`py-2 px-5 mx-1 rounded-lg cursor-pointer ${season === 'fall' ? 'bg-orange-500 text-white' : 'text-gray-300'}`} onClick={() => setSeason('fall')}>Thu</h1>
         </div>
         <div className="font-bold text-white container mx-auto flex items-center relative">
