@@ -356,9 +356,9 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     Youtube
                 </button>
             </div>
-            <div className="flex justify-center items-center bg-gradient-to-r from-primary to-secondary rounded-lg mt-6 mx-4">
+            <div className="flex justify-center items-center bg-gradient-to-r from-primary to-secondary rounded-lg mt-6 px-4 mx-4">
                 <button
-                    className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                    className="border bg-black px-1 py-1 mx-1 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
                     onClick={() => {
                         const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                         const ggUrl = `https://www.google.com/search?q=${animeTitle} facebook`;
@@ -368,15 +368,15 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     <Image
                         src={"/facebook.webp"}
                         alt={`facebook Icon`}
-                        width={30}
-                        height={30}
+                        width={25}
+                        height={25}
                         priority={true}
                         className={``}
                         placeholder="empty"
                     />
                 </button>
                 <button
-                    className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                    className="border bg-black px-1 py-1 mx-1 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
                     onClick={() => {
                         const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                         const ggUrl = `https://www.google.com/search?q=${animeTitle} twitter`;
@@ -386,15 +386,15 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     <Image
                         src={"/X.avif"}
                         alt={`X Icon`}
-                        width={30}
-                        height={30}
+                        width={25}
+                        height={25}
                         priority={true}
                         className={``}
                         placeholder="empty"
                     />
                 </button>
                 <button
-                    className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                    className="border bg-black px-1 py-1 mx-1 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
                     onClick={() => {
                         const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                         const ggUrl = `https://www.google.com/search?q=${animeTitle} instagram`;
@@ -404,15 +404,15 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     <Image
                         src={"/instagram.webp"}
                         alt={`Instagram Icon`}
-                        width={30}
-                        height={30}
+                        width={25}
+                        height={25}
                         priority={true}
                         className={``}
                         placeholder="empty"
                     />
                 </button>
                 <button
-                    className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                    className="border bg-black px-1 py-1 mx-1 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
                     onClick={() => {
                         const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                         const ggUrl = `https://www.google.com/search?q=${animeTitle} tiktok`;
@@ -422,8 +422,62 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     <Image
                         src={"/tiktok.webp"}
                         alt={`Tiktok Icon`}
-                        width={30}
-                        height={30}
+                        width={25}
+                        height={25}
+                        priority={true}
+                        className={``}
+                        placeholder="empty"
+                    />
+                </button>
+                <button
+                    className="border bg-black px-1 py-1 mx-1 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                    onClick={() => {
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const ggUrl = `https://www.google.com/search?q=${animeTitle} pinterest`;
+                        window.open(ggUrl, '_blank');
+                    }}
+                >
+                    <Image
+                        src={"/pinterest.webp"}
+                        alt={`Pinterest Icon`}
+                        width={25}
+                        height={25}
+                        priority={true}
+                        className={``}
+                        placeholder="empty"
+                    />
+                </button>
+                <button
+                    className="border bg-black px-1 py-1 mx-1 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                    onClick={() => {
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const ggUrl = `https://www.google.com/search?q=${animeTitle} reddit`;
+                        window.open(ggUrl, '_blank');
+                    }}
+                >
+                    <Image
+                        src={"/reddit.webp"}
+                        alt={`Reddit Icon`}
+                        width={25}
+                        height={25}
+                        priority={true}
+                        className={``}
+                        placeholder="empty"
+                    />
+                </button>
+                <button
+                    className="border bg-black px-1 py-1 mx-1 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                    onClick={() => {
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const ggUrl = `https://www.google.com/search?q=${animeTitle} threads`;
+                        window.open(ggUrl, '_blank');
+                    }}
+                >
+                    <Image
+                        src={"/threads.webp"}
+                        alt={`Threads Icon`}
+                        width={25}
+                        height={25}
                         priority={true}
                         className={``}
                         placeholder="empty"
