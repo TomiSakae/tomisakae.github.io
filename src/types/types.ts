@@ -10,6 +10,7 @@ export interface Anime {
       large: string;
     };
     subtype: string;
+    status: string;
   };
 }
 
