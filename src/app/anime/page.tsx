@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, Suspense, useState } from 'react';
+import { Suspense, useState } from 'react';
 import useSWR from 'swr';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -54,11 +54,15 @@ const AnimePage = () => {
         }
     );
 
+    let startDate;
+
     if (error) return <div>Đã xảy ra lỗi khi tải dữ liệu anime</div>;
     if (animeData) {
         items = [
             { id: "1", img: animeData.data.attributes.posterImage.large },
         ];
+        const year = animeData.data.attributes.startDate;
+        startDate = year.split('-')[0]; // Tách chuỗi bằng dấu '-', lấy phần tử đầu tiên (năm)
     }
 
     return (
@@ -123,6 +127,19 @@ const AnimePage = () => {
                             theme="dark"
                             className="custom-toastify"
                         />
+                        <div className="flex text-sm justify-center items-center bg-gray-800 rounded-lg mt-2 mx-4 py-3">
+                            <h3 className="text-white font-semibold">
+                                {animeData.data.attributes.subtype}, {startDate}
+                            </h3>
+                            <h3 className={`font-semibold mx-4 ${animeData.data.attributes.status === "current" ? "text-green-500" : animeData.data.attributes.status === "finished" ? "text-blue-500" : animeData.data.attributes.status === "upcoming" ? "text-gray-400" : animeData.data.attributes.status === "tba" ? "text-red-500" : "text-yellow-400"}`}>
+                                {`${animeData.data.attributes.status === "current" ? "Đang Chiếu" : animeData.data.attributes.status === "finished" ? "Đã Hoàn Thành" : animeData.data.attributes.status === "upcoming" ? "Sắp Chiếu" : animeData.data.attributes.status === "tba" ? "Chưa Rõ" : "Sắp Có"}`}
+                            </h3>
+                            {animeData.data.attributes.episodeCount && animeData.data.attributes.episodeLength && (
+                                <h3 className="text-white font-semibold">
+                                    {animeData.data.attributes.episodeCount}t, {animeData.data.attributes.episodeLength}p
+                                </h3>
+                            )}
+                        </div>
                         <AnimeURL animeData={animeData} />
                     </motion.div>
                     <AnimatePresence>
