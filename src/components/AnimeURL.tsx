@@ -267,6 +267,7 @@ interface Props {
                     en: string;
                     ja_jp: string;
                 };
+                subtype: string;
             };
         };
     };
@@ -359,8 +360,15 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     className="bg-white hover:bg-gray-200 font-bold text-black py-2 px-4 rounded-md"
                     onClick={() => {
                         const animeTitle = animeData.data.attributes.titles.ja_jp || animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                        const formattedAnimeTitle = encodeURIComponent(`${animeTitle}`); // Định dạng tên anime và chuỗi "trailer" cho URL
-                        const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                        const formattedAnimeTitle = encodeURIComponent(`${animeTitle}`);
+                        const subtype = animeData.data.attributes.subtype.toLowerCase();
+                        let searchQuery = formattedAnimeTitle;
+
+                        if (subtype === 'music') {
+                            searchQuery += encodeURIComponent(' official music');
+                        }
+
+                        const youtubeUrl = `https://www.youtube.com/results?search_query=${searchQuery}`;
                         window.open(youtubeUrl, '_blank');
                     }}
                 >

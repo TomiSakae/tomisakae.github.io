@@ -22,7 +22,7 @@ export default function ResponsiveWrapper({ children }: { children: React.ReactN
     return (
         <>
             {isLandscape ? (
-                <div className="flex bg-black px-24 items-center justify-center text-2xl text-white font-bold h-screen w-screen">
+                <div className="flex bg-black px-24 items-center justify-center text-md sm:text-lg md:text-xl lg:text-2xl xl:text-2xl text-white font-bold h-screen w-screen">
                     <div className="bg-red-500 text-center rounded-2xl px-[3em] py-[3em]">
                         <p>Màn hình của bạn có chiều rộng lớn hơn chiều cao.</p>
                         <p className="my-5">Nếu bạn sử dụng các thiết bị di động, vui lòng xoay lại màn hình.</p>

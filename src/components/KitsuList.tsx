@@ -71,7 +71,7 @@ const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
 
   if (error) return <div>Không thể tải dữ liệu</div>;
   if (!data) return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+    <div className="grid bg-black grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
       {/* Placeholder items with pulse animation */}
       {[...Array(PAGE_SIZE)].map((_, index) => (
         <div key={index} className="animate-pulse overflow-hidden px-4 py-3">
@@ -83,7 +83,7 @@ const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
   );
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+    <div className="grid bg-black grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
       {animeList.map(anime => (
         <div key={anime.id} className="px-4 py-3 hover:text-red-600 text-white">
           <Link href={`/anime/?id=${anime.id}`}>

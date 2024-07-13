@@ -17,6 +17,11 @@ const returnArrowStyle = {
     height: 35,
 }
 
+// Hàm để viết hoa chữ cái đầu
+function capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 const AnimePage = () => {
     const [copied, setCopied] = useState(false);
     const [isZoomed, setIsZoomed] = useState("");
@@ -139,7 +144,7 @@ const AnimePage = () => {
                         />
                         <div className="flex text-sm justify-center items-center bg-gray-800 rounded-lg mt-2 mx-4 py-3">
                             <h3 className="text-white font-semibold">
-                                {animeData.data.attributes.subtype}, {startDate}
+                                {capitalizeFirstLetter(animeData.data.attributes.subtype)}, {startDate}
                             </h3>
                             <h3 className={`font-semibold mx-4 ${animeData.data.attributes.status === "current" ? "text-green-500" : animeData.data.attributes.status === "finished" ? "text-blue-500" : animeData.data.attributes.status === "upcoming" ? "text-gray-400" : animeData.data.attributes.status === "tba" ? "text-red-500" : "text-yellow-400"}`}>
                                 {`${animeData.data.attributes.status === "current" ? "Đang Chiếu" : animeData.data.attributes.status === "finished" ? "Đã Hoàn Thành" : animeData.data.attributes.status === "upcoming" ? "Sắp Chiếu" : animeData.data.attributes.status === "tba" ? "Chưa Rõ" : "Sắp Có"}`}

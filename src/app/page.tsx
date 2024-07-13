@@ -219,7 +219,7 @@ const Anime = () => {
           </div>
         </>
       )}
-      <div className="container mx-auto mt-12 bg-black">
+      <div className="container mx-auto mt-12 bg-black h-screen">
         <KitsuList subtype={subtype} year={year} season={season} />
       </div>
     </main>
