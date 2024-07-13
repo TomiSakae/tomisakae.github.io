@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "TomiSakae",
-  description: "Trang Web giải trí về Anime!",
+  description: "Trang Web hiển thị danh sách Anime theo mùa!",
 };
 
 export default function RootLayout({

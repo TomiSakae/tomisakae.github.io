@@ -7,6 +7,13 @@ import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
 import { useFloating, autoUpdate, offset, flip } from '@floating-ui/react-dom';
 import { useRouter, useSearchParams } from 'next/navigation';
+import Lottie from 'lottie-react';
+import CalenderData from '../app/icon/calendar V3.json';
+
+const calenderDataStyle = {
+  width: 25,
+  height: 25,
+}
 
 const Anime = () => {
   const router = useRouter();
@@ -150,7 +157,10 @@ const Anime = () => {
             className="absolute right-0 text-sm mr-4 cursor-pointer"
             onClick={toggleCalendarPopup}
             ref={calendarButtonRef}
-          ><FaCalendar /></div>
+          ><Lottie
+              animationData={CalenderData}
+              style={calenderDataStyle}
+            /></div>
         </div>
       </nav>
       {isTvPopupOpen && (
@@ -163,7 +173,7 @@ const Anime = () => {
               top: `${tvY}px`, // Đảm bảo y là pixel cho vị trí cố định
               left: `${tvX}px`, // Đảm bảo x là pixel cho vị trí cố định
             }}
-            className="bg-black shadow-lg rounded px-4 w-30 z-30 mt-24 text-white font-bold"
+            className="bg-black shadow-lg rounded px-6 py-2 z-30 mt-24 text-white font-bold"
           >
             {/* Nội dung của popup TV */}
             <ul>
@@ -192,7 +202,7 @@ const Anime = () => {
               maxHeight: '220px', // Chiều cao cố định của popup
               overflowY: 'auto', // Cho phép thanh cuộn khi nội dung vượt quá chiều cao
             }}
-            className="bg-black shadow-lg rounded px-4 w-30 z-30 mt-24 text-white font-bold"
+            className="bg-black shadow-lg rounded px-6 z-30 mt-24 text-white font-bold"
           >
             {/* Nội dung của popup Calendar */}
             <ul>
