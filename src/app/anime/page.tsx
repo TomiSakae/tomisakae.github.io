@@ -144,11 +144,10 @@ const AnimePage = () => {
                             <h3 className={`font-semibold mx-4 ${animeData.data.attributes.status === "current" ? "text-green-500" : animeData.data.attributes.status === "finished" ? "text-blue-500" : animeData.data.attributes.status === "upcoming" ? "text-gray-400" : animeData.data.attributes.status === "tba" ? "text-red-500" : "text-yellow-400"}`}>
                                 {`${animeData.data.attributes.status === "current" ? "Đang Chiếu" : animeData.data.attributes.status === "finished" ? "Đã Hoàn Thành" : animeData.data.attributes.status === "upcoming" ? "Sắp Chiếu" : animeData.data.attributes.status === "tba" ? "Chưa Rõ" : "Sắp Có"}`}
                             </h3>
-                            {animeData.data.attributes.episodeCount && animeData.data.attributes.episodeLength && (
-                                <h3 className="text-white font-semibold">
-                                    {animeData.data.attributes.episodeCount}t, {animeData.data.attributes.episodeLength}p
-                                </h3>
-                            )}
+                            <h3 className="text-white font-semibold">
+                                {animeData.data.attributes.episodeCount ? `${animeData.data.attributes.episodeCount}t` : '??t'},{' '}
+                                {animeData.data.attributes.episodeLength ? `${animeData.data.attributes.episodeLength}p` : '??p'}
+                            </h3>
                         </div>
                         <AnimeURL animeData={animeData} />
                     </motion.div>
