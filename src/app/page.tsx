@@ -83,6 +83,24 @@ const Anime = () => {
     }
   };
 
+  const handleBeforeUnload = () => {
+    window.sessionStorage.setItem('scrollPosition', JSON.stringify(window.scrollY));
+  };
+
+  useEffect(() => {
+    // Restore scroll position from sessionStorage on component mount
+    const scrollPosition = window.sessionStorage.getItem('scrollPosition');
+    if (scrollPosition) {
+      window.scrollTo(0, JSON.parse(scrollPosition));
+    }
+
+    window.addEventListener('scroll', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('scroll', handleBeforeUnload);
+    };
+  }, []);
+
   useEffect(() => {
     if (isTvPopupOpen || isCalendarPopupOpen) {
       document.body.style.overflow = 'hidden'; // Ngăn không cho cuộn khi popup mở
@@ -103,7 +121,7 @@ const Anime = () => {
     queryParams.set('season', season);
 
     // Thay đổi URL
-    router.replace(`/?${queryParams.toString()}`);
+    router.replace(`/?${queryParams.toString()}`, { scroll: false });
   }, [subtype, year, season, router]);
 
   useEffect(() => {
