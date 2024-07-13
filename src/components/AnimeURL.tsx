@@ -384,7 +384,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     }}
                 >
                     <Image
-                        src={"/x.avif"}
+                        src={"/X.avif"}
                         alt={`X Icon`}
                         width={30}
                         height={30}
@@ -420,7 +420,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     }}
                 >
                     <Image
-                        src={"https://www.tiktok.com/favicon.ico"}
+                        src={"/tiktok.webp"}
                         alt={`Tiktok Icon`}
                         width={30}
                         height={30}
