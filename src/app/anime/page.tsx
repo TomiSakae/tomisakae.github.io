@@ -9,6 +9,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimeURL from '../../components/AnimeURL'
+import Lottie from 'react-lottie';
+import ReturnArrowData from '../icon/return_arrow.json';
+
+const returnArrowDefaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: ReturnArrowData,
+    rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice"
+    }
+};
 
 const AnimePage = () => {
     const [copied, setCopied] = useState(false);
@@ -73,7 +84,11 @@ const AnimePage = () => {
                         className="absolute left-0 flex items-center ml-4 cursor-pointer"
                         onClick={() => router.back()} // Thêm onClick để quay lại trang trước
                     >
-                        <MdKeyboardReturn className="ml-1 text-xl text-white" />
+                        <Lottie
+                            options={returnArrowDefaultOptions}
+                            height={35}
+                            width={35}
+                        />
                     </div>
                     <h1 className={"text-white text-lg"}>TomiSakae</h1>
                 </div>
