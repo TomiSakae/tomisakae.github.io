@@ -119,7 +119,8 @@ const Anime = () => {
     queryParams.set('subtype', subtype);
     queryParams.set('year', year);
     queryParams.set('season', season);
-
+    window.sessionStorage.setItem('scrollPosition', "0");
+    window.scrollTo(0, 0);
     // Thay đổi URL
     router.replace(`/?${queryParams.toString()}`, { scroll: false });
   }, [subtype, year, season, router]);
