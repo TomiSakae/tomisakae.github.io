@@ -12,7 +12,7 @@ const iconData = [
     {
         id: 2,
         name: 'Thông Tin',
-        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} info, news`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} tin tức`,
     },
     {
         id: 3,
@@ -27,7 +27,7 @@ const iconData = [
     {
         id: 5,
         name: 'Ảnh',
-        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} gallery`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} kho ảnh`,
     },
 ];
 
@@ -37,225 +37,206 @@ const iconShowData = [
         id: 1,
         name: 'AnimeVietSub',
         url: 'https://animevietsub.app/favicon.ico',
-        formatUrl: (animeTitle: string) => {
-            return animeTitle.replace(/\s+/g, '+')
-        },
-        searchUrl: (formattedAnimeTitle: string) => `https://animevietsub.app/tim-kiem/${formattedAnimeTitle}/`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} AnimeVietSub`,
     },
     {
         id: 1,
         name: 'Animet',
         url: 'https://animet1.net/Theme_Anime/img/favicon.ico',
-        formatUrl: (animeTitle: string) => {
-            return animeTitle.replace(/\s+/g, '+')
-        },
-        searchUrl: (formattedAnimeTitle: string) => `https://animet1.net/tim-kiem/${formattedAnimeTitle}.html`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} Animet`,
     },
     {
         id: 1,
         name: 'AnimeTVN',
         url: 'https://animetvn4.com/images/favicon.ico',
-        formatUrl: (animeTitle: string) => {
-            return animeTitle.replace(/\s+/g, '%20')
-        },
-        searchUrl: (formattedAnimeTitle: string) => `https://animetvn4.com/tim-kiem/${formattedAnimeTitle}.html`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} AnimeTVN`,
     },
     {
         id: 1,
         name: 'Ani4u',
         url: 'https://ani4u.org/wp-content/uploads/2017/06/favicon-ani4u2017.png',
-        formatUrl: (animeTitle: string) => {
-            return animeTitle.replace(/\s+/g, '+')
-        },
-        searchUrl: (formattedAnimeTitle: string) => `https://ani4u.org/?s=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} Ani4u`,
     },
     {
         id: 1,
         name: 'VuiGhe',
         url: 'https://vuighe3.com/favicon.ico',
-        formatUrl: (animeTitle: string) => {
-            return animeTitle.replace(/\s+/g, '%20')
-        },
-        searchUrl: (formattedAnimeTitle: string) => `https://vuighe3.com/tim-kiem/${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} VuiGhe`,
     },
     {
         id: 1,
         name: 'Anime47',
         url: 'https://anime47.link/favicon.ico',
-        formatUrl: (animeTitle: string) => {
-            return animeTitle.replace(/\s+/g, '+')
-        },
-        searchUrl: (formattedAnimeTitle: string) => `https://anime47.link/tim-nang-cao/?keyword=${formattedAnimeTitle}&nam=&season=&status=&sapxep=1`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} Anime47`,
     },
     {
         id: 1,
         name: 'AnimeHay',
         url: 'https://animehay.in/themes/img/favicon.ico',
-        formatUrl: (animeTitle: string) => {
-            return animeTitle.replace(/\s+/g, '-')
-        },
-        searchUrl: (formattedAnimeTitle: string) => `https://animehay.in/tim-kiem/${formattedAnimeTitle}.html`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} AnimeHay`,
     },
     {
         id: 1,
         name: 'HhPanda',
         url: 'https://hhpanda.tube/static/favicon.png',
-        formatUrl: (animeTitle: string) => {
-            return animeTitle.replace(/\s+/g, '+')
-        },
-        searchUrl: (formattedAnimeTitle: string) => `https://hhpanda.tube/search?q=${formattedAnimeTitle}&submit=`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} HhPanda`,
     },
     {
         id: 1,
         name: 'VuiAnime',
         url: 'https://vuianime.org/favicon.ico',
-        formatUrl: (animeTitle: string) => {
-            return animeTitle.replace(/\s+/g, '-')
-        },
-        searchUrl: (formattedAnimeTitle: string) => `https://vuianime.org/tim-kiem/${formattedAnimeTitle}.html`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} VuiAnime`,
     },
     {
         id: 1,
         name: 'AniVN',
         url: '/anivn.webp',
-        formatUrl: (animeTitle: string) => {
-            return animeTitle.replace(/\s+/g, '+')
-        },
-        searchUrl: (formattedAnimeTitle: string) => `https://anivn.club/search/${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} AniVN`,
+    },
+    {
+        id: 1,
+        name: 'Wibu47',
+        url: '/wibu47.webp',
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} Wibu47`,
+    },
+    {
+        id: 1,
+        name: 'AniMew',
+        url: 'https://animew.org/favicon.ico',
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} Animew`,
     },
     {
         id: 2,
         name: 'MyAnimeList',
         url: 'https://cdn.myanimelist.net/images/favicon.ico',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '%20'),
-        searchUrl: (formattedAnimeTitle: string) => `https://myanimelist.net/search/all?q=${formattedAnimeTitle}&cat=all`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} MyAnimeList`,
     },
     {
         id: 2,
         name: 'Kitsu',
         url: 'https://kitsu.io/favicon-32x32-3e0ecb6fc5a6ae681e65dcbc2bdf1f17.png',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/[!:#%&+={}?/\\[\]'"*;,]/g, '').replace(/[^\w\s-]/g, '').replace(/\s+/g, '-'),
-        searchUrl: (formattedAnimeTitle: string) => `https://kitsu.io/anime/${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} Kitsu`,
     },
     {
         id: 2,
         name: 'AniList',
         url: 'https://anilist.co/img/icons/favicon-32x32.png',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '%20'),
-        searchUrl: (formattedAnimeTitle: string) => `https://anilist.co/search/anime?search=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} AniList`,
     },
     {
         id: 2,
         name: 'AniDB',
         url: 'https://cdn-eu.anidb.net/css/assets/images/touch/favicon-32x32.png?v=2023-11-02T17-27-31',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '%20'),
-        searchUrl: (formattedAnimeTitle: string) => `https://anidb.net/anime/?adb.search=${formattedAnimeTitle}&do.update=Search&noalias=1`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} AniDB`,
     },
     {
         id: 2,
         name: 'ANN',
         url: 'https://www.animenewsnetwork.com/meta/favicon.ico',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => `https://www.animenewsnetwork.com/search?q=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} AnimeNewsNetwork`,
     },
     {
         id: 2,
         name: 'AniSearch',
         url: 'https://www.anisearch.com/favicon2.ico',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '%20'),
-        searchUrl: (formattedAnimeTitle: string) => `https://www.anisearch.com/anime/index/?char=all&text=${formattedAnimeTitle}&q=true`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} AniSearch`,
     },
     {
         id: 2,
         name: 'AnimePlanet',
         url: '/animeplanet.webp',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '%20'),
-        searchUrl: (formattedAnimeTitle: string) => `https://www.anime-planet.com/anime/all?name=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} AnimePlanet`,
+    },
+    {
+        id: 2,
+        name: 'OneEsportsVN',
+        url: '/oneEs.webp',
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} One Esports Việt Nam`,
+    },
+    {
+        id: 2,
+        name: 'MyTour',
+        url: 'https://mytour.vn/favicon.ico',
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} My Tour VN`,
+    },
+    {
+        id: 2,
+        name: 'EpicDope',
+        url: '/epicdope.webp',
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} Epic Dope`,
     },
     {
         id: 3,
         name: 'BlogTruyen',
         url: 'https://blogtruyen.vn/Content/themes/img/favicon.png',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => `https://blogtruyen.vn/timkiem?Option=1&keyword=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} BlogTruyen`,
     },
     {
         id: 3,
         name: 'NetTruyen',
         url: 'https://nettruyenaa.com/public/assets/images/favicon.png',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => `https://nettruyenaa.com/tim-truyen?keyword=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} NetTruyen`,
     },
     {
         id: 3,
         name: 'TruyenQQ',
         url: 'https://st.truyenqqviet.com/template/frontend/images/favicon.ico',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '%20'),
-        searchUrl: (formattedAnimeTitle: string) => `https://truyenqqviet.com/tim-kiem.html?q=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} TruyenQQ`,
     },
     {
         id: 3,
         name: 'NetTruyenFull',
         url: 'https://nettruyenfull.com/images/Favicon-16x16.png',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => `https://nettruyenfull.com/tim-truyen?keyword=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} NetTruyenFull`,
     },
     {
         id: 3,
         name: 'MangaDex',
         url: 'https://mangadex.org/favicon.ico',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => `https://mangadex.org/search?q=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} MangaDex`,
     },
     {
         id: 3,
         name: 'TachiyomiSY',
         url: '/tachiyomisy.png',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => `https://github.com/jobobby04/TachiyomiSY/releases/`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} TachiyomiSY`,
     },
     {
         id: 4,
         name: 'Hako',
         url: 'https://docln.net/img/favicon.png?v=3',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => `https://docln.net/tim-kiem?keywords=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} Hako`,
     },
     {
         id: 4,
         name: 'LNVN',
         url: 'https://lnvn.net/favicon.ico',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => `https://lnvn.net/search?q=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} LNVN`,
     },
     {
         id: 4,
         name: 'Sonako',
         url: '/sonako.webp',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => `https://sonako.fandom.com/vi/wiki/%C4%90%E1%BA%B7c_bi%E1%BB%87t:T%C3%ACm_ki%E1%BA%BFm?query=${formattedAnimeTitle}&scope=internal&navigationSearch=true`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} Sonako`,
     },
     {
         id: 5,
         name: 'Pixiv',
         url: 'https://www.pixiv.net/favicon.ico',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => `https://www.pixiv.net/en/tags/${formattedAnimeTitle}/artworks?s_mode=s_tag;`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} Pixiv`,
     },
     {
         id: 5,
         name: 'ZeroChan',
         url: 'zerochan.webp',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => `https://www.zerochan.net/${formattedAnimeTitle}?q=${formattedAnimeTitle}`,
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} ZeroChan`,
     },
     {
         id: 5,
         name: 'SafeBooru',
         url: 'https://safebooru.org/favicon.ico',
-        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
-        searchUrl: (formattedAnimeTitle: string) => ` https://safebooru.org/index.php?page=post&s=list&tags=${formattedAnimeTitle}`,
-    },
+        searchUrl: (animeTitle: string) => `https://www.google.com/search?q=${encodeURIComponent(animeTitle)} SafeBooru`,
+    }
 ];
 
 interface Props {
@@ -375,6 +356,80 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     Youtube
                 </button>
             </div>
+            <div className="flex justify-center items-center bg-gradient-to-r from-primary to-secondary rounded-lg mt-4 mx-4">
+                <button
+                    className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                    onClick={() => {
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const ggUrl = `https://www.google.com/search?q=${animeTitle} facebook`;
+                        window.open(ggUrl, '_blank');
+                    }}
+                >
+                    <Image
+                        src={"/facebook.webp"}
+                        alt={`facebook Icon`}
+                        width={30}
+                        height={30}
+                        priority={true}
+                        className={``}
+                        placeholder="empty"
+                    />
+                </button>
+                <button
+                    className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                    onClick={() => {
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const ggUrl = `https://www.google.com/search?q=${animeTitle} twitter`;
+                        window.open(ggUrl, '_blank');
+                    }}
+                >
+                    <Image
+                        src={"/x.avif"}
+                        alt={`X Icon`}
+                        width={30}
+                        height={30}
+                        priority={true}
+                        className={``}
+                        placeholder="empty"
+                    />
+                </button>
+                <button
+                    className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                    onClick={() => {
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const ggUrl = `https://www.google.com/search?q=${animeTitle} instagram`;
+                        window.open(ggUrl, '_blank');
+                    }}
+                >
+                    <Image
+                        src={"/instagram.webp"}
+                        alt={`Instagram Icon`}
+                        width={30}
+                        height={30}
+                        priority={true}
+                        className={``}
+                        placeholder="empty"
+                    />
+                </button>
+                <button
+                    className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                    onClick={() => {
+                        const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const ggUrl = `https://www.google.com/search?q=${animeTitle} tiktok`;
+                        window.open(ggUrl, '_blank');
+                    }}
+                >
+                    <Image
+                        src={"https://www.tiktok.com/favicon.ico"}
+                        alt={`Tiktok Icon`}
+                        width={30}
+                        height={30}
+                        priority={true}
+                        className={``}
+                        placeholder="empty"
+                    />
+                </button>
+            </div>
             {iconData.map((icon, index) => (
                 <div key={index}>
                     <div className="relative my-4 mx-4 mt-10">
@@ -397,8 +452,8 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                                         <div key={idx} className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
                                             onClick={() => {
                                                 const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                                                const formattedAnimeTitle = icons.formatUrl(animeTitle); // Định dạng tên anime cho URL
-                                                window.open(icons.searchUrl(formattedAnimeTitle), '_blank');
+                                                // Định dạng tên anime cho URL
+                                                window.open(icons.searchUrl(animeTitle), '_blank');
                                             }}
                                         >
                                             <Image

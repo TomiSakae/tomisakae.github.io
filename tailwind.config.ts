@@ -9,8 +9,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
+        'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
+        'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
+        'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+      },
       colors: {
-
+        primary: '#3b82f6', // Blue 500
+        secondary: '#ec4899', // Pink 500
+        tertiary: '#f59e0b', // Yellow 500
       },
     },
   },
