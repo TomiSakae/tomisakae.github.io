@@ -5,6 +5,7 @@ export interface Anime {
     titles: {
       en: string;
       en_jp: string;
+      ja_jp: string;
     };
     posterImage: {
       large: string;

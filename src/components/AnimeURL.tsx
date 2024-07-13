@@ -61,6 +61,69 @@ const iconShowData = [
         searchUrl: (formattedAnimeTitle: string) => `https://animetvn4.com/tim-kiem/${formattedAnimeTitle}.html`,
     },
     {
+        id: 1,
+        name: 'Ani4u',
+        url: 'https://ani4u.org/wp-content/uploads/2017/06/favicon-ani4u2017.png',
+        formatUrl: (animeTitle: string) => {
+            return animeTitle.replace(/\s+/g, '+')
+        },
+        searchUrl: (formattedAnimeTitle: string) => `https://ani4u.org/?s=${formattedAnimeTitle}`,
+    },
+    {
+        id: 1,
+        name: 'VuiGhe',
+        url: 'https://vuighe3.com/favicon.ico',
+        formatUrl: (animeTitle: string) => {
+            return animeTitle.replace(/\s+/g, '%20')
+        },
+        searchUrl: (formattedAnimeTitle: string) => `https://vuighe3.com/tim-kiem/${formattedAnimeTitle}`,
+    },
+    {
+        id: 1,
+        name: 'Anime47',
+        url: 'https://anime47.link/favicon.ico',
+        formatUrl: (animeTitle: string) => {
+            return animeTitle.replace(/\s+/g, '+')
+        },
+        searchUrl: (formattedAnimeTitle: string) => `https://anime47.link/tim-nang-cao/?keyword=${formattedAnimeTitle}&nam=&season=&status=&sapxep=1`,
+    },
+    {
+        id: 1,
+        name: 'AnimeHay',
+        url: 'https://animehay.in/themes/img/favicon.ico',
+        formatUrl: (animeTitle: string) => {
+            return animeTitle.replace(/\s+/g, '-')
+        },
+        searchUrl: (formattedAnimeTitle: string) => `https://animehay.in/tim-kiem/${formattedAnimeTitle}.html`,
+    },
+    {
+        id: 1,
+        name: 'HhPanda',
+        url: 'https://hhpanda.tube/static/favicon.png',
+        formatUrl: (animeTitle: string) => {
+            return animeTitle.replace(/\s+/g, '+')
+        },
+        searchUrl: (formattedAnimeTitle: string) => `https://hhpanda.tube/search?q=${formattedAnimeTitle}&submit=`,
+    },
+    {
+        id: 1,
+        name: 'VuiAnime',
+        url: 'https://vuianime.org/favicon.ico',
+        formatUrl: (animeTitle: string) => {
+            return animeTitle.replace(/\s+/g, '-')
+        },
+        searchUrl: (formattedAnimeTitle: string) => `https://vuianime.org/tim-kiem/${formattedAnimeTitle}.html`,
+    },
+    {
+        id: 1,
+        name: 'AniVN',
+        url: '/anivn.webp',
+        formatUrl: (animeTitle: string) => {
+            return animeTitle.replace(/\s+/g, '+')
+        },
+        searchUrl: (formattedAnimeTitle: string) => `https://anivn.club/search/${formattedAnimeTitle}`,
+    },
+    {
         id: 2,
         name: 'MyAnimeList',
         url: 'https://cdn.myanimelist.net/images/favicon.ico',
@@ -82,6 +145,34 @@ const iconShowData = [
         searchUrl: (formattedAnimeTitle: string) => `https://anilist.co/search/anime?search=${formattedAnimeTitle}`,
     },
     {
+        id: 2,
+        name: 'AniDB',
+        url: 'https://cdn-eu.anidb.net/css/assets/images/touch/favicon-32x32.png?v=2023-11-02T17-27-31',
+        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '%20'),
+        searchUrl: (formattedAnimeTitle: string) => `https://anidb.net/anime/?adb.search=${formattedAnimeTitle}&do.update=Search&noalias=1`,
+    },
+    {
+        id: 2,
+        name: 'ANN',
+        url: 'https://www.animenewsnetwork.com/meta/favicon.ico',
+        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
+        searchUrl: (formattedAnimeTitle: string) => `https://www.animenewsnetwork.com/search?q=${formattedAnimeTitle}`,
+    },
+    {
+        id: 2,
+        name: 'AniSearch',
+        url: 'https://www.anisearch.com/favicon2.ico',
+        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '%20'),
+        searchUrl: (formattedAnimeTitle: string) => `https://www.anisearch.com/anime/index/?char=all&text=${formattedAnimeTitle}&q=true`,
+    },
+    {
+        id: 2,
+        name: 'AnimePlanet',
+        url: '/animeplanet.webp',
+        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '%20'),
+        searchUrl: (formattedAnimeTitle: string) => `https://www.anime-planet.com/anime/all?name=${formattedAnimeTitle}`,
+    },
+    {
         id: 3,
         name: 'BlogTruyen',
         url: 'https://blogtruyen.vn/Content/themes/img/favicon.png',
@@ -101,6 +192,27 @@ const iconShowData = [
         url: 'https://st.truyenqqviet.com/template/frontend/images/favicon.ico',
         formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '%20'),
         searchUrl: (formattedAnimeTitle: string) => `https://truyenqqviet.com/tim-kiem.html?q=${formattedAnimeTitle}`,
+    },
+    {
+        id: 3,
+        name: 'NetTruyenFull',
+        url: 'https://nettruyenfull.com/images/Favicon-16x16.png',
+        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
+        searchUrl: (formattedAnimeTitle: string) => `https://nettruyenfull.com/tim-truyen?keyword=${formattedAnimeTitle}`,
+    },
+    {
+        id: 3,
+        name: 'MangaDex',
+        url: 'https://mangadex.org/favicon.ico',
+        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
+        searchUrl: (formattedAnimeTitle: string) => `https://mangadex.org/search?q=${formattedAnimeTitle}`,
+    },
+    {
+        id: 3,
+        name: 'TachiyomiSY',
+        url: '/tachiyomisy.png',
+        formatUrl: (animeTitle: string) => animeTitle.replace(/\s+/g, '+'),
+        searchUrl: (formattedAnimeTitle: string) => `https://github.com/jobobby04/TachiyomiSY/releases/`,
     },
     {
         id: 4,
@@ -153,6 +265,7 @@ interface Props {
                 titles: {
                     en_jp: string;
                     en: string;
+                    ja_jp: string;
                 };
             };
         };
@@ -211,6 +324,49 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     </button>
                 </div>
             </div>
+            <div className="flex justify-center items-center mt-4">
+                <button
+                    className="bg-white hover:bg-gray-200 font-bold text-black py-2 px-4 rounded-md"
+                    onClick={() => {
+                        const animeTitle = animeData.data.attributes.titles.ja_jp || animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const formattedAnimeTitle = encodeURIComponent(`${animeTitle} 公式ウェブサイト`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                        const ggUrl = `https://www.google.com/search?q=${formattedAnimeTitle}`;
+                        window.open(ggUrl, '_blank');
+                    }}
+                >
+                    Website
+                </button>
+                <button
+                    className="border-white border hover:border-gray-200 font-bold text-white py-1 px-1 mx-4 rounded-md"
+                    onClick={() => {
+                        const animeTitle = animeData.data.attributes.titles.ja_jp || animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const formattedAnimeTitle = encodeURIComponent(`${animeTitle} ツイッター 公式 アニメ `); // Định dạng tên anime và chuỗi "trailer" cho URL
+                        const ggUrl = `https://www.google.com/search?q=${formattedAnimeTitle}`;
+                        window.open(ggUrl, '_blank');
+                    }}
+                >
+                    <Image
+                        src={"/x_icon_2.png"}
+                        alt={`X Icon`}
+                        width={30}
+                        height={30}
+                        priority={true}
+                        className={``}
+                        placeholder="empty"
+                    />
+                </button>
+                <button
+                    className="bg-white hover:bg-gray-200 font-bold text-black py-2 px-4 rounded-md"
+                    onClick={() => {
+                        const animeTitle = animeData.data.attributes.titles.ja_jp || animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                        const formattedAnimeTitle = encodeURIComponent(`${animeTitle}`); // Định dạng tên anime và chuỗi "trailer" cho URL
+                        const youtubeUrl = `https://www.youtube.com/results?search_query=${formattedAnimeTitle}`;
+                        window.open(youtubeUrl, '_blank');
+                    }}
+                >
+                    Youtube
+                </button>
+            </div>
             {iconData.map((icon, index) => (
                 <div key={index}>
                     <div className="relative my-4 mx-4 mt-10">
@@ -225,30 +381,33 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                         </div>
                     </div>
                     <div className={`rounded-2xl mx-4 pt-8 pb-6 flex justify-center items-center mt-12 ${icon.id === 1 ? 'bg-rose-400' : icon.id === 2 ? 'bg-blue-900' : icon.id === 3 ? 'bg-yellow-200' : icon.id === 4 ? 'bg-purple-50' : 'bg-gray-200'}`}>
-                        {iconShowData.map((icons, idx) => {
-                            // Kiểm tra nếu icons.id === icon.id thì mới hiển thị iconShowData
-                            if (icons.id === icon.id) {
-                                return (
-                                    <div key={idx} className="border bg-black px-1 py-1 mx-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
-                                        onClick={() => {
-                                            const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
-                                            const formattedAnimeTitle = icons.formatUrl(animeTitle); // Định dạng tên anime cho URL
-                                            window.open(icons.searchUrl(formattedAnimeTitle), '_blank');
-                                        }}>
-                                        <Image
-                                            src={icons.url}
-                                            alt={`${icons.name} Icon`}
-                                            width={30}
-                                            height={30}
-                                            priority={true}
-                                            className={`rounded-lg ${icons.name === "LNVN" ? "bg-white" : ""}`}
-                                            placeholder="empty"
-                                        />
-                                    </div>
-                                );
-                            }
-                            return null; // Trả về null nếu không thỏa điều kiện
-                        })}
+                        <div className="flex flex-wrap justify-center items-center">
+                            {iconShowData.map((icons, idx) => {
+                                // Kiểm tra nếu icons.id === icon.id thì mới hiển thị iconShowData
+                                if (icons.id === icon.id) {
+                                    return (
+                                        <div key={idx} className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                                            onClick={() => {
+                                                const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
+                                                const formattedAnimeTitle = icons.formatUrl(animeTitle); // Định dạng tên anime cho URL
+                                                window.open(icons.searchUrl(formattedAnimeTitle), '_blank');
+                                            }}
+                                        >
+                                            <Image
+                                                src={icons.url}
+                                                alt={`${icons.name} Icon`}
+                                                width={30}
+                                                height={30}
+                                                priority={true}
+                                                className={`rounded-lg ${icons.name === "LNVN" ? "bg-white" : ""}`}
+                                                placeholder="empty"
+                                            />
+                                        </div>
+                                    );
+                                }
+                                return null; // Trả về null nếu không thỏa điều kiện
+                            })}
+                        </div>
                     </div>
                 </div>
             ))
