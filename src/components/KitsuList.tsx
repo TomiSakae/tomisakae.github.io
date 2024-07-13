@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import useSWRInfinite from 'swr/infinite';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,10 +15,34 @@ interface Props {
   season: string;
 }
 
+const jikanFetcher = async (animeTitle: string) => {
+  let page = 1;
+  let found = false;
+  let animeDetails = null;
+
+  while (!found) {
+    const response = await fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(animeTitle)}&limit=1&page=${page}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch data from Jikan API');
+    }
+    const data = await response.json();
+    if (data) {
+      animeDetails = data.data[0];
+      found = true;
+    } else {
+      page++;
+    }
+  }
+
+  return animeDetails;
+};
+
 const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
+  const [animeStatus, setAnimeStatus] = useState<{ [key: string]: string | null }>({});
   const [animeList, setAnimeList] = useState<KitsuResponse['data']>([]);
   const [seenAnimeKeys, setSeenAnimeKeys] = useState<Set<string>>(new Set());
-  const [isLoadingMore, setIsLoadingMore] = useState(false); // State để kiểm soát hiển thị loading
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const requestQueue = useRef<{ title: string, id: string }[]>([]);
 
   const getKey = (pageIndex: number, previousPageData: KitsuResponse | null) => {
     if (previousPageData && !previousPageData.data.length) return null;
@@ -32,12 +56,14 @@ const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
   });
 
   useEffect(() => {
-    // Reset animeList when subtype changes
+    // Reset animeList, seenAnimeKeys, animeStatus, and requestQueue when subtype, year, or season changes
     setAnimeList([]);
     setSeenAnimeKeys(new Set());
+    setAnimeStatus({});
+    requestQueue.current = [];
     setIsLoadingMore(false);
-    setSize(1); // Trigger re-fetching with the new subtype
-  }, [subtype, setSize]);
+    setSize(1);
+  }, [subtype, year, season, setSize]);
 
   useEffect(() => {
     if (data) {
@@ -67,12 +93,34 @@ const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
         setSize(size => size + 1);
       }
     }
-  }, [data, setSize, seenAnimeKeys, isValidating, animeList]); // Thêm animeList vào dependency array của useEffect
+  }, [data, setSize, seenAnimeKeys, isValidating, animeList]);
+
+  useEffect(() => {
+    animeList.forEach(anime => {
+      requestQueue.current.push({ title: anime.attributes.titles.en_jp || anime.attributes.titles.en, id: anime.id });
+    });
+  }, [animeList]);
+
+  useEffect(() => {
+    const intervalId = setInterval(async () => {
+      if (requestQueue.current.length > 0) {
+        const { title, id } = requestQueue.current.shift()!;
+        try {
+          const animeDetails = await jikanFetcher(title);
+          setAnimeStatus(prevStatus => ({ ...prevStatus, [id]: animeDetails.status }));
+        } catch (error) {
+          console.error('Failed to fetch anime status:', error);
+          setAnimeStatus(prevStatus => ({ ...prevStatus, [id]: null }));
+        }
+      }
+    }, 1);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   if (error) return <div>Không thể tải dữ liệu</div>;
   if (!data) return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-      {/* Placeholder items with pulse animation */}
       {[...Array(PAGE_SIZE)].map((_, index) => (
         <div key={index} className="animate-pulse overflow-hidden px-4 py-3">
           <div className="relative w-full h-0 pb-[142.85%] rounded-xl bg-gray-300"></div>
@@ -100,7 +148,15 @@ const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
             </div>
             <h3 className="text-xs font-semibold mt-2 overflow-hidden truncate">{anime.attributes.titles.en_jp || anime.attributes.titles.en}</h3>
             <div className="flex justify-center items-center">
-              <h6 className={`text-[10px] inline text-white rounded-lg px-2 mt-2 font-semibold py-1 ${anime.attributes.status === "current" ? "bg-green-500" : anime.attributes.status === "finished" ? "bg-blue-500" : anime.attributes.status === "upcoming" ? "bg-gray-400" : anime.attributes.status === "tba" ? "bg-red-500" : "bg-yellow-400"}`}> {`${anime.attributes.status === "current" ? "Đang Chiếu" : anime.attributes.status === "finished" ? "Đã Hoàn Thành" : anime.attributes.status === "upcoming" ? "Sắp Chiếu" : anime.attributes.status === "tba" ? "Chưa Rõ" : "Sắp Có"}`}</h6>
+              {animeStatus[anime.id] ? (
+                <h6 className={`text-[10px] inline text-white rounded-lg px-2 mt-2 font-semibold py-1 ${animeStatus[anime.id] === "Currently Airing" ? "bg-green-500" : animeStatus[anime.id] === "Finished Airing" ? "bg-blue-500" : "bg-gray-400"}`}>
+                  {animeStatus[anime.id] === "Currently Airing" ? "Đang Chiếu" : animeStatus[anime.id] === "Finished Airing" ? "Đã Hoàn Thành" : "Sắp Chiếu"}
+                </h6>
+              ) : (
+                <h6 className="animate-pulse inline rounded-lg px-10 mt-2 py-[11px] bg-gray-400">
+
+                </h6>
+              )}
             </div>
           </Link>
         </div>
