@@ -356,7 +356,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     Youtube
                 </button>
             </div>
-            <div className="flex justify-center items-center bg-gradient-to-r from-primary to-secondary rounded-lg mt-4 mx-4">
+            <div className="flex justify-center items-center bg-gradient-to-r from-primary to-secondary rounded-lg mt-6 mx-4">
                 <button
                     className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
                     onClick={() => {
