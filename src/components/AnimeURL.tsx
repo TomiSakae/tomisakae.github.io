@@ -346,7 +346,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     }}
                 >
                     <Image
-                        src={"/x_icon_2.png"}
+                        src={"/X.avif"}
                         alt={`X Icon`}
                         width={30}
                         height={30}
