@@ -66,7 +66,7 @@ const NavBar: React.FC = () => {
                             />
                         </button>
                         <button
-                            onClick={() => router.push("/random")}
+                            onClick={() => router.push("/")}
                             className={`hover:bg-gray-700 ${diceMargin} py-2 rounded-md ${pathname === "/random" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
@@ -84,8 +84,8 @@ const NavBar: React.FC = () => {
                             />
                         </button>
                         <button
-                            onClick={() => router.push("/chat")}
-                            className={`hover:bg-gray-700 ${chatMargin} py-2 rounded-md ${pathname === "/chat" ? "bg-gray-700" : "hover:bg-gray-700"}`}
+                            onClick={() => router.push("/")}
+                            className={`hover:bg-gray-700 ${chatMargin} px-1 py-2 rounded-md ${pathname === "/chat" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
                                 animationData={ChatData}
@@ -93,8 +93,8 @@ const NavBar: React.FC = () => {
                             />
                         </button>
                         <button
-                            onClick={() => router.push("/menu")}
-                            className={`hover:bg-gray-700 px-3 py-2 rounded-md ${pathname === "/menu" ? "bg-gray-700" : "hover:bg-gray-700"}`}
+
+                            className="px-3 py-2 rounded-md"
                         >
                             <Lottie
                                 animationData={MenuData}
