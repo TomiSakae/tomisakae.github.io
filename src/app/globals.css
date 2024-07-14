@@ -78,3 +78,23 @@ body {
   -webkit-animation-name: zoomInLow;
   animation-name: zoomInLow;
 }
+
+.box {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#131219, #131219) padding-box, linear-gradient(var(--angle),
+      #131219 80%, #E0D1FF 88%, #E0D1FF 92%, #131219 100%) border-box;
+  animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
