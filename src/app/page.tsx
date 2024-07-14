@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect, Suspense } from 'react';
 import KitsuList from '../components/KitsuList';
-import { FaCalendar } from "react-icons/fa";
 import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
 import { useFloating, autoUpdate, offset, flip } from '@floating-ui/react-dom';
@@ -238,7 +237,7 @@ const Anime = () => {
           </div>
         </>
       )}
-      <div className="container mx-auto mt-12 bg-black h-screen">
+      <div className="container mx-auto mt-12 bg-black mb-12">
         <KitsuList subtype={subtype} year={year} season={season} />
       </div>
     </main>

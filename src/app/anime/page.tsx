@@ -3,7 +3,6 @@ import { Suspense, useState } from 'react';
 import useSWR from 'swr';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { MdKeyboardReturn } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -78,7 +77,7 @@ const AnimePage = () => {
     }
 
     return (
-        <div className="container mx-auto bg-black py-16">
+        <div className="container mx-auto bg-black pt-16 pb-8">
             <nav className="bg-black fixed w-full top-0 z-10">
                 <div className="bg-zinc-800 text-sm font-bold py-2 mb-3 container mx-auto flex items-center justify-center relative">
                     <div

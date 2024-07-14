@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ResponsiveWrapper from "../components/ResponsiveWrapper"; // Đường dẫn đến file ResponsiveWrapper.tsx
+import NavBar from "../components/ConditionalNavBar"; // Đường dẫn đến file NavBar.tsx
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="vi">
       <body className={inter.className}>
         <ResponsiveWrapper>{children}</ResponsiveWrapper>
+        <NavBar /> {/* Thêm NavBar vào đây */}
       </body>
     </html>
   );
