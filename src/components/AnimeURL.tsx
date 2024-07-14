@@ -1,6 +1,10 @@
 'use client'
 
 import Image from 'next/image';
+import 'animate.css';
+import AOS from "aos";
+import "aos/dist/aos.css"
+import { useEffect } from 'react';
 
 // Định nghĩa một mảng JSON chứa thông tin của từng icon
 const iconData = [
@@ -255,11 +259,15 @@ interface Props {
 }
 
 const AnimeURL: React.FC<Props> = ({ animeData }) => {
+    useEffect(() => {
+        AOS.init({})
+    }, [])
+
     return (
         <div>
             <div className="flex justify-center items-center mt-4">
                 <button
-                    className="bg-green-500 hover:bg-green-600 font-bold text-white py-2 px-4 rounded-md"
+                    className="bg-green-500 hover:bg-green-600 font-bold text-white py-2 px-4 rounded-md animate__animated animate__fadeIn"
                     onClick={() => {
                         const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                         const formattedAnimeTitle = encodeURIComponent(`${animeTitle} official trailer`); // Định dạng tên anime và chuỗi "trailer" cho URL
@@ -270,7 +278,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     Trailer
                 </button>
                 <button
-                    className="bg-red-500 hover:bg-red-600 font-bold text-white py-2 px-4 mx-4 rounded-md"
+                    className="bg-red-500 hover:bg-red-600 font-bold text-white py-2 px-4 mx-4 rounded-md animate__animated animate__fadeIn"
                     onClick={() => {
                         const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                         const formattedAnimeTitle = encodeURIComponent(`${animeTitle} vietsub`); // Định dạng tên anime và chuỗi "trailer" cho URL
@@ -280,7 +288,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                 >
                     VietSub
                 </button>
-                <div className="bg-blue-500 hover:bg-blue-600 flex rounded-l-md rounded-r-md">
+                <div className="bg-blue-500 hover:bg-blue-600 flex rounded-l-md rounded-r-md animate__animated animate__fadeIn">
                     <button
                         className="font-bold text-white py-2 pl-4"
                         onClick={() => {
@@ -308,7 +316,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
             </div>
             <div className="flex justify-center items-center mt-4">
                 <button
-                    className="bg-white hover:bg-gray-200 font-bold text-black py-2 px-4 rounded-md"
+                    className="bg-white hover:bg-gray-200 font-bold text-black py-2 px-4 rounded-md animate__animated animate__fadeIn animate__slow"
                     onClick={() => {
                         const animeTitle = animeData.data.attributes.titles.ja_jp || animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                         const formattedAnimeTitle = encodeURIComponent(`${animeTitle} 公式ウェブサイト`); // Định dạng tên anime và chuỗi "trailer" cho URL
@@ -319,7 +327,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     Website
                 </button>
                 <button
-                    className="border-white border hover:border-gray-200 font-bold text-white py-1 px-1 mx-4 rounded-md"
+                    className="border-white border hover:border-gray-200 font-bold text-white py-1 px-1 mx-4 rounded-md animate__animated animate__fadeIn animate__slow"
                     onClick={() => {
                         const animeTitle = animeData.data.attributes.titles.ja_jp || animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                         const formattedAnimeTitle = encodeURIComponent(`${animeTitle} ツイッター 公式 アニメ `); // Định dạng tên anime và chuỗi "trailer" cho URL
@@ -338,7 +346,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     />
                 </button>
                 <button
-                    className="bg-white hover:bg-gray-200 font-bold text-black py-2 px-4 rounded-md"
+                    className="bg-white hover:bg-gray-200 font-bold text-black py-2 px-4 rounded-md animate__animated animate__fadeIn animate__slow"
                     onClick={() => {
                         const animeTitle = animeData.data.attributes.titles.ja_jp || animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                         const formattedAnimeTitle = encodeURIComponent(`${animeTitle}`);
@@ -356,7 +364,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                     Youtube
                 </button>
             </div>
-            <div className="flex justify-center items-center bg-gradient-to-r from-primary to-secondary rounded-lg mt-6 px-4 mx-4">
+            <div className="flex justify-center items-center bg-gradient-to-r from-primary to-secondary rounded-lg mt-6 px-4 mx-4 animate__animated animate__fadeIn animate__slower">
                 <button
                     className="border bg-black px-1 py-1 mx-1 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
                     onClick={() => {
@@ -485,7 +493,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                 </button>
             </div>
             {iconData.map((icon, index) => (
-                <div key={index}>
+                <div key={index} data-aos="flip-up">
                     <div className="relative my-4 mx-4 mt-10">
                         <div className="absolute inset-0 flex justify-center items-center">
                             <h1 className={`pt-2 px-4 rounded-t-2xl font-bold text-md px-2 cursor-pointer ${icon.id === 1 ? 'bg-rose-400 hover:text-red-500 text-white' : icon.id === 2 ? 'bg-blue-900 hover:text-red-500 text-white' : icon.id === 3 ? 'bg-yellow-200 hover:text-red-500 text-black' : icon.id === 4 ? 'bg-purple-50 hover:text-red-500 text-black' : 'bg-gray-200 hover:text-red-500 text-black'}`} onClick={() => {
@@ -503,7 +511,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                                 // Kiểm tra nếu icons.id === icon.id thì mới hiển thị iconShowData
                                 if (icons.id === icon.id) {
                                     return (
-                                        <div key={idx} className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                                        <div key={idx} className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer" data-aos="fade-up"
                                             onClick={() => {
                                                 const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                                                 // Định dạng tên anime cho URL

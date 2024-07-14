@@ -12,6 +12,7 @@ import Lottie from 'lottie-react';
 import ReturnArrowData from '../../icon/return_arrow.json';
 import HeartData from '../../icon/heart.json';
 import StarData from '../../icon/star.json';
+import "animate.css"
 
 const returnArrowStyle = {
     width: 35,
@@ -101,7 +102,7 @@ const AnimePage = () => {
     }
 
     return (
-        <div className="container mx-auto bg-black pt-16 pb-8">
+        <div className="container mx-auto bg-black py-16">
             <nav className="bg-black fixed w-full top-0 z-10">
                 <div className="bg-zinc-800 text-sm font-bold py-2 mb-3 container mx-auto flex items-center justify-center relative">
                     <div
@@ -148,7 +149,7 @@ const AnimePage = () => {
                             </div>
                         </div>
                         <CopyToClipboard text={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en} onCopy={notify}>
-                            <h3 className="text-white text-center text-lg font-semibold mt-2 mx-4 cursor-pointer">
+                            <h3 className="text-white text-center text-lg font-semibold mt-2 mx-4 cursor-pointer animate__animated animate__fadeIn animate__faster">
                                 {animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
                             </h3>
                         </CopyToClipboard>
@@ -183,7 +184,7 @@ const AnimePage = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="flex text-sm justify-center items-center bg-gray-800 rounded-lg mt-2 mx-4 py-3">
+                        <div className="flex text-sm justify-center items-center bg-gray-800 rounded-lg mt-2 mx-4 py-3 animate__animated animate__fadeIn animate__fast">
                             <h3 className="text-white font-semibold me-4">
                                 {capitalizeFirstLetter(animeData.data.attributes.subtype)}, {startDate}
                             </h3>
