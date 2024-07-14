@@ -135,7 +135,7 @@ const AnimePage = () => {
                     >
                         <div className="grid grid-cols-4">
                             <div className="px-4 py-3 col-start-2 col-span-2">
-                                <div className="relative mx-auto h-0 pb-[142.85%] rounded-lg cursor-pointer" onClick={() => setIsZoomed(items[0].id)}>
+                                <div className="relative mx-auto h-0 pb-[142.85%] rounded-lg cursor-pointer animate__animated animate__zoomInLow" onClick={() => setIsZoomed(items[0].id)}>
                                     <Image
                                         src={animeData.data.attributes.posterImage.large}
                                         alt={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
