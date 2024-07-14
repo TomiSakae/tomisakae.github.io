@@ -48,3 +48,33 @@ body {
   display: none;
   /* Safari và Chrome */
 }
+
+/* Zooming entrances */
+@-webkit-keyframes zoomInLow {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.95, 0.95, 0.95);
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomInLow {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.95, 0.95, 0.95);
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate__zoomInLow {
+  -webkit-animation-name: zoomInLow;
+  animation-name: zoomInLow;
+}

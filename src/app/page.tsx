@@ -8,6 +8,7 @@ import { useFloating, autoUpdate, offset, flip } from '@floating-ui/react-dom';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Lottie from 'lottie-react';
 import CalenderData from '../icon/calendar V3.json';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const calenderDataStyle = {
   width: 25,
@@ -152,14 +153,32 @@ const Anime = () => {
     setIsCalendarPopupOpen(false);
   };
 
+  const seasonList = [
+    { name: 'winter', label: 'Đông', bg: 'bg-white', text: 'text-dark' },
+    { name: 'spring', label: 'Xuân', bg: 'bg-rose-300', text: 'text-white' },
+    { name: 'summer', label: 'Hè', bg: 'bg-blue-400', text: 'text-white' },
+    { name: 'fall', label: 'Thu', bg: 'bg-orange-500', text: 'text-white' },
+  ];
+
   return (
     <main className="pt-12">
       <nav className="bg-black pb-3 fixed w-full top-0 z-10">
         <div className="bg-zinc-800 text-sm font-bold py-2 mb-3 container mx-auto flex items-center justify-center relative">
-          <h1 className={`py-2 px-5 mx-1 rounded-lg cursor-pointer ${season === 'winter' ? 'bg-white text-dark' : 'text-gray-300'}`} onClick={() => setSeason('winter')}>Đông</h1>
-          <h1 className={`py-2 px-5 mx-1 rounded-lg cursor-pointer ${season === 'spring' ? 'bg-rose-300 text-white' : 'text-gray-300'}`} onClick={() => setSeason('spring')}>Xuân</h1>
-          <h1 className={`py-2 px-5 mx-1 rounded-lg cursor-pointer ${season === 'summer' ? 'bg-blue-400 text-white' : 'text-gray-300'}`} onClick={() => setSeason('summer')}>Hè</h1>
-          <h1 className={`py-2 px-5 mx-1 rounded-lg cursor-pointer ${season === 'fall' ? 'bg-orange-500 text-white' : 'text-gray-300'}`} onClick={() => setSeason('fall')}>Thu</h1>
+          {seasonList.map(({ name, label, bg, text }) => (
+            <motion.h1
+              key={name}
+              className={`py-2 px-5 mx-1 rounded-lg cursor-pointer relative overflow-hidden ${season === name ? text : 'text-gray-300'}`}
+              onClick={() => setSeason(name)}
+            >
+              <motion.div
+                className={`absolute inset-0 ${bg}`}
+                initial={{ height: 0 }}
+                animate={season === name ? { height: '100%' } : { height: 0 }}
+                transition={{ duration: 0.25 }}
+              />
+              <span className="relative z-10">{label}</span>
+            </motion.h1>
+          ))}
         </div>
         <div className="font-bold text-white container mx-auto flex items-center relative">
           <div
@@ -181,62 +200,76 @@ const Anime = () => {
             /></div>
         </div>
       </nav>
-      {isTvPopupOpen && (
-        <>
-          <div className="fixed inset-0 bg-black opacity-0 z-20" onClick={toggleTvPopup}></div>
-          <div
-            ref={tvPopupRef}
-            style={{
-              position: 'fixed',
-              top: `${tvY}px`, // Đảm bảo y là pixel cho vị trí cố định
-              left: `${tvX}px`, // Đảm bảo x là pixel cho vị trí cố định
-            }}
-            className="bg-black shadow-lg rounded px-6 py-2 z-30 mt-24 text-white font-bold"
-          >
-            {/* Nội dung của popup TV */}
-            <ul>
-              {['TV', 'ONA', 'OVA', 'Special', 'Movie', 'Music'].map(option => (
-                <li
-                  key={option}
-                  className="cursor-pointer py-2 text-sm"
-                  onClick={() => handleTvOptionClick(option)}
-                >
-                  {option}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
-      )}
-      {isCalendarPopupOpen && (
-        <>
-          <div className="fixed inset-0 bg-black opacity-0 z-20" onClick={toggleCalendarPopup}></div>
-          <div
-            ref={calendarPopupRef}
-            style={{
-              position: 'fixed',
-              top: `${calendarY}px`,
-              right: `${calendarX}px`,
-              maxHeight: '220px', // Chiều cao cố định của popup
-              overflowY: 'auto', // Cho phép thanh cuộn khi nội dung vượt quá chiều cao
-            }}
-            className="bg-black shadow-lg rounded px-6 z-30 mt-24 text-white font-bold"
-          >
-            {/* Nội dung của popup Calendar */}
-            <ul>
-              {Array.from({ length: new Date().getFullYear() - 1916 }, (_, index) => new Date().getFullYear() - index).map(year => (
-                <li
-                  key={year}
-                  className="cursor-pointer py-2 text-sm"
-                  onClick={() => handleCalendarOptionClick(`Năm ${year}`)}
-                >
-                  Năm {year}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
-      )}
+      <AnimatePresence>
+        {isTvPopupOpen && (
+          <>
+            <div className="fixed inset-0 bg-black opacity-0 z-20" onClick={toggleTvPopup}></div>
+            <motion.div
+              ref={tvPopupRef}
+              style={{
+                position: 'fixed',
+                top: `${tvY}px`,
+                left: `${tvX}px`,
+                transformOrigin: 'top', // Đặt gốc biến đổi để bắt đầu từ trên xuống
+              }}
+              initial={{ height: 0 }}
+              animate={{ height: 'auto' }}
+              exit={{ height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-black shadow-lg rounded px-6 py-2 z-30 mt-24 text-white font-bold overflow-hidden"
+            >
+              {/* Nội dung của popup TV */}
+              <ul>
+                {['TV', 'ONA', 'OVA', 'Special', 'Movie', 'Music'].map(option => (
+                  <li
+                    key={option}
+                    className="cursor-pointer py-2 text-sm"
+                    onClick={() => handleTvOptionClick(option)}
+                  >
+                    {option}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {isCalendarPopupOpen && (
+          <>
+            <div className="fixed inset-0 bg-black opacity-0 z-20" onClick={toggleCalendarPopup}></div>
+            <motion.div
+              ref={calendarPopupRef}
+              style={{
+                position: 'fixed',
+                top: `${calendarY}px`,
+                right: `${calendarX}px`,
+                maxHeight: '230px', // Chiều cao cố định của popup
+                overflowY: 'auto', // Cho phép thanh cuộn khi nội dung vượt quá chiều cao
+                transformOrigin: 'top', // Đặt gốc biến đổi để bắt đầu từ trên xuống
+              }}
+              initial={{ height: 0 }}
+              animate={{ height: 'auto' }}
+              exit={{ height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-black shadow-lg rounded px-6 py-2 z-30 mt-24 text-white font-bold overflow-hidden"
+            >
+              {/* Nội dung của popup Calendar */}
+              <ul>
+                {Array.from({ length: new Date().getFullYear() - 1916 }, (_, index) => new Date().getFullYear() - index).map(year => (
+                  <li
+                    key={year}
+                    className="cursor-pointer py-2 text-sm"
+                    onClick={() => handleCalendarOptionClick(`Năm ${year}`)}
+                  >
+                    Năm {year}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
       <div className="container mx-auto mt-12 bg-black mb-12">
         <KitsuList subtype={subtype} year={year} season={season} />
       </div>
