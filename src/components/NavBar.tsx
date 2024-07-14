@@ -14,8 +14,8 @@ const homeStyle = {
 };
 
 const diceStyle = {
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
 };
 
 const chatStyle = {
@@ -53,7 +53,7 @@ const NavBar: React.FC = () => {
                         </button>
                         <button
                             onClick={() => router.push("/")}
-                            className={`hover:bg-gray-700 px-3 py-2 rounded-md mx-2 ${pathname === "/random" ? "bg-gray-700" : "hover:bg-gray-700"}`}
+                            className={`hover:bg-gray-700 mx-3 py-2 rounded-md ${pathname === "/random" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
                                 animationData={DiceData}
@@ -71,7 +71,7 @@ const NavBar: React.FC = () => {
                         </button>
                         <button
                             onClick={() => router.push("/")}
-                            className={`hover:bg-gray-700 px-3 py-2 rounded-md mx-2 ${pathname === "/chat" ? "bg-gray-700" : "hover:bg-gray-700"}`}
+                            className={`hover:bg-gray-700 px-1 py-2 rounded-md mx-3 ${pathname === "/chat" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
                                 animationData={ChatData}
