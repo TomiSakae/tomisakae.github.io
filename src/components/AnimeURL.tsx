@@ -2,6 +2,9 @@
 
 import Image from 'next/image';
 import 'animate.css';
+import AOS from "aos";
+import "aos/dist/aos.css"
+import { useEffect } from 'react';
 
 // Định nghĩa một mảng JSON chứa thông tin của từng icon
 const iconData = [
@@ -256,6 +259,10 @@ interface Props {
 }
 
 const AnimeURL: React.FC<Props> = ({ animeData }) => {
+    useEffect(() => {
+        AOS.init({})
+    }, [])
+
     return (
         <div>
             <div className="flex justify-center items-center mt-4">
@@ -486,7 +493,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                 </button>
             </div>
             {iconData.map((icon, index) => (
-                <div key={index}>
+                <div key={index} data-aos="flip-up">
                     <div className="relative my-4 mx-4 mt-10">
                         <div className="absolute inset-0 flex justify-center items-center">
                             <h1 className={`pt-2 px-4 rounded-t-2xl font-bold text-md px-2 cursor-pointer ${icon.id === 1 ? 'bg-rose-400 hover:text-red-500 text-white' : icon.id === 2 ? 'bg-blue-900 hover:text-red-500 text-white' : icon.id === 3 ? 'bg-yellow-200 hover:text-red-500 text-black' : icon.id === 4 ? 'bg-purple-50 hover:text-red-500 text-black' : 'bg-gray-200 hover:text-red-500 text-black'}`} onClick={() => {
@@ -504,7 +511,7 @@ const AnimeURL: React.FC<Props> = ({ animeData }) => {
                                 // Kiểm tra nếu icons.id === icon.id thì mới hiển thị iconShowData
                                 if (icons.id === icon.id) {
                                     return (
-                                        <div key={idx} className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer"
+                                        <div key={idx} className="border bg-black px-1 py-1 mx-2 my-2 rounded-lg border-gray-800 shadow-2xl cursor-pointer" data-aos="fade-up"
                                             onClick={() => {
                                                 const animeTitle = animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en;
                                                 // Định dạng tên anime cho URL

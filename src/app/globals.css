@@ -49,6 +49,12 @@ body {
   /* Safari và Chrome */
 }
 
+html,
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
 /* Zooming entrances */
 @-webkit-keyframes zoomInLow {
   from {

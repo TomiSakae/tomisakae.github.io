@@ -102,9 +102,9 @@ const AnimePage = () => {
     }
 
     return (
-        <div className="container bg-black py-16">
+        <div className="container mx-auto bg-black py-16">
             <nav className="bg-black fixed w-full top-0 z-10">
-                <div className="bg-zinc-800 text-sm font-bold py-2 mb-3 container flex items-center justify-center relative">
+                <div className="bg-zinc-800 text-sm font-bold py-2 mb-3 container mx-auto flex items-center justify-center relative">
                     <div
                         className="absolute left-0 flex items-center ml-4 cursor-pointer"
                         onClick={() => router.back()} // Thêm onClick để quay lại trang trước
