@@ -3,10 +3,10 @@ import React from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Image from 'next/image';
 import Lottie from 'lottie-react';
-import HomeData from '../app/icon/home.json';
-import DiceData from '../app/icon/dice.json';
-import ChatData from '../app/icon/chat.json';
-import MenuData from '../app/icon/menu.json';
+import HomeData from '../icon/home.json';
+import DiceData from '../icon/dice.json';
+import ChatData from '../icon/chat.json';
+import MenuData from '../icon/menu.json';
 import { useViewport } from "../hooks/useViewport"; // Import the useViewport hook
 
 const homeStyle = {

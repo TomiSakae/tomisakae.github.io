@@ -9,9 +9,21 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimeURL from '../../components/AnimeURL'
 import Lottie from 'lottie-react';
-import ReturnArrowData from '../icon/return_arrow.json';
+import ReturnArrowData from '../../icon/return_arrow.json';
+import HeartData from '../../icon/heart.json';
+import StarData from '../../icon/star.json';
 
 const returnArrowStyle = {
+    width: 35,
+    height: 35,
+}
+
+const heartStyle = {
+    width: 35,
+    height: 35,
+}
+
+const starStyle = {
     width: 35,
     height: 35,
 }
@@ -110,7 +122,7 @@ const AnimePage = () => {
                     >
                         <div className="grid grid-cols-4">
                             <div className="px-4 py-3 col-start-2 col-span-2">
-                                <div className="relative mx-auto h-0 pb-[142.85%] rounded-lg overflow-hidden cursor-pointer" onClick={() => setIsZoomed(items[0].id)}>
+                                <div className="relative mx-auto h-0 pb-[142.85%] rounded-lg cursor-pointer" onClick={() => setIsZoomed(items[0].id)}>
                                     <Image
                                         src={animeData.data.attributes.posterImage.large}
                                         alt={animeData.data.attributes.titles.en_jp || animeData.data.attributes.titles.en}
@@ -141,6 +153,24 @@ const AnimePage = () => {
                             theme="dark"
                             className="custom-toastify"
                         />
+                        <div className="flex items-center justify-center text-white mb-3 mx-5">
+                            {animeData.data.attributes.ratingRank && (
+                                <div className="flex items-center justify-center mx-2">
+                                    <Lottie
+                                        animationData={StarData}
+                                        style={starStyle}
+                                    />#{animeData.data.attributes.ratingRank}
+                                </div>
+                            )}
+                            {animeData.data.attributes.popularityRank && (
+                                <div className="flex items-center justify-center mx-2">
+                                    <Lottie
+                                        animationData={HeartData}
+                                        style={heartStyle}
+                                    />#{animeData.data.attributes.popularityRank}
+                                </div>
+                            )}
+                        </div>
                         <div className="flex text-sm justify-center items-center bg-gray-800 rounded-lg mt-2 mx-4 py-3">
                             <h3 className="text-white font-semibold">
                                 {capitalizeFirstLetter(animeData.data.attributes.subtype)}, {startDate}

@@ -7,7 +7,7 @@ import { MdExpandLess } from "react-icons/md";
 import { useFloating, autoUpdate, offset, flip } from '@floating-ui/react-dom';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Lottie from 'lottie-react';
-import CalenderData from '../app/icon/calendar V3.json';
+import CalenderData from '../icon/calendar V3.json';
 
 const calenderDataStyle = {
   width: 25,
