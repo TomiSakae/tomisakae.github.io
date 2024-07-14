@@ -184,7 +184,7 @@ const AnimePage = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="box flex text-sm justify-center items-center bg-gray-800 rounded-lg mt-2 mx-4 py-3">
+                        <div className="box flex text-sm justify-center items-center rounded-lg mt-2 mx-4 py-3">
                             <h3 className="text-white font-semibold me-4">
                                 {capitalizeFirstLetter(animeData.data.attributes.subtype)}, {startDate}
                             </h3>

@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={`${inter.className} bg-black`}>
+      <body className={`${inter.className} bg-black w-screen`}>
         <ResponsiveWrapper>{children}</ResponsiveWrapper>
         <NavBar /> {/* Thêm NavBar vào đây */}
       </body>

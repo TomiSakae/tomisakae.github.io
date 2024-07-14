@@ -82,9 +82,8 @@ body {
 .box {
   border: 1px solid transparent;
   background:
-    linear-gradient(#131219, #131219) padding-box, linear-gradient(var(--angle),
-      #131219 80%, #E0D1FF 88%, #E0D1FF 92%, #131219 100%) border-box;
-  animation: rotate 8s linear infinite;
+    linear-gradient(#131219, #131219) padding-box, linear-gradient(var(--angle), #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) border-box;
+  animation: rotate 4s linear infinite;
 }
 
 @keyframes rotate {
