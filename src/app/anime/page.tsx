@@ -153,9 +153,9 @@ const AnimePage = () => {
                             theme="dark"
                             className="custom-toastify"
                         />
-                        <div className="flex items-center justify-center text-white mb-3 mx-5">
+                        <div className="flex items-center justify-center mb-3 mx-5">
                             {animeData.data.attributes.ratingRank && (
-                                <div className="flex items-center justify-center mx-2">
+                                <div className="flex items-center justify-center text-yellow-400">
                                     <Lottie
                                         animationData={StarData}
                                         style={starStyle}
@@ -163,7 +163,7 @@ const AnimePage = () => {
                                 </div>
                             )}
                             {animeData.data.attributes.popularityRank && (
-                                <div className="flex items-center justify-center mx-2">
+                                <div className="flex items-center justify-center text-pink-500">
                                     <Lottie
                                         animationData={HeartData}
                                         style={heartStyle}
