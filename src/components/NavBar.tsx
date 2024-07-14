@@ -1,4 +1,4 @@
-'use client'
+// components/NavBar.tsx
 import React from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Image from 'next/image';
@@ -7,6 +7,7 @@ import HomeData from '../app/icon/home.json';
 import DiceData from '../app/icon/dice.json';
 import ChatData from '../app/icon/chat.json';
 import MenuData from '../app/icon/menu.json';
+import { useViewport } from "../hooks/useViewport"; // Import the useViewport hook
 
 const homeStyle = {
     width: 35,
@@ -31,15 +32,28 @@ const menuStyle = {
 const NavBar: React.FC = () => {
     const router = useRouter();
     const pathname = usePathname();
+    const { width } = useViewport(); // Use the useViewport hook to get viewport width
+
+    // Determine margin classes based on viewport width
+    let chatMargin = "mx-5";
+    let diceMargin = "mx-5";
+
+    if (width < 340) {
+        chatMargin = "mx-3";
+        diceMargin = "mx-3";
+    } else if (width > 400) {
+        chatMargin = "mx-7";
+        diceMargin = "mx-7";
+    }
 
     return (
-        <nav className="fixed bottom-0 left-0 w-full bg-zinc-800 text-white">
+        <nav className="fixed bottom-0 left-0 w-screen bg-zinc-800 text-white">
             <div className="mx-auto px-2">
                 <div className="relative flex items-center justify-between h-12">
                     <div className="flex items-center justify-center flex-1 items-stretch justify-start">
                         <button
                             onClick={() => router.push("/")}
-                            className={`px-3 py-2 rounded-md text-sm ${pathname === "/tomisakae" ? "bg-gray-700" : "hover:bg-gray-700"}`}
+                            className={`py-2 rounded-md text-sm`}
                         >
                             <Image
                                 src={"/tomisakae.jpg"}
@@ -47,13 +61,13 @@ const NavBar: React.FC = () => {
                                 width={25}
                                 height={25}
                                 priority={true}
-                                className="rounded-2xl"
+                                className="rounded-2xl w-[25px] h-[25px]"
                                 placeholder="empty"
                             />
                         </button>
                         <button
-                            onClick={() => router.push("/")}
-                            className={`hover:bg-gray-700 mx-4 py-2 rounded-md ${pathname === "/random" ? "bg-gray-700" : "hover:bg-gray-700"}`}
+                            onClick={() => router.push("/random")}
+                            className={`hover:bg-gray-700 ${diceMargin} py-2 rounded-md ${pathname === "/random" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
                                 animationData={DiceData}
@@ -70,8 +84,8 @@ const NavBar: React.FC = () => {
                             />
                         </button>
                         <button
-                            onClick={() => router.push("/")}
-                            className={`hover:bg-gray-700 px-1 py-2 rounded-md mx-4 ${pathname === "/chat" ? "bg-gray-700" : "hover:bg-gray-700"}`}
+                            onClick={() => router.push("/chat")}
+                            className={`hover:bg-gray-700 ${chatMargin} py-2 rounded-md ${pathname === "/chat" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
                                 animationData={ChatData}
@@ -79,6 +93,7 @@ const NavBar: React.FC = () => {
                             />
                         </button>
                         <button
+                            onClick={() => router.push("/menu")}
                             className={`hover:bg-gray-700 px-3 py-2 rounded-md ${pathname === "/menu" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
