@@ -153,7 +153,7 @@ const AnimePage = () => {
                             theme="dark"
                             className="custom-toastify"
                         />
-                        <div className="flex items-center justify-center mb-3 mx-5">
+                        <div className="flex items-center justify-center mb-3">
                             {animeData.data.attributes.ratingRank && (
                                 <div className="flex items-center justify-center text-yellow-400">
                                     <Lottie
