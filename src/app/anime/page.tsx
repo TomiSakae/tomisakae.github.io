@@ -89,14 +89,14 @@ const AnimePage = () => {
         startDate = year.split('-')[0]; // Tách chuỗi bằng dấu '-', lấy phần tử đầu tiên (năm)
         statusText =
             animeData.data.attributes.status === "current"
-                ? "Đang-Chiếu"
+                ? "Đang-Phát-Sóng"
                 : animeData.data.attributes.status === "finished"
-                    ? "Đã Hoàn Thành"
+                    ? "Đã-Kết-Thúc"
                     : animeData.data.attributes.status === "upcoming"
-                        ? "Sắp Chiếu"
+                        ? "Chuẩn-Bị-Chiếu"
                         : animeData.data.attributes.status === "tba"
-                            ? "Chưa Rõ"
-                            : "Sắp Có";
+                            ? "Chưa-Rõ"
+                            : "Sắp-Ra-Mắt";
         animeText = statusText.split("");
     }
 
@@ -192,13 +192,13 @@ const AnimePage = () => {
                                     el !== '-' ?
                                         (<motion.span
                                             className={`font-semibold text-green-500`}
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
+                                            initial={{ y: 0, opacity: 0, }}
+                                            animate={{ y: [-5, 0], opacity: 1 }}
                                             transition={{
                                                 duration: 0.25,
                                                 delay: i / 10,
                                                 repeat: Infinity,
-                                                repeatDelay: 1
+                                                repeatDelay: 1.5
                                             }}
                                             key={i}
                                         >
@@ -207,9 +207,22 @@ const AnimePage = () => {
                                         ) : (<span key={i} className="text-gray-800">-</span>)
                                 ))
                             ) : (
-                                <h3 className={`font-semibold ${animeData.data.attributes.status === "finished" ? "text-blue-500" : animeData.data.attributes.status === "upcoming" ? "text-gray-400" : animeData.data.attributes.status === "tba" ? "text-red-500" : "text-yellow-400"}`}>
-                                    {statusText}
-                                </h3>
+                                animeText && animeText.map((el, i) => (
+                                    el !== '-' ?
+                                        (<motion.span
+                                            className={`font-semibold ${animeData.data.attributes.status === "finished" ? "text-blue-500" : animeData.data.attributes.status === "upcoming" ? "text-gray-400" : animeData.data.attributes.status === "tba" ? "text-red-500" : "text-yellow-400"}`}
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{
+                                                duration: 0.25,
+                                                delay: i / 10,
+                                            }}
+                                            key={i}
+                                        >
+                                            {el}
+                                        </motion.span>
+                                        ) : (<span key={i} className="text-gray-800">-</span>)
+                                ))
                             )}
                             <h3 className="text-white font-semibold ml-4">
                                 {animeData.data.attributes.episodeCount ? `${animeData.data.attributes.episodeCount}t` : '??t'},{' '}

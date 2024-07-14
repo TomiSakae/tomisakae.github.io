@@ -100,7 +100,7 @@ const KitsuList: React.FC<Props> = ({ subtype, year, season }) => {
             </div>
             <h3 className="text-xs font-semibold mt-2 overflow-hidden truncate">{anime.attributes.titles.en_jp || anime.attributes.titles.en}</h3>
             <div className="flex justify-center items-center">
-              <h6 className={`text-[10px] inline text-white rounded-lg px-2 mt-2 font-semibold py-1 ${anime.attributes.status === "current" ? "bg-green-500" : anime.attributes.status === "finished" ? "bg-blue-500" : anime.attributes.status === "upcoming" ? "bg-gray-400" : anime.attributes.status === "tba" ? "bg-red-500" : "bg-yellow-400"}`}> {`${anime.attributes.status === "current" ? "Đang Chiếu" : anime.attributes.status === "finished" ? "Đã Hoàn Thành" : anime.attributes.status === "upcoming" ? "Sắp Chiếu" : anime.attributes.status === "tba" ? "Chưa Rõ" : "Sắp Có"}`}</h6>
+              <h6 className={`text-[10px] inline text-white rounded-lg px-2 mt-2 font-semibold py-1 ${anime.attributes.status === "current" ? "bg-green-500" : anime.attributes.status === "finished" ? "bg-blue-500" : anime.attributes.status === "upcoming" ? "bg-gray-400" : anime.attributes.status === "tba" ? "bg-red-500" : "bg-yellow-400"}`}> {`${anime.attributes.status === "current" ? "Đang Phát Sóng" : anime.attributes.status === "finished" ? "Đã Kết Thúc" : anime.attributes.status === "upcoming" ? "Chuẩn Bị Chiếu" : anime.attributes.status === "tba" ? "Chưa Rõ" : "Sắp Ra Mắt"}`}</h6>
             </div>
           </Link>
         </div>
