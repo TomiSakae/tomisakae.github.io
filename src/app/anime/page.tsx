@@ -78,7 +78,8 @@ const AnimePage = () => {
     );
 
     let startDate;
-
+    let animeText;
+    let statusText;
     if (error) return <div>Đã xảy ra lỗi khi tải dữ liệu anime</div>;
     if (animeData) {
         items = [
@@ -86,6 +87,17 @@ const AnimePage = () => {
         ];
         const year = animeData.data.attributes.startDate;
         startDate = year.split('-')[0]; // Tách chuỗi bằng dấu '-', lấy phần tử đầu tiên (năm)
+        statusText =
+            animeData.data.attributes.status === "current"
+                ? "Đang-Chiếu"
+                : animeData.data.attributes.status === "finished"
+                    ? "Đã Hoàn Thành"
+                    : animeData.data.attributes.status === "upcoming"
+                        ? "Sắp Chiếu"
+                        : animeData.data.attributes.status === "tba"
+                            ? "Chưa Rõ"
+                            : "Sắp Có";
+        animeText = statusText.split("");
     }
 
     return (
@@ -172,13 +184,34 @@ const AnimePage = () => {
                             )}
                         </div>
                         <div className="flex text-sm justify-center items-center bg-gray-800 rounded-lg mt-2 mx-4 py-3">
-                            <h3 className="text-white font-semibold">
+                            <h3 className="text-white font-semibold me-4">
                                 {capitalizeFirstLetter(animeData.data.attributes.subtype)}, {startDate}
                             </h3>
-                            <h3 className={`font-semibold mx-4 ${animeData.data.attributes.status === "current" ? "text-green-500" : animeData.data.attributes.status === "finished" ? "text-blue-500" : animeData.data.attributes.status === "upcoming" ? "text-gray-400" : animeData.data.attributes.status === "tba" ? "text-red-500" : "text-yellow-400"}`}>
-                                {`${animeData.data.attributes.status === "current" ? "Đang Chiếu" : animeData.data.attributes.status === "finished" ? "Đã Hoàn Thành" : animeData.data.attributes.status === "upcoming" ? "Sắp Chiếu" : animeData.data.attributes.status === "tba" ? "Chưa Rõ" : "Sắp Có"}`}
-                            </h3>
-                            <h3 className="text-white font-semibold">
+                            {animeData.data.attributes.status === "current" && animeText ? (
+                                animeText.map((el, i) => (
+                                    el !== '-' ?
+                                        (<motion.span
+                                            className={`font-semibold text-green-500`}
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{
+                                                duration: 0.25,
+                                                delay: i / 10,
+                                                repeat: Infinity,
+                                                repeatDelay: 1
+                                            }}
+                                            key={i}
+                                        >
+                                            {el}
+                                        </motion.span>
+                                        ) : (<span key={i} className="text-gray-800">-</span>)
+                                ))
+                            ) : (
+                                <h3 className={`font-semibold ${animeData.data.attributes.status === "finished" ? "text-blue-500" : animeData.data.attributes.status === "upcoming" ? "text-gray-400" : animeData.data.attributes.status === "tba" ? "text-red-500" : "text-yellow-400"}`}>
+                                    {statusText}
+                                </h3>
+                            )}
+                            <h3 className="text-white font-semibold ml-4">
                                 {animeData.data.attributes.episodeCount ? `${animeData.data.attributes.episodeCount}t` : '??t'},{' '}
                                 {animeData.data.attributes.episodeLength ? `${animeData.data.attributes.episodeLength}p` : '??p'}
                             </h3>
