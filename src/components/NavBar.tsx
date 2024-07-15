@@ -49,7 +49,7 @@ const NavBar: React.FC = () => {
     return (
         <nav className="fixed bottom-0 left-0 w-screen bg-zinc-800 text-white">
             <div className="mx-auto px-2">
-                <div className="relative flex items-center justify-between h-12">
+                <div className="relative flex items-center h-12">
                     <div className="flex items-center justify-center flex-1 items-stretch justify-start">
                         <button
                             onClick={() => router.push("/")}
@@ -76,7 +76,7 @@ const NavBar: React.FC = () => {
                         </button>
                         <button
                             onClick={() => router.push("/")}
-                            className={`hover:bg-gray-700 px-3 py-2 rounded-md ${pathname === "/" ? "bg-gray-700" : "hover:bg-gray-700"}`}
+                            className={`hover:bg-gray-700 px-2 py-2 rounded-md ${pathname === "/" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
                                 animationData={HomeData}
@@ -94,7 +94,7 @@ const NavBar: React.FC = () => {
                         </button>
                         <button
 
-                            className="px-3 py-2 rounded-md"
+                            className="py-2 rounded-md"
                         >
                             <Lottie
                                 animationData={MenuData}
