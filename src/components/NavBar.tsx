@@ -84,7 +84,7 @@ const NavBar: React.FC = () => {
                             />
                         </button>
                         <button
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/chat")}
                             className={`hover:bg-gray-700 ${chatMargin} px-1 py-2 rounded-md ${pathname === "/chat" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
