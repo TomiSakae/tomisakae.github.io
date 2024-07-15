@@ -103,3 +103,22 @@ body {
   initial-value: 0deg;
   inherits: false;
 }
+
+.box-tomi {
+  border: 5px solid transparent;
+  background:
+    linear-gradient(#131219, #131219) padding-box, linear-gradient(var(--angle), transparent 25%, #08f, #f03 99%, transparent) border-box;
+  animation: rotate 0.5s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
