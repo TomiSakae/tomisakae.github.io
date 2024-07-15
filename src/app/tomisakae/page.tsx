@@ -35,7 +35,7 @@ const TomiSakae = () => {
                 <Link href="https://www.facebook.com/TomiSakaeAnime/" target="_blank" className="text-white">
                     <FaFacebook className="w-8 h-8" />
                 </Link>
-                <Link href="https://github.com/TomiSakae" className="text-white">
+                <Link href="https://github.com/TomiSakae" target="_blank" className="text-white">
                     <FaGithub className="w-8 h-8" />
                 </Link>
                 <Link href="https://zalo.me/0762605309" target="_blank" className="bg-white text-black rounded-full flex items-center justify-center w-8 h-8">
