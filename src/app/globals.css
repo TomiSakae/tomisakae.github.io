@@ -107,7 +107,7 @@ body {
 .box-tomi {
   border: 5px solid transparent;
   background:
-    linear-gradient(#131219, #131219) padding-box, linear-gradient(var(--angle), transparent 25%, #08f, #f03 99%, transparent) border-box;
+    linear-gradient(#131219, #131219) padding-box, linear-gradient(var(--angle), transparent 50%, #f03 50%, transparent) border-box;
   animation: rotate 0.5s linear infinite;
 }
 
