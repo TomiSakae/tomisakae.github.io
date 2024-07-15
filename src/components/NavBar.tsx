@@ -52,7 +52,7 @@ const NavBar: React.FC = () => {
                 <div className="relative flex items-center h-12">
                     <div className="flex items-center justify-center flex-1 items-stretch justify-start">
                         <button
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/tomisakae")}
                             className={`py-2 rounded-md text-sm`}
                         >
                             <Image
