@@ -17,7 +17,7 @@ declare global {
 const Live2DModelComponent = () => {
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [inputText, setInputText] = useState('');
-    const [outputText, setOutputText] = useState('Nhấn vào nút gửi để nhập tin nhắn!');
+    const [outputText, setOutputText] = useState('');
     const [isTyping, setIsTyping] = useState(false);
     const [isChangeType, setIsChangeType] = useState(false);
     const [textAnimation, setTextAnimation] = useState<string[]>([]);
@@ -34,7 +34,13 @@ const Live2DModelComponent = () => {
         const loadLive2DModel = async () => {
             const { Live2DModel } = await import('pixi-live2d-display');
             const model = await Live2DModel.from('/live2d/models/abeikelongbi_3/abeikelongbi_3.model3.json');
-
+            let chatHistory = JSON.parse(window.localStorage.getItem('chatHistory') || '[]');
+            if (chatHistory !== "[]") {
+                setOutputText(chatHistory[chatHistory.length - 1].parts[0].text);
+            }
+            else {
+                setOutputText("Nhấn vào nút gửi để nhập tin nhắn!");
+            }
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             (model as any).y = innerHeight * 0.09;
             (model as any).position.x = -125;
@@ -61,8 +67,10 @@ const Live2DModelComponent = () => {
             setIsTyping(false);
             const response = await generateChatResponse(inputText);
             setOutputText(response);
+
             setIsChangeType(false);
             setInputText('');
+
         }
     };
 
