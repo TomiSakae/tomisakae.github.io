@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "TomiSakae",
   description: "Trang Web hiển thị danh sách Anime theo mùa!",
+  other: {
+    viewport: 'viewport-fit=cover',
+  },
 };
 
 export default function RootLayout({
