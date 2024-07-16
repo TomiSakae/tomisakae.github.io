@@ -35,10 +35,9 @@ const Live2DModelComponent = () => {
             const { Live2DModel } = await import('pixi-live2d-display');
             const model = await Live2DModel.from('/live2d/models/abeikelongbi_3/abeikelongbi_3.model3.json');
             let chatHistory = JSON.parse(window.localStorage.getItem('chatHistory') || '[]');
-            if (chatHistory) {
+            if (chatHistory.length > 0) {
                 setOutputText(chatHistory[chatHistory.length - 1].parts[0].text);
-            }
-            else {
+            } else {
                 setOutputText("Nhấn vào nút gửi để nhập tin nhắn!");
             }
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
