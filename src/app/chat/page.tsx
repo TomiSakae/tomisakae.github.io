@@ -149,14 +149,15 @@ const Live2DModelComponent = () => {
                                 </div>
                             ) : (
                                 <div className="mb-4">
-                                    <TypeAnimation
+                                    {/* <TypeAnimation
                                         sequence={[outputText
                                         ]}
                                         wrapper="span"
                                         speed={50}
                                         cursor={false}
                                         style={{ fontSize: `clamp(14px, 2vw, 16px)`, display: 'inline-block' }}
-                                    />
+                                    /> */}
+                                    <span>{outputText}</span>
                                 </div>
                             )
                         ) : (
