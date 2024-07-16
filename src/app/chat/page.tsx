@@ -6,6 +6,7 @@ import * as PIXI from 'pixi.js';
 import { generateChatResponse } from '@/components/GeminiAPI';
 import { IoMdSend } from 'react-icons/io';
 import { motion } from "framer-motion";
+
 declare global {
     interface Window {
         PIXI: typeof PIXI;
