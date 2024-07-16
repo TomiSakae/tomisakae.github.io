@@ -6,6 +6,7 @@ import * as PIXI from 'pixi.js';
 import { generateChatResponse } from '@/components/GeminiAPI';
 import { IoMdSend } from 'react-icons/io';
 import { motion } from "framer-motion";
+import { TypeAnimation } from 'react-type-animation';
 
 declare global {
     interface Window {
@@ -32,7 +33,7 @@ const Live2DModelComponent = () => {
 
         const loadLive2DModel = async () => {
             const { Live2DModel } = await import('pixi-live2d-display');
-            const model = await Live2DModel.from('https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/%E7%A2%A7%E8%93%9D%E8%88%AA%E7%BA%BF%20Azue%20Lane/Azue%20Lane(JP)/abeikelongbi_3/abeikelongbi_3.model3.json');
+            const model = await Live2DModel.from('/live2d/models/abeikelongbi_3/abeikelongbi_3.model3.json');
 
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             (model as any).y = innerHeight * 0.09;
@@ -45,25 +46,12 @@ const Live2DModelComponent = () => {
         loadLive2DModel();
     }, [isLive2DScriptLoaded]);
 
-    useEffect(() => {
-        const text = "Nhấn vào nút gửi để nhập tin nhắn!".split("");
-        setTextAnimation(text);
-    }, [])
-
     const handleToggleInput = () => {
         setIsTyping((prev) => !prev);
         setInputText('');
         setOutputText('');
     };
 
-    const changeText = (response: string) => {
-        let i = 0;
-        const intervalId = setInterval(() => {
-            setTextAnimation(prev => [...prev, response[i - 1]]);
-            i++;
-            if (i >= response.length) clearInterval(intervalId);
-        }, 5); // 5ms để thêm ký tự mới vào textAnimation mỗi lần
-    };
 
     const handleSend = async () => {
         if (inputText.trim() !== '') {
@@ -71,13 +59,9 @@ const Live2DModelComponent = () => {
             setOutputText('...');
             setTextAnimation('...'.split('')); // Hiển thị hiệu ứng với "..."
             setIsTyping(false);
-
             const response = await generateChatResponse(inputText);
             setOutputText(response);
-            setTextAnimation([]);
             setIsChangeType(false);
-
-            changeText(response); // Gọi hàm changeText để hiển thị từng ký tự của response
             setInputText('');
         }
     };
@@ -138,19 +122,14 @@ const Live2DModelComponent = () => {
                             </div>
                         ) : (
                             <div className="mb-4">
-                                {textAnimation.map((el, i) => (
-                                    <motion.span
-                                        key={i + 3}
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{
-                                            duration: 0,
-                                            delay: i / 10,
-                                        }}
-                                    >
-                                        {el}
-                                    </motion.span>
-                                ))}
+                                <TypeAnimation
+                                    sequence={[outputText
+                                    ]}
+                                    wrapper="span"
+                                    speed={50}
+                                    cursor={false}
+                                    style={{ fontSize: '14px', display: 'inline-block' }}
+                                />
                             </div>
                         )
                     ) : (
