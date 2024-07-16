@@ -7,6 +7,8 @@ import { generateChatResponse } from '@/components/GeminiAPI';
 import { IoMdSend } from 'react-icons/io';
 import { motion } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
+import { MdHistory } from "react-icons/md";
+import { AiOutlineClose } from 'react-icons/ai';
 
 declare global {
     interface Window {
@@ -21,6 +23,8 @@ const Live2DModelComponent = () => {
     const [isTyping, setIsTyping] = useState(false);
     const [isChangeType, setIsChangeType] = useState(false);
     const [textAnimation, setTextAnimation] = useState<string[]>([]);
+    const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+    const [chatHistory, setChatHistory] = useState<any[]>([]);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -34,9 +38,10 @@ const Live2DModelComponent = () => {
         const loadLive2DModel = async () => {
             const { Live2DModel } = await import('pixi-live2d-display');
             const model = await Live2DModel.from('/live2d/models/abeikelongbi_3/abeikelongbi_3.model3.json');
-            let chatHistory = JSON.parse(window.localStorage.getItem('chatHistory') || '[]');
-            if (chatHistory.length > 0) {
-                setOutputText(chatHistory[chatHistory.length - 1].parts[0].text);
+            let storedChatHistory = JSON.parse(window.localStorage.getItem('chatHistory') || '[]');
+            setChatHistory(storedChatHistory);
+            if (storedChatHistory.length > 0) {
+                setOutputText(storedChatHistory[storedChatHistory.length - 1].parts[0].text);
             } else {
                 setOutputText("Nhấn vào nút gửi để nhập tin nhắn!");
             }
@@ -57,7 +62,6 @@ const Live2DModelComponent = () => {
         setOutputText('');
     };
 
-
     const handleSend = async () => {
         if (inputText.trim() !== '') {
             setIsChangeType(true);
@@ -67,10 +71,25 @@ const Live2DModelComponent = () => {
             const response = await generateChatResponse(inputText);
             setOutputText(response);
 
+            // Thêm phần tử mới với chuỗi người dùng nhập vào
+            let newUserEntry = { parts: [{ text: inputText }], role: "user" };
+            let updatedChatHistory = [...chatHistory, newUserEntry];
+
+            // Thêm phần tử mới với phản hồi của model
+            let newModelEntry = { parts: [{ text: response }], role: "model" };
+            updatedChatHistory = [...updatedChatHistory, newModelEntry];
+            setChatHistory(updatedChatHistory);
             setIsChangeType(false);
             setInputText('');
-
         }
+    };
+
+    const toggleHistory = () => {
+        setIsHistoryOpen((prev) => !prev);
+    };
+
+    const closeHistory = () => {
+        setIsHistoryOpen(false);
     };
 
     return (
@@ -98,63 +117,86 @@ const Live2DModelComponent = () => {
                     background: rgba(3, 122, 222, 0.5) linear-gradient(to bottom right, rgba(3, 122, 222, 0.5), rgba(3, 229, 183, 0.5));
                 }
             `}</style>
-            <canvas id="canvas" />
-            <div className="fixed gradient-background text-sm bottom-[8em] z-5 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
-                <div className="px-2 font-bold">
-                    {outputText ? (
-                        <h6>HMS Abercrombie (F109)</h6>
-                    ) : (
-                        <h6>User</h6>
-                    )}
-                </div>
-                <div className="bg-white font-[500] rounded-lg h-[7em] mt-2 text-black py-2 px-4 relative overflow-auto">
-                    {outputText ? (
-                        outputText === "..." ? (
-                            <div className="mb-4">
-                                {textAnimation.map((el, i) => (
-                                    <motion.span
-                                        className="text-2xl"
-                                        initial={{ y: 0, opacity: 0, }}
-                                        animate={{ y: [-5, 0], opacity: 1 }}
-                                        transition={{
-                                            duration: 0.75,
-                                            delay: i / 10,
-                                            repeat: Infinity,
-                                        }}
-                                        key={i}
-                                    >
-                                        {el}
-                                    </motion.span>
-                                ))}
-                            </div>
+            <canvas id="canvas" className={`${isHistoryOpen ? 'opacity-50' : ''}`} />
+            <div className={`fixed inset-0 ${isHistoryOpen ? 'opacity-50' : ''}`}>
+                <div className="fixed gradient-background text-sm bottom-[8em] z-5 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
+                    <div className="px-2 font-bold">
+                        {outputText ? (
+                            <h6>HMS Abercrombie (F109)</h6>
                         ) : (
-                            <div className="mb-4">
-                                <TypeAnimation
-                                    sequence={[outputText
-                                    ]}
-                                    wrapper="span"
-                                    speed={50}
-                                    cursor={false}
-                                    style={{ fontSize: '1em', display: 'inline-block' }}
-                                />
-                            </div>
-                        )
-                    ) : (
-                        <textarea
-                            className={`w-full h-full bg-transparent resize-none outline-none ${isTyping ? 'block' : 'hidden'}`}
-                            placeholder="Nhập nội dung vào đây..."
-                            value={inputText}
-                            onChange={(e) => setInputText(e.target.value)}
-                        />
-                    )}
-                    {isChangeType === false ? (
-                        <IoMdSend
-                            className="fixed bottom-4 right-4 text-xl text-gray-500 cursor-pointer"
-                            onClick={isTyping ? handleSend : handleToggleInput}
-                        />
-                    ) : (<span></span>)}
+                            <h6>User</h6>
+                        )}
+                    </div>
+                    <div className="bg-white font-[500] rounded-lg h-[7em] mt-2 text-black py-2 px-4 relative overflow-auto">
+                        {outputText ? (
+                            outputText === "..." ? (
+                                <div className="mb-4">
+                                    {textAnimation.map((el, i) => (
+                                        <motion.span
+                                            className="text-2xl"
+                                            initial={{ y: 0, opacity: 0, }}
+                                            animate={{ y: [-5, 0], opacity: 1 }}
+                                            transition={{
+                                                duration: 0.75,
+                                                delay: i / 10,
+                                                repeat: Infinity,
+                                            }}
+                                            key={i}
+                                        >
+                                            {el}
+                                        </motion.span>
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="mb-4">
+                                    <TypeAnimation
+                                        sequence={[outputText
+                                        ]}
+                                        wrapper="span"
+                                        speed={50}
+                                        cursor={false}
+                                        style={{ fontSize: '14px', display: 'inline-block' }}
+                                    />
+                                </div>
+                            )
+                        ) : (
+                            <textarea
+                                className={`w-full h-full bg-transparent resize-none outline-none ${isTyping ? 'block' : 'hidden'}`}
+                                placeholder="Nhập nội dung vào đây..."
+                                value={inputText}
+                                onChange={(e) => setInputText(e.target.value)}
+                            />
+                        )}
+                        {isChangeType === false ? (
+                            <IoMdSend
+                                className="fixed bottom-4 right-4 text-xl text-gray-500 cursor-pointer"
+                                onClick={isTyping ? handleSend : handleToggleInput}
+                            />
+                        ) : (<span></span>)}
+                    </div>
+                </div>
+                <div className="fixed flex justify-end gradient-background text-sm bottom-[5em] z-5 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white">
+                    <MdHistory className="text-xl font-bold cursor-pointer" onClick={toggleHistory} />
                 </div>
             </div>
+            {isHistoryOpen && (
+                <div className="fixed top-4 bottom-[3.4em] left-4 right-4 bg-white rounded-lg p-4 z-10">
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="font-bold">Lịch Sử Chat</h2>
+                        <AiOutlineClose className="text-xl cursor-pointer" onClick={closeHistory} />
+                    </div>
+                    <div className="h-[calc(100vh-10em)] overflow-y-auto flex flex-col-reverse">
+                        {chatHistory.slice().reverse().map((entry, index) => (
+                            <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
+                                <div className="font-bold mb-2 text-sm text-gray-800">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
+                                <div className={`p-3 rounded-lg inline-block w-fit mb-4 ${entry.role === "model" ? "bg-gray-200" : "bg-blue-200 ml-auto"} max-w-xs`}>
+                                    <div className="text-sm">{entry.parts[0].text}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </>
     );
 };
