@@ -53,8 +53,6 @@ html,
 body {
   overflow-x: hidden;
   position: relative;
-  pointer-events: auto;
-  /* Cho phép nhận sự kiện pointer */
 }
 
 /* Zooming entrances */
