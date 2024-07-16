@@ -117,8 +117,8 @@ const Live2DModelComponent = () => {
                     background: rgba(3, 122, 222, 0.5) linear-gradient(to bottom right, rgba(3, 122, 222, 0.5), rgba(3, 229, 183, 0.5));
                 }
             `}</style>
-            <canvas id="canvas" className={`${isHistoryOpen ? 'opacity-50' : ''}`} />
-            <div className={`fixed inset-0 ${isHistoryOpen ? 'opacity-50' : ''}`}>
+            <canvas id="canvas" />
+            <div className="fixed inset-0">
                 <div className="fixed gradient-background text-sm bottom-[8em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
                     <div className="px-2 font-bold">
                         {outputText ? (
