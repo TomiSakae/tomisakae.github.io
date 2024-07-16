@@ -180,7 +180,7 @@ const Live2DModelComponent = () => {
                 </div>
             </div>
             {isHistoryOpen && (
-                <div className="fixed top-4 bottom-[3.4em] left-4 right-4 bg-[#333333] rounded-lg p-4 z-10">
+                <div className={`fixed top-4 bottom-[3.4em] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isHistoryOpen ? 'z-10' : ''}`}>
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="font-bold text-white">Lịch Sử Chat</h2>
                         <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeHistory} />
