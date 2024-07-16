@@ -135,7 +135,7 @@ const Live2DModelComponent = () => {
                                     wrapper="span"
                                     speed={50}
                                     cursor={false}
-                                    style={{ fontSize: '14px', display: 'inline-block' }}
+                                    style={{ fontSize: '1em', display: 'inline-block' }}
                                 />
                             </div>
                         )
