@@ -40,6 +40,7 @@ const Live2DModelComponent = () => {
             autoStart: true,
             resizeTo: window,
             backgroundAlpha: 0,
+            antialias: true,
         });
 
         const loadLive2DModel = async () => {
