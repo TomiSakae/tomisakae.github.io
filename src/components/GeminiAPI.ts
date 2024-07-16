@@ -20,7 +20,11 @@ export async function generateChatResponse(prompt: string): Promise<string> {
 
     // Assume the chat history is stored in localStorage
     let chatHistory = JSON.parse(window.localStorage.getItem('chatHistory') || '[]');
-
+    // Kiểm tra nếu chatHistory vượt quá 100 phần tử
+    if (chatHistory.length > 100) {
+        // Bỏ 2 phần tử đầu tiên của mảng
+        chatHistory = chatHistory.slice(2);
+    }
     const chat = model.startChat({
         generationConfig,
         history: chatHistory, // Load chat history from localStorage

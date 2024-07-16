@@ -7,6 +7,7 @@ import { generateChatResponse } from '@/components/GeminiAPI';
 import { IoMdSend } from 'react-icons/io';
 import { motion } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
+import { MdHistory } from "react-icons/md";
 
 declare global {
     interface Window {
@@ -29,6 +30,7 @@ const Live2DModelComponent = () => {
             autoStart: true,
             resizeTo: window,
             backgroundAlpha: 0,
+            antialias: true,
         });
 
         const loadLive2DModel = async () => {
@@ -99,7 +101,7 @@ const Live2DModelComponent = () => {
                 }
             `}</style>
             <canvas id="canvas" />
-            <div className="fixed gradient-background text-sm bottom-[8em] z-5 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
+            <div className="fixed gradient-background text-sm bottom-[8em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
                 <div className="px-2 font-bold">
                     {outputText ? (
                         <h6>HMS Abercrombie (F109)</h6>
@@ -107,7 +109,7 @@ const Live2DModelComponent = () => {
                         <h6>User</h6>
                     )}
                 </div>
-                <div className="bg-white font-[500] rounded-lg h-[7em] mt-2 text-black py-2 px-4 relative overflow-auto">
+                <div className="bg-[#333333] font-[500] rounded-lg h-[7em] mt-2 text-white py-2 px-4 relative overflow-auto">
                     {outputText ? (
                         outputText === "..." ? (
                             <div className="mb-4">
@@ -135,7 +137,7 @@ const Live2DModelComponent = () => {
                                     wrapper="span"
                                     speed={50}
                                     cursor={false}
-                                    style={{ fontSize: '1em', display: 'inline-block' }}
+                                    style={{ fontSize: '14px', display: 'inline-block' }}
                                 />
                             </div>
                         )
@@ -149,11 +151,14 @@ const Live2DModelComponent = () => {
                     )}
                     {isChangeType === false ? (
                         <IoMdSend
-                            className="fixed bottom-4 right-4 text-xl text-gray-500 cursor-pointer"
+                            className="text-white fixed bottom-4 right-4 text-xl cursor-pointer"
                             onClick={isTyping ? handleSend : handleToggleInput}
                         />
                     ) : (<span></span>)}
                 </div>
+            </div>
+            <div className="fixed flex justify-end gradient-background text-sm bottom-[5em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white">
+                <MdHistory className="text-xl font-bold cursor-pointer" />
             </div>
         </>
     );
