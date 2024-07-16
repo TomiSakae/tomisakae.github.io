@@ -8,6 +8,7 @@ import { IoMdSend } from 'react-icons/io';
 import { motion } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
 import { MdHistory } from "react-icons/md";
+import { AiOutlineClose } from 'react-icons/ai';
 
 declare global {
     interface Window {
@@ -22,6 +23,8 @@ const Live2DModelComponent = () => {
     const [isTyping, setIsTyping] = useState(false);
     const [isChangeType, setIsChangeType] = useState(false);
     const [textAnimation, setTextAnimation] = useState<string[]>([]);
+    const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+    const [chatHistory, setChatHistory] = useState<any[]>([]);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -30,15 +33,15 @@ const Live2DModelComponent = () => {
             autoStart: true,
             resizeTo: window,
             backgroundAlpha: 0,
-            antialias: true,
         });
 
         const loadLive2DModel = async () => {
             const { Live2DModel } = await import('pixi-live2d-display');
             const model = await Live2DModel.from('/live2d/models/abeikelongbi_3/abeikelongbi_3.model3.json');
-            let chatHistory = JSON.parse(window.localStorage.getItem('chatHistory') || '[]');
-            if (chatHistory.length > 0) {
-                setOutputText(chatHistory[chatHistory.length - 1].parts[0].text);
+            let storedChatHistory = JSON.parse(window.localStorage.getItem('chatHistory') || '[]');
+            setChatHistory(storedChatHistory);
+            if (storedChatHistory.length > 0) {
+                setOutputText(storedChatHistory[storedChatHistory.length - 1].parts[0].text);
             } else {
                 setOutputText("Nhấn vào nút gửi để nhập tin nhắn!");
             }
@@ -59,7 +62,6 @@ const Live2DModelComponent = () => {
         setOutputText('');
     };
 
-
     const handleSend = async () => {
         if (inputText.trim() !== '') {
             setIsChangeType(true);
@@ -69,10 +71,25 @@ const Live2DModelComponent = () => {
             const response = await generateChatResponse(inputText);
             setOutputText(response);
 
+            // Thêm phần tử mới với chuỗi người dùng nhập vào
+            let newUserEntry = { parts: [{ text: inputText }], role: "user" };
+            let updatedChatHistory = [...chatHistory, newUserEntry];
+
+            // Thêm phần tử mới với phản hồi của model
+            let newModelEntry = { parts: [{ text: response }], role: "model" };
+            updatedChatHistory = [...updatedChatHistory, newModelEntry];
+            setChatHistory(updatedChatHistory);
             setIsChangeType(false);
             setInputText('');
-
         }
+    };
+
+    const toggleHistory = () => {
+        setIsHistoryOpen((prev) => !prev);
+    };
+
+    const closeHistory = () => {
+        setIsHistoryOpen(false);
     };
 
     return (
@@ -100,8 +117,8 @@ const Live2DModelComponent = () => {
                     background: rgba(3, 122, 222, 0.5) linear-gradient(to bottom right, rgba(3, 122, 222, 0.5), rgba(3, 229, 183, 0.5));
                 }
             `}</style>
-            <canvas id="canvas" />
-            <div className="fixed gradient-background text-sm bottom-[8em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
+            <canvas id="canvas" className={`${isHistoryOpen ? 'opacity-50' : ''}`} />
+            <div className="fixed gradient-background text-sm bottom-[8em] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
                 <div className="px-2 font-bold">
                     {outputText ? (
                         <h6>HMS Abercrombie (F109)</h6>
@@ -137,7 +154,7 @@ const Live2DModelComponent = () => {
                                     wrapper="span"
                                     speed={50}
                                     cursor={false}
-                                    style={{ fontSize: '14px', display: 'inline-block' }}
+                                    style={{ fontSize: `clamp(14px, 2vw, 16px)`, display: 'inline-block' }}
                                 />
                             </div>
                         )
@@ -157,9 +174,27 @@ const Live2DModelComponent = () => {
                     ) : (<span></span>)}
                 </div>
             </div>
-            <div className="fixed flex justify-end gradient-background text-sm bottom-[5em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white">
-                <MdHistory className="text-xl font-bold cursor-pointer" />
+            <div className="fixed flex justify-end gradient-background text-sm bottom-[5em] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white">
+                <MdHistory className="text-xl font-bold cursor-pointer" onClick={toggleHistory} />
             </div>
+            {isHistoryOpen && (
+                <div className={`fixed top-4 bottom-[3.4em] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isHistoryOpen === true ? 'z-30' : '-z-30'}`}>
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="font-bold text-white">Lịch Sử Chat</h2>
+                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeHistory} />
+                    </div>
+                    <div className="h-[calc(100vh-10em)] overflow-y-auto flex flex-col-reverse">
+                        {chatHistory.slice().reverse().map((entry, index) => (
+                            <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
+                                <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
+                                <div className={`p-3 rounded-lg inline-block w-fit mb-4 ${entry.role === "model" ? "bg-[#404040] text-white" : "bg-[#d5f594] ml-auto text-black"} max-w-xs`}>
+                                    <div className="text-sm">{entry.parts[0].text}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </>
     );
 };
