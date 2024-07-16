@@ -179,24 +179,6 @@ const Live2DModelComponent = () => {
                     <MdHistory className="text-xl font-bold cursor-pointer" onClick={toggleHistory} />
                 </div>
             </div>
-            {isHistoryOpen && (
-                <div className="fixed top-4 bottom-[3.4em] left-4 right-4 bg-[#333333] rounded-lg p-4 -z-10">
-                    <div className="flex justify-between items-center mb-4">
-                        <h2 className="font-bold text-white">Lịch Sử Chat</h2>
-                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeHistory} />
-                    </div>
-                    <div className="h-[calc(100vh-12em)] overflow-y-auto flex flex-col-reverse">
-                        {chatHistory.slice().reverse().map((entry, index) => (
-                            <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
-                                <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
-                                <div className={`p-3 rounded-lg inline-block w-fit mb-4 ${entry.role === "model" ? "bg-[#404040] text-white" : "bg-[#d5f594] ml-auto text-black"} max-w-xs`}>
-                                    <div className="text-sm">{entry.parts[0].text}</div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
         </>
     );
 };
