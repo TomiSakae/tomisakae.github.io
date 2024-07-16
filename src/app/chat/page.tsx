@@ -185,7 +185,7 @@ const Live2DModelComponent = () => {
                         <h2 className="font-bold text-white">Lịch Sử Chat</h2>
                         <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeHistory} />
                     </div>
-                    <div className="h-[calc(100vh-10em)] overflow-y-auto flex flex-col-reverse">
+                    <div className="h-[calc(100vh-12em)] overflow-y-auto flex flex-col-reverse">
                         {chatHistory.slice().reverse().map((entry, index) => (
                             <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
                                 <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
