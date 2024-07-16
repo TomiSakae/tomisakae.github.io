@@ -5,7 +5,7 @@ import {
 } from "@google/generative-ai";
 
 const MODEL_NAME = "gemini-1.5-pro";
-const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY as string || "YOUR_API_KEY_HERE"; // Update with your API key
+const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY as string || "AIzaSyAurxDlGztVcK-gWWpduwbucckHaxt0iIk"; // Update with your API key
 
 export async function generateChatResponse(prompt: string): Promise<string> {
     const genAI = new GoogleGenerativeAI(API_KEY);
