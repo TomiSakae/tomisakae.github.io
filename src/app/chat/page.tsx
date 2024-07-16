@@ -111,14 +111,15 @@ const Live2DModelComponent = () => {
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
+                    z-index: -1;
                 }
                 .gradient-background {
                     background: rgba(3, 122, 222, 0.5) linear-gradient(to bottom right, rgba(3, 122, 222, 0.5), rgba(3, 229, 183, 0.5));
                 }
             `}</style>
-            <canvas id="canvas" className={`${isHistoryOpen ? 'opacity-50' : ''} ${isHistoryOpen === false ? 'z-30' : ''}`} />
+            <canvas id="canvas" className={`${isHistoryOpen ? 'opacity-50' : ''}`} />
             <div className={`fixed inset-0 ${isHistoryOpen ? 'opacity-50' : ''}`}>
-                <div className="fixed gradient-background text-sm bottom-[8em] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
+                <div className="fixed gradient-background text-sm bottom-[8em] z-5 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
                     <div className="px-2 font-bold">
                         {outputText ? (
                             <h6>HMS Abercrombie (F109)</h6>
@@ -148,15 +149,14 @@ const Live2DModelComponent = () => {
                                 </div>
                             ) : (
                                 <div className="mb-4">
-                                    {/* <TypeAnimation
+                                    <TypeAnimation
                                         sequence={[outputText
                                         ]}
                                         wrapper="span"
                                         speed={50}
                                         cursor={false}
-                                        style={{ fontSize: `clamp(14px, 2vw, 16px)`, display: 'inline-block' }}
-                                    /> */}
-                                    <span>{outputText}</span>
+                                        style={{ fontSize: '14px', display: 'inline-block' }}
+                                    />
                                 </div>
                             )
                         ) : (
@@ -175,17 +175,17 @@ const Live2DModelComponent = () => {
                         ) : (<span></span>)}
                     </div>
                 </div>
-                <div className="fixed flex justify-end gradient-background text-sm bottom-[5em] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white">
+                <div className="fixed flex justify-end gradient-background text-sm bottom-[5em] z-5 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white">
                     <MdHistory className="text-xl font-bold cursor-pointer" onClick={toggleHistory} />
                 </div>
             </div>
             {isHistoryOpen && (
-                <div className={`fixed top-4 bottom-[3.4em] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isHistoryOpen === true ? 'z-10' : ''}`}>
+                <div className="fixed top-4 bottom-[3.4em] left-4 right-4 bg-[#333333] rounded-lg p-4 z-10">
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="font-bold text-white">Lịch Sử Chat</h2>
                         <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeHistory} />
                     </div>
-                    <div className="h-[calc(100vh-12em)] overflow-y-auto flex flex-col-reverse">
+                    <div className="h-[calc(100vh-10em)] overflow-y-auto flex flex-col-reverse">
                         {chatHistory.slice().reverse().map((entry, index) => (
                             <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
                                 <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
