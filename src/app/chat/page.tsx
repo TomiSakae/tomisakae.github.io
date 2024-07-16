@@ -111,7 +111,6 @@ const Live2DModelComponent = () => {
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
-                    z-index: -1;
                 }
                 .gradient-background {
                     background: rgba(3, 122, 222, 0.5) linear-gradient(to bottom right, rgba(3, 122, 222, 0.5), rgba(3, 229, 183, 0.5));
