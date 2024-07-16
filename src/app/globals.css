@@ -53,10 +53,6 @@ html,
 body {
   overflow-x: hidden;
   position: relative;
-  text-size-adjust: 100% !important;
-  -webkit-text-size-adjust: 100% !important;
-  -ms-text-size-adjust: 100% !important;
-  -moz-text-size-adjust: 100% !important;
 }
 
 /* Zooming entrances */
