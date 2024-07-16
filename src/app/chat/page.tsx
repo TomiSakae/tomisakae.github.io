@@ -32,8 +32,9 @@ const Live2DModelComponent = () => {
             const model = await Live2DModel.from('https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/%E7%A2%A7%E8%93%9D%E8%88%AA%E7%BA%BF%20Azue%20Lane/Azue%20Lane(JP)/abeikelongbi_3/abeikelongbi_3.model3.json');
 
             app.stage.addChild(model as unknown as PIXI.DisplayObject); // Chuyển kiểu về DisplayObject
-            (model as any).y = innerHeight * 0.20;
-            (model as any).scale.set(0.08); // Cast về any để tránh lỗi TypeScript
+            (model as any).y = innerHeight * 0.10;
+            (model as any).position.x = -125;
+            (model as any).scale.set(0.1); // Cast về any để tránh lỗi TypeScript
             // Cấu hình mô hình
             (model as any).interactive = true;
             (model as any).trackedPointers = {}; // Đảm bảo thuộc tính trackedPointers được khởi tạo
