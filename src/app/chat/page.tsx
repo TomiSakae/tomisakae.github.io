@@ -127,7 +127,7 @@ const Live2DModelComponent = () => {
                             <h6>User</h6>
                         )}
                     </div>
-                    <div className="bg-white font-[500] rounded-lg h-[7em] mt-2 text-black py-2 px-4 relative overflow-auto">
+                    <div className="bg-[#333333] font-[500] rounded-lg h-[7em] mt-2 text-white py-2 px-4 relative overflow-auto">
                         {outputText ? (
                             outputText === "..." ? (
                                 <div className="mb-4">
@@ -169,7 +169,7 @@ const Live2DModelComponent = () => {
                         )}
                         {isChangeType === false ? (
                             <IoMdSend
-                                className="fixed bottom-4 right-4 text-xl text-gray-500 cursor-pointer"
+                                className="text-white fixed bottom-4 right-4 text-xl cursor-pointer"
                                 onClick={isTyping ? handleSend : handleToggleInput}
                             />
                         ) : (<span></span>)}
@@ -180,16 +180,16 @@ const Live2DModelComponent = () => {
                 </div>
             </div>
             {isHistoryOpen && (
-                <div className="fixed top-4 bottom-[3.4em] left-4 right-4 bg-white rounded-lg p-4 z-10">
+                <div className="fixed top-4 bottom-[3.4em] left-4 right-4 bg-[#333333] rounded-lg p-4 z-10">
                     <div className="flex justify-between items-center mb-4">
-                        <h2 className="font-bold">Lịch Sử Chat</h2>
-                        <AiOutlineClose className="text-xl cursor-pointer" onClick={closeHistory} />
+                        <h2 className="font-bold text-white">Lịch Sử Chat</h2>
+                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeHistory} />
                     </div>
                     <div className="h-[calc(100vh-10em)] overflow-y-auto flex flex-col-reverse">
                         {chatHistory.slice().reverse().map((entry, index) => (
                             <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
-                                <div className="font-bold mb-2 text-sm text-gray-800">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
-                                <div className={`p-3 rounded-lg inline-block w-fit mb-4 ${entry.role === "model" ? "bg-gray-200" : "bg-blue-200 ml-auto"} max-w-xs`}>
+                                <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
+                                <div className={`p-3 rounded-lg inline-block w-fit mb-4 ${entry.role === "model" ? "bg-[#404040] text-white" : "bg-[#d5f594] ml-auto text-black"} max-w-xs`}>
                                     <div className="text-sm">{entry.parts[0].text}</div>
                                 </div>
                             </div>
