@@ -47,8 +47,8 @@ const Live2DModelComponent = () => {
         });
 
         const loadLive2DModel = async () => {
-            const { Live2DModel } = await import('pixi-live2d-display');
-            const model = await Live2DModel.from('/live2d/models/abeikelongbi_3/abeikelongbi_3.model3.json');
+            const { Live2DModel, MotionPreloadStrategy } = await import('pixi-live2d-display');
+            const model = await Live2DModel.from('/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json', { motionPreload: MotionPreloadStrategy.ALL });
             let storedChatHistory = JSON.parse(window.localStorage.getItem('chatHistory') || '[]');
             setChatHistory(storedChatHistory);
             if (storedChatHistory.length > 0) {
