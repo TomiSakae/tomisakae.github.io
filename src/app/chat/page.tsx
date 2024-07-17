@@ -1,3 +1,4 @@
+// components/Live2DModel.tsx
 'use client'
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
@@ -9,9 +10,6 @@ import { TypeAnimation } from 'react-type-animation';
 import { MdHistory } from "react-icons/md";
 import { AiOutlineClose } from 'react-icons/ai';
 import { FaTrashAlt } from "react-icons/fa";
-import { Modal, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 declare global {
     interface Window {
@@ -130,9 +128,9 @@ const Live2DModelComponent = () => {
             <div className={`fixed gradient-background text-sm bottom-[16vh] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white ${isHistoryOpen ? 'opacity-50' : ''}`}>
                 <div className="px-2 font-bold">
                     {outputText ? (
-                        <div>HMS Abercrombie (F109)</div>
+                        <h6>HMS Abercrombie (F109)</h6>
                     ) : (
-                        <div>User</div>
+                        <h6>User</h6>
                     )}
                 </div>
                 <div className="bg-[#333333] font-[500] rounded-lg h-[15vh] mt-2 text-white py-2 px-4 relative overflow-auto">
@@ -158,7 +156,8 @@ const Live2DModelComponent = () => {
                         ) : (
                             <div className="mb-4">
                                 <TypeAnimation
-                                    sequence={[outputText]}
+                                    sequence={[outputText
+                                    ]}
                                     wrapper="span"
                                     speed={50}
                                     cursor={false}
@@ -186,13 +185,13 @@ const Live2DModelComponent = () => {
                 <FaTrashAlt className="text-lg font-bold cursor-pointer me-4" onClick={toggleTrash} />
                 <MdHistory className="text-xl font-bold cursor-pointer" onClick={toggleHistory} />
             </div>
-            <Modal show={isHistoryOpen} onHide={closeHistory} className="mt-4">
-                <Modal.Body className="bg-[#333333] rounded-lg p-4">
+            {isHistoryOpen && (
+                <div className={`fixed top-4 bottom-[10vh] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isHistoryOpen === true ? 'z-30' : '-z-30'}`}>
                     <div className="flex justify-between items-center mb-4">
-                        <div className="font-bold text-white">Lịch Sử Chat</div>
+                        <h2 className="font-bold text-white">Lịch Sử Chat</h2>
                         <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeHistory} />
                     </div>
-                    <div className="h-[70vh] overflow-y-auto flex flex-col-reverse">
+                    <div className="h-[75vh] overflow-y-auto flex flex-col-reverse">
                         {chatHistory.slice().reverse().map((entry, index) => (
                             <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
                                 <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
@@ -202,8 +201,26 @@ const Live2DModelComponent = () => {
                             </div>
                         ))}
                     </div>
-                </Modal.Body>
-            </Modal>
+                </div>
+            )}
+            {isTrashOpen && (
+                <div className={`fixed top-4 bottom-[10vh] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isTrashOpen === true ? 'z-30' : '-z-30'}`}>
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="font-bold text-white">Lịch Sử Chat</h2>
+                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeHistory} />
+                    </div>
+                    <div className="h-[calc(100vh-12em)] overflow-y-auto flex flex-col-reverse">
+                        {chatHistory.slice().reverse().map((entry, index) => (
+                            <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
+                                <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
+                                <div className={`p-3 rounded-lg inline-block w-fit mb-4 ${entry.role === "model" ? "bg-[#404040] text-white" : "bg-[#d5f594] ml-auto text-black"} max-w-xs`}>
+                                    <div className="text-sm">{entry.parts[0].text}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </>
     );
 };
