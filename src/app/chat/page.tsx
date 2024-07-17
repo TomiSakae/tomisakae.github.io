@@ -60,7 +60,7 @@ const Live2DModelComponent = () => {
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             (model as any).y = window.localStorage.getItem('modely') || innerHeight * 0.09;
             (model as any).position.x = window.localStorage.getItem('modelx') || -125;
-            (model as any).scale.set(Number(window.localStorage.getItem('scale')) || 0.1);
+            (model as any).scale.set(window.localStorage.getItem('scale') || 0.1);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
 

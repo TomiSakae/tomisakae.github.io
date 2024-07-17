@@ -5,6 +5,8 @@ import Script from 'next/script';
 import * as PIXI from 'pixi.js';
 import { useRouter } from 'next/navigation';
 import { AiOutlineClose } from 'react-icons/ai';
+import { GrPowerReset } from "react-icons/gr";
+import { CiSettings } from "react-icons/ci";
 
 declare global {
     interface Window {
@@ -16,6 +18,7 @@ const Live2DModelComponent = () => {
     const router = useRouter();
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [scaleModel, setScaleModel] = useState(0.1);
+    const [isSettingOpen, setIsSettingOpen] = useState(false);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -50,9 +53,9 @@ const Live2DModelComponent = () => {
             const { Live2DModel } = await import('pixi-live2d-display');
             const model = await Live2DModel.from('/live2d/models/abeikelongbi_3/abeikelongbi_3.model3.json');
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
-            (model as any).y = innerHeight * 0.09;
-            (model as any).position.x = -125;
-            (model as any).scale.set(scaleModel);
+            (model as any).y = window.localStorage.getItem('modely') || innerHeight * 0.09;
+            (model as any).position.x = window.localStorage.getItem('modelx') || -125;
+            (model as any).scale.set(Number(window.localStorage.getItem('scale')) || scaleModel || 0.1);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
             draggable(model);
@@ -61,14 +64,17 @@ const Live2DModelComponent = () => {
         loadLive2DModel();
     }, [isLive2DScriptLoaded, scaleModel]);
 
+    useEffect(() => {
+        setScaleModel(Number(window.localStorage.getItem('scale')) || 0.1);
+    }, [])
+
+
     const upScale = () => {
         setScaleModel(parseFloat((scaleModel + 0.01).toFixed(2)));
-        window.localStorage.setItem('scale', String(scaleModel));
     }
 
     const downScale = () => {
         setScaleModel(parseFloat((scaleModel - 0.01).toFixed(2)));
-        window.localStorage.setItem('scale', String(scaleModel));
     }
 
     return (
@@ -94,23 +100,61 @@ const Live2DModelComponent = () => {
             `}</style>
             <canvas id="canvas" />
             <div className="relative">
-                <div className="fixed top-4 right-4 opacity-50">
-                    <AiOutlineClose
-                        className="text-xl text-white cursor-pointer"
-                        onClick={() => {
-                            router.back();
-                            setTimeout(() => {
-                                window.location.reload();
-                            }, 100);
-                        }}
-                    />
+                <div className="fixed flex flex-col justify-center items-center top-4 right-4 opacity-50">
+                    <div className="">
+                        <AiOutlineClose
+                            className="text-xl text-white cursor-pointer"
+                            onClick={() => {
+                                window.localStorage.setItem('scale', String(scaleModel));
+                                router.back();
+                                setTimeout(() => {
+                                    window.location.reload();
+                                }, 100);
+                            }}
+                        />
+                    </div>
+                    <div className="mt-6">
+                        <GrPowerReset
+                            className="text-xl text-white cursor-pointer"
+                            onClick={() => {
+                                window.localStorage.removeItem('modely');
+                                window.localStorage.removeItem('modelx');
+                                window.localStorage.removeItem('scale');
+                                setScaleModel(0.1);
+                            }}
+                        />
+                    </div>
+                    <div className="mt-6">
+                        <CiSettings
+                            className="text-xl font-bold text-white cursor-pointer"
+                            onClick={() => {
+                                setIsSettingOpen(true);
+                            }}
+                        />
+                    </div>
                 </div>
                 <div className="fixed top-4 items-center opacity-50 right-4 mx-8 p-2 bg-gray-800 rounded-md flex space-x-2">
                     <button className="bg-green-500 text-white px-2 py-1 rounded" onClick={upScale}>+</button>
                     <div className="text-white font-bold">{scaleModel}</div>
                     <button className="bg-red-500 text-white px-2 py-1 rounded" onClick={downScale}>-</button>
                 </div>
-            </div >
+            </div>
+            {isSettingOpen && (
+                <div className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#333333] rounded-lg p-4 w-[90%] max-w-[600px] ${isSettingOpen === true ? 'z-30' : '-z-30'}`}>
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="font-bold text-lg text-white">Cài Đặt Live2D</h2>
+                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={() => { setIsSettingOpen(false) }} />
+                    </div>
+                    <h4 className="text-center font-bold text-lg text-white">Đổi ảnh nền</h4>
+                    <div className="overflow-x-auto flex justify-center">
+                        <p className="text-white py-5">Đang Cập Nhật...</p>
+                    </div>
+                    <h4 className="text-center font-bold text-lg text-white mt-5">Đổi Live2D</h4>
+                    <div className="overflow-x-auto flex justify-center">
+                        <p className="text-white py-5">Đang Cập Nhật...</p>
+                    </div>
+                </div>
+            )}
         </>
     );
 };
