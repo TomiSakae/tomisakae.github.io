@@ -10,6 +10,7 @@ import { TypeAnimation } from 'react-type-animation';
 import { MdHistory } from "react-icons/md";
 import { AiOutlineClose } from 'react-icons/ai';
 import { FaTrashAlt } from "react-icons/fa";
+import { IoCheckmarkDoneCircle } from "react-icons/io5";
 
 declare global {
     interface Window {
@@ -29,6 +30,8 @@ const Live2DModelComponent = () => {
     const [isTrashOpen, setIsTrashOpen] = useState(false);
     const [isTrashRemove, setIsTrashRemove] = useState(false);
     const [isOpacityOpen, setIsOpacityOpen] = useState(false);
+    const [editMode, setEditMode] = useState(false);
+    const [username, setUsername] = useState('User');
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -50,6 +53,7 @@ const Live2DModelComponent = () => {
             } else {
                 setOutputText("Nhấn vào nút gửi để nhập tin nhắn!");
             }
+            setUsername(window.localStorage.getItem('user') || 'User');
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             (model as any).y = innerHeight * 0.09;
             (model as any).position.x = -125;
@@ -95,6 +99,20 @@ const Live2DModelComponent = () => {
             setIsChangeType(false);
             setInputText('');
         }
+    };
+
+    const handleDoubleClick = () => {
+        setEditMode(true);
+    };
+
+    const handleSave = () => {
+        setEditMode(false); // Đặt editMode thành false khi lưu
+        window.localStorage.setItem('user', username);
+    };
+
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setUsername(event.target.value);
+        window.localStorage.setItem('user', username);
     };
 
     const toggleHistory = () => {
@@ -153,7 +171,19 @@ const Live2DModelComponent = () => {
                     {outputText ? (
                         <h6>HMS Abercrombie (F109)</h6>
                     ) : (
-                        <h6>User</h6>
+                        editMode ? (
+                            <div className="flex items-center">
+                                <textarea
+                                    value={username}
+                                    onChange={handleChange}
+                                    autoFocus
+                                    className="resize-none border-none focus:outline-none rounded-md px-2 bg-[#333333] text-white h-[3vh] w-[30vw] me-2"
+                                />
+                                <IoCheckmarkDoneCircle onClick={handleSave} className="font-bold text-lg cursor-pointer text-[#333333]" />
+                            </div>
+                        ) : (
+                            <h6 onDoubleClick={handleDoubleClick}>{username}</h6>
+                        )
                     )}
                 </div>
                 <div className="bg-[#333333] font-[500] rounded-lg h-[15vh] mt-2 text-white py-2 px-4 relative overflow-auto">
@@ -217,7 +247,7 @@ const Live2DModelComponent = () => {
                     <div className="h-[90%] overflow-y-auto flex flex-col-reverse">
                         {chatHistory.slice().reverse().map((entry, index) => (
                             <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
-                                <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
+                                <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : `${username}`}</div>
                                 <div className={`p-3 rounded-lg inline-block w-fit mb-4 ${entry.role === "model" ? "bg-[#404040] text-white" : "bg-[#d5f594] ml-auto text-black"} max-w-xs`}>
                                     <div className={`text-sm ${entry.role === "model" ? "" : "text-start"}`}>{entry.parts[0].text}</div>
                                 </div>
