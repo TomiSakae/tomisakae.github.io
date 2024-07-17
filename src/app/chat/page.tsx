@@ -1,4 +1,3 @@
-// components/Live2DModel.tsx
 'use client'
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
@@ -9,6 +8,10 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
 import { MdHistory } from "react-icons/md";
 import { AiOutlineClose } from 'react-icons/ai';
+import { FaTrashAlt } from "react-icons/fa";
+import { Modal, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 declare global {
     interface Window {
@@ -25,6 +28,7 @@ const Live2DModelComponent = () => {
     const [textAnimation, setTextAnimation] = useState<string[]>([]);
     const [isHistoryOpen, setIsHistoryOpen] = useState(false);
     const [chatHistory, setChatHistory] = useState<any[]>([]);
+    const [isTrashOpen, setIsTrashOpen] = useState(false);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -89,6 +93,10 @@ const Live2DModelComponent = () => {
         setIsHistoryOpen((prev) => !prev);
     };
 
+    const toggleTrash = () => {
+        setIsTrashOpen((prev) => !prev);
+    };
+
     const closeHistory = () => {
         setIsHistoryOpen(false);
     };
@@ -119,15 +127,15 @@ const Live2DModelComponent = () => {
                 }
             `}</style>
             <canvas id="canvas" className={`${isHistoryOpen ? 'opacity-50' : ''}`} />
-            <div className="fixed gradient-background text-sm bottom-[8em] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
+            <div className={`fixed gradient-background text-sm bottom-[16vh] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white ${isHistoryOpen ? 'opacity-50' : ''}`}>
                 <div className="px-2 font-bold">
                     {outputText ? (
-                        <h6>HMS Abercrombie (F109)</h6>
+                        <div>HMS Abercrombie (F109)</div>
                     ) : (
-                        <h6>User</h6>
+                        <div>User</div>
                     )}
                 </div>
-                <div className="bg-[#333333] font-[500] rounded-lg h-[7em] mt-2 text-white py-2 px-4 relative overflow-auto">
+                <div className="bg-[#333333] font-[500] rounded-lg h-[15vh] mt-2 text-white py-2 px-4 relative overflow-auto">
                     {outputText ? (
                         outputText === "..." ? (
                             <div className="mb-4">
@@ -150,8 +158,7 @@ const Live2DModelComponent = () => {
                         ) : (
                             <div className="mb-4">
                                 <TypeAnimation
-                                    sequence={[outputText
-                                    ]}
+                                    sequence={[outputText]}
                                     wrapper="span"
                                     speed={50}
                                     cursor={false}
@@ -175,16 +182,17 @@ const Live2DModelComponent = () => {
                     ) : (<span></span>)}
                 </div>
             </div>
-            <div className="fixed flex justify-end gradient-background text-sm bottom-[5em] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white">
+            <div className={`fixed flex justify-end gradient-background text-sm bottom-[10vh] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white ${isHistoryOpen ? 'opacity-50' : ''}`}>
+                <FaTrashAlt className="text-lg font-bold cursor-pointer me-4" onClick={toggleTrash} />
                 <MdHistory className="text-xl font-bold cursor-pointer" onClick={toggleHistory} />
             </div>
-            {isHistoryOpen && (
-                <div className={`fixed top-4 bottom-[3.4em] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isHistoryOpen === true ? 'z-30' : '-z-30'}`}>
+            <Modal show={isHistoryOpen} onHide={closeHistory} className="mt-4">
+                <Modal.Body className="bg-[#333333] rounded-lg p-4">
                     <div className="flex justify-between items-center mb-4">
-                        <h2 className="font-bold text-white">Lịch Sử Chat</h2>
+                        <div className="font-bold text-white">Lịch Sử Chat</div>
                         <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeHistory} />
                     </div>
-                    <div className="h-[calc(100vh-12em)] overflow-y-auto flex flex-col-reverse">
+                    <div className="h-[70vh] overflow-y-auto flex flex-col-reverse">
                         {chatHistory.slice().reverse().map((entry, index) => (
                             <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
                                 <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
@@ -194,8 +202,8 @@ const Live2DModelComponent = () => {
                             </div>
                         ))}
                     </div>
-                </div>
-            )}
+                </Modal.Body>
+            </Modal>
         </>
     );
 };
