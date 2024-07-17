@@ -3,12 +3,13 @@
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
 import * as PIXI from 'pixi.js';
-import { generateChatResponse } from '@/components/GeminiAPI';
+import { generateChatResponse } from '@/components/GeminiAPIVN';
 import { motion } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
 import { FaEdit } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
 import { FaExchangeAlt } from "react-icons/fa";
+import { GrPowerReset } from "react-icons/gr";
 
 declare global {
     interface Window {
@@ -20,7 +21,9 @@ const Live2DModelComponent = () => {
     const router = useRouter();
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [outputText, setOutputText] = useState('');
+    const [isTypeDone, setIsTypeDone] = useState(false);
     const [textAnimation, setTextAnimation] = useState<string[]>([]);
+    const [optionsVN, setOptionsVN] = useState<any[]>([]);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -55,6 +58,53 @@ const Live2DModelComponent = () => {
         window.sessionStorage.setItem('reload', 'false');
     }, [])
 
+    useEffect(() => {
+        const ChatVN = async () => {
+            if (window.localStorage.getItem('chatVNHistory')) {
+                let storedChatVNHistory = JSON.parse(window.localStorage.getItem('chatVNHistory') || '[]');
+                if (storedChatVNHistory.length > 0) {
+                    const text = JSON.parse(storedChatVNHistory[storedChatVNHistory.length - 1].parts[0].text);
+                    setOutputText(text.text);
+                    setOptionsVN(text.options);
+                } else {
+                    setOutputText("Nhấn vào nút gửi để nhập tin nhắn!");
+                }
+            } else {
+                setOutputText('...');
+                setTextAnimation('...'.split('')); // Hiển thị hiệu ứng với "..."
+                setIsTypeDone(false);
+                const response = await generateChatResponse("new");
+                const text = JSON.parse(response);
+                setOutputText(text.text);
+                setOptionsVN(text.options);
+            }
+        }
+        if (window.sessionStorage.getItem('reload') == 'false') {
+            ChatVN();
+        }
+    }, [])
+
+    const ChooseVN = async (option: string) => {
+        setOutputText('...');
+        setTextAnimation('...'.split('')); // Hiển thị hiệu ứng với "..."
+        setIsTypeDone(false);
+        const response = await generateChatResponse(option);
+        const text = JSON.parse(response);
+        setOutputText(text.text);
+        setOptionsVN(text.options);
+    }
+
+    const resetVN = async () => {
+        window.localStorage.removeItem('chatVNHistory');
+        setOutputText('...');
+        setTextAnimation('...'.split('')); // Hiển thị hiệu ứng với "..."
+        setIsTypeDone(false);
+        const response = await generateChatResponse("new");
+        const text = JSON.parse(response);
+        setOutputText(text.text);
+        setOptionsVN(text.options);
+    }
+
     return (
         <>
             <Script
@@ -84,37 +134,43 @@ const Live2DModelComponent = () => {
                 <div className="px-2 font-bold">
                     <h6>HMS Abercrombie (F109)</h6>
                 </div>
+                <GrPowerReset
+                    className="text-white fixed bottom-[5.9em] z-10 right-4 text-xl cursor-pointer" onClick={resetVN}
+                />
                 <div className="bg-[#333333] font-[500] rounded-lg h-[7.2em] mt-2 text-white py-2 px-4 relative overflow-auto">
-                    {outputText === "..." ? (
-                        <div className="mb-4">
-                            {textAnimation.map((el, i) => (
-                                <motion.span
-                                    className="text-2xl"
-                                    initial={{ y: 0, opacity: 0, }}
-                                    animate={{ y: [-5, 0], opacity: 1 }}
-                                    transition={{
-                                        duration: 0.75,
-                                        delay: i / 10,
-                                        repeat: Infinity,
-                                    }}
-                                    key={i}
-                                >
-                                    {el}
-                                </motion.span>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="mb-4">
-                            <TypeAnimation
-                                sequence={[outputText
-                                ]}
-                                wrapper="span"
-                                speed={50}
-                                cursor={false}
-                                style={{ fontSize: "14px", display: 'inline-block' }}
-                            />
-                        </div>
-                    )}
+                    {outputText && (
+                        outputText === "..." ? (
+                            <div className="mb-4">
+                                {textAnimation.map((el, i) => (
+                                    <motion.span
+                                        className="text-2xl"
+                                        initial={{ y: 0, opacity: 0, }}
+                                        animate={{ y: [-5, 0], opacity: 1 }}
+                                        transition={{
+                                            duration: 0.75,
+                                            delay: i / 10,
+                                            repeat: Infinity,
+                                        }}
+                                        key={i}
+                                    >
+                                        {el}
+                                    </motion.span>
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="mb-4">
+                                <TypeAnimation
+                                    sequence={[outputText
+                                        , () => {
+                                            setIsTypeDone(true);
+                                        },]}
+                                    wrapper="span"
+                                    speed={50}
+                                    cursor={false}
+                                    style={{ fontSize: "14px", display: 'inline-block' }}
+                                />
+                            </div>
+                        ))}
                 </div>
             </div>
             <div className="fixed flex justify-end items-center gradient-background text-sm bottom-[5.2em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white">
@@ -125,6 +181,19 @@ const Live2DModelComponent = () => {
                     }} />
                 <FaEdit className="text-lg font-bold cursor-pointer" onClick={() => router.push("/chat/edit")} />
             </div>
+            {isTypeDone && (
+                <div className={`fixed top-1/2 text-[0.8em] bottom-[4em] left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 w-[90%] max-w-[600px] ${isTypeDone === true ? 'z-30' : '-z-30'}`}>
+                    <div className="text-center text-white font-bold bg-[#333333] px-4 py-3 rounded-lg items-center mb-4 cursor-pointer" onClick={() => { ChooseVN("1") }}>
+                        {optionsVN[1].replace(/^"|"$/g, '')}
+                    </div>
+                    <div className="text-center text-white font-bold bg-[#333333] px-4 py-2 rounded-lg items-center mb-4 cursor-pointer" onClick={() => { ChooseVN("2") }}>
+                        {optionsVN[2].replace(/^"|"$/g, '')}
+                    </div>
+                    <div className="text-center text-white font-bold bg-[#333333] px-4 py-2 rounded-lg items-center mb-4 cursor-pointer" onClick={() => { ChooseVN("3") }}>
+                        {optionsVN[3].replace(/^"|"$/g, '')}
+                    </div>
+                </div>
+            )}
         </>
     );
 };

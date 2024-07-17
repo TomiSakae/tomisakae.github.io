@@ -5,11 +5,29 @@ import {
 } from "@google/generative-ai";
 
 const MODEL_NAME = "gemini-1.5-pro";
-const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY as string || "AIzaSyAurxDlGztVcK-gWWpduwbucckHaxt0iIk"; // Update with your API key
+const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY as string || "AIzaSyCBJlfHz5S-Ny47JQO5djOBOk9VoppIoV8"; // Update with your API key
 
 export async function generateChatResponse(prompt: string): Promise<string> {
     const genAI = new GoogleGenerativeAI(API_KEY);
-    const model = genAI.getGenerativeModel({ model: MODEL_NAME });
+    const safetySettings = [
+        {
+            category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+            threshold: HarmBlockThreshold.BLOCK_NONE,
+        },
+        {
+            category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+            threshold: HarmBlockThreshold.BLOCK_NONE,
+        },
+        {
+            category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+            threshold: HarmBlockThreshold.BLOCK_NONE,
+        },
+        {
+            category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+            threshold: HarmBlockThreshold.BLOCK_NONE,
+        },
+    ];
+    const model = genAI.getGenerativeModel({ model: MODEL_NAME, safetySettings });
 
     const generationConfig = {
         temperature: 0.9,
