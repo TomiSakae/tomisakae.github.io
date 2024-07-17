@@ -11,6 +11,7 @@ import { MdHistory } from "react-icons/md";
 import { AiOutlineClose } from 'react-icons/ai';
 import { FaTrashAlt } from "react-icons/fa";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
+import { FaEdit } from "react-icons/fa";
 
 declare global {
     interface Window {
@@ -77,6 +78,10 @@ const Live2DModelComponent = () => {
         closeTrash();
         setIsOpacityOpen(true);
         setIsTrashRemove(true);
+        setChatHistory([]);
+        setOutputText('');
+        setInputText('');
+        handleToggleInput();
     };
 
     const handleSend = async () => {
@@ -166,7 +171,7 @@ const Live2DModelComponent = () => {
                 }
             `}</style>
             <canvas id="canvas" className={`${isOpacityOpen ? 'opacity-50' : ''}`} />
-            <div className={`fixed gradient-background text-sm bottom-[16vh] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
+            <div className={`fixed gradient-background text-sm bottom-[8em] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
                 <div className="px-2 font-bold">
                     {outputText ? (
                         <h6>HMS Abercrombie (F109)</h6>
@@ -177,7 +182,7 @@ const Live2DModelComponent = () => {
                                     value={username}
                                     onChange={handleChange}
                                     autoFocus
-                                    className="resize-none border-none focus:outline-none rounded-md px-2 bg-[#333333] text-white h-[3vh] w-[30vw] me-2"
+                                    className="resize-none border-none focus:outline-none rounded-md px-2 bg-[#333333] text-white h-[1.5em] w-[30vw] me-2"
                                 />
                                 <IoCheckmarkDoneCircle onClick={handleSave} className="font-bold text-lg cursor-pointer text-[#333333]" />
                             </div>
@@ -186,7 +191,7 @@ const Live2DModelComponent = () => {
                         )
                     )}
                 </div>
-                <div className="bg-[#333333] font-[500] rounded-lg h-[15vh] mt-2 text-white py-2 px-4 relative overflow-auto">
+                <div className="bg-[#333333] font-[500] rounded-lg h-[7.2em] mt-2 text-white py-2 px-4 relative overflow-auto">
                     {outputText ? (
                         outputText === "..." ? (
                             <div className="mb-4">
@@ -234,7 +239,8 @@ const Live2DModelComponent = () => {
                     ) : (<span></span>)}
                 </div>
             </div>
-            <div className={`fixed flex justify-end gradient-background text-sm bottom-[10vh] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
+            <div className={`fixed flex justify-end items-center gradient-background text-sm bottom-[5.2em] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
+                <FaEdit className="text-lg font-bold cursor-pointer me-4" />
                 <FaTrashAlt className="text-lg font-bold cursor-pointer me-4" onClick={toggleTrash} />
                 <MdHistory className="text-xl font-bold cursor-pointer" onClick={toggleHistory} />
             </div>
