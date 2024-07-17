@@ -34,6 +34,8 @@ const Live2DModelComponent = () => {
     const [isOpacityOpen, setIsOpacityOpen] = useState(false);
     const [editMode, setEditMode] = useState(false);
     const [username, setUsername] = useState('User');
+    const [positionModelX, setPositionModelX] = useState(false);
+    const [positionModelY, setPositionModelY] = useState(false);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -56,13 +58,11 @@ const Live2DModelComponent = () => {
                 if (model.dragging) {
                     model.position.x = e.data.global.x - model._pointerX;
                     model.position.y = e.data.global.y - model._pointerY;
+                    setPositionModelX(model.position.x);
+                    setPositionModelY(model.position.y);
                 }
             });
-            model.on("pointerupoutside", () => {
-                model.dragging = false;
-                window.sessionStorage.setItem('modelx', model.position.x);
-                window.sessionStorage.setItem('modely', model.position.y);
-            });
+            model.on("pointerupoutside", () => (model.dragging = false));
             model.on("pointerup", () => (model.dragging = false));
         }
 
@@ -78,10 +78,10 @@ const Live2DModelComponent = () => {
             }
             setUsername(window.localStorage.getItem('user') || 'User');
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
-            (model as any).y = isEditOpen === false ? window.sessionStorage.getItem('modely') : innerHeight * 0.09;
-            (model as any).position.x = isEditOpen === false ? window.sessionStorage.getItem('modelx') : -125;
-            window.sessionStorage.setItem('modelx', (model as any).position.x);
-            window.sessionStorage.setItem('modely', (model as any).position.y);
+            (model as any).position.y = isEditOpen === false ? positionModelY : innerHeight * 0.09;
+            (model as any).position.x = isEditOpen === false ? positionModelX : -125;
+            setPositionModelX((model as any).position.x);
+            setPositionModelY((model as any).position.y);
             (model as any).scale.set(0.1);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
