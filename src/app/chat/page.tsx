@@ -56,11 +56,13 @@ const Live2DModelComponent = () => {
                 if (model.dragging) {
                     model.position.x = e.data.global.x - model._pointerX;
                     model.position.y = e.data.global.y - model._pointerY;
-                    window.sessionStorage.setItem('modelx', model.position.x);
-                    window.sessionStorage.setItem('modely', model.position.y);
                 }
             });
-            model.on("pointerupoutside", () => (model.dragging = false));
+            model.on("pointerupoutside", () => {
+                model.dragging = false;
+                window.sessionStorage.setItem('modelx', model.position.x);
+                window.sessionStorage.setItem('modely', model.position.y);
+            });
             model.on("pointerup", () => (model.dragging = false));
         }
 
