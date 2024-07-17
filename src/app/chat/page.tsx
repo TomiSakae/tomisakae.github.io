@@ -34,8 +34,8 @@ const Live2DModelComponent = () => {
     const [isOpacityOpen, setIsOpacityOpen] = useState(false);
     const [editMode, setEditMode] = useState(false);
     const [username, setUsername] = useState('User');
-    const [positionModelX, setPositionModelX] = useState(false);
-    const [positionModelY, setPositionModelY] = useState(false);
+    const [positionModelX, setPositionModelX] = useState();
+    const [positionModelY, setPositionModelY] = useState();
 
     useEffect(() => {
         window.PIXI = PIXI;
