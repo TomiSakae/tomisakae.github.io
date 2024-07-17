@@ -12,6 +12,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { FaTrashAlt } from "react-icons/fa";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import { FaEdit } from "react-icons/fa";
+import { useRouter } from 'next/navigation';
 
 declare global {
     interface Window {
@@ -20,6 +21,7 @@ declare global {
 }
 
 const Live2DModelComponent = () => {
+    const router = useRouter();
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [inputText, setInputText] = useState('');
     const [outputText, setOutputText] = useState('');
@@ -29,13 +31,10 @@ const Live2DModelComponent = () => {
     const [isHistoryOpen, setIsHistoryOpen] = useState(false);
     const [chatHistory, setChatHistory] = useState<any[]>([]);
     const [isTrashOpen, setIsTrashOpen] = useState(false);
-    const [isEditOpen, setIsEditOpen] = useState(false);
     const [isTrashRemove, setIsTrashRemove] = useState(false);
     const [isOpacityOpen, setIsOpacityOpen] = useState(false);
     const [editMode, setEditMode] = useState(false);
     const [username, setUsername] = useState('User');
-    const [positionModelX, setPositionModelX] = useState();
-    const [positionModelY, setPositionModelY] = useState();
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -46,25 +45,6 @@ const Live2DModelComponent = () => {
             backgroundAlpha: 0,
             antialias: true,
         });
-
-        const draggable = (model: any) => {
-            model.buttonMode = true;
-            model.on("pointerdown", (e: any) => {
-                model.dragging = true;
-                model._pointerX = e.data.global.x - model.x;
-                model._pointerY = e.data.global.y - model.y;
-            });
-            model.on("pointermove", (e: any) => {
-                if (model.dragging) {
-                    model.position.x = e.data.global.x - model._pointerX;
-                    model.position.y = e.data.global.y - model._pointerY;
-                    setPositionModelX(model.position.x);
-                    setPositionModelY(model.position.y);
-                }
-            });
-            model.on("pointerupoutside", () => (model.dragging = false));
-            model.on("pointerup", () => (model.dragging = false));
-        }
 
         const loadLive2DModel = async () => {
             const { Live2DModel } = await import('pixi-live2d-display');
@@ -78,21 +58,16 @@ const Live2DModelComponent = () => {
             }
             setUsername(window.localStorage.getItem('user') || 'User');
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
-            (model as any).position.y = isEditOpen === false ? positionModelY : innerHeight * 0.09;
-            (model as any).position.x = isEditOpen === false ? positionModelX : -125;
-            setPositionModelX((model as any).position.x);
-            setPositionModelY((model as any).position.y);
-            (model as any).scale.set(0.1);
+            (model as any).y = window.localStorage.getItem('modely') || innerHeight * 0.09;
+            (model as any).position.x = window.localStorage.getItem('modelx') || -125;
+            (model as any).scale.set(Number(window.localStorage.getItem('scale')) || 0.1);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
 
-            if (isEditOpen === true) {
-                draggable(model);
-            }
         };
 
         loadLive2DModel();
-    }, [isLive2DScriptLoaded, isEditOpen]);
+    }, [isLive2DScriptLoaded]);
 
     const handleToggleInput = () => {
         setIsTyping((prev) => !prev);
@@ -147,10 +122,6 @@ const Live2DModelComponent = () => {
         window.localStorage.setItem('user', username);
     };
 
-    const toggleEdit = () => {
-        setIsEditOpen((prev) => !prev);
-    };
-
     const toggleHistory = () => {
         setIsHistoryOpen((prev) => !prev);
         setIsOpacityOpen(true);
@@ -176,9 +147,6 @@ const Live2DModelComponent = () => {
         setIsOpacityOpen(false);
     };
 
-    const closeEdit = () => {
-        setIsEditOpen(false);
-    };
 
     return (
         <>
@@ -205,7 +173,7 @@ const Live2DModelComponent = () => {
                 }
             `}</style>
             <canvas id="canvas" className={`${isOpacityOpen ? 'opacity-50' : ''}`} />
-            <div className={`fixed gradient-background text-sm bottom-[8em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white ${isOpacityOpen ? 'opacity-50' : ''} ${isEditOpen ? '-z-50' : 'z-10'}`}>
+            <div className={`fixed gradient-background text-sm bottom-[8em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
                 <div className="px-2 font-bold">
                     {outputText ? (
                         <h6>HMS Abercrombie (F109)</h6>
@@ -273,8 +241,8 @@ const Live2DModelComponent = () => {
                     ) : (<span></span>)}
                 </div>
             </div>
-            <div className={`fixed flex justify-end items-center gradient-background text-sm bottom-[5.2em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''} ${isEditOpen ? '-z-50' : 'z-10'}`}>
-                <FaEdit className="text-lg font-bold cursor-pointer me-5" onClick={toggleEdit} />
+            <div className={`fixed flex justify-end items-center gradient-background text-sm bottom-[5.2em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
+                <FaEdit className="text-lg font-bold cursor-pointer me-5" onClick={() => router.push("/chat/edit")} />
                 <FaTrashAlt className="text-lg font-bold cursor-pointer me-5" onClick={toggleTrash} />
                 <MdHistory className="text-xl font-bold cursor-pointer" onClick={toggleHistory} />
             </div>
@@ -322,11 +290,6 @@ const Live2DModelComponent = () => {
                             OK
                         </button>
                     </div>
-                </div>
-            )}
-            {isEditOpen && (
-                <div className={`fixed top-4 right-4 opacity-50 ${isEditOpen === true ? 'z-30' : '-z-30'}`}>
-                    <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeEdit} />
                 </div>
             )}
         </>
