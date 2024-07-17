@@ -27,6 +27,8 @@ const Live2DModelComponent = () => {
     const [isHistoryOpen, setIsHistoryOpen] = useState(false);
     const [chatHistory, setChatHistory] = useState<any[]>([]);
     const [isTrashOpen, setIsTrashOpen] = useState(false);
+    const [isTrashRemove, setIsTrashRemove] = useState(false);
+    const [isOpacityOpen, setIsOpacityOpen] = useState(false);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -65,6 +67,14 @@ const Live2DModelComponent = () => {
         setOutputText('');
     };
 
+    const handleRemoveHistory = () => {
+        window.localStorage.removeItem('chatHistory');
+        setOutputText("Nhấn vào nút gửi để nhập tin nhắn!");
+        closeTrash();
+        setIsOpacityOpen(true);
+        setIsTrashRemove(true);
+    };
+
     const handleSend = async () => {
         if (inputText.trim() !== '') {
             setIsChangeType(true);
@@ -89,14 +99,27 @@ const Live2DModelComponent = () => {
 
     const toggleHistory = () => {
         setIsHistoryOpen((prev) => !prev);
+        setIsOpacityOpen(true);
     };
 
     const toggleTrash = () => {
         setIsTrashOpen((prev) => !prev);
+        setIsOpacityOpen(true);
     };
 
     const closeHistory = () => {
         setIsHistoryOpen(false);
+        setIsOpacityOpen(false);
+    };
+
+    const closeTrash = () => {
+        setIsTrashOpen(false);
+        setIsOpacityOpen(false);
+    };
+
+    const closeTrashRemove = () => {
+        setIsTrashRemove(false);
+        setIsOpacityOpen(false);
     };
 
     return (
@@ -124,8 +147,8 @@ const Live2DModelComponent = () => {
                     background: rgba(3, 122, 222, 0.5) linear-gradient(to bottom right, rgba(3, 122, 222, 0.5), rgba(3, 229, 183, 0.5));
                 }
             `}</style>
-            <canvas id="canvas" className={`${isHistoryOpen ? 'opacity-50' : ''}`} />
-            <div className={`fixed gradient-background text-sm bottom-[16vh] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white ${isHistoryOpen ? 'opacity-50' : ''}`}>
+            <canvas id="canvas" className={`${isOpacityOpen ? 'opacity-50' : ''}`} />
+            <div className={`fixed gradient-background text-sm bottom-[16vh] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
                 <div className="px-2 font-bold">
                     {outputText ? (
                         <h6>HMS Abercrombie (F109)</h6>
@@ -181,22 +204,22 @@ const Live2DModelComponent = () => {
                     ) : (<span></span>)}
                 </div>
             </div>
-            <div className={`fixed flex justify-end gradient-background text-sm bottom-[10vh] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white ${isHistoryOpen ? 'opacity-50' : ''}`}>
+            <div className={`fixed flex justify-end gradient-background text-sm bottom-[10vh] z-10 left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
                 <FaTrashAlt className="text-lg font-bold cursor-pointer me-4" onClick={toggleTrash} />
                 <MdHistory className="text-xl font-bold cursor-pointer" onClick={toggleHistory} />
             </div>
             {isHistoryOpen && (
-                <div className={`fixed top-4 bottom-[10vh] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isHistoryOpen === true ? 'z-30' : '-z-30'}`}>
+                <div className={`fixed top-4 bottom-[10vh] h-[88vh] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isHistoryOpen === true ? 'z-30' : '-z-30'}`}>
                     <div className="flex justify-between items-center mb-4">
-                        <h2 className="font-bold text-white">Lịch Sử Chat</h2>
+                        <h2 className="font-bold text-lg text-white">Lịch Sử Chat</h2>
                         <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeHistory} />
                     </div>
-                    <div className="h-[75vh] overflow-y-auto flex flex-col-reverse">
+                    <div className="h-[90%] overflow-y-auto flex flex-col-reverse">
                         {chatHistory.slice().reverse().map((entry, index) => (
                             <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
                                 <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
                                 <div className={`p-3 rounded-lg inline-block w-fit mb-4 ${entry.role === "model" ? "bg-[#404040] text-white" : "bg-[#d5f594] ml-auto text-black"} max-w-xs`}>
-                                    <div className="text-sm">{entry.parts[0].text}</div>
+                                    <div className={`text-sm ${entry.role === "model" ? "" : "text-start"}`}>{entry.parts[0].text}</div>
                                 </div>
                             </div>
                         ))}
@@ -204,20 +227,30 @@ const Live2DModelComponent = () => {
                 </div>
             )}
             {isTrashOpen && (
-                <div className={`fixed top-4 bottom-[10vh] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isTrashOpen === true ? 'z-30' : '-z-30'}`}>
+                <div className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#333333] rounded-lg p-4 w-[90%] max-w-[600px] ${isTrashOpen === true ? 'z-30' : '-z-30'}`}>
                     <div className="flex justify-between items-center mb-4">
-                        <h2 className="font-bold text-white">Lịch Sử Chat</h2>
-                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeHistory} />
+                        <h2 className="font-bold text-lg text-white">Xóa Đoạn Chat</h2>
+                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeTrash} />
                     </div>
-                    <div className="h-[calc(100vh-12em)] overflow-y-auto flex flex-col-reverse">
-                        {chatHistory.slice().reverse().map((entry, index) => (
-                            <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
-                                <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : "User"}</div>
-                                <div className={`p-3 rounded-lg inline-block w-fit mb-4 ${entry.role === "model" ? "bg-[#404040] text-white" : "bg-[#d5f594] ml-auto text-black"} max-w-xs`}>
-                                    <div className="text-sm">{entry.parts[0].text}</div>
-                                </div>
-                            </div>
-                        ))}
+                    <p className="text-center text-white mb-4">Hành động này sẽ xóa toàn bộ dữ liệu chat của bạn!</p>
+                    <div className="flex justify-center">
+                        <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" onClick={handleRemoveHistory}>
+                            Xóa
+                        </button>
+                    </div>
+                </div>
+            )}
+            {isTrashRemove && (
+                <div className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#333333] rounded-lg p-4 w-[90%] max-w-[600px] ${isTrashRemove === true ? 'z-30' : '-z-30'}`}>
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="font-bold text-lg text-white">Xóa Đoạn Chat</h2>
+                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeTrashRemove} />
+                    </div>
+                    <p className="text-center text-white mb-4">Dữ liệu đã xóa thành công!</p>
+                    <div className="flex justify-center">
+                        <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded" onClick={closeTrashRemove}>
+                            OK
+                        </button>
                     </div>
                 </div>
             )}
