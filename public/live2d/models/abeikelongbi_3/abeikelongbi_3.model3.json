@@ -92,6 +92,11 @@
         {
           "File": "motions/login.motion3.json"
         }
+      ],
+      "Idle": [
+        {
+          "File": "motions/idle.motion3.json"
+        }
       ]
     }
   },
