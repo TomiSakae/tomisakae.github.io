@@ -107,9 +107,7 @@ const Live2DModelComponent = () => {
                             onClick={() => {
                                 window.localStorage.setItem('scale', String(scaleModel));
                                 router.back();
-                                setTimeout(() => {
-                                    window.location.reload();
-                                }, 100);
+                                window.sessionStorage.setItem('reload', 'true');
                             }}
                         />
                     </div>

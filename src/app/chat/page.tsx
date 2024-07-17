@@ -13,6 +13,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import { FaEdit } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
+import { FaExchangeAlt } from "react-icons/fa";
 
 declare global {
     interface Window {
@@ -68,6 +69,14 @@ const Live2DModelComponent = () => {
 
         loadLive2DModel();
     }, [isLive2DScriptLoaded]);
+
+    useEffect(() => {
+        if (window.sessionStorage.getItem('reload') == 'true') {
+            window.sessionStorage.setItem('reload', 'false');
+            window.location.reload();
+        }
+        window.sessionStorage.setItem('reload', 'false');
+    }, [])
 
     const handleToggleInput = () => {
         setIsTyping((prev) => !prev);
@@ -242,6 +251,10 @@ const Live2DModelComponent = () => {
                 </div>
             </div>
             <div className={`fixed flex justify-end items-center gradient-background text-sm bottom-[5.2em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
+                <FaExchangeAlt className="text-lg font-bold cursor-pointer me-5" onClick={() => {
+                    router.push("/chat/vn");
+                    window.sessionStorage.setItem('reload', 'true');
+                }} />
                 <FaEdit className="text-lg font-bold cursor-pointer me-5" onClick={() => router.push("/chat/edit")} />
                 <FaTrashAlt className="text-lg font-bold cursor-pointer me-5" onClick={toggleTrash} />
                 <MdHistory className="text-xl font-bold cursor-pointer" onClick={toggleHistory} />
