@@ -1,6 +1,6 @@
 // components/Live2DModel.tsx
 'use client'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Script from 'next/script';
 import * as PIXI from 'pixi.js';
 import { generateChatResponse } from '@/components/GeminiAPIVN';
@@ -19,6 +19,7 @@ declare global {
 
 const Live2DModelComponent = () => {
     const router = useRouter();
+    const modelRef = useRef(null);  // Khai báo một biến tham chiếu useRef
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [outputText, setOutputText] = useState('');
     const [isTypeDone, setIsTypeDone] = useState(false);
@@ -44,7 +45,8 @@ const Live2DModelComponent = () => {
             (model as any).scale.set(window.localStorage.getItem('scale') || 0.1);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
-
+            // Gán giá trị model vào biến tham chiếu useRef
+            (modelRef as any).current = model;
         };
 
         loadLive2DModel();
@@ -85,6 +87,7 @@ const Live2DModelComponent = () => {
     }, [])
 
     const ChooseVN = async (option: string) => {
+        (modelRef as any).current.motion('Animation');
         setOutputText('...');
         setTextAnimation('...'.split('')); // Hiển thị hiệu ứng với "..."
         setIsTypeDone(false);
@@ -129,7 +132,7 @@ const Live2DModelComponent = () => {
                     <h6>HMS Abercrombie (F109)</h6>
                 </div>
                 <GrPowerReset
-                    className="text-white fixed bottom-[5.9em] z-10 right-4 text-xl cursor-pointer" onClick={resetVN}
+                    className="text-white fixed bottom-[5.84em] z-10 right-4 text-xl cursor-pointer" onClick={resetVN}
                 />
                 <div className="bg-[#333333] font-[500] rounded-lg h-[7.2em] mt-2 text-white py-2 px-4 relative overflow-auto">
                     {outputText && (
@@ -180,10 +183,10 @@ const Live2DModelComponent = () => {
                     <div className="text-center text-white font-bold bg-[#333333] px-4 py-3 rounded-lg items-center mb-4 cursor-pointer" onClick={() => { ChooseVN("1") }}>
                         {optionsVN[1].replace(/^"|"$/g, '')}
                     </div>
-                    <div className="text-center text-white font-bold bg-[#333333] px-4 py-2 rounded-lg items-center mb-4 cursor-pointer" onClick={() => { ChooseVN("2") }}>
+                    <div className="text-center text-white font-bold bg-[#333333] px-4 py-3 rounded-lg items-center mb-4 cursor-pointer" onClick={() => { ChooseVN("2") }}>
                         {optionsVN[2].replace(/^"|"$/g, '')}
                     </div>
-                    <div className="text-center text-white font-bold bg-[#333333] px-4 py-2 rounded-lg items-center mb-4 cursor-pointer" onClick={() => { ChooseVN("3") }}>
+                    <div className="text-center text-white font-bold bg-[#333333] px-4 py-3 rounded-lg items-center mb-4 cursor-pointer" onClick={() => { ChooseVN("3") }}>
                         {optionsVN[3].replace(/^"|"$/g, '')}
                     </div>
                 </div>

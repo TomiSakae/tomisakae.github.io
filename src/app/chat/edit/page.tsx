@@ -1,6 +1,6 @@
 // components/Live2DModel.tsx
 'use client'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Script from 'next/script';
 import * as PIXI from 'pixi.js';
 import { useRouter } from 'next/navigation';
@@ -16,6 +16,7 @@ declare global {
 
 const Live2DModelComponent = () => {
     const router = useRouter();
+    const modelRef = useRef(null);  // Khai báo một biến tham chiếu useRef
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [scaleModel, setScaleModel] = useState(0.1);
     const [isSettingOpen, setIsSettingOpen] = useState(false);
@@ -55,25 +56,27 @@ const Live2DModelComponent = () => {
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             (model as any).y = window.localStorage.getItem('modely') || innerHeight * 0.09;
             (model as any).position.x = window.localStorage.getItem('modelx') || -125;
-            (model as any).scale.set(scaleModel || 0.1);
+            (model as any).scale.set(window.localStorage.getItem('scale') || scaleModel || 0.1);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
+            (modelRef as any).current = model;
             draggable(model);
         };
 
         loadLive2DModel();
-    }, [isLive2DScriptLoaded, scaleModel]);
+    }, [isLive2DScriptLoaded]);
 
     useEffect(() => {
         setScaleModel(Number(window.localStorage.getItem('scale')) || 0.1);
-    }, [])
-
+    }, []);
 
     const upScale = () => {
+        (modelRef as any).current.scale.set(parseFloat((scaleModel + 0.01).toFixed(2)));
         setScaleModel(parseFloat((scaleModel + 0.01).toFixed(2)));
     }
 
     const downScale = () => {
+        (modelRef as any).current.scale.set(parseFloat((scaleModel - 0.01).toFixed(2)));
         setScaleModel(parseFloat((scaleModel - 0.01).toFixed(2)));
     }
 
@@ -119,6 +122,7 @@ const Live2DModelComponent = () => {
                                 window.localStorage.removeItem('modelx');
                                 window.localStorage.removeItem('scale');
                                 setScaleModel(0.1);
+                                (modelRef as any).current.scale.set(0.1);
                             }}
                         />
                     </div>
