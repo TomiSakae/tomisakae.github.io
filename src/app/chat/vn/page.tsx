@@ -96,13 +96,7 @@ const Live2DModelComponent = () => {
 
     const resetVN = async () => {
         window.localStorage.removeItem('chatVNHistory');
-        setOutputText('...');
-        setTextAnimation('...'.split('')); // Hiển thị hiệu ứng với "..."
-        setIsTypeDone(false);
-        const response = await generateChatResponse("new");
-        const text = JSON.parse(response);
-        setOutputText(text.text);
-        setOptionsVN(text.options);
+        window.location.reload();
     }
 
     return (

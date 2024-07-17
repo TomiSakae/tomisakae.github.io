@@ -44,7 +44,55 @@ export async function generateChatResponse(prompt: string): Promise<string> {
             {
                 role: "user",
                 parts: [
-                    { text: "Gemini khi nhận input là \"new\" thì sẽ tự động tạo ra 1 chủ đề rồi dùng chủ đề đó tạo ra 1 câu hội thoại của Visual Novel. Nhận input tiếp là \",\" thì sẽ tạo tiếp câu hội thoại dựa trên câu hội thoại đã cho trước đó. Mỗi câu hội thoại có chiều dài như những hội thoại trong các visual novel khác, và khi tới lúc thích hợp thì xuất ra lựa chọn và phân thành id tương ứng (tối đa 3 lựa chọn). Nếu input nhận được là 1 trong 3 lựa chọn trước đó thì tiếp tục hội thoại." },
+                    { text: "Gemini khi nhận input là \"new\" thì sẽ tự động tạo ra 1 chủ đề rồi dùng chủ đề đó tạo ra 1 câu hội thoại của Visual Novel.  Mỗi câu hội thoại có chiều dài như những hội thoại trong các visual novel khác, và khi tới lúc thích hợp thì xuất ra lựa chọn và phân thành id tương ứng (tối đa 3 lựa chọn). Nếu input nhận được là 1 trong 3 lựa chọn trước đó thì tiếp tục hội thoại." },
+                ],
+            },
+            {
+                role: "model",
+                parts: [
+                    { text: "{\"text\": \"Một cơn gió nhẹ thoảng qua, mang theo hương thơm thoang thoảng của hoa cỏ mùa xuân. Xa xa, tiếng đàn piano du dương như rót mật vào lòng người. Trong quán cà phê nhỏ xinh, một cô gái ngồi cạnh cửa sổ, ánh mắt xa xăm nhìn dòng người qua lại.\", \"options\": [{\"1\": \"Lại gần làm quen với cô gái.\"}, {\"2\": \"Chọn một chỗ ngồi khác và lặng lẽ quan sát cô gái.\"}, {\"3\": \"Bỏ đi.\"}]}\n\n" },
+                ],
+            },
+            {
+                role: "user",
+                parts: [
+                    { text: "Visual Novel kiểu tương tác với 1 nhân vật thôi và văn bản ra chỉ là hội thoại của nhân vật đó, khi lựa chọn thì chỉ nhân vật đó nói với lựa chọn đó thôi" },
+                ],
+            },
+            {
+                role: "model",
+                parts: [
+                    { text: "{\"text\": \"\\\"Xin chào chủ nhân! Hôm nay chủ nhân có mệt không? Có cần em mát xa cho không?\\\"\", \"options\": {\"1\": \"\\\"Ừm, hôm nay ta hơi mệt, phiền con rồi.\\\"\", \"2\": \"\\\"Không cần đâu, ta muốn nghỉ ngơi một chút.\\\"\", \"3\": \"\\\"Hôm nay ngoan thế nhỉ, có chuyện gì muốn nhờ ta sao?\\\"\"}}\n\n" },
+                ],
+            },
+            {
+                role: "user",
+                parts: [
+                    { text: "lựa chọn luôn gọi là \"em\"" },
+                ],
+            },
+            {
+                role: "model",
+                parts: [
+                    { text: "{\"text\": \"\\\"Em mát xa rất giỏi đấy, chủ nhân cứ thư giãn nhé.\\\"\", \"options\": {\"1\": \"\\\"Ừm, ta tin tưởng em.\\\"\", \"2\": \"\\\"Nhẹ nhàng thôi đấy.\\\"\", \"3\": \"\\\"Lần trước em mát xa hơi đau đấy.\\\"\"}}\n" },
+                ],
+            },
+            {
+                role: "user",
+                parts: [
+                    { text: "Ừm, ta tin tưởng em." },
+                ],
+            },
+            {
+                role: "model",
+                parts: [
+                    { text: "{\"text\": \"\\\"Ưm... tay nghề của em vẫn tuyệt như mọi khi...\\\".  Chủ nhân khẽ rên lên khe khẽ khi em day trúng huyệt. \\\"Chủ nhân thấy dễ chịu hơn chưa ạ?\\\"\", \"options\": {\"1\": \"\\\"Ừm, thoải mái hơn nhiều rồi.\\\"\", \"2\": \"\\\"Tiếp tục đi, chỗ vai này hơi mỏi.\\\"\", \"3\": \"\\\"Em mát xa giỏi thật đấy, học được từ đâu vậy?\\\"\"}}\n\n" },
+                ],
+            },
+            {
+                role: "user",
+                parts: [
+                    { text: "new" },
                 ],
             },
             {
@@ -87,6 +135,18 @@ export async function generateChatResponse(prompt: string): Promise<string> {
                 role: "model",
                 parts: [
                     { text: "{\"text\": \"Senpai... Senpai có muốn ăn thử kẹo bông gòn em mới mua không? Của senpai đây ạ~\", \"options\": {\"1\": \"\\\"Cảm ơn em, trông ngon quá!\\\"\", \"2\": \"\\\"Để đấy đi, anh đang bận.\\\"\", \"3\": \"\\\"Anh không thích đồ ngọt lắm, em ăn đi.\\\"\"}}\n\n" },
+                ],
+            },
+            {
+                role: "user",
+                parts: [
+                    { text: "new" },
+                ],
+            },
+            {
+                role: "model",
+                parts: [
+                    { text: "{\"text\": \"Kyahhh! Xin lỗi, xin lỗi! Mình lỡ va phải cậu rồi. Cậu có sao không?\", \"options\": {\"1\": \"\\\"À, không sao đâu. Mình cũng bất cẩn nữa.\\\"\", \"2\": \"\\\"Này, đi đứng kiểu gì vậy?\\\"\", \"3\": \"\\\"...\\\"\"}}\n\n" },
                 ],
             },
         ]
