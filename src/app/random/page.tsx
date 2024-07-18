@@ -57,7 +57,7 @@ const VTube = () => {
     const [year, setYear] = useState(getRandomYear);
     const [season, setSeason] = useState(getRandomSeason(year));
     const [isZoomed, setIsZoomed] = useState("");
-    const { data: nekosData, error: nekosError } = useSWR('https://api.waifu.pics/many/sfw/waifu', fetcherPOST);
+    const { data: waifusData, error: waifusError } = useSWR('https://api.waifu.pics/many/sfw/waifu', fetcherPOST);
     const { data: jikanData, error: jikanError } = useSWR(`https://api.jikan.moe/v4/seasons/${year}/${season}?limit=10`, fetcher);
     const [isShowSearch, setIsShowSearch] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -101,8 +101,8 @@ const VTube = () => {
         fetchData();
     }, [jikanData]);
 
-    if (nekosError || jikanError) return <div>Failed to load</div>;
-    if (!nekosData || !jikanData || isGeminiLoaded === false) return (
+    if (waifusError || jikanError) return <div>Failed to load</div>;
+    if (!waifusData || !jikanData || isGeminiLoaded === false) return (
         <div className="grid bg-[#0f0f0f] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {/* Placeholder items with pulse animation */}
             <div className="flex flex-col bg-[#0f0f0f] pb-12 pt-14 text-white">
@@ -154,7 +154,7 @@ const VTube = () => {
         </div>
     );
 
-    const nekosImages = nekosData.files.slice(0, 10).map((imageUrl: string, index: number) => ({
+    const waifusImages = waifusData.files.slice(0, 10).map((imageUrl: string, index: number) => ({
         imageUrl: imageUrl,
         title: isGeminiLoaded ? (animeTitles[index] as any).title : '', // Assign title if loaded and available
     }));
@@ -197,7 +197,7 @@ const VTube = () => {
                 {/* Display images and anime list */}
                 <div className="grid grid-cols-1 gap-4">
                     {isGeminiLoaded &&
-                        nekosImages.map((image: any, index: number) => (
+                        waifusImages.map((image: any, index: number) => (
                             <motion.div
                                 key={index}
                                 layoutId={image.imageUrl}
