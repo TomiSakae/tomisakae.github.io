@@ -88,7 +88,7 @@ const NavBar: React.FC = () => {
                                 router.push("/chat");
                                 window.sessionStorage.setItem('reload', 'true');
                             }}
-                            className={`hover:bg-gray-700 ${chatMargin} px-1 py-2 rounded-md ${pathname === "/chat" ? "bg-gray-700" : "hover:bg-gray-700"}`}
+                            className={`hover:bg-gray-700 ${chatMargin} px-1 py-2 rounded-md ${pathname === "/chat" || pathname === "/chat/vn" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
                                 animationData={ChatData}

@@ -8,7 +8,7 @@ const ConditionalNavBar: React.FC = () => {
     const pathname = usePathname();
 
     // Danh sách các đường dẫn bị loại trừ
-    const excludedPaths = ["/anime"];
+    const excludedPaths = ["/anime", "/chat/edit"];
 
     if (excludedPaths.includes(pathname)) {
         return null;

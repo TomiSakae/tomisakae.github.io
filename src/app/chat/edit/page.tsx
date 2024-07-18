@@ -123,6 +123,7 @@ const Live2DModelComponent = () => {
                                 window.localStorage.removeItem('scale');
                                 setScaleModel(0.1);
                                 (modelRef as any).current.scale.set(0.1);
+                                window.location.reload();
                             }}
                         />
                     </div>
