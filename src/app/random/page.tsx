@@ -58,7 +58,7 @@ const VTube = () => {
     const [season, setSeason] = useState(getRandomSeason(year));
     const [isZoomed, setIsZoomed] = useState("");
     const { data: waifusData, error: waifusError } = useSWR('https://api.waifu.pics/many/sfw/waifu', fetcherPOST);
-    const { data: jikanData, error: jikanError } = useSWR(`https://api.jikan.moe/v4/seasons/${year}/${season}?limit=10`, fetcher);
+    const { data: jikanData, error: jikanError } = useSWR(`https://api.jikan.moe/v4/seasons/${year}/${season}?limit=20`, fetcher);
     const [isShowSearch, setIsShowSearch] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [animeTitles, setAnimeTitles] = useState([]);
@@ -154,7 +154,7 @@ const VTube = () => {
         </div>
     );
 
-    const waifusImages = waifusData.files.slice(0, 10).map((imageUrl: string, index: number) => ({
+    const waifusImages = waifusData.files.slice(0, 20).map((imageUrl: string, index: number) => ({
         imageUrl: imageUrl,
         title: isGeminiLoaded ? (animeTitles[index] as any).title : '', // Assign title if loaded and available
     }));
