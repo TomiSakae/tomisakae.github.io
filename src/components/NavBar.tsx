@@ -66,7 +66,7 @@ const NavBar: React.FC = () => {
                             />
                         </button>
                         <button
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/random")}
                             className={`hover:bg-gray-700 ${diceMargin} py-2 rounded-md ${pathname === "/random" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
