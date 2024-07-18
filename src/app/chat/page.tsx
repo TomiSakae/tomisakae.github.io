@@ -1,6 +1,6 @@
 // components/Live2DModel.tsx
 'use client'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Script from 'next/script';
 import * as PIXI from 'pixi.js';
 import { generateChatResponse } from '@/components/GeminiAPI';
@@ -23,6 +23,7 @@ declare global {
 
 const Live2DModelComponent = () => {
     const router = useRouter();
+    const modelRef = useRef(null);  // Khai báo một biến tham chiếu useRef
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [inputText, setInputText] = useState('');
     const [outputText, setOutputText] = useState('');
@@ -64,7 +65,7 @@ const Live2DModelComponent = () => {
             (model as any).scale.set(window.localStorage.getItem('scale') || 0.1);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
-
+            (modelRef as any).current = model;
         };
 
         loadLive2DModel();
@@ -97,6 +98,7 @@ const Live2DModelComponent = () => {
 
     const handleSend = async () => {
         if (inputText.trim() !== '') {
+            (modelRef as any).current.motion('Animation');
             setIsChangeType(true);
             setOutputText('...');
             setTextAnimation('...'.split('')); // Hiển thị hiệu ứng với "..."

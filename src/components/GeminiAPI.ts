@@ -4,7 +4,7 @@ import {
     HarmBlockThreshold,
 } from "@google/generative-ai";
 
-const MODEL_NAME = "gemini-1.5-pro";
+const MODEL_NAME = "gemini-1.5-flash";
 const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY as string || "AIzaSyCBJlfHz5S-Ny47JQO5djOBOk9VoppIoV8"; // Update with your API key
 
 export async function generateChatResponse(prompt: string): Promise<string> {
