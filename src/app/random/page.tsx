@@ -175,7 +175,11 @@ const VTube = () => {
         if (isGeminiLoaded) {
             const members = (animeMembers[index] as any).members;
             if (members >= 1000000) {
-                formattedMembers = `${Math.floor(members / 1000000)} Tr`;
+                if (members >= 10000000) {
+                    formattedMembers = `${Math.floor(members / 1000000)} Tr`;
+                } else {
+                    formattedMembers = `${(members / 1000000).toFixed(1).replace('.', ',')} Tr`;
+                }
             } else if (members >= 1000) {
                 formattedMembers = `${Math.floor(members / 1000)} N`;
             } else {
@@ -189,8 +193,10 @@ const VTube = () => {
 
             if (daysDifference > 365) {
                 timeSinceAired = `${Math.floor(daysDifference / 365)} năm`;
-            } else if (daysDifference > 30) {
+            } else if (daysDifference >= 30) {
                 timeSinceAired = `${Math.floor(daysDifference / 30)} tháng`;
+            } else if (daysDifference >= 7) {
+                timeSinceAired = `${Math.floor(daysDifference / 7)} tuần`;
             } else {
                 timeSinceAired = `${daysDifference} ngày`;
             }
@@ -253,9 +259,9 @@ const VTube = () => {
                                         <Image
                                             src="/tomisakae.jpg"
                                             alt="TomiSakae"
-                                            width={33}
-                                            height={33}
-                                            className="rounded-full w-[33px] h-[33px] mx-2"
+                                            width={35}
+                                            height={35}
+                                            className="rounded-full w-[35px] h-[35px] mx-2"
                                         />
                                         <div className="flex flex-col ml-2 w-[80%]">
                                             <h6 className="text-md font-[600] mb-1 truncate-2-lines">{image.title}</h6>
