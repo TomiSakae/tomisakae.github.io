@@ -10,6 +10,24 @@ import { FaExpand } from "react-icons/fa";
 import { motion, AnimatePresence } from 'framer-motion';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
+const fetcherPOST = async (url: string) => {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            type: 'waifu',
+        }),
+    });
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+
+    return response.json();
+};
+
 
 const getRandomYear = () => {
     const minYear = 1999;
@@ -39,7 +57,7 @@ const VTube = () => {
     const [year, setYear] = useState(getRandomYear);
     const [season, setSeason] = useState(getRandomSeason(year));
     const [isZoomed, setIsZoomed] = useState("");
-    const { data: nekosData, error: nekosError } = useSWR('https://api.nekosapi.com/v3/images/random?rating=safe&is_flagged=false&limit=10', fetcher);
+    const { data: nekosData, error: nekosError } = useSWR('https://api.waifu.pics/many/sfw/waifu', fetcherPOST);
     const { data: jikanData, error: jikanError } = useSWR(`https://api.jikan.moe/v4/seasons/${year}/${season}?limit=10`, fetcher);
     const [isShowSearch, setIsShowSearch] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -136,10 +154,9 @@ const VTube = () => {
         </div>
     );
 
-    const nekosImages = nekosData.items.map((item: any, index: number) => ({
-        imageUrl: item.image_url,
+    const nekosImages = nekosData.files.slice(0, 10).map((imageUrl: string, index: number) => ({
+        imageUrl: imageUrl,
         title: isGeminiLoaded ? (animeTitles[index] as any).title : '', // Assign title if loaded and available
-
     }));
 
     return (
