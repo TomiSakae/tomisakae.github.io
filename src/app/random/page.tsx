@@ -1,13 +1,23 @@
 'use client'
 import { CiSearch } from "react-icons/ci";
-import { useEffect, useState, useRef } from 'react';
+import { useState } from 'react';
 import { GoArrowLeft } from "react-icons/go";
 import { AiOutlineClose } from 'react-icons/ai';
 import Image from 'next/image';
+import useSWR from 'swr';
+
+const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 const VTube = () => {
+    const { data, error } = useSWR('https://pic.re/image', fetcher);
     const [isShowSearch, setIsShowSearch] = useState(false);
     const [inputValue, setInputValue] = useState('');
+
+    if (error) return <div>Failed to load</div>;
+    if (!data) return <div>Loading...</div>;
+
+    const images = Array(10).fill(data.file_url);
+
     const showSearch = () => {
         setIsShowSearch(true);
     }
@@ -17,11 +27,9 @@ const VTube = () => {
     const handleInputChange = (e: any) => {
         setInputValue(e.target.value);
     };
-
     const clearInput = () => {
         setInputValue('');
     };
-
 
     return (
         <div className="flex flex-col bg-[#0f0f0f] pb-12 text-white">
@@ -38,7 +46,7 @@ const VTube = () => {
                             <textarea
                                 placeholder="Tìm trên VvTube"
                                 autoFocus
-                                className="resize-none overflow-x-auto text-sm border-none px-2 h-full rounded-2xl bg-[#333333] focus:outline-none text-white pr-16 leading-tight whitespace-nowrap" // Thêm padding phải để không che mất chữ
+                                className="resize-none overflow-x-auto text-sm border-none px-2 h-full rounded-2xl bg-[#333333] focus:outline-none text-white pr-16 leading-tight whitespace-nowrap"
                                 value={inputValue}
                                 onChange={handleInputChange}
                             />
@@ -59,9 +67,9 @@ const VTube = () => {
             <main className="mt-16">
                 <div className="grid grid-cols-1 gap-4">
                     {/* Danh sách video */}
-                    {Array.from({ length: 10 }).map((_, index) => (
+                    {images.map((image, index) => (
                         <div key={index} className="mx-[6vw] mb-6">
-                            <div className="h-[44vw] bg-gray-800 rounded-xl mb-3"></div>
+                            <div className="h-[44vw] bg-gray-800 rounded-xl mb-3" style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                             <div className="flex">
                                 <Image
                                     src="/tomisakae.jpg"
