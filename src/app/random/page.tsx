@@ -9,14 +9,14 @@ import useSWR from 'swr';
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 const VTube = () => {
-    const { data, error } = useSWR('https://pic.re/image', fetcher);
+    const { data, error } = useSWR('https://api.nekosapi.com/v3/images/random?rating=safe&is_flagged=false&limit=10', fetcher);
     const [isShowSearch, setIsShowSearch] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
     if (error) return <div>Failed to load</div>;
     if (!data) return <div>Loading...</div>;
 
-    const images = Array(10).fill(data.file_url);
+    const images = data.items.map((item: any) => item.image_url);
 
     const showSearch = () => {
         setIsShowSearch(true);
@@ -67,9 +67,9 @@ const VTube = () => {
             <main className="mt-16">
                 <div className="grid grid-cols-1 gap-4">
                     {/* Danh sách video */}
-                    {images.map((image, index) => (
+                    {images.map((image: any, index: any) => (
                         <div key={index} className="mx-[6vw] mb-6">
-                            <div className="h-[44vw] bg-gray-800 rounded-xl mb-3" style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+                            <div className="h-[44vw] bg-gray-800 rounded-xl mb-3" style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
                             <div className="flex">
                                 <Image
                                     src="/tomisakae.jpg"
