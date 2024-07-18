@@ -140,7 +140,7 @@ const VTube = () => {
                 </header>
                 {[...Array(10)].map((_, index) => (
                     <div key={index} className="animate-pulse mx-[6vw] mb-6 overflow-hidden">
-                        <div className="h-[44vw] bg-gray-800 rounded-xl mb-3"></div>
+                        <div className="h-[52vw] bg-gray-800 rounded-xl mb-3"></div>
                         <div className="flex">
                             <div className="rounded-full w-[33px] h-[33px] bg-gray-300 mx-2"></div>
                             <div className="flex flex-col ml-2 w-[80%]">
@@ -203,7 +203,7 @@ const VTube = () => {
                                 layoutId={image.imageUrl}
                             >
                                 <div className="mx-[6vw] mb-6">
-                                    <div className="h-[44vw] bg-gray-800 rounded-xl mb-3" style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
+                                    <div className="h-[46vw] bg-gray-800 rounded-xl mb-3" style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
                                     <div className="flex">
                                         <Image
                                             src="/tomisakae.jpg"
