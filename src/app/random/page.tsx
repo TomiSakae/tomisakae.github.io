@@ -62,6 +62,8 @@ const VTube = () => {
     const [isShowSearch, setIsShowSearch] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [animeTitles, setAnimeTitles] = useState([]);
+    const [animeMembers, setAnimeMembers] = useState([]);
+    const [animeAired, setAnimeAired] = useState([]);
     const [isGeminiLoaded, setIsGeminiLoaded] = useState(false); // State to track if titles are loaded
 
     const showSearch = () => {
@@ -88,7 +90,19 @@ const VTube = () => {
                     title: anime.title,
                     // Add more fields as needed
                 }));
+                const members = jikanData.data.map((anime: any, index: number) => ({
+                    id: index + 1,
+                    members: anime.members,
+                    // Add more fields as needed
+                }));
+                const aired = jikanData.data.map((anime: any, index: number) => ({
+                    id: index + 1,
+                    aired: anime.aired.from,
+                    // Add more fields as needed
+                }));
                 setAnimeTitles(titles);
+                setAnimeMembers(members);
+                setAnimeAired(aired);
                 // Generate JSON string for titles
                 const titlesJson = JSON.stringify({ anime_titles: titles });
                 const response = await generateChatResponse(titlesJson); // Assuming generateChatResponse accepts JSON string
@@ -154,10 +168,41 @@ const VTube = () => {
         </div>
     );
 
-    const waifusImages = waifusData.files.slice(0, 20).map((imageUrl: string, index: number) => ({
-        imageUrl: imageUrl,
-        title: isGeminiLoaded ? (animeTitles[index] as any).title : '', // Assign title if loaded and available
-    }));
+    const waifusImages = waifusData.files.slice(0, 20).map((imageUrl: string, index: number) => {
+        let formattedMembers = '';
+        let timeSinceAired = '';
+
+        if (isGeminiLoaded) {
+            const members = (animeMembers[index] as any).members;
+            if (members >= 1000000) {
+                formattedMembers = `${Math.floor(members / 1000000)} Tr`;
+            } else if (members >= 1000) {
+                formattedMembers = `${Math.floor(members / 1000)} N`;
+            } else {
+                formattedMembers = members.toString();
+            }
+
+            const airedFrom = new Date((animeAired[index] as any).aired);
+            const currentDate = new Date();
+            const timeDifference = Math.abs(currentDate.getTime() - airedFrom.getTime());
+            const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+
+            if (daysDifference > 365) {
+                timeSinceAired = `${Math.floor(daysDifference / 365)} năm`;
+            } else if (daysDifference > 30) {
+                timeSinceAired = `${Math.floor(daysDifference / 30)} tháng`;
+            } else {
+                timeSinceAired = `${daysDifference} ngày`;
+            }
+        }
+
+        return {
+            imageUrl: imageUrl,
+            title: isGeminiLoaded ? (animeTitles[index] as any).title : '', // Assign title if loaded and available
+            members: formattedMembers,
+            aired: timeSinceAired,
+        };
+    });
 
     return (
         <div className="flex flex-col bg-[#0f0f0f] pb-12 text-white">
@@ -203,7 +248,7 @@ const VTube = () => {
                                 layoutId={image.imageUrl}
                             >
                                 <div className="mx-[6vw] mb-6">
-                                    <div className="h-[52vw] bg-gray-800 rounded-xl mb-3" style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
+                                    <div className="h-[56vw] bg-gray-800 rounded-xl mb-3" style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
                                     <div className="flex">
                                         <Image
                                             src="/tomisakae.jpg"
@@ -218,7 +263,7 @@ const VTube = () => {
                                                 TomiSakae
                                             </p>
                                             <p className="text-sm text-[#AAAAA0] font-[500] flex items-center">
-                                                10 N lượt xem <span className="mx-1">•</span> 1 ngày trước
+                                                {image.members} lượt xem <span className="mx-1">•</span> {image.aired} trước
                                             </p>
                                         </div>
                                         <FaExpand className="text-xl mt-1 mr-3 text-[#AAAAA0] font-bold cursor-pointer" onClick={() => setIsZoomed(image.imageUrl)} />
