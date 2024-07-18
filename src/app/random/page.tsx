@@ -261,7 +261,7 @@ const VTube = () => {
                                             alt="TomiSakae"
                                             width={35}
                                             height={35}
-                                            className="rounded-full w-[35px] h-[35px] mx-2"
+                                            className="rounded-full w-[35px] h-[35px] ml-2 mr-1"
                                         />
                                         <div className="flex flex-col ml-2 w-[80%]">
                                             <h6 className="text-md font-[600] mb-1 truncate-2-lines">{image.title}</h6>
@@ -272,7 +272,7 @@ const VTube = () => {
                                                 {image.members} lượt xem <span className="mx-1">•</span> {image.aired} trước
                                             </p>
                                         </div>
-                                        <FaExpand className="text-xl mt-1 mr-3 text-[#AAAAA0] font-bold cursor-pointer" onClick={() => setIsZoomed(image.imageUrl)} />
+                                        <FaExpand className="text-xl mt-1 ml-2 mr-3 text-[#AAAAA0] font-bold cursor-pointer" onClick={() => setIsZoomed(image.imageUrl)} />
                                     </div>
                                 </div>
                             </motion.div>
