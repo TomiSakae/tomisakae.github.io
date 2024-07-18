@@ -122,3 +122,11 @@ body {
   initial-value: 0deg;
   inherits: false;
 }
+
+.truncate-2-lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* Số dòng tối đa muốn hiển thị */
+  overflow: hidden;
+}
