@@ -254,7 +254,7 @@ const VTube = () => {
                                 layoutId={image.imageUrl}
                             >
                                 <div className="mx-[6vw] mb-6">
-                                    <div className="h-[52vw] bg-gray-800 rounded-xl mb-3" style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
+                                    <div className="h-[58vw] bg-gray-800 rounded-xl mb-3" style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
                                     <div className="flex">
                                         <Image
                                             src="/tomisakae.jpg"
