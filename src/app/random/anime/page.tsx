@@ -13,6 +13,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { AiOutlineLike } from "react-icons/ai";
 import { addData, fetchData } from "../../../components/firestoreService";
 import { Suspense } from 'react'
+import { AiFillLike } from "react-icons/ai";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 const fetcherPOST = async (url: string) => {
@@ -76,16 +77,30 @@ const VTube = () => {
     const [animeMalId, setAnimeMalId] = useState([]);
     const [animeAired, setAnimeAired] = useState([]);
     const [animeLiked, setAnimeLiked] = useState([]);
+    const [subscribe, setSubscribe] = useState<number | null>(null);
     const [isGeminiLoaded, setIsGeminiLoaded] = useState(false); // State to track if titles are loaded
-    const [isRegistered, setIsRegistered] = useState(false);
+    const [isRegistered, setIsRegistered] = useState<boolean>(false);
+    const [isLiked, setIsLiked] = useState<boolean>(false);
     const [year, setYear] = useState<number | null>(null);
     const [season, setSeason] = useState<string | null>(null);
+
+    useEffect(() => {
+        // Chạy mã chỉ trên client-side
+        const storedValue = window.localStorage.getItem('sub');
+        setIsRegistered(storedValue === 'true');
+    }, []);
 
     useEffect(() => {
         const newYear = getRandomYear();
         const newSeason = getRandomSeason(newYear);
         setYear(newYear);
         setSeason(newSeason);
+
+        const dataFireBase = async () => {
+            const data = await fetchData();
+            setSubscribe(data);
+        }
+        dataFireBase();
     }, []);
 
     useEffect(() => {
@@ -106,6 +121,9 @@ const VTube = () => {
 
     const handleRegisterClick = () => {
         setIsRegistered(true);
+        window.localStorage.setItem('sub', 'true');
+        addData();
+        setSubscribe((Number(subscribe) + 1));
     };
 
     const showSearch = () => {
@@ -336,7 +354,7 @@ const VTube = () => {
                                             TomiSakae
                                         </p>
                                         <p className="text-xs text-[#AAAAA0] font-[500] flex items-center">
-                                            0 người đăng ký
+                                            {subscribe} người đăng ký
                                         </p>
                                     </div>
                                 </div>
@@ -355,9 +373,13 @@ const VTube = () => {
                             </div>
 
                             <div className="flex mt-3">
-                                <button className="rounded-2xl px-4 text-sm font-[600] hover:bg-[#3F3F3F] py-2 bg-[#272727] cursor-pointer">
+                                <button className="rounded-2xl px-4 text-sm font-[600] hover:bg-[#3F3F3F] py-2 bg-[#272727] cursor-pointer" onClick={() => { setIsLiked(true) }}>
                                     <div className="flex items-center">
-                                        <AiOutlineLike className="text-2xl" />
+                                        {isLiked ? (
+                                            <AiFillLike className="text-2xl" />
+                                        ) : (
+                                            <AiOutlineLike className="text-2xl" />
+                                        )}
                                         <p className="text-md ml-2">{animeLike}</p>
                                     </div>
                                 </button>

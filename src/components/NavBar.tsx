@@ -67,7 +67,7 @@ const NavBar: React.FC = () => {
                         </button>
                         <button
                             onClick={() => router.push("/random")}
-                            className={`hover:bg-gray-700 ${diceMargin} py-2 rounded-md ${pathname === "/random" ? "bg-gray-700" : "hover:bg-gray-700"}`}
+                            className={`hover:bg-gray-700 ${diceMargin} py-2 rounded-md ${pathname === "/random" || pathname === "/random/anime" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
                                 animationData={DiceData}

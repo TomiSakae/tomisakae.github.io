@@ -4,13 +4,13 @@ import { getFirestore } from "firebase/firestore";
 
 // Thay thế bằng cấu hình Firebase của bạn
 const firebaseConfig = {
-    apiKey: "API_KEY",
-    authDomain: "PROJECT_ID.firebaseapp.com",
-    projectId: "PROJECT_ID",
-    storageBucket: "PROJECT_ID.appspot.com",
-    messagingSenderId: "SENDER_ID",
-    appId: "APP_ID",
-    measurementId: "G-MEASUREMENT_ID"
+    apiKey: "AIzaSyCiFEJKubhDIZFdyB3yrPON0tLN0K4kWy4",
+    authDomain: "tomisakae-c078f.firebaseapp.com",
+    projectId: "tomisakae-c078f",
+    storageBucket: "tomisakae-c078f.appspot.com",
+    messagingSenderId: "1082522587085",
+    appId: "1:1082522587085:web:29731e199f944171f8fe84",
+    measurementId: "G-L8BP0T7QVF"
 };
 
 // Initialize Firebase

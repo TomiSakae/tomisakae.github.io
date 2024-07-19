@@ -1,7 +1,5 @@
-// firestoreService.ts
-import { collection, addDoc, getDocs, query, orderBy, limit, doc, updateDoc, increment, setDoc } from "firebase/firestore";
+import { collection, addDoc, getDoc, getDocs, query, orderBy, limit, doc, updateDoc, increment, setDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
-
 interface Data {
     id: string;
     subscribe: number;
@@ -10,38 +8,44 @@ interface Data {
 // Hàm để thêm dữ liệu
 export const addData = async (): Promise<string | null> => {
     try {
-        const subCollection = collection(db, "sub");
+        const docRef = doc(db, "sub", "TomiSakae");
 
-        // Lấy document mới nhất để lấy giá trị subscribe hiện tại
-        const q = query(subCollection, orderBy("subscribe", "desc"), limit(1));
-        const querySnapshot = await getDocs(q);
+        // Kiểm tra xem document với ID "TomiSakae" có tồn tại không
+        const docSnap = await getDoc(docRef);
 
-        let newSubscribeValue = 1;
-
-        if (!querySnapshot.empty) {
-            const latestDoc = querySnapshot.docs[0];
-            const latestData = latestDoc.data() as Data;
-            newSubscribeValue = latestData.subscribe + 1;
+        if (docSnap.exists()) {
+            // Nếu document đã tồn tại, cập nhật giá trị subscribe tăng lên 1
+            await updateDoc(docRef, {
+                subscribe: increment(1)
+            });
+        } else {
+            // Nếu document chưa tồn tại, tạo mới với giá trị subscribe ban đầu là 1
+            await setDoc(docRef, {
+                subscribe: 1
+            });
         }
-
-        // Thêm document mới với giá trị subscribe tăng lên 1
-        const docRef = await addDoc(subCollection, { subscribe: newSubscribeValue });
 
         return docRef.id;
     } catch (e) {
-        console.error("Error adding document: ", e);
+        console.error("Error adding or updating document: ", e);
         return null;
     }
 };
 
-// Hàm để lấy dữ liệu
-export const fetchData = async (): Promise<Data[]> => {
+// Hàm để lấy dữ liệu từ document với ID "TomiSakae"
+export const fetchData = async (): Promise<number> => {
     try {
-        const querySnapshot = await getDocs(collection(db, "sub"));
-        const dataList: Data[] = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Data[];
-        return dataList;
+        const docRef = doc(db, "sub", "TomiSakae");
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const data = docSnap.data() as Data;
+            return data.subscribe;
+        } else {
+            return 0; // Nếu document không tồn tại, trả về 0
+        }
     } catch (e) {
-        console.error("Error fetching documents: ", e);
-        return [];
+        console.error("Error fetching document: ", e);
+        return 0;
     }
 };
