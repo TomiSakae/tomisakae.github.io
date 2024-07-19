@@ -3,7 +3,7 @@ import { CiSearch } from "react-icons/ci";
 import { useState, useEffect } from 'react';
 import { GoArrowLeft } from "react-icons/go";
 import { AiOutlineClose } from 'react-icons/ai';
-import { generateChatResponse } from '../../components/GeminiAPIRandom';
+import { generateChatResponse } from '../../../components/GeminiAPIRandom';
 import Image from 'next/image';
 import useSWR from 'swr';
 import Link from 'next/link';
