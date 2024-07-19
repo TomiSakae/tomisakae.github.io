@@ -285,30 +285,33 @@ const VTube = () => {
                                 layoutId={image.imageUrl}
                             >
                                 <div className="mx-[6vw] mb-6">
-                                    <Link href={`/random/anime/?id=${image.malId}&title=${image.title}&members=${image.members}&aired=${image.aired}&liked=${image.liked}`}>
-                                        <div className="h-[58vw] bg-gray-800 rounded-xl mb-3 cursor-pointer" style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
-                                        <div className="flex">
-                                            <Image
-                                                src="/tomisakae.jpg"
-                                                alt="TomiSakae"
-                                                width={35}
-                                                height={35}
-                                                className="rounded-full w-[35px] h-[35px] ml-2 mr-1"
-
-                                            />
-
-                                            <div className="flex flex-col ml-2 w-[80%]">
-                                                <h6 className="text-md font-[600] mb-1 truncate-2-lines">{image.title}</h6>
-                                                <p className="text-sm text-[#AAAAA0] font-[500] flex items-center">
-                                                    TomiSakae
-                                                </p>
-                                                <p className="text-sm text-[#AAAAA0] font-[500] flex items-center">
-                                                    {image.members} lượt xem <span className="mx-1">•</span> {image.aired} trước
-                                                </p>
+                                    <div className="relative">
+                                        <Link href={`/random/anime/?id=${image.malId}&title=${image.title}&members=${image.members}&aired=${image.aired}&liked=${image.liked}`}>
+                                            <div className="h-[58vw] bg-gray-800 rounded-xl mb-3 cursor-pointer" style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
+                                            <div className="flex">
+                                                <Image
+                                                    src="/tomisakae.jpg"
+                                                    alt="TomiSakae"
+                                                    width={35}
+                                                    height={35}
+                                                    className="rounded-full w-[35px] h-[35px] ml-2 mr-1"
+                                                />
+                                                <div className="flex flex-col ml-2 w-[70%]">
+                                                    <h6 className="text-md font-[600] mb-1 truncate-2-lines">{image.title}</h6>
+                                                    <p className="text-sm text-[#AAAAA0] font-[500] flex items-center">
+                                                        TomiSakae
+                                                    </p>
+                                                    <p className="text-sm text-[#AAAAA0] font-[500] flex items-center">
+                                                        {image.members} lượt xem <span className="mx-1">•</span> {image.aired} trước
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <FaExpand className="text-xl mt-1 ml-2 mr-3 text-[#AAAAA0] font-bold cursor-pointer" onClick={() => setIsZoomed(image.imageUrl)} />
-                                        </div>
-                                    </Link>
+                                        </Link>
+                                        <FaExpand
+                                            className="text-xl mt-1 ml-2 mr-3 text-[#AAAAA0] font-bold cursor-pointer absolute bottom-[10vh] right-0"
+                                            onClick={() => setIsZoomed(image.imageUrl)}
+                                        />
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}
