@@ -243,7 +243,7 @@ const VTube = () => {
 
     return (
         <div className="flex flex-col bg-[#0f0f0f] pb-12 text-white">
-            <header className="fixed top-0 left-0 w-full bg-[#0f0f0f] px-4 py-2">
+            <header className="fixed top-0 left-0 w-full bg-[#0f0f0f] px-4 py-2 z-10">
                 {/* Search bar */}
                 {isShowSearch === false ? (
                     <div className="flex justify-between items-center">
