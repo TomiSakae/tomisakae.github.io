@@ -25,6 +25,7 @@ const Live2DModelComponent = () => {
     const [isTypeDone, setIsTypeDone] = useState(false);
     const [textAnimation, setTextAnimation] = useState<string[]>([]);
     const [optionsVN, setOptionsVN] = useState<any[]>([]);
+    const [modelName, setModelName] = useState('');
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -38,13 +39,14 @@ const Live2DModelComponent = () => {
 
         const loadLive2DModel = async () => {
             const { Live2DModel, MotionPreloadStrategy } = await import('pixi-live2d-display');
-            const model = await Live2DModel.from('/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json', { motionPreload: MotionPreloadStrategy.ALL });
+            const model = await Live2DModel.from(window.localStorage.getItem('model') || '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json', { motionPreload: MotionPreloadStrategy.ALL });
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             (model as any).y = window.localStorage.getItem('modely') || innerHeight * 0.09;
             (model as any).position.x = window.localStorage.getItem('modelx') || -125;
             (model as any).scale.set(window.localStorage.getItem('scale') || 0.1);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
+            setModelName(window.localStorage.getItem('modelname') || 'HMS Abercrombie (F109)');
             // Gán giá trị model vào biến tham chiếu useRef
             (modelRef as any).current = model;
         };
@@ -129,7 +131,7 @@ const Live2DModelComponent = () => {
             <canvas id="canvas" />
             <div className="fixed gradient-background text-sm bottom-[8em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
                 <div className="px-2 font-bold">
-                    <h6>HMS Abercrombie (F109)</h6>
+                    <h6>{modelName}</h6>
                 </div>
                 <GrPowerReset
                     className="text-white fixed bottom-[5.84em] z-10 right-4 text-xl cursor-pointer" onClick={resetVN}

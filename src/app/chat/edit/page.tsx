@@ -52,7 +52,7 @@ const Live2DModelComponent = () => {
 
         const loadLive2DModel = async () => {
             const { Live2DModel, MotionPreloadStrategy } = await import('pixi-live2d-display');
-            const model = await Live2DModel.from('/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json', { motionPreload: MotionPreloadStrategy.ALL });
+            const model = await Live2DModel.from(window.localStorage.getItem('model') || '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json', { motionPreload: MotionPreloadStrategy.ALL });
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             (model as any).y = window.localStorage.getItem('modely') || innerHeight * 0.09;
             (model as any).position.x = window.localStorage.getItem('modelx') || -125;
@@ -78,6 +78,29 @@ const Live2DModelComponent = () => {
     const downScale = () => {
         (modelRef as any).current.scale.set(parseFloat((scaleModel - 0.01).toFixed(2)));
         setScaleModel(parseFloat((scaleModel - 0.01).toFixed(2)));
+    }
+
+    const changeModel = (id: number) => {
+        let location: string;
+        let name: string;
+        switch (id) {
+            case 1:
+                location = '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json';
+                name = 'HMS Abercrombie (F109)';
+                break;
+            default:
+                location = ''; // Hoặc bạn có thể đặt một giá trị mặc định khác nếu cần
+                name = '';
+                break;
+        }
+        if (location) {
+            window.localStorage.setItem('model', location);
+            window.localStorage.setItem('modelname', name);
+            window.localStorage.setItem('modelid', String(id));
+            window.location.reload();
+        } else {
+            console.error('Invalid model ID');
+        }
     }
 
     return (
@@ -153,8 +176,47 @@ const Live2DModelComponent = () => {
                         <p className="text-white py-5">Đang Cập Nhật...</p>
                     </div>
                     <h4 className="text-center font-bold text-lg text-white mt-5">Đổi Live2D</h4>
-                    <div className="overflow-x-auto flex justify-center">
-                        <p className="text-white py-5">Đang Cập Nhật...</p>
+                    <div className="overflow-auto h-[30vh] mt-4 mb-4 text-center">
+                        <button
+                            className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
+                            onClick={() => {
+                                changeModel(1);
+                            }}
+                        >
+                            abeikelongbi_3_hx
+                        </button>
+                        <button
+                            className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
+                            onClick={() => {
+                                changeModel(1);
+                            }}
+                        >
+                            abeikelongbi_3_hx
+                        </button>
+                        <button
+                            className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
+                            onClick={() => {
+                                changeModel(1);
+                            }}
+                        >
+                            abeikelongbi_3_hx
+                        </button>
+                        <button
+                            className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
+                            onClick={() => {
+                                changeModel(1);
+                            }}
+                        >
+                            abeikelongbi_3_hx
+                        </button>
+                        <button
+                            className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
+                            onClick={() => {
+                                changeModel(1);
+                            }}
+                        >
+                            abeikelongbi_3_hx
+                        </button>
                     </div>
                 </div>
             )}

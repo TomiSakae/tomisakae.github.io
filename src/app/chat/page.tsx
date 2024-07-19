@@ -37,6 +37,7 @@ const Live2DModelComponent = () => {
     const [isOpacityOpen, setIsOpacityOpen] = useState(false);
     const [editMode, setEditMode] = useState(false);
     const [username, setUsername] = useState('User');
+    const [modelName, setModelName] = useState('');
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -50,7 +51,7 @@ const Live2DModelComponent = () => {
 
         const loadLive2DModel = async () => {
             const { Live2DModel, MotionPreloadStrategy } = await import('pixi-live2d-display');
-            const model = await Live2DModel.from('/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json', { motionPreload: MotionPreloadStrategy.ALL });
+            const model = await Live2DModel.from(window.localStorage.getItem('model') || '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json', { motionPreload: MotionPreloadStrategy.ALL });
             let storedChatHistory = JSON.parse(window.localStorage.getItem('chatHistory') || '[]');
             setChatHistory(storedChatHistory);
             if (storedChatHistory.length > 0) {
@@ -65,6 +66,7 @@ const Live2DModelComponent = () => {
             (model as any).scale.set(window.localStorage.getItem('scale') || 0.1);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
+            setModelName(window.localStorage.getItem('modelname') || 'HMS Abercrombie (F109)');
             (modelRef as any).current = model;
         };
 
@@ -187,7 +189,7 @@ const Live2DModelComponent = () => {
             <div className={`fixed gradient-background text-sm bottom-[8em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
                 <div className="px-2 font-bold">
                     {outputText ? (
-                        <h6>HMS Abercrombie (F109)</h6>
+                        <h6>{modelName}</h6>
                     ) : (
                         editMode ? (
                             <div className="flex items-center">
@@ -270,7 +272,7 @@ const Live2DModelComponent = () => {
                     <div className="h-[90%] overflow-y-auto flex flex-col-reverse">
                         {chatHistory.slice().reverse().map((entry, index) => (
                             <div key={index} className={`mb-2 flex flex-col px-6 ${entry.role === "model" ? "text-start" : "text-end"}`}>
-                                <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? "HMS Abercrombie (F109)" : `${username}`}</div>
+                                <div className="font-bold mb-2 text-sm text-[#666666]">{entry.role === "model" ? `${modelName}` : `${username}`}</div>
                                 <div className={`p-3 rounded-lg inline-block w-fit mb-4 ${entry.role === "model" ? "bg-[#404040] text-white" : "bg-[#d5f594] ml-auto text-black"} max-w-xs`}>
                                     <div className={`text-sm ${entry.role === "model" ? "" : "text-start"}`}>{entry.parts[0].text}</div>
                                 </div>
