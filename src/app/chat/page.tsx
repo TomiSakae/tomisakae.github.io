@@ -64,7 +64,7 @@ const Live2DModelComponent = () => {
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             const id = parseInt(window.localStorage.getItem('modelid') || '1', 10);
             const { setX, setY, setScale } = Live2d(id);
-            (model as any).y = window.localStorage.getItem('modely') || innerHeight * setY;
+            (model as any).position.y = window.localStorage.getItem('modely') || setY;
             (model as any).position.x = window.localStorage.getItem('modelx') || setX;
             (model as any).scale.set(window.localStorage.getItem('scale') || setScale);
             (model as any).interactive = true;

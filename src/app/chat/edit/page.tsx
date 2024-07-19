@@ -57,7 +57,7 @@ const Live2DModelComponent = () => {
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             const id = parseInt(window.localStorage.getItem('modelid') || '1', 10);
             const { setX, setY, setScale } = Live2d(id);
-            (model as any).y = window.localStorage.getItem('modely') || innerHeight * setY;
+            (model as any).position.y = window.localStorage.getItem('modely') || setY;
             (model as any).position.x = window.localStorage.getItem('modelx') || setX;
             (model as any).scale.set(window.localStorage.getItem('scale') || setScale);
             (model as any).interactive = true;
@@ -90,6 +90,10 @@ const Live2DModelComponent = () => {
             case 1:
                 location = '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json';
                 name = 'HMS Abercrombie (F109)';
+                break;
+            case 2:
+                location = '/live2d/models/adaerbote_2/adaerbote_2.model3.json';
+                name = 'KMS Prinz Adalbert';
                 break;
             default:
                 location = ''; // Hoặc bạn có thể đặt một giá trị mặc định khác nếu cần
@@ -187,10 +191,10 @@ const Live2DModelComponent = () => {
                         <button
                             className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
                             onClick={() => {
-                                changeModel(1);
+                                changeModel(2);
                             }}
                         >
-                            abeikelongbi_3_hx
+                            adaerbote_2
                         </button>
                         <button
                             className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"

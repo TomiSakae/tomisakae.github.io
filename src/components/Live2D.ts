@@ -13,8 +13,13 @@ export function Live2d(id: number): Live2dResult {
 
     switch (id) {
         case 1:
-            setY = 0.09;
+            setY = 28;
             setX = -125;
+            setScale = 0.1;
+            break;
+        case 2:
+            setY = -89;
+            setX = -200;
             setScale = 0.1;
             break;
         default:
