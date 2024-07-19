@@ -335,7 +335,7 @@ const VTube = () => {
             <main className="mt-16">
                 {/* Display images and anime list */}
                 <div className="grid grid-cols-1 gap-4">
-                    {jikanDataId && (
+                    {jikanDataId && subscribe && (
                         <div className="mx-[6vw] mb-6">
                             <div className="h-[58vw] bg-gray-800 rounded-xl mb-3 cursor-pointer" style={{ backgroundImage: `url(${jikanDataId.data.images.jpg.large_image_url})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
                             <h6 className="text-md font-[600] mb-1">{animeTitle}</h6>
