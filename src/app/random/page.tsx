@@ -66,6 +66,7 @@ const VTube = () => {
     const [animeMembers, setAnimeMembers] = useState([]);
     const [animeMalId, setAnimeMalId] = useState([]);
     const [animeAired, setAnimeAired] = useState([]);
+    const [animeLiked, setAnimeLiked] = useState([]);
     const [isGeminiLoaded, setIsGeminiLoaded] = useState(false); // State to track if titles are loaded
 
     const showSearch = () => {
@@ -107,10 +108,16 @@ const VTube = () => {
                     malId: anime.mal_id,
                     // Add more fields as needed
                 }));
+                const liked = jikanData.data.map((anime: any, index: number) => ({
+                    id: index + 1,
+                    liked: anime.favorites,
+                    // Add more fields as needed
+                }));
                 setAnimeTitles(titles);
                 setAnimeMembers(members);
                 setAnimeAired(aired);
                 setAnimeMalId(malId);
+                setAnimeLiked(liked);
                 // Generate JSON string for titles
                 const titlesJson = JSON.stringify({ anime_titles: titles });
                 const response = await generateChatResponse(titlesJson); // Assuming generateChatResponse accepts JSON string
@@ -178,6 +185,7 @@ const VTube = () => {
 
     const waifusImages = waifusData.files.slice(0, 20).map((imageUrl: string, index: number) => {
         let formattedMembers = '';
+        let formattedLiked = '';
         let timeSinceAired = '';
 
         if (isGeminiLoaded) {
@@ -192,6 +200,19 @@ const VTube = () => {
                 formattedMembers = `${Math.floor(members / 1000)} N`;
             } else {
                 formattedMembers = members.toString();
+            }
+
+            const liked = (animeLiked[index] as any).liked;
+            if (liked >= 1000000) {
+                if (liked >= 10000000) {
+                    formattedLiked = `${Math.floor(liked / 1000000)} Tr`;
+                } else {
+                    formattedLiked = `${(liked / 1000000).toFixed(1).replace('.', ',')} Tr`;
+                }
+            } else if (liked >= 1000) {
+                formattedLiked = `${Math.floor(liked / 1000)} N`;
+            } else {
+                formattedLiked = liked.toString();
             }
 
             const airedFrom = new Date((animeAired[index] as any).aired);
@@ -215,6 +236,7 @@ const VTube = () => {
             title: isGeminiLoaded ? (animeTitles[index] as any).title : '', // Assign title if loaded and available
             members: formattedMembers,
             aired: timeSinceAired,
+            liked: formattedLiked,
             malId: isGeminiLoaded ? (animeMalId[index] as any).malId : '',
         };
     });
@@ -263,7 +285,7 @@ const VTube = () => {
                                 layoutId={image.imageUrl}
                             >
                                 <div className="mx-[6vw] mb-6">
-                                    <Link href={`/random/anime/?id=${image.malId}`}>
+                                    <Link href={`/random/anime/?id=${image.malId}&title=${image.title}&members=${image.members}&aired=${image.aired}&liked=${image.liked}`}>
                                         <div className="h-[58vw] bg-gray-800 rounded-xl mb-3 cursor-pointer" style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
                                         <div className="flex">
                                             <Image

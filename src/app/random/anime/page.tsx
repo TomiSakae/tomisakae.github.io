@@ -9,6 +9,9 @@ import useSWR from 'swr';
 import Link from 'next/link';
 import { FaExpand } from "react-icons/fa";
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { AiOutlineLike } from "react-icons/ai";
+import { addData, fetchData } from "../../../components/firestoreService";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 const fetcherPOST = async (url: string) => {
@@ -55,11 +58,19 @@ const getRandomSeason = (year: any) => {
 };
 
 const VTube = () => {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const animeId = searchParams.get('id') || '';
+    const animeTitle = searchParams.get('title') || '';
+    const animeMember = searchParams.get('members') || '';
+    const animeAir = searchParams.get('aired') || '';
+    const animeLiked = searchParams.get('liked') || '';
     const [year, setYear] = useState(getRandomYear);
     const [season, setSeason] = useState(getRandomSeason(year));
     const [isZoomed, setIsZoomed] = useState("");
     const { data: waifusData, error: waifusError } = useSWR('https://api.waifu.pics/many/sfw/waifu', fetcherPOST);
     const { data: jikanData, error: jikanError } = useSWR(`https://api.jikan.moe/v4/seasons/${year}/${season}?limit=20`, fetcher);
+    const { data: jikanDataId, error: jikanErrorId } = useSWR(`https://api.jikan.moe/v4/anime/${animeId}?limit=20`, fetcher);
     const [isShowSearch, setIsShowSearch] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [animeTitles, setAnimeTitles] = useState([]);
@@ -67,6 +78,11 @@ const VTube = () => {
     const [animeMalId, setAnimeMalId] = useState([]);
     const [animeAired, setAnimeAired] = useState([]);
     const [isGeminiLoaded, setIsGeminiLoaded] = useState(false); // State to track if titles are loaded
+    const [isRegistered, setIsRegistered] = useState(false);
+
+    const handleRegisterClick = () => {
+        setIsRegistered(true);
+    };
 
     const showSearch = () => {
         setIsShowSearch(true);
@@ -256,6 +272,59 @@ const VTube = () => {
             <main className="mt-16">
                 {/* Display images and anime list */}
                 <div className="grid grid-cols-1 gap-4">
+                    {jikanDataId && (
+                        <div className="mx-[6vw] mb-6">
+                            <div className="h-[58vw] bg-gray-800 rounded-xl mb-3 cursor-pointer" style={{ backgroundImage: `url(${jikanDataId.data.images.jpg.large_image_url})`, backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
+                            <h6 className="text-md font-[600] mb-1">{animeTitle}</h6>
+                            <div className="flex justify-between mr-4 mt-3">
+                                <div className="flex">
+                                    <Image
+                                        src="/tomisakae.jpg"
+                                        alt="TomiSakae"
+                                        width={35}
+                                        height={35}
+                                        className="rounded-full w-[35px] h-[35px] mr-3"
+
+                                    />
+                                    <div>
+                                        <p className="text-md font-[500] flex items-center">
+                                            TomiSakae
+                                        </p>
+                                        <p className="text-xs text-[#AAAAA0] font-[500] flex items-center">
+                                            0 người đăng ký
+                                        </p>
+                                    </div>
+                                </div>
+                                {isRegistered ? (
+                                    <button className="rounded-2xl px-4 text-sm font-[600] hover:bg-[#3F3F3F] py-2 bg-[#272727]">
+                                        Đã Đăng Ký
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={handleRegisterClick}
+                                        className="rounded-2xl px-4 text-sm font-[600] hover:bg-[#D9D9D9] py-2 bg-[#F1F1F1] cursor-pointer text-black"
+                                    >
+                                        Đăng Ký
+                                    </button>
+                                )}
+                            </div>
+
+                            <div className="flex mt-3">
+                                <button className="rounded-2xl px-4 text-sm font-[600] hover:bg-[#3F3F3F] py-2 bg-[#272727] cursor-pointer">
+                                    <div className="flex items-center">
+                                        <AiOutlineLike className="text-2xl" />
+                                        <p className="text-md ml-2">{animeLiked}</p>
+                                    </div>
+                                </button>
+                            </div>
+                            <div className="text-center bg-[#272727] px-4 py-3 rounded-xl mt-3">
+                                <p className="text-sm font-[500]">
+                                    {animeMember} lượt xem {animeAir} trước
+                                </p>
+                            </div>
+
+                        </div>
+                    )}
                     {isGeminiLoaded &&
                         waifusImages.map((image: any, index: number) => (
                             <motion.div
