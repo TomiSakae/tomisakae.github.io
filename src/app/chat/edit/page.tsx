@@ -133,6 +133,10 @@ const Live2DModelComponent = () => {
                 location = '/live2d/models/adaerbote_2/adaerbote_2.model3.json';
                 name = 'KMS Prinz Adalbert';
                 break;
+            case 3:
+                location = '/live2d/models/aerbien_3/aerbien_3.model3.json';
+                name = 'Albion';
+                break;
             default:
                 location = ''; // Hoặc bạn có thể đặt một giá trị mặc định khác nếu cần
                 name = '';
@@ -237,7 +241,7 @@ const Live2DModelComponent = () => {
                                 changeModel(1);
                             }}
                         >
-                            abeikelongbi_3_hx
+                            HMS Abercrombie (F109)
                         </button>
                         <button
                             className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
@@ -245,15 +249,15 @@ const Live2DModelComponent = () => {
                                 changeModel(2);
                             }}
                         >
-                            adaerbote_2
+                            KMS Prinz Adalbert
                         </button>
                         <button
                             className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
                             onClick={() => {
-                                changeModel(1);
+                                changeModel(3);
                             }}
                         >
-                            abeikelongbi_3_hx
+                            Albion
                         </button>
                         <button
                             className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"

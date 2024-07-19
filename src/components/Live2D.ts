@@ -22,6 +22,11 @@ export function Live2d(id: number): Live2dResult {
             setX = -200;
             setScale = 0.1;
             break;
+        case 3:
+            setY = -113;
+            setX = -233;
+            setScale = 0.1;
+            break;
         default:
             setY = 0.09;
             setX = -125;
