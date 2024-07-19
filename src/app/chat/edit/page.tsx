@@ -141,6 +141,11 @@ const Live2DModelComponent = () => {
         window.localStorage.setItem('model', location);
         window.localStorage.setItem('modelname', name);
         window.localStorage.setItem('modelid', String(id));
+        window.localStorage.removeItem('modely');
+        window.localStorage.removeItem('modelx');
+        window.localStorage.removeItem('scale');
+        setScaleModel(0.1);
+        (modelRef as any).current.scale.set(0.1);
         window.location.reload();
     }
 
