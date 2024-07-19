@@ -68,7 +68,6 @@ const VTube = () => {
     const animeAir = searchParams.get('aired') || '';
     const animeLike = searchParams.get('liked') || '';
     const [isZoomed, setIsZoomed] = useState("");
-    const { data: waifusData, error: waifusError } = useSWR('https://api.waifu.pics/many/sfw/waifu', fetcherPOST);
     const { data: jikanDataId, error: jikanErrorId } = useSWR(`https://api.jikan.moe/v4/anime/${animeId}`, fetcher);
     const [isShowSearch, setIsShowSearch] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -82,6 +81,7 @@ const VTube = () => {
     const [isRegistered, setIsRegistered] = useState<boolean>(false);
     const [isLiked, setIsLiked] = useState<boolean>(false);
     const [year, setYear] = useState<number | null>(null);
+    const [random, setRandom] = useState<number | null>(null);
     const [season, setSeason] = useState<string | null>(null);
 
     useEffect(() => {
@@ -95,6 +95,7 @@ const VTube = () => {
         const newSeason = getRandomSeason(newYear);
         setYear(newYear);
         setSeason(newSeason);
+        setRandom(Math.floor(Math.random() * (999999999 - 1 + 1)) + 1);
 
         const dataFireBase = async () => {
             const data = await fetchData();
@@ -111,12 +112,18 @@ const VTube = () => {
             setYear(newYear);
             setSeason(newSeason);
             setIsGeminiLoaded(false);
+            setRandom(Math.floor(Math.random() * (999999999 - 1 + 1)) + 1);
         }
     }, [searchParams]);
 
     const { data: jikanData, error: jikanError } = useSWR(
         year && season ? `https://api.jikan.moe/v4/seasons/${year}/${season}?limit=20` : null,
         fetcher
+    );
+
+    const { data: waifusData, error: waifusError } = useSWR(
+        random ? `https://api.waifu.pics/many/sfw/waifu?timestamp=${random}` : null,
+        fetcherPOST
     );
 
     const handleRegisterClick = () => {

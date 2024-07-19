@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GrPowerReset } from "react-icons/gr";
 import { CiSettings } from "react-icons/ci";
+import { Live2d } from '../../../components/Live2D';
 
 declare global {
     interface Window {
@@ -54,9 +55,11 @@ const Live2DModelComponent = () => {
             const { Live2DModel, MotionPreloadStrategy } = await import('pixi-live2d-display');
             const model = await Live2DModel.from(window.localStorage.getItem('model') || '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json', { motionPreload: MotionPreloadStrategy.ALL });
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
-            (model as any).y = window.localStorage.getItem('modely') || innerHeight * 0.09;
-            (model as any).position.x = window.localStorage.getItem('modelx') || -125;
-            (model as any).scale.set(window.localStorage.getItem('scale') || scaleModel || 0.1);
+            const id = parseInt(window.localStorage.getItem('modelid') || '1', 10);
+            const { setX, setY, setScale } = Live2d(id);
+            (model as any).y = window.localStorage.getItem('modely') || innerHeight * setY;
+            (model as any).position.x = window.localStorage.getItem('modelx') || setX;
+            (model as any).scale.set(window.localStorage.getItem('scale') || setScale);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
             (modelRef as any).current = model;
@@ -93,14 +96,10 @@ const Live2DModelComponent = () => {
                 name = '';
                 break;
         }
-        if (location) {
-            window.localStorage.setItem('model', location);
-            window.localStorage.setItem('modelname', name);
-            window.localStorage.setItem('modelid', String(id));
-            window.location.reload();
-        } else {
-            console.error('Invalid model ID');
-        }
+        window.localStorage.setItem('model', location);
+        window.localStorage.setItem('modelname', name);
+        window.localStorage.setItem('modelid', String(id));
+        window.location.reload();
     }
 
     return (

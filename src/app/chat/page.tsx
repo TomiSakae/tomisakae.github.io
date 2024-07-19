@@ -14,6 +14,7 @@ import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import { FaEdit } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
 import { FaExchangeAlt } from "react-icons/fa";
+import { Live2d } from '../../components/Live2D';
 
 declare global {
     interface Window {
@@ -61,9 +62,11 @@ const Live2DModelComponent = () => {
             }
             setUsername(window.localStorage.getItem('user') || 'User');
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
-            (model as any).y = window.localStorage.getItem('modely') || innerHeight * 0.09;
-            (model as any).position.x = window.localStorage.getItem('modelx') || -125;
-            (model as any).scale.set(window.localStorage.getItem('scale') || 0.1);
+            const id = parseInt(window.localStorage.getItem('modelid') || '1', 10);
+            const { setX, setY, setScale } = Live2d(id);
+            (model as any).y = window.localStorage.getItem('modely') || innerHeight * setY;
+            (model as any).position.x = window.localStorage.getItem('modelx') || setX;
+            (model as any).scale.set(window.localStorage.getItem('scale') || setScale);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
             setModelName(window.localStorage.getItem('modelname') || 'HMS Abercrombie (F109)');
