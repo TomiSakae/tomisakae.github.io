@@ -95,6 +95,7 @@ const VTube = () => {
             const newSeason = getRandomSeason(newYear);
             setYear(newYear);
             setSeason(newSeason);
+            setIsGeminiLoaded(false);
         }
     }, [searchParams]);
 
