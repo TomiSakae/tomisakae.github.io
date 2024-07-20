@@ -67,6 +67,12 @@ const modelData = {
             modelname: 'Ailunsamuna',
             modelid: '11',
             name: 'Ailunsamuna'
+        },
+        {
+            model: '/live2d/models/aimierbeierding_2/aimierbeierding_2.model3.json',
+            modelname: 'Aimierbeierding',
+            modelid: '12',
+            name: 'Aimierbeierding 1'
         }
     ]
 };
@@ -139,6 +145,11 @@ export function Live2d(id: number): Live2dResult {
             setY = 23;
             setX = -177;
             setScale = 0.1;
+            break;
+        case 12:
+            setY = 105;
+            setX = -9;
+            setScale = 0.13;
             break;
         default:
             setY = 0.09;

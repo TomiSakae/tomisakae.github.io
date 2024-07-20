@@ -94,6 +94,7 @@ const Live2DModelComponent = () => {
             (model as any).position.y = window.localStorage.getItem('modely') || setY;
             (model as any).position.x = window.localStorage.getItem('modelx') || setX;
             (model as any).scale.set(window.localStorage.getItem('scale') || setScale);
+            setScaleModel(Number(window.localStorage.getItem('scale')) || setScale);
             (model as any).interactive = true;
             (model as any).trackedPointers = {};
             (modelRef as any).current = model;
@@ -102,10 +103,6 @@ const Live2DModelComponent = () => {
 
         loadLive2DModel();
     }, [isLive2DScriptLoaded]);
-
-    useEffect(() => {
-        setScaleModel(Number(window.localStorage.getItem('scale')) || 0.1);
-    }, []);
 
     const upScale = () => {
         (modelRef as any).current.scale.set(parseFloat((scaleModel + 0.01).toFixed(2)));
