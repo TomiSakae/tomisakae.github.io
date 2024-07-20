@@ -99,9 +99,14 @@ const NavBar: React.FC = () => {
 
                             className="py-2 rounded-md"
                         >
-                            <Lottie
-                                animationData={MenuData}
-                                style={menuStyle}
+                            <Image
+                                src={"/7G.png"}
+                                alt={"7G"}
+                                width={30}
+                                height={17}
+                                priority={true}
+                                className="w-[30px] h-[17px]"
+                                placeholder="empty"
                             />
                         </button>
                     </div>
