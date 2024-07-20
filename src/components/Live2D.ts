@@ -5,47 +5,62 @@ const modelData = {
         {
             model: '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json',
             modelname: 'HMS Abercrombie (F109)',
-            modelid: '1'
+            modelid: '1',
+            name: 'HMS Abercrombie (F109) HX'
         },
         {
             model: '/live2d/models/abeikelongbi_3/abeikelongbi_3.model3.json',
             modelname: 'HMS Abercrombie (F109)',
-            modelid: '2'
+            modelid: '2',
+            name: 'HMS Abercrombie (F109)'
         },
         {
             model: '/live2d/models/adaerbote_2/adaerbote_2.model3.json',
             modelname: 'KMS Prinz Adalbert',
-            modelid: '3'
+            modelid: '3',
+            name: 'KMS Prinz Adalbert'
         },
         {
             model: '/live2d/models/aerbien_3/aerbien_3.model3.json',
             modelname: 'Albion',
-            modelid: '4'
+            modelid: '4',
+            name: 'Albion'
         },
         {
             model: '/live2d/models/aersasi_2/aersasi_2.model3.json',
             modelname: 'Essex',
-            modelid: '5'
+            modelid: '5',
+            name: 'Essex'
         },
         {
             model: '/live2d/models/aierdeliqi_4/aierdeliqi_4.model3.json',
             modelname: 'Aierdeliqi',
-            modelid: '6'
+            modelid: '6',
+            name: 'Aierdeliqi 1'
         },
         {
             model: '/live2d/models/aierdeliqi_5/aierdeliqi_5.model3.json',
             modelname: 'Aierdeliqi',
-            modelid: '7'
+            modelid: '7',
+            name: 'Aierdeliqi 2'
         },
         {
             model: '/live2d/models/aijier_2/aijier_2.model3.json',
             modelname: 'Aijier',
-            modelid: '8'
+            modelid: '8',
+            name: 'Aijier 1'
         },
         {
             model: '/live2d/models/aijier_3/aijier_3.model3.json',
             modelname: 'Aijier',
-            modelid: '9'
+            modelid: '9',
+            name: 'Aijier 2'
+        },
+        {
+            model: '/live2d/models/aijier_3_hx/aijier_3_hx.model3.json',
+            modelname: 'Aijier',
+            modelid: '10',
+            name: 'Aijier 2 HX'
         }
     ]
 };
@@ -105,6 +120,11 @@ export function Live2d(id: number): Live2dResult {
             setScale = 0.1;
             break;
         case 9:
+            setY = -193;
+            setX = -293;
+            setScale = 0.1;
+            break;
+        case 10:
             setY = -193;
             setX = -293;
             setScale = 0.1;

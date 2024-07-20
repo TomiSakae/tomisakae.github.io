@@ -217,7 +217,7 @@ const Live2DModelComponent = () => {
                                     resetPage();
                                 }}
                             >
-                                {model.modelname}
+                                {model.name}
                             </button>
                         ))}
                     </div>
