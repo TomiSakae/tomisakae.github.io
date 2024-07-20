@@ -91,6 +91,12 @@ const modelData = {
             modelname: 'Aisaikesi',
             modelid: '15',
             name: 'Aisaikesi'
+        },
+        {
+            model: '/live2d/models/ankeleiqi_2/ankeleiqi_2.model3.json',
+            modelname: 'Ankeleiqi',
+            modelid: '16',
+            name: 'Ankeleiqi'
         }
     ]
 };
@@ -182,6 +188,11 @@ export function Live2d(id: number): Live2dResult {
         case 15:
             setY = -146;
             setX = -236;
+            setScale = 0.1;
+            break;
+        case 16:
+            setY = -7;
+            setX = -288;
             setScale = 0.1;
             break;
         default:
