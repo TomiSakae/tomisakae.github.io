@@ -8,6 +8,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { GrPowerReset } from "react-icons/gr";
 import { CiSettings } from "react-icons/ci";
 import { Live2d } from '../../../components/Live2D';
+import modelData from "../../../components/Live2D";
 import { CiPlay1 } from "react-icons/ci";
 
 type Motion = {
@@ -121,30 +122,7 @@ const Live2DModelComponent = () => {
         (modelRef as any).current.motion(title);
     }
 
-    const changeModel = (id: number) => {
-        let location: string;
-        let name: string;
-        switch (id) {
-            case 1:
-                location = '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json';
-                name = 'HMS Abercrombie (F109)';
-                break;
-            case 2:
-                location = '/live2d/models/adaerbote_2/adaerbote_2.model3.json';
-                name = 'KMS Prinz Adalbert';
-                break;
-            case 3:
-                location = '/live2d/models/aerbien_3/aerbien_3.model3.json';
-                name = 'Albion';
-                break;
-            default:
-                location = ''; // Hoặc bạn có thể đặt một giá trị mặc định khác nếu cần
-                name = '';
-                break;
-        }
-        window.localStorage.setItem('model', location);
-        window.localStorage.setItem('modelname', name);
-        window.localStorage.setItem('modelid', String(id));
+    const resetPage = () => {
         window.localStorage.removeItem('modely');
         window.localStorage.removeItem('modelx');
         window.localStorage.removeItem('scale');
@@ -190,14 +168,7 @@ const Live2DModelComponent = () => {
                     <div className="mt-6">
                         <GrPowerReset
                             className="text-xl text-white cursor-pointer"
-                            onClick={() => {
-                                window.localStorage.removeItem('modely');
-                                window.localStorage.removeItem('modelx');
-                                window.localStorage.removeItem('scale');
-                                setScaleModel(0.1);
-                                (modelRef as any).current.scale.set(0.1);
-                                window.location.reload();
-                            }}
+                            onClick={resetPage}
                         />
                     </div>
                     <div className="mt-6">
@@ -235,46 +206,20 @@ const Live2DModelComponent = () => {
                     </div>
                     <h4 className="text-center font-bold text-lg text-white mt-5">Đổi Live2D</h4>
                     <div className="overflow-auto h-[30vh] mt-4 mb-4 text-center">
-                        <button
-                            className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
-                            onClick={() => {
-                                changeModel(1);
-                            }}
-                        >
-                            HMS Abercrombie (F109)
-                        </button>
-                        <button
-                            className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
-                            onClick={() => {
-                                changeModel(2);
-                            }}
-                        >
-                            KMS Prinz Adalbert
-                        </button>
-                        <button
-                            className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
-                            onClick={() => {
-                                changeModel(3);
-                            }}
-                        >
-                            Albion
-                        </button>
-                        <button
-                            className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
-                            onClick={() => {
-                                changeModel(1);
-                            }}
-                        >
-                            abeikelongbi_3_hx
-                        </button>
-                        <button
-                            className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
-                            onClick={() => {
-                                changeModel(1);
-                            }}
-                        >
-                            abeikelongbi_3_hx
-                        </button>
+                        {modelData.models.map((model) => (
+                            <button
+                                key={model.modelid}
+                                className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
+                                onClick={() => {
+                                    window.localStorage.setItem('model', model.model);
+                                    window.localStorage.setItem('modelname', model.modelname);
+                                    window.localStorage.setItem('modelid', model.modelid);
+                                    resetPage();
+                                }}
+                            >
+                                {model.modelname}
+                            </button>
+                        ))}
                     </div>
                 </div>
             )}
