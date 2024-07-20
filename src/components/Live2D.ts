@@ -26,6 +26,11 @@ const modelData = {
             model: '/live2d/models/aersasi_2/aersasi_2.model3.json',
             modelname: 'Essex',
             modelid: '5'
+        },
+        {
+            model: '/live2d/models/aierdeliqi_4/aierdeliqi_4.model3.json',
+            modelname: 'Aierdeliqi',
+            modelid: '6'
         }
     ]
 };
@@ -67,6 +72,11 @@ export function Live2d(id: number): Live2dResult {
         case 5:
             setY = -145;
             setX = -264;
+            setScale = 0.1;
+            break;
+        case 6:
+            setY = 83;
+            setX = -90;
             setScale = 0.1;
             break;
         default:
