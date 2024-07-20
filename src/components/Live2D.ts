@@ -72,7 +72,13 @@ const modelData = {
             model: '/live2d/models/aimierbeierding_2/aimierbeierding_2.model3.json',
             modelname: 'Aimierbeierding',
             modelid: '12',
-            name: 'Aimierbeierding 1'
+            name: 'Aimierbeierding'
+        },
+        {
+            model: '/live2d/models/aimudeng_2/aimudeng_2.model3.json',
+            modelname: 'Aimudeng',
+            modelid: '13',
+            name: 'Aimudeng'
         }
     ]
 };
@@ -150,6 +156,11 @@ export function Live2d(id: number): Live2dResult {
             setY = 105;
             setX = -9;
             setScale = 0.13;
+            break;
+        case 13:
+            setY = -197;
+            setX = -275;
+            setScale = 0.15;
             break;
         default:
             setY = 0.09;
