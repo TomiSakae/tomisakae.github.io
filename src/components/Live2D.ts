@@ -41,6 +41,11 @@ const modelData = {
             model: '/live2d/models/aijier_2/aijier_2.model3.json',
             modelname: 'Aijier',
             modelid: '8'
+        },
+        {
+            model: '/live2d/models/aijier_3/aijier_3.model3.json',
+            modelname: 'Aijier',
+            modelid: '9'
         }
     ]
 };
@@ -97,6 +102,11 @@ export function Live2d(id: number): Live2dResult {
         case 8:
             setY = -50;
             setX = -162;
+            setScale = 0.1;
+            break;
+        case 9:
+            setY = -193;
+            setX = -293;
             setScale = 0.1;
             break;
         default:
