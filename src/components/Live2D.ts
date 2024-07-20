@@ -133,6 +133,12 @@ const modelData = {
             modelname: 'Banrenma',
             modelid: '22',
             name: 'Banrenma'
+        },
+        {
+            model: '/live2d/models/beikaluolaina_2/beikaluolaina_2.model3.json',
+            modelname: 'Beikaluolaina',
+            modelid: '23',
+            name: 'Beikaluolaina'
         }
     ]
 };
@@ -260,6 +266,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -3;
             setX = -124;
             setScale = 0.17;
+            break;
+        case 23:
+            setY = -94;
+            setX = -273;
+            setScale = 0.1;
             break;
         default:
             setY = 0.09;
