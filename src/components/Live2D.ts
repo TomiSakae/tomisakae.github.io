@@ -79,6 +79,12 @@ const modelData = {
             modelname: 'Aimudeng',
             modelid: '13',
             name: 'Aimudeng'
+        },
+        {
+            model: '/live2d/models/aimudeng_2_hx/aimudeng_2_hx.model3.json',
+            modelname: 'Aimudeng',
+            modelid: '14',
+            name: 'Aimudeng HX'
         }
     ]
 };
@@ -158,6 +164,11 @@ export function Live2d(id: number): Live2dResult {
             setScale = 0.13;
             break;
         case 13:
+            setY = -197;
+            setX = -275;
+            setScale = 0.15;
+            break;
+        case 14:
             setY = -197;
             setX = -275;
             setScale = 0.15;
