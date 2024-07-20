@@ -121,6 +121,12 @@ const modelData = {
             modelname: 'Baerdimo',
             modelid: '20',
             name: 'Baerdimo 2'
+        },
+        {
+            model: '/live2d/models/bailong_3/bailong_3.model3.json',
+            modelname: 'Bailong',
+            modelid: '21',
+            name: 'Bailong'
         }
     ]
 };
@@ -237,6 +243,11 @@ export function Live2d(id: number): Live2dResult {
         case 20:
             setY = -81;
             setX = -239;
+            setScale = 0.1;
+            break;
+        case 21:
+            setY = -95;
+            setX = -179;
             setScale = 0.1;
             break;
         default:
