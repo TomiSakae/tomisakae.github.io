@@ -163,6 +163,12 @@ const modelData = {
             modelname: 'Bola',
             modelid: '27',
             name: 'Bola'
+        },
+        {
+            model: '/live2d/models/boyixi_2/boyixi_2.model3.json',
+            modelname: 'Boyixi',
+            modelid: '28',
+            name: 'Boyixi'
         }
     ]
 };
@@ -314,6 +320,11 @@ export function Live2d(id: number): Live2dResult {
         case 27:
             setY = -96;
             setX = -268;
+            setScale = 0.1;
+            break;
+        case 28:
+            setY = -104;
+            setX = -220;
             setScale = 0.1;
             break;
         default:
