@@ -31,6 +31,11 @@ const modelData = {
             model: '/live2d/models/aierdeliqi_4/aierdeliqi_4.model3.json',
             modelname: 'Aierdeliqi',
             modelid: '6'
+        },
+        {
+            model: '/live2d/models/aierdeliqi_5/aierdeliqi_5.model3.json',
+            modelname: 'Aierdeliqi',
+            modelid: '7'
         }
     ]
 };
@@ -77,6 +82,11 @@ export function Live2d(id: number): Live2dResult {
         case 6:
             setY = 83;
             setX = -90;
+            setScale = 0.1;
+            break;
+        case 7:
+            setY = 35;
+            setX = -170;
             setScale = 0.1;
             break;
         default:
