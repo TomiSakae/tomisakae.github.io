@@ -145,6 +145,12 @@ const modelData = {
             modelname: 'Biaoqiang',
             modelid: '24',
             name: 'Biaoqiang'
+        },
+        {
+            model: '/live2d/models/bisimai_2/bisimai_2.model3.json',
+            modelname: 'Bisimai',
+            modelid: '25',
+            name: 'Bisimai'
         }
     ]
 };
@@ -281,6 +287,11 @@ export function Live2d(id: number): Live2dResult {
         case 24:
             setY = -39;
             setX = -181;
+            setScale = 0.1;
+            break;
+        case 25:
+            setY = -80;
+            setX = -209;
             setScale = 0.1;
             break;
         default:
