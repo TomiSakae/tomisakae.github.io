@@ -71,6 +71,28 @@ const Live2DModelComponent = () => {
             (model as any).trackedPointers = {};
             setModelName(window.localStorage.getItem('modelname') || 'HMS Abercrombie (F109)');
             (modelRef as any).current = model;
+
+            (model as any).on("hit", (hitAreas: any) => {
+                if (hitAreas.includes("TouchSpecial")) {
+                    (model as any).motion("TapTouchSpecial");
+                }
+
+                if (hitAreas.includes("TouchHead")) {
+                    (model as any).motion("TapTouchHead");
+                }
+                if (hitAreas.includes("TouchBody")) {
+                    (model as any).motion("TapTouchBody");
+                }
+                if (hitAreas.includes("Face")) {
+                    (model as any).motion("TapFace");
+                }
+                if (hitAreas.includes("panci")) {
+                    (model as any).motion("Tappanci");
+                }
+                if (hitAreas.includes("damuzi")) {
+                    (model as any).motion("Tapdamuzi");
+                }
+            });
         };
 
         loadLive2DModel();
