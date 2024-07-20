@@ -45,6 +45,11 @@
           "File": "motions/idle5.motion3.json"
         }
       ],
+      "Idle0": [
+        {
+          "File": "motions/idle.motion3.json"
+        }
+      ],
       "Idle1": [
         {
           "File": "motions/idle1.motion3.json"
