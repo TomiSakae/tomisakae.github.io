@@ -199,6 +199,12 @@ const modelData = {
             modelname: 'Buleisite',
             modelid: '33',
             name: 'Buleisite'
+        },
+        {
+            model: '/live2d/models/chaijun_3/chaijun_3.model3.json',
+            modelname: 'Chaijun',
+            modelid: '34',
+            name: 'Chaijun 1'
         }
     ]
 };
@@ -381,6 +387,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -119;
             setX = -225;
             setScale = 0.1;
+            break;
+        case 34:
+            setY = -35;
+            setX = -225;
+            setScale = 0.08;
             break;
         default:
             setY = 0.09;
