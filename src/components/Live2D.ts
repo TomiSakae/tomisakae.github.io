@@ -337,6 +337,12 @@ const modelData = {
             modelname: 'Fengyun',
             modelid: '56',
             name: 'Fengyun'
+        },
+        {
+            model: '/live2d/models/geliqiya_2/geliqiya_2.model3.json',
+            modelname: 'Geliqiya',
+            modelid: '57',
+            name: 'Geliqiya'
         }
     ]
 };
@@ -634,6 +640,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -161;
             setX = -336;
             setScale = 0.1;
+            break;
+        case 57:
+            setY = -129;
+            setX = -277;
+            setScale = 0.08;
             break;
         default:
             setY = 0.09;
