@@ -285,10 +285,10 @@ const modelData = {
             name: 'Daofeng 2 HX'
         },
         {
-            model: '/live2d/models/dewenjun_2/dewenjun_2.model3.json',
-            modelname: 'Dewenjun',
+            model: '/live2d/models/dujiaoshou_4/dujiaoshou_4.model3.json',
+            modelname: 'Dujiaoshou',
             modelid: '48',
-            name: 'Dewenjun'
+            name: 'Dujiaoshou'
         },
         {
             model: '/live2d/models/deyizhi_3/deyizhi_3.model3.json',
@@ -555,9 +555,9 @@ export function Live2d(id: number): Live2dResult {
             setScale = 0.12;
             break;
         case 48:
-            setY = -192;
-            setX = -332;
-            setScale = 0.11;
+            setY = 3;
+            setX = -146;
+            setScale = 0.12;
             break;
         case 49:
             setY = 77;
