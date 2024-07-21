@@ -475,6 +475,12 @@ const modelData = {
             modelname: 'Junhe',
             modelid: '79',
             name: 'Junhe 2'
+        },
+        {
+            model: '/live2d/models/kalangshitade_2/kalangshitade_2.model3.json',
+            modelname: 'Kalangshitade',
+            modelid: '80',
+            name: 'Kalangshitade'
         }
     ]
 };
@@ -885,6 +891,11 @@ export function Live2d(id: number): Live2dResult {
             break;
         case 79:
             setY = -23;
+            setX = -199;
+            setScale = 0.09;
+            break;
+        case 80:
+            setY = 37;
             setX = -199;
             setScale = 0.09;
             break;
