@@ -378,7 +378,13 @@ const modelData = {
             model: '/live2d/models/hemin_2/hemin_2.model3.json',
             modelname: 'Hemin',
             modelid: '63',
-            name: 'Hemin'
+            name: 'Hemin 1'
+        },
+        {
+            model: '/live2d/models/hemin_3/hemin_3.model3.json',
+            modelname: 'Hemin',
+            modelid: '64',
+            name: 'Hemin 2'
         }
     ]
 };
@@ -711,6 +717,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -19;
             setX = -96;
             setScale = 0.15;
+            break;
+        case 64:
+            setY = -70;
+            setX = -166;
+            setScale = 0.1;
             break;
         default:
             setY = 0.09;
