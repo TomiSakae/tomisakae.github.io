@@ -493,6 +493,12 @@ const modelData = {
             modelname: 'Kelaimengsuo',
             modelid: '82',
             name: 'Kelaimengsuo'
+        },
+        {
+            model: '/live2d/models/kelifulan_8/kelifulan_8.model3.json',
+            modelname: 'Kelifulan',
+            modelid: '83',
+            name: 'Kelifulan'
         }
     ]
 };
@@ -920,6 +926,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -96;
             setX = -174;
             setScale = 0.1;
+            break;
+        case 83:
+            setY = -43;
+            setX = -138;
+            setScale = 0.08;
             break;
         default:
             setY = 0.09;
