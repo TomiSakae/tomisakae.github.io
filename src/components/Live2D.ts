@@ -573,10 +573,10 @@ const modelData = {
             name: 'Longwu'
         },
         {
-            model: '/live2d/models/longfeng_2_hx/longfeng_2_hx.model3.json',
-            modelname: 'Longfeng',
+            model: '/live2d/models/luoen_4/luoen_4.model3.json',
+            modelname: 'Luoen',
             modelid: '96',
-            name: 'Longfeng HX'
+            name: 'Luoen'
         }
     ]
 };
@@ -1071,8 +1071,8 @@ export function Live2d(id: number): Live2dResult {
             setScale = 0.1;
             break;
         case 96:
-            setY = -48;
-            setX = -69;
+            setY = -42;
+            setX = -213;
             setScale = 0.1;
             break;
         default:
