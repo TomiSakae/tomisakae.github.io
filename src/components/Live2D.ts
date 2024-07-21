@@ -361,6 +361,12 @@ const modelData = {
             modelname: 'Guangrong',
             modelid: '60',
             name: 'Guangrong'
+        },
+        {
+            model: '/live2d/models/hailunna_4/hailunna_4.model3.json',
+            modelname: 'Hailunna',
+            modelid: '61',
+            name: 'Hailunna'
         }
     ]
 };
@@ -677,6 +683,11 @@ export function Live2d(id: number): Live2dResult {
         case 60:
             setY = -96;
             setX = -213;
+            setScale = 0.1;
+            break;
+        case 61:
+            setY = -103;
+            setX = -124;
             setScale = 0.1;
             break;
         default:
