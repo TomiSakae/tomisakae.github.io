@@ -499,6 +499,12 @@ const modelData = {
             modelname: 'Kelifulan',
             modelid: '83',
             name: 'Kelifulan'
+        },
+        {
+            model: '/live2d/models/kubo_2/kubo_2.model3.json',
+            modelname: 'Kubo',
+            modelid: '84',
+            name: 'Kubo'
         }
     ]
 };
@@ -931,6 +937,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -43;
             setX = -138;
             setScale = 0.08;
+            break;
+        case 84:
+            setY = -54;
+            setX = -181;
+            setScale = 0.1;
             break;
         default:
             setY = 0.09;
