@@ -240,13 +240,19 @@ const modelData = {
             model: '/live2d/models/dafeng_2/dafeng_2.model3.json',
             modelname: 'Dafeng',
             modelid: '40',
-            name: 'Dafeng'
+            name: 'Dafeng 1'
         },
         {
             model: '/live2d/models/dafeng_2_hx/dafeng_2_hx.model3.json',
             modelname: 'Dafeng',
             modelid: '41',
-            name: 'Dafeng HX'
+            name: 'Dafeng 1 HX'
+        },
+        {
+            model: '/live2d/models/dafeng_3/dafeng_3.model3.json',
+            modelname: 'Dafeng',
+            modelid: '42',
+            name: 'Dafeng 2'
         }
     ]
 };
@@ -468,6 +474,11 @@ export function Live2d(id: number): Live2dResult {
         case 41:
             setY = -52;
             setX = -152;
+            setScale = 0.1;
+            break;
+        case 42:
+            setY = -24;
+            setX = -98;
             setScale = 0.1;
             break;
         default:
