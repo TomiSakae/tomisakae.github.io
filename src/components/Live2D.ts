@@ -468,7 +468,13 @@ const modelData = {
             model: '/live2d/models/junhe_4/junhe_4.model3.json',
             modelname: 'Junhe',
             modelid: '78',
-            name: 'Junhe'
+            name: 'Junhe 1'
+        },
+        {
+            model: '/live2d/models/junhe_5/junhe_5.model3.json',
+            modelname: 'Junhe',
+            modelid: '79',
+            name: 'Junhe 2'
         }
     ]
 };
@@ -876,6 +882,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -19;
             setX = -184;
             setScale = 0.1;
+            break;
+        case 79:
+            setY = -23;
+            setX = -199;
+            setScale = 0.09;
             break;
         default:
             setY = 0.09;
