@@ -205,6 +205,12 @@ const modelData = {
             modelname: 'Chaijun',
             modelid: '34',
             name: 'Chaijun 1'
+        },
+        {
+            model: '/live2d/models/chaijun_4/chaijun_4.model3.json',
+            modelname: 'Chaijun',
+            modelid: '35',
+            name: 'Chaijun 2'
         }
     ]
 };
@@ -391,6 +397,11 @@ export function Live2d(id: number): Live2dResult {
         case 34:
             setY = -35;
             setX = -225;
+            setScale = 0.08;
+            break;
+        case 35:
+            setY = -378;
+            setX = -540;
             setScale = 0.08;
             break;
         default:
