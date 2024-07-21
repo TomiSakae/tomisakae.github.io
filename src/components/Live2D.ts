@@ -516,7 +516,13 @@ const modelData = {
             model: '/live2d/models/lafei/lafei.model3.json',
             modelname: 'Lafei',
             modelid: '86',
-            name: 'Lafei'
+            name: 'Lafei 1'
+        },
+        {
+            model: '/live2d/models/lafei_4/lafei_4.model3.json',
+            modelname: 'Lafei',
+            modelid: '87',
+            name: 'Lafei 2'
         }
     ]
 };
@@ -964,6 +970,11 @@ export function Live2d(id: number): Live2dResult {
             setY = 6;
             setX = -116;
             setScale = 0.5;
+            break;
+        case 87:
+            setY = -19;
+            setX = -214;
+            setScale = 0.1;
             break;
         default:
             setY = 0.09;
