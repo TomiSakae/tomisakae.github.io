@@ -457,6 +457,12 @@ const modelData = {
             modelname: 'Jinluhao',
             modelid: '76',
             name: 'Jinluhao'
+        },
+        {
+            model: '/live2d/models/jiuyun_2/jiuyun_2.model3.json',
+            modelname: 'Jiuyun',
+            modelid: '77',
+            name: 'Jiuyun'
         }
     ]
 };
@@ -854,6 +860,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -27;
             setX = -236;
             setScale = 0.1;
+            break;
+        case 77:
+            setY = -218;
+            setX = -185;
+            setScale = 0.13;
             break;
         default:
             setY = 0.09;
