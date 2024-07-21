@@ -553,6 +553,12 @@ const modelData = {
             modelname: 'Linuo',
             modelid: '92',
             name: 'Linuo HX'
+        },
+        {
+            model: '/live2d/models/lisailiu_2/lisailiu_2.model3.json',
+            modelname: 'Lisailiu',
+            modelid: '93',
+            name: 'Lisailiu'
         }
     ]
 };
@@ -1029,6 +1035,11 @@ export function Live2d(id: number): Live2dResult {
         case 92:
             setY = -18;
             setX = -59;
+            setScale = 0.1;
+            break;
+        case 93:
+            setY = -243;
+            setX = -315;
             setScale = 0.1;
             break;
         default:
