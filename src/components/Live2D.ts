@@ -288,7 +288,7 @@ const modelData = {
             model: '/live2d/models/dujiaoshou_4/dujiaoshou_4.model3.json',
             modelname: 'Dujiaoshou',
             modelid: '48',
-            name: 'Dujiaoshou'
+            name: 'Dujiaoshou 1'
         },
         {
             model: '/live2d/models/deyizhi_3/deyizhi_3.model3.json',
@@ -301,6 +301,12 @@ const modelData = {
             modelname: 'Biaoqiang',
             modelid: '50',
             name: 'Biaoqiang'
+        },
+        {
+            model: '/live2d/models/dujiaoshou_6/dujiaoshou_6.model3.json',
+            modelname: 'Dujiaoshou',
+            modelid: '51',
+            name: 'Dujiaoshou 2'
         }
     ]
 };
@@ -568,6 +574,11 @@ export function Live2d(id: number): Live2dResult {
             setY = 10;
             setX = -117;
             setScale = 0.5;
+            break;
+        case 51:
+            setY = -156;
+            setX = -269;
+            setScale = 0.1;
             break;
         default:
             setY = 0.09;
