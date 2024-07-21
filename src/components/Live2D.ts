@@ -403,6 +403,12 @@ const modelData = {
             modelname: 'Huonululu',
             modelid: '67',
             name: 'Huonululu 2'
+        },
+        {
+            model: '/live2d/models/jialisuoniye_3/jialisuoniye_3.model3.json',
+            modelname: 'Jialisuoniye',
+            modelid: '68',
+            name: 'Jialisuoniye'
         }
     ]
 };
@@ -755,6 +761,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -152;
             setX = -282;
             setScale = 0.2;
+            break;
+        case 68:
+            setY = -15;
+            setX = -305;
+            setScale = 0.1;
             break;
         default:
             setY = 0.09;
