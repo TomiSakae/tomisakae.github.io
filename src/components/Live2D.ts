@@ -367,6 +367,12 @@ const modelData = {
             modelname: 'Hailunna',
             modelid: '61',
             name: 'Hailunna'
+        },
+        {
+            model: '/live2d/models/heitaizi_2/heitaizi_2.model3.json',
+            modelname: 'Heitaizi',
+            modelid: '62',
+            name: 'Heitaizi'
         }
     ]
 };
@@ -688,6 +694,11 @@ export function Live2d(id: number): Live2dResult {
         case 61:
             setY = -103;
             setX = -124;
+            setScale = 0.1;
+            break;
+        case 62:
+            setY = 37;
+            setX = -72;
             setScale = 0.1;
             break;
         default:
