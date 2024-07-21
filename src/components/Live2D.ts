@@ -385,6 +385,12 @@ const modelData = {
             modelname: 'Hemin',
             modelid: '64',
             name: 'Hemin 2'
+        },
+        {
+            model: '/live2d/models/huangjiafangzhou_3/huangjiafangzhou_3.model3.json',
+            modelname: 'Huangjiafangzhou',
+            modelid: '65',
+            name: 'Huangjiafangzhou'
         }
     ]
 };
@@ -722,6 +728,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -70;
             setX = -166;
             setScale = 0.1;
+            break;
+        case 65:
+            setY = -40;
+            setX = -165;
+            setScale = 0.25;
             break;
         default:
             setY = 0.09;
