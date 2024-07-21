@@ -331,6 +331,12 @@ const modelData = {
             modelname: 'Edu',
             modelid: '55',
             name: 'Edu 2'
+        },
+        {
+            model: '/live2d/models/fengyun_4/fengyun_4.model3.json',
+            modelname: 'Fengyun',
+            modelid: '56',
+            name: 'Fengyun'
         }
     ]
 };
@@ -622,6 +628,11 @@ export function Live2d(id: number): Live2dResult {
         case 55:
             setY = -81;
             setX = -308;
+            setScale = 0.1;
+            break;
+        case 56:
+            setY = -161;
+            setX = -336;
             setScale = 0.1;
             break;
         default:
