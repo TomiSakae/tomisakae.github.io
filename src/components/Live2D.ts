@@ -529,6 +529,12 @@ const modelData = {
             modelname: 'Lafeiii',
             modelid: '88',
             name: 'Lafeiii'
+        },
+        {
+            model: '/live2d/models/lingbo/lingbo.model3.json',
+            modelname: 'Lingbo',
+            modelid: '89',
+            name: 'Lingbo'
         }
     ]
 };
@@ -986,6 +992,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -101;
             setX = -215;
             setScale = 0.1;
+            break;
+        case 89:
+            setY = 6;
+            setX = -113;
+            setScale = 0.5;
             break;
         default:
             setY = 0.09;
