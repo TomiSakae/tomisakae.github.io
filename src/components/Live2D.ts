@@ -313,6 +313,12 @@ const modelData = {
             modelname: 'Dunkeerke',
             modelid: '52',
             name: 'Dunkeerke'
+        },
+        {
+            model: '/live2d/models/edu_3/edu_3.model3.json',
+            modelname: 'Edu',
+            modelid: '53',
+            name: 'Edu 1'
         }
     ]
 };
@@ -590,6 +596,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -8;
             setX = -154;
             setScale = 0.08;
+            break;
+        case 53:
+            setY = 18;
+            setX = -206;
+            setScale = 0.1;
             break;
         default:
             setY = 0.09;
