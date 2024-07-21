@@ -567,10 +567,10 @@ const modelData = {
             name: 'Lisailiu 2'
         },
         {
-            model: '/live2d/models/longfeng_2/longfeng_2.model3.json',
-            modelname: 'Longfeng',
+            model: '/live2d/models/longwu_2/longwu_2.model3.json',
+            modelname: 'Longwu',
             modelid: '95',
-            name: 'Longfeng'
+            name: 'Longwu'
         },
         {
             model: '/live2d/models/longfeng_2_hx/longfeng_2_hx.model3.json',
@@ -1066,8 +1066,8 @@ export function Live2d(id: number): Live2dResult {
             setScale = 0.1;
             break;
         case 95:
-            setY = -48;
-            setX = -69;
+            setY = -168;
+            setX = -178;
             setScale = 0.1;
             break;
         case 96:
