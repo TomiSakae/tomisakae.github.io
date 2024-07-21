@@ -349,6 +349,12 @@ const modelData = {
             modelname: 'Genaisennao',
             modelid: '58',
             name: 'Genaisennao'
+        },
+        {
+            model: '/live2d/models/guandao_2/guandao_2.model3.json',
+            modelname: 'Guandao',
+            modelid: '59',
+            name: 'Guandao'
         }
     ]
 };
@@ -656,6 +662,11 @@ export function Live2d(id: number): Live2dResult {
             setY = -93;
             setX = -212;
             setScale = 0.11;
+            break;
+        case 59:
+            setY = -207;
+            setX = -380;
+            setScale = 0.15;
             break;
         default:
             setY = 0.09;
