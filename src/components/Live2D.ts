@@ -427,6 +427,12 @@ const modelData = {
             modelname: 'Jianye',
             modelid: '71',
             name: 'Jianye 1'
+        },
+        {
+            model: '/live2d/models/jianye_2_hx/jianye_2_hx.model3.json',
+            modelname: 'Jianye',
+            modelid: '72',
+            name: 'Jianye 1 HX'
         }
     ]
 };
@@ -796,6 +802,11 @@ export function Live2d(id: number): Live2dResult {
             setScale = 0.1;
             break;
         case 71:
+            setY = -241;
+            setX = -241;
+            setScale = 0.1;
+            break;
+        case 72:
             setY = -241;
             setX = -241;
             setScale = 0.1;
