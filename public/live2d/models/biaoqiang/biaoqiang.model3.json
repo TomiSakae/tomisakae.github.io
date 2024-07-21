@@ -15,72 +15,113 @@
     "DisplayInfo": null,
     "Physics": "biaoqiang.physics3.json",
     "Motions": {
-      "complete": [
+      "Complete": [
         {
           "File": "motions/complete.motion3.json"
         }
       ],
-      "home": [
+      "Home": [
         {
           "File": "motions/home.motion3.json"
         }
       ],
-      "idle": [
+      "Idle": [
         {
           "File": "motions/idle.motion3.json"
         }
       ],
-      "login": [
+      "Login": [
         {
           "File": "motions/login.motion3.json"
         }
       ],
-      "mail": [
+      "Mail": [
         {
           "File": "motions/mail.motion3.json"
         }
       ],
-      "main_1": [
+      "Main_1": [
         {
           "File": "motions/main_1.motion3.json"
         }
       ],
-      "main_2": [
+      "Main_2": [
         {
           "File": "motions/main_2.motion3.json"
         }
       ],
-      "main_3": [
+      "Main_3": [
         {
           "File": "motions/main_3.motion3.json"
         }
       ],
-      "mission": [
+      "Mission": [
         {
           "File": "motions/mission.motion3.json"
         }
       ],
-      "mission_complete": [
+      "Mission_complete": [
         {
           "File": "motions/mission_complete.motion3.json"
         }
       ],
-      "touch_body": [
+      "Touch_body": [
         {
           "File": "motions/touch_body.motion3.json"
         }
       ],
-      "touch_head": [
+      "Touch_head": [
         {
           "File": "motions/touch_head.motion3.json"
         }
       ],
-      "touch_special": [
+      "Touch_special": [
         {
           "File": "motions/touch_special.motion3.json"
         }
       ],
-      "wedding": [
+      "Wedding": [
+        {
+          "File": "motions/wedding.motion3.json"
+        }
+      ],
+      "Animation": [
+        {
+          "File": "motions/complete.motion3.json"
+        },
+        {
+          "File": "motions/home.motion3.json"
+        },
+        {
+          "File": "motions/login.motion3.json"
+        },
+        {
+          "File": "motions/mail.motion3.json"
+        },
+        {
+          "File": "motions/main_1.motion3.json"
+        },
+        {
+          "File": "motions/main_2.motion3.json"
+        },
+        {
+          "File": "motions/main_3.motion3.json"
+        },
+        {
+          "File": "motions/mission.motion3.json"
+        },
+        {
+          "File": "motions/mission_complete.motion3.json"
+        },
+        {
+          "File": "motions/touch_body.motion3.json"
+        },
+        {
+          "File": "motions/touch_head.motion3.json"
+        },
+        {
+          "File": "motions/touch_special.motion3.json"
+        },
         {
           "File": "motions/wedding.motion3.json"
         }

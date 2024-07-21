@@ -289,6 +289,18 @@ const modelData = {
             modelname: 'Dewenjun',
             modelid: '48',
             name: 'Dewenjun'
+        },
+        {
+            model: '/live2d/models/deyizhi_3/deyizhi_3.model3.json',
+            modelname: 'Deyizhi',
+            modelid: '49',
+            name: 'Deyizhi'
+        },
+        {
+            model: '/live2d/models/biaoqiang/biaoqiang.model3.json',
+            modelname: 'Biaoqiang',
+            modelid: '50',
+            name: 'Biaoqiang'
         }
     ]
 };
@@ -546,6 +558,16 @@ export function Live2d(id: number): Live2dResult {
             setY = -192;
             setX = -332;
             setScale = 0.11;
+            break;
+        case 49:
+            setY = 77;
+            setX = -45;
+            setScale = 0.15;
+            break;
+        case 50:
+            setY = 10;
+            setX = -117;
+            setScale = 0.5;
             break;
         default:
             setY = 0.09;
