@@ -160,3 +160,23 @@ for folder, folder_id in renamed_folders:
     
     # Cập nhật đường dẫn trong file model0.json
     update_json_paths(model_json_path, updates)
+
+    # Di chuyển và đổi tên file .png từ thư mục chứa file lpk vào thư mục output tương ứng
+    source_textures_directory = os.path.join(base_directory, folder_id)
+    for root, _, files in os.walk(source_textures_directory):
+        for filename in files:
+            if filename.endswith('.png'):
+                source_file_path = os.path.join(root, filename)
+                destination_file_path = os.path.join(output_path, 'background.png')
+                shutil.move(source_file_path, destination_file_path)
+                print(f"Đã di chuyển và đổi tên '{filename}' từ '{source_file_path}' đến '{destination_file_path}'")
+
+                # Chạy lệnh cmd sau khi tất cả các bước xử lý đã hoàn tất
+final_cmd = 'python changeName.py'
+subprocess.run(final_cmd, shell=True, cwd=output_directory, check=True)
+print("Đã thực thi lệnh cuối cùng: python changeName.py")
+
+# Chạy lệnh cmd tiếp theo
+final_cmd2 = 'python changeJSON.py'
+subprocess.run(final_cmd2, shell=True, cwd=output_directory, check=True)
+print("Đã thực thi lệnh cuối cùng: python changeJSON.py")
