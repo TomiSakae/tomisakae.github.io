@@ -6,7 +6,8 @@ import Lottie from 'lottie-react';
 import HomeData from '../icon/home.json';
 import DiceData from '../icon/dice.json';
 import ChatData from '../icon/chat.json';
-import MenuData from '../icon/menu.json';
+import Live2dData from '../icon/live2d.json';
+import InfoData from '../icon/info.json';
 import { useViewport } from "../hooks/useViewport"; // Import the useViewport hook
 
 const homeStyle = {
@@ -24,9 +25,14 @@ const chatStyle = {
     height: 40,
 };
 
-const menuStyle = {
-    width: 25,
-    height: 25,
+const live2dStyle = {
+    width: 30,
+    height: 30,
+};
+
+const infoStyle = {
+    width: 30,
+    height: 30,
 };
 
 const NavBar: React.FC = () => {
@@ -53,16 +59,11 @@ const NavBar: React.FC = () => {
                     <div className="flex items-center justify-center flex-1 items-stretch justify-start">
                         <button
                             onClick={() => router.push("/tomisakae")}
-                            className={`py-2 rounded-md text-sm`}
+                            className={`hover:bg-gray-700 px-2 py-2 rounded-md ${pathname === "/tomisakae" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
-                            <Image
-                                src={"/tomisakae.jpg"}
-                                alt={"TomiSakae"}
-                                width={25}
-                                height={25}
-                                priority={true}
-                                className="rounded-2xl w-[25px] h-[25px]"
-                                placeholder="empty"
+                            <Lottie
+                                animationData={InfoData}
+                                style={infoStyle}
                             />
                         </button>
                         <button
@@ -96,17 +97,11 @@ const NavBar: React.FC = () => {
                             />
                         </button>
                         <button
-
-                            className="py-2 rounded-md"
+                            className={`hover:bg-gray-700 px-2 py-2 rounded-md ${pathname === "/" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
-                            <Image
-                                src={"/7G.png"}
-                                alt={"7G"}
-                                width={30}
-                                height={17}
-                                priority={true}
-                                className="w-[30px] h-[17px]"
-                                placeholder="empty"
+                            <Lottie
+                                animationData={Live2dData}
+                                style={live2dStyle}
                             />
                         </button>
                     </div>
