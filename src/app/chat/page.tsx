@@ -42,12 +42,22 @@ const Live2DModelComponent = () => {
 
     useEffect(() => {
         window.PIXI = PIXI;
+        const devicePixelRatio = window.devicePixelRatio || 1;
+        const scaleFactor = 1.0; // Adjust this value as needed
+        PIXI.GRAPHICS_CURVES.adaptive = false;
+        PIXI.settings.ANISOTROPIC_LEVEL = 0;
+        PIXI.settings.RESOLUTION = devicePixelRatio;
+        PIXI.settings.ROUND_PIXELS = true;
         const app = new PIXI.Application({
             view: document.getElementById('canvas') as HTMLCanvasElement,
+            width: window.innerWidth * scaleFactor,
+            height: window.innerHeight * scaleFactor,
             autoStart: true,
             resizeTo: window,
-            backgroundAlpha: 0,
             antialias: true,
+            autoDensity: true,
+            resolution: devicePixelRatio,
+            backgroundAlpha: 0,
         });
 
         const loadLive2DModel = async () => {
