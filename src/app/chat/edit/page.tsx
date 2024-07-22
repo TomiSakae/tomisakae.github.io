@@ -189,6 +189,7 @@ const Live2DModelComponent = () => {
                         <GrView
                             className="text-xl font-bold text-white cursor-pointer"
                             onClick={() => {
+                                window.localStorage.setItem('scale', String(scaleModel));
                                 router.push("/chat/edit/view");
                                 window.sessionStorage.setItem('reload', 'true');
                             }}
