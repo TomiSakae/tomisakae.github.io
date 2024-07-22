@@ -1,6 +1,7 @@
 import os
 import subprocess
 import json
+import shutil
 
 # Hàm để làm đẹp lại file JSON
 def beautify_json(file_path):
@@ -14,6 +15,46 @@ def beautify_json(file_path):
         print(f"Đã làm đẹp file JSON: {file_path}")
     except Exception as e:
         print(f"Không thể làm đẹp file JSON {file_path}: {e}")
+
+# Hàm để cập nhật đường dẫn trong file model0.json
+def update_json_paths(file_path, updates):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+        
+        def update_paths(item):
+            if isinstance(item, dict):
+                for k, v in item.items():
+                    if isinstance(v, str):
+                        for old_path, new_path in updates.items():
+                            if v.endswith(old_path):
+                                item[k] = os.path.join(new_path, os.path.basename(v)).replace("\\", "/")
+                    elif isinstance(v, (dict, list)):
+                        update_paths(v)
+            elif isinstance(item, list):
+                for i in item:
+                    if isinstance(i, str):
+                        for old_path, new_path in updates.items():
+                            if i.endswith(old_path):
+                                item[item.index(i)] = os.path.join(new_path, os.path.basename(i)).replace("\\", "/")
+                    else:
+                        update_paths(i)
+
+        # Cập nhật đường dẫn trong mục "FileReferences_Textures"
+        if "FileReferences" in data and "Textures" in data["FileReferences"]:
+            for idx, texture in enumerate(data["FileReferences"]["Textures"]):
+                for old_path, new_path in updates.items():
+                    if texture.endswith(old_path):
+                        data["FileReferences"]["Textures"][idx] = os.path.join(new_path, os.path.basename(texture)).replace("\\", "/")
+        
+        update_paths(data)
+        
+        with open(file_path, 'w', encoding='utf-8') as file:
+            json.dump(data, file, indent=4, ensure_ascii=False)
+        
+        print(f"Đã cập nhật đường dẫn trong file JSON: {file_path}")
+    except Exception as e:
+        print(f"Không thể cập nhật đường dẫn trong file JSON {file_path}: {e}")
 
 # Lấy đường dẫn đến thư mục chứa file Python này
 base_directory = os.path.dirname(os.path.abspath(__file__))
@@ -90,3 +131,32 @@ for folder, folder_id in renamed_folders:
     
     # Làm đẹp file model0.json
     beautify_json(model_json_path)
+
+    # Tạo các thư mục voice, motions, và textures
+    voice_directory = os.path.join(character_directory, 'voice')
+    motions_directory = os.path.join(character_directory, 'motions')
+    textures_directory = os.path.join(character_directory, 'textures')
+    
+    os.makedirs(voice_directory, exist_ok=True)
+    os.makedirs(motions_directory, exist_ok=True)
+    os.makedirs(textures_directory, exist_ok=True)
+
+    # Di chuyển các file vào các thư mục tương ứng
+    updates = {}
+    for filename in os.listdir(character_directory):
+        file_path = os.path.join(character_directory, filename)
+        if filename.endswith(('.ogg', '.mp3', '.wav')):
+            new_path = os.path.join(voice_directory, filename)
+            shutil.move(file_path, new_path)
+            updates[filename] = 'voice'
+        elif filename.endswith('.json') and 'Motions' in filename:
+            new_path = os.path.join(motions_directory, filename)
+            shutil.move(file_path, new_path)
+            updates[filename] = 'motions'
+        elif filename.endswith('.png'):
+            new_path = os.path.join(textures_directory, filename)
+            shutil.move(file_path, new_path)
+            updates[filename] = 'textures'
+    
+    # Cập nhật đường dẫn trong file model0.json
+    update_json_paths(model_json_path, updates)
