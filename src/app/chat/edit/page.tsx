@@ -10,6 +10,7 @@ import { CiSettings } from "react-icons/ci";
 import { Live2d } from '../../../components/Live2D';
 import modelData from "../../../components/Live2D";
 import { CiPlay1 } from "react-icons/ci";
+import { GrView } from "react-icons/gr";
 
 type Motion = {
     File: string;
@@ -181,6 +182,15 @@ const Live2DModelComponent = () => {
                             className="text-xl font-bold text-white cursor-pointer"
                             onClick={() => {
                                 setIsPlayOpen(true);
+                            }}
+                        />
+                    </div>
+                    <div className="mt-6">
+                        <GrView
+                            className="text-xl font-bold text-white cursor-pointer"
+                            onClick={() => {
+                                router.push("/chat/edit/view");
+                                window.sessionStorage.setItem('reload', 'true');
                             }}
                         />
                     </div>

@@ -85,7 +85,7 @@ const Live2DModelComponent = () => {
             window.location.reload();
         }
         window.sessionStorage.setItem('reload', 'false');
-    }, [])
+    }, []);
 
     useEffect(() => {
         const ChatVN = async () => {
@@ -111,7 +111,7 @@ const Live2DModelComponent = () => {
         if (window.sessionStorage.getItem('reload') == 'false') {
             ChatVN();
         }
-    }, [])
+    }, []);
 
     const ChooseVN = async (option: string) => {
         (modelRef as any).current.motion('Animation');

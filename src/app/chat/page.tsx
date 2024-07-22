@@ -104,7 +104,7 @@ const Live2DModelComponent = () => {
             window.location.reload();
         }
         window.sessionStorage.setItem('reload', 'false');
-    }, [])
+    }, []);
 
     const handleToggleInput = () => {
         setIsTyping((prev) => !prev);
