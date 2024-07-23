@@ -12,6 +12,9 @@ import { FaExchangeAlt } from "react-icons/fa";
 import { GrPowerReset } from "react-icons/gr";
 import { Live2d } from '../../../components/Live2D';
 import { MdOutlineChangeCircle } from "react-icons/md";
+import { AiOutlineClose } from 'react-icons/ai';
+import modelData from "../../../components/Live2D";
+import Image from 'next/image';
 
 declare global {
     interface Window {
@@ -25,6 +28,9 @@ const Live2DModelComponent = () => {
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [outputText, setOutputText] = useState('');
     const [isTypeDone, setIsTypeDone] = useState(false);
+    const [isChangeCharacter, setIsChangeCharacter] = useState(false);
+    const [isLoadedLive2d, setIsLoadedLive2d] = useState(false);
+    const [isOpacityOpen, setIsOpacityOpen] = useState(false);
     const [textAnimation, setTextAnimation] = useState<string[]>([]);
     const [optionsVN, setOptionsVN] = useState<any[]>([]);
     const [modelName, setModelName] = useState('');
@@ -86,6 +92,7 @@ const Live2DModelComponent = () => {
                     (model as any).motion("Tapdamuzi");
                 }
             });
+            setIsLoadedLive2d(true);
         };
 
         loadLive2DModel();
@@ -141,6 +148,23 @@ const Live2DModelComponent = () => {
         window.location.reload();
     }
 
+    const toggleChangeCharacter = () => {
+        setIsChangeCharacter(true);
+        setIsOpacityOpen(true);
+    };
+
+    const closeChangeCharacter = () => {
+        setIsChangeCharacter(false);
+        setIsOpacityOpen(false);
+    };
+
+    const resetPage = () => {
+        window.localStorage.removeItem('modely');
+        window.localStorage.removeItem('modelx');
+        window.localStorage.removeItem('scale');
+        window.location.reload();
+    }
+
     return (
         <>
             <Script
@@ -165,16 +189,18 @@ const Live2DModelComponent = () => {
                     background: rgba(3, 122, 222, 0.5) linear-gradient(to bottom right, rgba(3, 122, 222, 0.5), rgba(3, 229, 183, 0.5));
                 }
             `}</style>
-            <canvas id="canvas" />
-            <div className="fixed gradient-background text-sm bottom-[8em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white">
+            <canvas id="canvas" className={`${isOpacityOpen ? 'opacity-50' : ''}`} />
+            <div className={`fixed gradient-background text-sm bottom-[8em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
                 <div className="px-2 font-bold">
                     <h6>{modelName}</h6>
                 </div>
-                <GrPowerReset
-                    className="text-white fixed bottom-[5.84em] z-10 right-4 text-xl cursor-pointer" onClick={resetVN}
-                />
+                {isLoadedLive2d &&
+                    <GrPowerReset
+                        className="text-white fixed bottom-[5.84em] z-10 right-4 text-xl cursor-pointer" onClick={resetVN}
+                    />
+                }
                 <div className="bg-[#333333] font-[500] rounded-lg h-[7.2em] mt-2 text-white py-2 px-4 relative overflow-auto">
-                    {outputText && (
+                    {outputText && isLoadedLive2d && (
                         outputText === "..." ? (
                             <div className="mb-4">
                                 {textAnimation.map((el, i) => (
@@ -210,7 +236,7 @@ const Live2DModelComponent = () => {
                 </div>
             </div>
             <div className="fixed flex justify-end items-center gradient-background text-sm bottom-[5.2em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white">
-                <MdOutlineChangeCircle className="text-xl font-bold cursor-pointer me-5" />
+                <MdOutlineChangeCircle className="text-xl font-bold cursor-pointer me-5" onClick={toggleChangeCharacter} />
                 <FaExchangeAlt className="text-lg font-bold cursor-pointer me-5"
                     onClick={() => {
                         router.back();
@@ -231,6 +257,39 @@ const Live2DModelComponent = () => {
                     </div>
                     <div className="text-center text-white font-bold bg-[#333333] px-4 py-3 rounded-lg items-center mb-4 cursor-pointer" onClick={() => { ChooseVN("3") }}>
                         {optionsVN[3].replace(/^"|"$/g, '')}
+                    </div>
+                </div>
+            )}
+            {isChangeCharacter && (
+                <div className={`fixed top-4 bottom-[10vh] h-[88vh] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isChangeCharacter === true ? 'z-30' : '-z-30'}`}>
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="font-bold text-lg text-white">Đổi Nhân Vật</h2>
+                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeChangeCharacter} />
+                    </div>
+                    <div className="h-[90%] overflow-auto">
+                        <div className='grid grid-cols-2'>
+                            {modelData.models.map((model: any) => (
+                                model.img &&
+                                <div key={model.modelid}>
+                                    <div className='border rounded-t-2xl mx-1 my-2'>
+                                        <p className='bg-white text-center text-sm font-[600] rounded-t-2xl p-1'>{model.modelname}</p>
+                                        <Image
+                                            src={model.img}
+                                            alt={model.modelname}
+                                            width={192}
+                                            height={256}
+                                            className="h-auto bg-white cursor-pointer"
+                                            onClick={() => {
+                                                window.localStorage.setItem('model', model.model);
+                                                window.localStorage.setItem('modelname', model.modelname);
+                                                window.localStorage.setItem('modelid', model.modelid);
+                                                resetPage();
+                                            }}
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             )}

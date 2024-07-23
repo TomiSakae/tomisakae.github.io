@@ -16,7 +16,8 @@ import { useRouter } from 'next/navigation';
 import { FaExchangeAlt } from "react-icons/fa";
 import { Live2d } from '../../components/Live2D';
 import { MdOutlineChangeCircle } from "react-icons/md";
-
+import modelData from "../../components/Live2D";
+import Image from 'next/image';
 declare global {
     interface Window {
         PIXI: typeof PIXI;
@@ -33,6 +34,7 @@ const Live2DModelComponent = () => {
     const [isChangeType, setIsChangeType] = useState(false);
     const [textAnimation, setTextAnimation] = useState<string[]>([]);
     const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+    const [isChangeCharacter, setIsChangeCharacter] = useState(false);
     const [chatHistory, setChatHistory] = useState<any[]>([]);
     const [isTrashOpen, setIsTrashOpen] = useState(false);
     const [isTrashRemove, setIsTrashRemove] = useState(false);
@@ -177,6 +179,11 @@ const Live2DModelComponent = () => {
         setIsOpacityOpen(true);
     };
 
+    const toggleChangeCharacter = () => {
+        setIsChangeCharacter(true);
+        setIsOpacityOpen(true);
+    };
+
     const toggleTrash = () => {
         setIsTrashOpen((prev) => !prev);
         setIsOpacityOpen(true);
@@ -184,6 +191,11 @@ const Live2DModelComponent = () => {
 
     const closeHistory = () => {
         setIsHistoryOpen(false);
+        setIsOpacityOpen(false);
+    };
+
+    const closeChangeCharacter = () => {
+        setIsChangeCharacter(false);
         setIsOpacityOpen(false);
     };
 
@@ -197,6 +209,12 @@ const Live2DModelComponent = () => {
         setIsOpacityOpen(false);
     };
 
+    const resetPage = () => {
+        window.localStorage.removeItem('modely');
+        window.localStorage.removeItem('modelx');
+        window.localStorage.removeItem('scale');
+        window.location.reload();
+    }
 
     return (
         <>
@@ -292,7 +310,7 @@ const Live2DModelComponent = () => {
                 </div>
             </div>
             <div className={`fixed flex justify-end items-center gradient-background text-sm bottom-[5.2em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
-                <MdOutlineChangeCircle className="text-xl font-bold cursor-pointer me-5" />
+                <MdOutlineChangeCircle className="text-xl font-bold cursor-pointer me-5" onClick={toggleChangeCharacter} />
                 <FaExchangeAlt className="text-lg font-bold cursor-pointer me-5" onClick={() => {
                     router.push("/chat/vn");
                     window.sessionStorage.setItem('reload', 'true');
@@ -347,6 +365,39 @@ const Live2DModelComponent = () => {
                         <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded" onClick={closeTrashRemove}>
                             OK
                         </button>
+                    </div>
+                </div>
+            )}
+            {isChangeCharacter && (
+                <div className={`fixed top-4 bottom-[10vh] h-[88vh] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isChangeCharacter === true ? 'z-30' : '-z-30'}`}>
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="font-bold text-lg text-white">Đổi Nhân Vật</h2>
+                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeChangeCharacter} />
+                    </div>
+                    <div className="h-[90%] overflow-auto">
+                        <div className='grid grid-cols-2'>
+                            {modelData.models.map((model: any) => (
+                                model.img &&
+                                <div key={model.modelid}>
+                                    <div className='border rounded-t-2xl mx-1 my-2'>
+                                        <p className='bg-white text-center text-sm font-[600] rounded-t-2xl p-1'>{model.modelname}</p>
+                                        <Image
+                                            src={model.img}
+                                            alt={model.modelname}
+                                            width={192}
+                                            height={256}
+                                            className="h-auto bg-white cursor-pointer"
+                                            onClick={() => {
+                                                window.localStorage.setItem('model', model.model);
+                                                window.localStorage.setItem('modelname', model.modelname);
+                                                window.localStorage.setItem('modelid', model.modelid);
+                                                resetPage();
+                                            }}
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             )}

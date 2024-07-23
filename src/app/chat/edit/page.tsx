@@ -8,10 +8,8 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { GrPowerReset } from "react-icons/gr";
 import { CiSettings } from "react-icons/ci";
 import { Live2d } from '../../../components/Live2D';
-import modelData from "../../../components/Live2D";
 import { CiPlay1 } from "react-icons/ci";
 import { GrView } from "react-icons/gr";
-import Image from 'next/image';
 
 type Motion = {
     File: string;
@@ -144,8 +142,6 @@ const Live2DModelComponent = () => {
         window.localStorage.removeItem('modely');
         window.localStorage.removeItem('modelx');
         window.localStorage.removeItem('scale');
-        setScaleModel(0.1);
-        (modelRef as any).current.scale.set(0.1);
         window.location.reload();
     }
 
@@ -231,32 +227,6 @@ const Live2DModelComponent = () => {
                     <h4 className="text-center font-bold text-lg text-white">Đổi ảnh nền</h4>
                     <div className="overflow-x-auto flex justify-center">
                         <p className="text-white py-5">Đang Cập Nhật...</p>
-                    </div>
-                    <h4 className="text-center font-bold text-lg text-white mt-5">Đổi Live2D</h4>
-                    <div className="overflow-auto h-[30vh] mt-4 mb-4 text-center">
-                        <div className='grid grid-cols-2'>
-                            {modelData.models.map((model: any) => (
-                                model.img &&
-                                <div key={model.modelid}>
-                                    <div className='border rounded-2xl mx-1 my-2'>
-                                        <p className='bg-white text-sm font-[600] rounded-t-2xl p-1'>{model.modelname}</p>
-                                        <Image
-                                            src={model.img}
-                                            alt={model.modelname}
-                                            width={192}
-                                            height={256}
-                                            className="h-auto bg-white rounded-b-2xl cursor-pointer"
-                                            onClick={() => {
-                                                window.localStorage.setItem('model', model.model);
-                                                window.localStorage.setItem('modelname', model.modelname);
-                                                window.localStorage.setItem('modelid', model.modelid);
-                                                resetPage();
-                                            }}
-                                        />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
                     </div>
                 </div >
             )}
