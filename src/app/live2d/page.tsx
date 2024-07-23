@@ -1,13 +1,20 @@
-// pages/index.tsx
+'use client'
 import Image from 'next/image';
 import images from '../../../public/live2d/steam_models/img';
+import { useRouter } from 'next/navigation';
 
 const Home = () => {
+    const router = useRouter();
     return (
         <div className="flex flex-wrap mb-16">
             {images.map((image) => (
                 <div key={image.id} className="w-1/2 p-[2px]">
-                    <div className="w-full aspect-w-1 aspect-h-1 relative">
+                    <div className="w-full aspect-w-1 aspect-h-1 relative cursor-pointer"
+                        onClick={() => {
+                            router.push(`/live2d/show/edit/?id=${image.id}`);
+                            window.sessionStorage.setItem('reload', 'true');
+                        }}
+                    >
                         <Image
                             src={image.src}
                             alt={image.alt}
