@@ -1,6 +1,6 @@
 // components/Live2DModel.tsx
 'use client'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Script from 'next/script';
 import * as PIXI from 'pixi.js';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -113,4 +113,12 @@ const Live2DModelComponent = () => {
     );
 };
 
-export default Live2DModelComponent;
+const Show = () => {
+    return (
+        <Suspense>
+            <Live2DModelComponent />
+        </Suspense>
+    );
+}
+
+export default Show;
