@@ -45,6 +45,7 @@ const Live2DModelComponent = () => {
             antialias: true,
             autoDensity: true,
             resolution: devicePixelRatio,
+            powerPreference: 'high-performance',
             backgroundAlpha: 0,
         });
 
