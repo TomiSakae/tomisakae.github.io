@@ -236,16 +236,16 @@ const Live2DModelComponent = () => {
                     <div className="overflow-auto h-[30vh] mt-4 mb-4 text-center">
                         <div className='grid grid-cols-2'>
                             {modelData.models.map((model: any) => (
-                                model.img &&
+
                                 <div key={model.modelid}>
-                                    <div className='border rounded-2xl mx-1'>
+                                    <div className='border rounded-2xl mx-1 my-2'>
                                         <p className='bg-white text-sm font-[600] rounded-t-2xl p-1'>{model.modelname}</p>
                                         <Image
                                             src={model.img}
                                             alt={model.modelname}
                                             width={192}
                                             height={256}
-                                            className="h-auto bg-white cursor-pointer"
+                                            className="h-auto bg-white rounded-b-2xl cursor-pointer"
                                             onClick={() => {
                                                 window.localStorage.setItem('model', model.model);
                                                 window.localStorage.setItem('modelname', model.modelname);
