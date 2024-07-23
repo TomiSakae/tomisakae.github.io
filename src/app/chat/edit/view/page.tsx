@@ -115,6 +115,7 @@ const Live2DModelComponent = () => {
                             className="text-xl text-white cursor-pointer"
                             onClick={() => {
                                 router.back();
+                                window.sessionStorage.setItem('reload', 'true');
                             }}
                         />
                     </div>

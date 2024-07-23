@@ -295,7 +295,10 @@ const Live2DModelComponent = () => {
                     router.push("/chat/vn");
                     window.sessionStorage.setItem('reload', 'true');
                 }} />
-                <FaEdit className="text-lg font-bold cursor-pointer me-5" onClick={() => router.push("/chat/edit")} />
+                <FaEdit className="text-lg font-bold cursor-pointer me-5" onClick={() => {
+                    router.push("/chat/edit");
+                    window.sessionStorage.setItem('reload', 'true');
+                }} />
                 <FaTrashAlt className="text-lg font-bold cursor-pointer me-5" onClick={toggleTrash} />
                 <MdHistory className="text-xl font-bold cursor-pointer" onClick={toggleHistory} />
             </div>

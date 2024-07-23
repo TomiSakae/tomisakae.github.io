@@ -214,7 +214,10 @@ const Live2DModelComponent = () => {
                         router.back();
                         window.sessionStorage.setItem('reload', 'true');
                     }} />
-                <FaEdit className="text-lg font-bold cursor-pointer" onClick={() => router.push("/chat/edit")} />
+                <FaEdit className="text-lg font-bold cursor-pointer" onClick={() => {
+                    router.push("/chat/edit");
+                    window.sessionStorage.setItem('reload', 'true');
+                }} />
             </div>
             {isTypeDone && (
                 <div className={`fixed top-1/2 text-[0.8em] bottom-[4em] left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 w-[90%] max-w-[600px] ${isTypeDone === true ? 'z-30' : '-z-30'}`}>

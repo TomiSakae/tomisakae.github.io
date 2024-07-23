@@ -116,6 +116,14 @@ const Live2DModelComponent = () => {
         loadLive2DModel();
     }, [isLive2DScriptLoaded]);
 
+    useEffect(() => {
+        if (window.sessionStorage.getItem('reload') == 'true') {
+            window.sessionStorage.setItem('reload', 'false');
+            window.location.reload();
+        }
+        window.sessionStorage.setItem('reload', 'false');
+    }, []);
+
     const upScale = () => {
         (modelRef as any).current.scale.set(parseFloat((scaleModel + 0.01).toFixed(2)));
         setScaleModel(parseFloat((scaleModel + 0.01).toFixed(2)));
