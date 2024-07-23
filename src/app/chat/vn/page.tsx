@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 import { FaExchangeAlt } from "react-icons/fa";
 import { GrPowerReset } from "react-icons/gr";
 import { Live2d } from '../../../components/Live2D';
+import { MdOutlineChangeCircle } from "react-icons/md";
 
 declare global {
     interface Window {
@@ -209,6 +210,7 @@ const Live2DModelComponent = () => {
                 </div>
             </div>
             <div className="fixed flex justify-end items-center gradient-background text-sm bottom-[5.2em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white">
+                <MdOutlineChangeCircle className="text-xl font-bold cursor-pointer me-5" />
                 <FaExchangeAlt className="text-lg font-bold cursor-pointer me-5"
                     onClick={() => {
                         router.back();

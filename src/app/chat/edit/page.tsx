@@ -11,6 +11,7 @@ import { Live2d } from '../../../components/Live2D';
 import modelData from "../../../components/Live2D";
 import { CiPlay1 } from "react-icons/ci";
 import { GrView } from "react-icons/gr";
+import Image from 'next/image';
 
 type Motion = {
     File: string;
@@ -233,38 +234,49 @@ const Live2DModelComponent = () => {
                     </div>
                     <h4 className="text-center font-bold text-lg text-white mt-5">Đổi Live2D</h4>
                     <div className="overflow-auto h-[30vh] mt-4 mb-4 text-center">
-                        {modelData.models.map((model) => (
-                            <button
-                                key={model.modelid}
-                                className="px-4 py-2 rounded-2xl mt-3 mx-2 bg-white text-black"
-                                onClick={() => {
-                                    window.localStorage.setItem('model', model.model);
-                                    window.localStorage.setItem('modelname', model.modelname);
-                                    window.localStorage.setItem('modelid', model.modelid);
-                                    resetPage();
-                                }}
-                            >
-                                {model.name}
-                            </button>
-                        ))}
+                        <div className='grid grid-cols-2'>
+                            {modelData.models.map((model: any) => (
+                                model.img &&
+                                <div key={model.modelid}>
+                                    <div className='border rounded-2xl mx-1'>
+                                        <p className='bg-white text-sm font-[600] rounded-t-2xl p-1'>{model.modelname}</p>
+                                        <Image
+                                            src={model.img}
+                                            alt={model.modelname}
+                                            width={192}
+                                            height={256}
+                                            className="h-auto bg-white cursor-pointer"
+                                            onClick={() => {
+                                                window.localStorage.setItem('model', model.model);
+                                                window.localStorage.setItem('modelname', model.modelname);
+                                                window.localStorage.setItem('modelid', model.modelid);
+                                                resetPage();
+                                            }}
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                </div >
             )}
-            {isPlayOpen && (
-                <div className="fixed top-[20vh] overflow-auto right-0 bg-[#333333] h-1/2 rounded-2xl">
-                    <div className="flex flex-col px-1 justify-center items-center">
-                        <AiOutlineClose
-                            className="text-lg text-white mt-2 mb-2 text-center cursor-pointer"
-                            onClick={() => setIsPlayOpen(false)}
-                        />
-                        {motions.map((title, index) => (
-                            <button
-                                key={index}
-                                className="px-1 py-1 text-xs rounded-lg mb-2 font-bold bg-white text-black" onClick={() => setPlayMotions(title)}>{title}</button>
-                        ))}
+            {
+                isPlayOpen && (
+                    <div className="fixed top-[20vh] overflow-auto right-0 bg-[#333333] h-1/2 rounded-2xl">
+                        <div className="flex flex-col px-1 justify-center items-center">
+                            <AiOutlineClose
+                                className="text-lg text-white mt-2 mb-2 text-center cursor-pointer"
+                                onClick={() => setIsPlayOpen(false)}
+                            />
+                            {motions.map((title, index) => (
+                                <button
+                                    key={index}
+                                    className="px-1 py-1 text-xs rounded-lg mb-2 font-bold bg-white text-black" onClick={() => setPlayMotions(title)}>{title}</button>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            )}
+                )
+            }
         </>
     );
 };

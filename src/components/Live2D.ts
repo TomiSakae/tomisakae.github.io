@@ -4,9 +4,10 @@ const modelData = {
     models: [
         {
             model: '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json',
-            modelname: 'HMS Abercrombie (F109)',
+            modelname: 'Abercrombie',
             modelid: '1',
-            name: 'HMS Abercrombie (F109) HX'
+            name: 'Abercrombie HX',
+            img: '/live2d/models_img/AbercrombieBunnyShipyardIcon.png'
         },
         {
             model: '/live2d/models/abeikelongbi_3/abeikelongbi_3.model3.json',
@@ -16,15 +17,17 @@ const modelData = {
         },
         {
             model: '/live2d/models/adaerbote_2/adaerbote_2.model3.json',
-            modelname: 'KMS Prinz Adalbert',
+            modelname: 'Prinz Adalbert',
             modelid: '3',
-            name: 'KMS Prinz Adalbert'
+            name: 'Prinz Adalbert',
+            img: '/live2d/models_img/Prinz_AdalbertMaidShipyardIcon.png'
         },
         {
             model: '/live2d/models/aerbien_3/aerbien_3.model3.json',
             modelname: 'Albion',
             modelid: '4',
-            name: 'Albion'
+            name: 'Albion',
+            img: '/live2d/models_img/AlbionSpringShipyardIcon.png'
         },
         {
             model: '/live2d/models/aersasi_2/aersasi_2.model3.json',
