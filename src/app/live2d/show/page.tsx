@@ -1,6 +1,6 @@
 // components/Live2DModel.tsx
 'use client'
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, Suspense, useRef } from 'react';
 import Script from 'next/script';
 import * as PIXI from 'pixi.js';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -13,12 +13,21 @@ declare global {
     }
 }
 
+interface HitArea {
+    Name: string;
+    Motion: string;
+}
+
 const Live2DModelComponent = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
+    const modelRef = useRef(null);  // Khai báo một biến tham chiếu useRef
     const modelId = searchParams.get('id') || '';
+    const [hitAreas, setHitAreas] = useState<HitArea[]>([]);
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [scaleModel, setScaleModel] = useState(0.1);
+    const [isLoadModel, setIsLoadModel] = useState(false);
+
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -44,17 +53,34 @@ const Live2DModelComponent = () => {
         const loadLive2DModel = async () => {
             const { Live2DModel, MotionPreloadStrategy } = await import('pixi-live2d-display');
             const model = await Live2DModel.from(`/live2d/steam_models/${modelId}/character/model0.json`, { motionPreload: MotionPreloadStrategy.ALL });
+            const response = await fetch(`/live2d/steam_models/${modelId}/character/model0.json`);
+            const data = await response.json();
+            setHitAreas(data.HitAreas);
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             (model as any).position.y = window.sessionStorage.getItem('modely' + modelId) || 0;
             (model as any).position.x = window.sessionStorage.getItem('modelx' + modelId) || 0;
             (model as any).scale.set(window.sessionStorage.getItem('scale' + modelId) || 0.1);
             setScaleModel(Number(window.sessionStorage.getItem('scale' + modelId)) || 0.1);
             (model as any).interactive = true;
+            (modelRef as any).current = model;
             (model as any).trackedPointers = {};
+            setIsLoadModel(true);
         };
 
         loadLive2DModel();
     }, [isLive2DScriptLoaded]);
+
+    useEffect(() => {
+        if (isLoadModel) {
+            (modelRef.current as any).on("hit", (hitArea: any) => {
+                hitAreas.forEach((area) => {
+                    if (hitArea.includes(area.Name)) {
+                        (modelRef.current as any).motion(area.Motion);
+                    }
+                });
+            });
+        }
+    }, [isLoadModel, hitAreas]);
 
     useEffect(() => {
         if (window.sessionStorage.getItem('reload') == 'true') {
