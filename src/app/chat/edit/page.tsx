@@ -236,7 +236,7 @@ const Live2DModelComponent = () => {
                     <div className="overflow-auto h-[30vh] mt-4 mb-4 text-center">
                         <div className='grid grid-cols-2'>
                             {modelData.models.map((model: any) => (
-
+                                model.img &&
                                 <div key={model.modelid}>
                                     <div className='border rounded-2xl mx-1 my-2'>
                                         <p className='bg-white text-sm font-[600] rounded-t-2xl p-1'>{model.modelname}</p>
