@@ -132,14 +132,16 @@ for folder, folder_id in renamed_folders:
     # Làm đẹp file model0.json
     beautify_json(model_json_path)
 
-    # Tạo các thư mục voice, motions, và textures
+    # Tạo các thư mục voice, motions, textures, và expressions
     voice_directory = os.path.join(character_directory, 'voice')
     motions_directory = os.path.join(character_directory, 'motions')
     textures_directory = os.path.join(character_directory, 'textures')
+    expressions_directory = os.path.join(character_directory, 'expressions')
     
     os.makedirs(voice_directory, exist_ok=True)
     os.makedirs(motions_directory, exist_ok=True)
     os.makedirs(textures_directory, exist_ok=True)
+    os.makedirs(expressions_directory, exist_ok=True)
 
     # Di chuyển các file vào các thư mục tương ứng
     updates = {}
@@ -157,6 +159,10 @@ for folder, folder_id in renamed_folders:
             new_path = os.path.join(textures_directory, filename)
             shutil.move(file_path, new_path)
             updates[filename] = 'textures'
+        elif filename.endswith('.json') and 'Expressions' in filename:
+            new_path = os.path.join(expressions_directory, filename)
+            shutil.move(file_path, new_path)
+            updates[filename] = 'expressions'
     
     # Cập nhật đường dẫn trong file model0.json
     update_json_paths(model_json_path, updates)
@@ -180,3 +186,29 @@ print("Đã thực thi lệnh cuối cùng: python changeName.py")
 final_cmd2 = 'python changeJSON.py'
 subprocess.run(final_cmd2, shell=True, cwd=output_directory, check=True)
 print("Đã thực thi lệnh cuối cùng: python changeJSON.py")
+
+# Chạy lệnh cmd tiếp theo
+final_cmd3 = 'python moveJSON.py'
+subprocess.run(final_cmd3, shell=True, cwd=output_directory, check=True)
+print("Đã thực thi lệnh cuối cùng: python moveJSON.py")
+
+# Hàm để xóa thư mục và file ngoại trừ các file cụ thể
+def delete_folder_contents(folder_path, exclude_extensions):
+    for root, dirs, files in os.walk(folder_path, topdown=False):
+        for name in files:
+            if not any(name.endswith(ext) for ext in exclude_extensions):
+                file_path = os.path.join(root, name)
+                os.remove(file_path)
+                print(f"Đã xóa file: {file_path}")
+        for name in dirs:
+            dir_path = os.path.join(root, name)
+            shutil.rmtree(dir_path)
+            print(f"Đã xóa thư mục: {dir_path}")
+
+# Đường dẫn đến thư mục chứa file Python
+base_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Xóa các thư mục nằm cùng với file Python, ngoại trừ các file .py và .cmd
+delete_folder_contents(base_directory, exclude_extensions=['.py', '.cmd'])
+
+print("Đã xóa các thư mục và file ngoại trừ các file .py và .cmd")
