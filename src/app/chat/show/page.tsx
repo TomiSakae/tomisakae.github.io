@@ -13,12 +13,6 @@ import { AiOutlineClose } from 'react-icons/ai';
 import modelData from "../../../components/Live2D";
 import Image from 'next/image';
 import { CiPlay1 } from "react-icons/ci";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-
-// Import Swiper styles
-import 'swiper/css';
 
 type Motion = {
     File: string;
@@ -183,23 +177,15 @@ const Live2DModelComponent = () => {
             `}</style>
             <canvas id="canvas" className={`${isOpacityOpen ? 'opacity-50' : ''}`} />
             {isPlayOpen &&
-                <div className={`fixed flex justify-center bg-[#333333] items-center text-sm bottom-[2.5em] left-[50%] w-[100%] transform -translate-x-1/2 py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
-                    <Swiper
-                        modules={[Autoplay]}
-                        slidesPerView={2}
-                        className="text-center"
-                        loop={true}
-                        autoplay={{
-                            delay: 1500,
-                        }}
-                    >
-                        {motions.map((title, index) => (
-                            <SwiperSlide key={index}>
-                                <button
-                                    className="px-1 w-[75%] py-1 text-xs rounded-lg font-bold bg-white text-black" onClick={() => setPlayMotions(title)}>{title}</button>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                <div className={`fixed flex justify-center bg-[#333333] items-center text-sm bottom-[1.5em] left-[50%] w-[100%] transform -translate-x-1/2 py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
+                    <div className='pt-2'>
+                        <div className='h-[20vh] overflow-auto'>
+                            {motions.map((title, index) => (
+                                <button key={index}
+                                    className="px-2 py-1 my-2 mx-2 text-xs rounded-lg font-bold bg-white text-black" onClick={() => setPlayMotions(title)}>{title}</button>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             }
             <div className={`fixed flex justify-end bg-[#333333] items-center  text-sm bottom-0 left-[50%] w-[100%] transform -translate-x-1/2 py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
