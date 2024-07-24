@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GrPowerReset } from "react-icons/gr";
 import { TbBackground } from "react-icons/tb";
-import backGroundData from "../../../../components/BackGround";
+import backGroundData from "../../../components/BackGround";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import { FaEdit } from "react-icons/fa";
 import Image from 'next/image';

@@ -97,7 +97,7 @@ const NavBar: React.FC = () => {
                             />
                         </button>
                         <button
-                            onClick={() => router.push("/live2d")}
+                            onClick={() => router.push("/")}
                             className={`hover:bg-gray-700 px-2 py-2 rounded-md ${pathname === "/live2d" ? "bg-gray-700" : "hover:bg-gray-700"}`}
                         >
                             <Lottie
