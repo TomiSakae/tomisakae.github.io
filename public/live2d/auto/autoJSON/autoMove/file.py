@@ -4,11 +4,14 @@ import shutil
 # Đường dẫn tới thư mục chứa file Python và các thư mục cần di chuyển
 source_directory = os.path.dirname(os.path.abspath(__file__))
 
-# Đường dẫn tới thư mục đích
+# Đường dẫn tới thư mục đích cho các thư mục cần di chuyển
 destination_directory = 'C:/Users/TomiSakae/Documents/tomisakae.github.io/public/live2d/auto/LpkUnpacker/lpkfolder'
 
-# Đường dẫn tới tệp models.txt
+# Đường dẫn tới tệp models.txt trong thư mục nguồn
 models_file_path = os.path.join(source_directory, 'models.txt')
+
+# Đường dẫn tới tệp models.txt trong thư mục đích
+destination_models_file_path = 'C:/Users/TomiSakae/Documents/tomisakae.github.io/public/live2d/auto/autoJSON/autoMove/models.txt'
 
 # Đọc danh sách ID từ tệp models.txt
 with open(models_file_path, 'r') as file:
@@ -30,3 +33,6 @@ with open(models_file_path, 'a') as file:
             
             # Ghi tên thư mục đã di chuyển vào tệp models.txt
             file.write(item + '\n')
+
+# Sao chép tệp models.txt đến vị trí đích
+shutil.copy(models_file_path, destination_models_file_path)
