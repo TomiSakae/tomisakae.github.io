@@ -151,7 +151,7 @@ for folder, folder_id in renamed_folders:
             new_path = os.path.join(voice_directory, filename)
             shutil.move(file_path, new_path)
             updates[filename] = 'voice'
-        elif filename.endswith('.json') and 'Motions' in filename:
+        elif filename.endswith('.json') and 'motions' in filename.casefold():
             new_path = os.path.join(motions_directory, filename)
             shutil.move(file_path, new_path)
             updates[filename] = 'motions'
