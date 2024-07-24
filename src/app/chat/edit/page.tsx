@@ -8,35 +8,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { GrPowerReset } from "react-icons/gr";
 import { CiSettings } from "react-icons/ci";
 import { Live2d } from '../../../components/Live2D';
-import { CiPlay1 } from "react-icons/ci";
 import { GrView } from "react-icons/gr";
-
-type Motion = {
-    File: string;
-};
-
-type Motions = {
-    [key: string]: Motion[];
-};
-
-type JsonData = {
-    Version: number;
-    Name: string;
-    FileReferences: {
-        Moc: string;
-        Textures: string[];
-        DisplayInfo: null | string;
-        Physics: string;
-        Motions: Motions;
-        Expressions: any[];
-    };
-    Groups: {
-        Target: string;
-        Name: string;
-        Ids: string[];
-    }[];
-};
-
 declare global {
     interface Window {
         PIXI: typeof PIXI;
@@ -49,8 +21,6 @@ const Live2DModelComponent = () => {
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [scaleModel, setScaleModel] = useState(0.1);
     const [isSettingOpen, setIsSettingOpen] = useState(false);
-    const [isPlayOpen, setIsPlayOpen] = useState(false);
-    const [motions, setMotions] = useState<string[]>([]);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -95,10 +65,6 @@ const Live2DModelComponent = () => {
         const loadLive2DModel = async () => {
             const { Live2DModel, MotionPreloadStrategy } = await import('pixi-live2d-display');
             const model = await Live2DModel.from(window.localStorage.getItem('model') || '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json', { motionPreload: MotionPreloadStrategy.ALL });
-            const res = await fetch(window.localStorage.getItem('model') || '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json');
-            const jsonData: JsonData = await res.json();
-            const motionTitles = Object.keys(jsonData.FileReferences.Motions);
-            setMotions(motionTitles);
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             const id = parseInt(window.localStorage.getItem('modelid') || '1', 10);
             const { setX, setY, setScale } = Live2d(id);
@@ -131,11 +97,6 @@ const Live2DModelComponent = () => {
     const downScale = () => {
         (modelRef as any).current.scale.set(parseFloat((scaleModel - 0.01).toFixed(2)));
         setScaleModel(parseFloat((scaleModel - 0.01).toFixed(2)));
-    }
-
-    const setPlayMotions = (title: string) => {
-        setIsPlayOpen(false);
-        (modelRef as any).current.motion(title);
     }
 
     const resetPage = () => {
@@ -194,14 +155,6 @@ const Live2DModelComponent = () => {
                         />
                     </div>
                     <div className="mt-6">
-                        <CiPlay1
-                            className="text-xl font-bold text-white cursor-pointer"
-                            onClick={() => {
-                                setIsPlayOpen(true);
-                            }}
-                        />
-                    </div>
-                    <div className="mt-6">
                         <GrView
                             className="text-xl font-bold text-white cursor-pointer"
                             onClick={() => {
@@ -230,23 +183,6 @@ const Live2DModelComponent = () => {
                     </div>
                 </div >
             )}
-            {
-                isPlayOpen && (
-                    <div className="fixed top-[20vh] overflow-auto right-0 bg-[#333333] h-1/2 rounded-2xl">
-                        <div className="flex flex-col px-1 justify-center items-center">
-                            <AiOutlineClose
-                                className="text-lg text-white mt-2 mb-2 text-center cursor-pointer"
-                                onClick={() => setIsPlayOpen(false)}
-                            />
-                            {motions.map((title, index) => (
-                                <button
-                                    key={index}
-                                    className="px-1 py-1 text-xs rounded-lg mb-2 font-bold bg-white text-black" onClick={() => setPlayMotions(title)}>{title}</button>
-                            ))}
-                        </div>
-                    </div>
-                )
-            }
         </>
     );
 };

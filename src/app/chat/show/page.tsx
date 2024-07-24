@@ -12,7 +12,39 @@ import { MdOutlineChangeCircle } from "react-icons/md";
 import { AiOutlineClose } from 'react-icons/ai';
 import modelData from "../../../components/Live2D";
 import Image from 'next/image';
+import { CiPlay1 } from "react-icons/ci";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 
+// Import Swiper styles
+import 'swiper/css';
+
+type Motion = {
+    File: string;
+};
+
+type Motions = {
+    [key: string]: Motion[];
+};
+
+type JsonData = {
+    Version: number;
+    Name: string;
+    FileReferences: {
+        Moc: string;
+        Textures: string[];
+        DisplayInfo: null | string;
+        Physics: string;
+        Motions: Motions;
+        Expressions: any[];
+    };
+    Groups: {
+        Target: string;
+        Name: string;
+        Ids: string[];
+    }[];
+};
 declare global {
     interface Window {
         PIXI: typeof PIXI;
@@ -26,6 +58,8 @@ const Live2DModelComponent = () => {
     const [isChangeCharacter, setIsChangeCharacter] = useState(false);
     const [isLoadedLive2d, setIsLoadedLive2d] = useState(false);
     const [isOpacityOpen, setIsOpacityOpen] = useState(false);
+    const [motions, setMotions] = useState<string[]>([]);
+    const [isPlayOpen, setIsPlayOpen] = useState(false);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -51,6 +85,10 @@ const Live2DModelComponent = () => {
         const loadLive2DModel = async () => {
             const { Live2DModel, MotionPreloadStrategy } = await import('pixi-live2d-display');
             const model = await Live2DModel.from(window.localStorage.getItem('model') || '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json', { motionPreload: MotionPreloadStrategy.ALL });
+            const res = await fetch(window.localStorage.getItem('model') || '/live2d/models/abeikelongbi_3_hx/abeikelongbi_3_hx.model3.json');
+            const jsonData: JsonData = await res.json();
+            const motionTitles = Object.keys(jsonData.FileReferences.Motions);
+            setMotions(motionTitles);
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             const id = parseInt(window.localStorage.getItem('modelid') || '1', 10);
             const { setX, setY, setScale } = Live2d(id);
@@ -107,6 +145,11 @@ const Live2DModelComponent = () => {
         setIsOpacityOpen(false);
     };
 
+    const setPlayMotions = (title: string) => {
+        setIsPlayOpen(false);
+        (modelRef as any).current.motion(title);
+    }
+
     const resetPage = () => {
         window.localStorage.removeItem('modely');
         window.localStorage.removeItem('modelx');
@@ -139,7 +182,33 @@ const Live2DModelComponent = () => {
                 }
             `}</style>
             <canvas id="canvas" className={`${isOpacityOpen ? 'opacity-50' : ''}`} />
-            <div className={`fixed flex justify-end items-center bg-[#333333] text-sm bottom-0 left-[50%] w-[100%] transform -translate-x-1/2 py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
+            {isPlayOpen &&
+                <div className={`fixed flex justify-center bg-[#333333] items-center text-sm bottom-[2.5em] left-[50%] w-[100%] transform -translate-x-1/2 py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
+                    <Swiper
+                        modules={[Autoplay]}
+                        slidesPerView={2}
+                        className="text-center"
+                        loop={true}
+                        autoplay={{
+                            delay: 1500,
+                        }}
+                    >
+                        {motions.map((title, index) => (
+                            <SwiperSlide key={index}>
+                                <button
+                                    className="px-1 w-[75%] py-1 text-xs rounded-lg font-bold bg-white text-black" onClick={() => setPlayMotions(title)}>{title}</button>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+            }
+            <div className={`fixed flex justify-end bg-[#333333] items-center  text-sm bottom-0 left-[50%] w-[100%] transform -translate-x-1/2 py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
+                <CiPlay1
+                    className="text-xl font-bold cursor-pointer me-5"
+                    onClick={() => {
+                        setIsPlayOpen((prev) => !prev);
+                    }}
+                />
                 <MdOutlineChangeCircle className="text-xl font-bold cursor-pointer me-5" onClick={toggleChangeCharacter} />
                 <FaExchangeAlt className="text-lg font-bold cursor-pointer me-5"
                     onClick={() => {
