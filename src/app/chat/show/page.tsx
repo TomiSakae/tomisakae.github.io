@@ -283,7 +283,7 @@ const Live2DModelComponent = () => {
             <canvas id="canvas" className={`${isOpacityOpen ? 'opacity-50' : ''}`} />
             {isPlayMotion &&
                 <div
-                    className="fixed bottom-0 left-0 h-[2px] bg-[#9C4BEE] z-50"
+                    className="fixed bottom-0 left-0 h-[1px] bg-[#9C4BEE] z-50"
                     style={{
                         width: `${(elapsedTime / (duration || 1)) * 100}%`,
                     }}

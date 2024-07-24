@@ -3,6 +3,8 @@ import useSWR from 'swr';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
+const getRandomNumber = () => Math.floor(Math.random() * 999999999);
+
 const fetcher = async (url: string) => {
     const response = await fetch(url, {
         method: 'GET',
@@ -19,14 +21,19 @@ const fetcher = async (url: string) => {
 };
 
 const AnimeImg = () => {
-    const [page, setPage] = useState(0); // State page có thể không cần thiết nếu không sử dụng trong URL
-    const { data: waifusData, error: waifusError } = useSWR(`https://api.waifu.pics/sfw/waifu?page=${page}`, fetcher, { revalidateOnFocus: false });
+    const [page, setPage] = useState(0);
+    const [randomValue, setRandomValue] = useState(getRandomNumber); // Tạo giá trị ngẫu nhiên ban đầu
+    const { data: waifusData, error: waifusError } = useSWR(
+        `https://api.waifu.pics/sfw/waifu?page=${page}&random=${randomValue}`,
+        fetcher,
+        { revalidateOnFocus: false }
+    );
     const [images, setImages] = useState<string[]>([]);
     const sentinelRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         if (waifusData) {
-            setImages((prev) => [...prev, waifusData.url]); // Cập nhật danh sách ảnh với ảnh mới
+            setImages((prev) => [...prev, waifusData.url]);
         }
     }, [waifusData]);
 
@@ -34,8 +41,8 @@ const AnimeImg = () => {
         const observer = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting) {
-                    // Do nothing or trigger any other logic if needed
-                    setPage((prevPage) => prevPage + 1); // Sử dụng page state nếu cần
+                    setPage((prevPage) => prevPage + 1); // Tăng trang
+                    setRandomValue(getRandomNumber()); // Tạo giá trị ngẫu nhiên mới
                 }
             },
             { threshold: 1 }
