@@ -27,6 +27,7 @@ const Live2DModelComponent = () => {
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [scaleModel, setScaleModel] = useState(0.1);
     const [isLoadModel, setIsLoadModel] = useState(false);
+    const [changeBackGround, setChangeBackGround] = useState('');
 
 
     useEffect(() => {
@@ -65,6 +66,7 @@ const Live2DModelComponent = () => {
             (modelRef as any).current = model;
             (model as any).trackedPointers = {};
             setIsLoadModel(true);
+            setChangeBackGround(String(window.localStorage.getItem('backgrounds')));
         };
 
         loadLive2DModel();
@@ -103,15 +105,13 @@ const Live2DModelComponent = () => {
                 onLoad={() => setIsLive2DScriptLoaded(true)}
             />
 
-            <style jsx global>{`
-                #canvas {
-                    background-image: url('/background1.avif');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                }
-            `}</style>
-            <canvas id="canvas" />
+            <canvas id="canvas"
+                style={{
+                    backgroundImage: `url(${changeBackGround || '/background1.avif'})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                }} />
             <div className="relative">
                 <div className="fixed top-4 right-4 opacity-50">
                     <div className="">

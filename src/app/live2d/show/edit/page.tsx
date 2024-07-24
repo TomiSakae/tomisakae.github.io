@@ -6,6 +6,11 @@ import * as PIXI from 'pixi.js';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GrPowerReset } from "react-icons/gr";
+import { TbBackground } from "react-icons/tb";
+import backGroundData from "../../../../components/BackGround";
+import { IoCheckmarkDoneCircle } from "react-icons/io5";
+import { FaEdit } from "react-icons/fa";
+import Image from 'next/image';
 
 declare global {
     interface Window {
@@ -21,6 +26,9 @@ const Live2DModelComponent = () => {
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [scaleModel, setScaleModel] = useState(0.1);
     const [changeBackGround, setChangeBackGround] = useState('');
+    const [isChangeBackGround, setIsChangeBackGround] = useState(false);
+    const [editModeBackGround, setEditModeBackGround] = useState(false);
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -74,7 +82,7 @@ const Live2DModelComponent = () => {
             (model as any).trackedPointers = {};
             (modelRef as any).current = model;
             draggable(model);
-            setChangeBackGround(String(window.localStorage.getItem('background')));
+            setChangeBackGround(String(window.localStorage.getItem('backgrounds')));
         };
 
         loadLive2DModel();
@@ -104,6 +112,15 @@ const Live2DModelComponent = () => {
         window.sessionStorage.removeItem('scale' + modelId);
         window.location.reload();
     }
+
+    const toggleChangeBackGround = () => {
+        setIsChangeBackGround(true);
+    };
+
+    const closeChangeBackGround = () => {
+        setIsChangeBackGround(false);
+        setEditModeBackGround(false);
+    };
 
     return (
         <>
@@ -143,6 +160,9 @@ const Live2DModelComponent = () => {
                             onClick={resetPage}
                         />
                     </div>
+                    <div className="mt-6">
+                        <TbBackground className="text-xl text-white cursor-pointer" onClick={toggleChangeBackGround} />
+                    </div>
                 </div>
                 <div className="fixed top-4 items-center opacity-50 right-4 mx-8 p-2 bg-gray-800 rounded-md flex space-x-2">
                     <button className="bg-green-500 text-white px-2 py-1 rounded" onClick={upScale}>+</button>
@@ -150,6 +170,59 @@ const Live2DModelComponent = () => {
                     <button className="bg-red-500 text-white px-2 py-1 rounded" onClick={downScale}>-</button>
                 </div>
             </div>
+            {isChangeBackGround && (
+                <div className={`fixed top-4 bottom-[10vh] h-[88vh] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isChangeBackGround === true ? 'z-30' : '-z-30'}`}>
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="font-bold text-lg text-white">Đổi Ảnh Nền</h2>
+                        <div className='flex justify-center items-center'>
+                            {!editModeBackGround ?
+                                <FaEdit className="text-md text-white cursor-pointer me-5" onClick={() => {
+                                    setEditModeBackGround(true);
+                                }} />
+                                : <div className='flex justify-center items-center'>
+                                    <textarea
+                                        placeholder='Nhập URL...'
+                                        autoFocus
+                                        className="resize-none border-none focus:outline-none rounded-md overflow-x-auto overflow-y-hidden px-2 bg-[#333333] text-white h-[1.5em] w-[30vw] me-2 whitespace-nowrap"
+                                        rows={1} // Đặt số hàng để hiển thị 1 hàng
+                                        ref={textareaRef} // Tham chiếu đến textarea
+                                    />
+                                    <IoCheckmarkDoneCircle onClick={() => {
+                                        if (textareaRef.current) {
+                                            // Lấy giá trị từ textarea
+                                            const url = textareaRef.current.value;
+                                            // Lưu giá trị URL vào localStorage
+                                            window.localStorage.setItem('backgrounds', url);
+                                            setChangeBackGround(url);
+                                            closeChangeBackGround();
+                                        }
+                                    }} className="font-bold text-lg cursor-pointer text-white mx-2" />
+                                </div>}
+                            <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeChangeBackGround} />
+                        </div>
+                    </div>
+                    <div className="h-[90%] overflow-auto">
+                        <div className='grid grid-cols-2'>
+                            {backGroundData.backgrounds.map((background: any, index) => (
+                                <div key={index} className='mx-1 my-1'>
+                                    <Image
+                                        src={background.url}
+                                        alt={"Ảnh Nền"}
+                                        width={1920}
+                                        height={1080}
+                                        className="w-[100%] h-auto cursor-pointer"
+                                        onClick={() => {
+                                            window.localStorage.setItem('backgrounds', background.url);
+                                            setChangeBackGround(background.url);
+                                            closeChangeBackGround();
+                                        }}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 };
