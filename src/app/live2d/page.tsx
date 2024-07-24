@@ -18,9 +18,9 @@ const Home = () => {
                         <Image
                             src={image.src}
                             alt={image.alt}
-                            width={180}
-                            height={180}
-                            className="w-[180px] rounded-sm h-[180px]"
+                            width={512}
+                            height={512}
+                            className="w-auto rounded-sm h-auto"
                         />
                     </div>
                 </div>
