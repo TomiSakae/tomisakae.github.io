@@ -312,7 +312,7 @@ const Live2DModelComponent = () => {
             <div className={`fixed flex justify-end items-center gradient-background text-sm bottom-[5.2em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
                 <MdOutlineChangeCircle className="text-xl font-bold cursor-pointer me-5" onClick={toggleChangeCharacter} />
                 <FaExchangeAlt className="text-lg font-bold cursor-pointer me-5" onClick={() => {
-                    router.push("/chat/vn");
+                    router.push("/chat/show");
                     window.sessionStorage.setItem('reload', 'true');
                 }} />
                 <FaEdit className="text-lg font-bold cursor-pointer me-5" onClick={() => {
