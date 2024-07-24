@@ -92,7 +92,7 @@ const Live2DModelComponent = () => {
             setModelName(window.localStorage.getItem('modelname') || 'HMS Abercrombie (F109)');
             (modelRef as any).current = model;
 
-            setChangeBackGround(String(window.localStorage.getItem('background')));
+            setChangeBackGround(String(window.localStorage.getItem('background')) || '/background1.avif');
 
             (model as any).on("hit", (hitAreas: any) => {
                 if (hitAreas.includes("TouchSpecial")) {

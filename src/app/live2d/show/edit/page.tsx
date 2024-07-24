@@ -82,7 +82,7 @@ const Live2DModelComponent = () => {
             (model as any).trackedPointers = {};
             (modelRef as any).current = model;
             draggable(model);
-            setChangeBackGround(String(window.localStorage.getItem('backgrounds')));
+            setChangeBackGround(String(window.localStorage.getItem('backgrounds')) || '/background1.avif');
         };
 
         loadLive2DModel();

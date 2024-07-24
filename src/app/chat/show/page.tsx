@@ -121,7 +121,7 @@ const Live2DModelComponent = () => {
             // Gán giá trị model vào biến tham chiếu useRef
             (modelRef as any).current = model;
 
-            setChangeBackGround(String(window.localStorage.getItem('background')));
+            setChangeBackGround(String(window.localStorage.getItem('background')) || '/background1.avif');
 
             (model as any).on("hit", (hitAreas: any) => {
                 if (hitAreas.includes("TouchSpecial")) {

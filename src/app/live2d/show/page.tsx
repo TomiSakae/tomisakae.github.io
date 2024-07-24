@@ -119,7 +119,7 @@ const Live2DModelComponent = () => {
             (modelRef as any).current = model;
             (model as any).trackedPointers = {};
             setIsLoadModel(true);
-            setChangeBackGround(String(window.localStorage.getItem('backgrounds')));
+            setChangeBackGround(String(window.localStorage.getItem('backgrounds')) || '/background1.avif');
         };
 
         loadLive2DModel();
