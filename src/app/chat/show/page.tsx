@@ -13,6 +13,8 @@ import { AiOutlineClose } from 'react-icons/ai';
 import modelData from "../../../components/Live2D";
 import Image from 'next/image';
 import { CiPlay1 } from "react-icons/ci";
+import { TbBackground } from "react-icons/tb";
+import backGroundData from "../../../components/BackGround";
 
 type JsonData = {
     Version: number;
@@ -66,6 +68,8 @@ const Live2DModelComponent = () => {
     const [motionFiles, setMotionFiles] = useState<{ [key: string]: string[] }>({});
     // Ref để giữ track các giá trị elapsedTime
     const lastTimeRef = useRef<number>(0);
+    const [isChangeBackGround, setIsChangeBackGround] = useState(false);
+    const [changeBackGround, setChangeBackGround] = useState('');
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -112,6 +116,8 @@ const Live2DModelComponent = () => {
             // Gán giá trị model vào biến tham chiếu useRef
             (modelRef as any).current = model;
 
+            setChangeBackGround(String(window.localStorage.getItem('background')));
+
             (model as any).on("hit", (hitAreas: any) => {
                 if (hitAreas.includes("TouchSpecial")) {
                     (model as any).motion("TapTouchSpecial");
@@ -154,6 +160,16 @@ const Live2DModelComponent = () => {
 
     const closeChangeCharacter = () => {
         setIsChangeCharacter(false);
+        setIsOpacityOpen(false);
+    };
+
+    const toggleChangeBackGround = () => {
+        setIsChangeBackGround(true);
+        setIsOpacityOpen(true);
+    };
+
+    const closeChangeBackGround = () => {
+        setIsChangeBackGround(false);
         setIsOpacityOpen(false);
     };
 
@@ -270,17 +286,17 @@ const Live2DModelComponent = () => {
             />
 
             <style jsx global>{`
-                #canvas {
-                    background-image: url('/background1.avif');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                }
                 .gradient-background {
                     background: rgba(3, 122, 222, 0.5) linear-gradient(to bottom right, rgba(3, 122, 222, 0.5), rgba(3, 229, 183, 0.5));
                 }
             `}</style>
-            <canvas id="canvas" className={`${isOpacityOpen ? 'opacity-50' : ''}`} />
+            <canvas id="canvas" className={`${isOpacityOpen ? 'opacity-50' : ''}`}
+                style={{
+                    backgroundImage: `url(${changeBackGround || '/background1.avif'})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                }} />
             {isPlayMotion &&
                 <div
                     className="fixed bottom-0 left-0 h-[1px] bg-[#9C4BEE] z-50"
@@ -310,6 +326,7 @@ const Live2DModelComponent = () => {
                         }}
                     />
                     <MdOutlineChangeCircle className="text-xl font-bold cursor-pointer me-5" onClick={toggleChangeCharacter} />
+                    <TbBackground className="text-xl font-bold cursor-pointer me-5" onClick={toggleChangeBackGround} />
                     <FaExchangeAlt className="text-lg font-bold cursor-pointer me-5"
                         onClick={() => {
                             router.back();
@@ -348,6 +365,34 @@ const Live2DModelComponent = () => {
                                             }}
                                         />
                                     </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
+            {isChangeBackGround && (
+                <div className={`fixed top-4 bottom-[10vh] h-[88vh] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isChangeBackGround === true ? 'z-30' : '-z-30'}`}>
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="font-bold text-lg text-white">Đổi Ảnh Nền</h2>
+                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeChangeBackGround} />
+                    </div>
+                    <div className="h-[90%] overflow-auto">
+                        <div className='grid grid-cols-2'>
+                            {backGroundData.backgrounds.map((background: any, index) => (
+                                <div key={index} className='mx-1 my-1'>
+                                    <Image
+                                        src={background.url}
+                                        alt={"Ảnh Nền"}
+                                        width={1920}
+                                        height={1080}
+                                        className="w-[100%] h-auto cursor-pointer"
+                                        onClick={() => {
+                                            window.localStorage.setItem('background', background.url);
+                                            setChangeBackGround(background.url);
+                                            closeChangeBackGround();
+                                        }}
+                                    />
                                 </div>
                             ))}
                         </div>

@@ -18,6 +18,8 @@ import { Live2d } from '../../components/Live2D';
 import { MdOutlineChangeCircle } from "react-icons/md";
 import modelData from "../../components/Live2D";
 import Image from 'next/image';
+import { TbBackground } from "react-icons/tb";
+import backGroundData from "../../components/BackGround";
 declare global {
     interface Window {
         PIXI: typeof PIXI;
@@ -35,6 +37,7 @@ const Live2DModelComponent = () => {
     const [textAnimation, setTextAnimation] = useState<string[]>([]);
     const [isHistoryOpen, setIsHistoryOpen] = useState(false);
     const [isChangeCharacter, setIsChangeCharacter] = useState(false);
+    const [isChangeBackGround, setIsChangeBackGround] = useState(false);
     const [chatHistory, setChatHistory] = useState<any[]>([]);
     const [isTrashOpen, setIsTrashOpen] = useState(false);
     const [isTrashRemove, setIsTrashRemove] = useState(false);
@@ -42,6 +45,7 @@ const Live2DModelComponent = () => {
     const [editMode, setEditMode] = useState(false);
     const [username, setUsername] = useState('User');
     const [modelName, setModelName] = useState('');
+    const [changeBackGround, setChangeBackGround] = useState('');
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -85,6 +89,8 @@ const Live2DModelComponent = () => {
             (model as any).trackedPointers = {};
             setModelName(window.localStorage.getItem('modelname') || 'HMS Abercrombie (F109)');
             (modelRef as any).current = model;
+
+            setChangeBackGround(String(window.localStorage.getItem('background')));
 
             (model as any).on("hit", (hitAreas: any) => {
                 if (hitAreas.includes("TouchSpecial")) {
@@ -184,6 +190,11 @@ const Live2DModelComponent = () => {
         setIsOpacityOpen(true);
     };
 
+    const toggleChangeBackGround = () => {
+        setIsChangeBackGround(true);
+        setIsOpacityOpen(true);
+    };
+
     const toggleTrash = () => {
         setIsTrashOpen((prev) => !prev);
         setIsOpacityOpen(true);
@@ -196,6 +207,11 @@ const Live2DModelComponent = () => {
 
     const closeChangeCharacter = () => {
         setIsChangeCharacter(false);
+        setIsOpacityOpen(false);
+    };
+
+    const closeChangeBackGround = () => {
+        setIsChangeBackGround(false);
         setIsOpacityOpen(false);
     };
 
@@ -230,17 +246,17 @@ const Live2DModelComponent = () => {
             />
 
             <style jsx global>{`
-                #canvas {
-                    background-image: url('/background1.avif');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                }
                 .gradient-background {
                     background: rgba(3, 122, 222, 0.5) linear-gradient(to bottom right, rgba(3, 122, 222, 0.5), rgba(3, 229, 183, 0.5));
                 }
             `}</style>
-            <canvas id="canvas" className={`${isOpacityOpen ? 'opacity-50' : ''}`} />
+            <canvas id="canvas" className={`${isOpacityOpen ? 'opacity-50' : ''}`}
+                style={{
+                    backgroundImage: `url(${changeBackGround || '/background1.avif'})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                }} />
             <div className={`fixed gradient-background text-sm bottom-[8em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg pt-2 pb-2 px-2 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
                 <div className="px-2 font-bold">
                     {outputText ? (
@@ -311,6 +327,7 @@ const Live2DModelComponent = () => {
             </div>
             <div className={`fixed flex justify-end items-center gradient-background text-sm bottom-[5.2em] left-[50%] w-[95%] transform -translate-x-1/2 rounded-lg py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
                 <MdOutlineChangeCircle className="text-xl font-bold cursor-pointer me-5" onClick={toggleChangeCharacter} />
+                <TbBackground className="text-xl font-bold cursor-pointer me-5" onClick={toggleChangeBackGround} />
                 <FaExchangeAlt className="text-lg font-bold cursor-pointer me-5" onClick={() => {
                     router.push("/chat/show");
                     window.sessionStorage.setItem('reload', 'true');
@@ -395,6 +412,34 @@ const Live2DModelComponent = () => {
                                             }}
                                         />
                                     </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
+            {isChangeBackGround && (
+                <div className={`fixed top-4 bottom-[10vh] h-[88vh] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isChangeBackGround === true ? 'z-30' : '-z-30'}`}>
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="font-bold text-lg text-white">Đổi Ảnh Nền</h2>
+                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeChangeBackGround} />
+                    </div>
+                    <div className="h-[90%] overflow-auto">
+                        <div className='grid grid-cols-2'>
+                            {backGroundData.backgrounds.map((background: any, index) => (
+                                <div key={index} className='mx-1 my-1'>
+                                    <Image
+                                        src={background.url}
+                                        alt={"Ảnh Nền"}
+                                        width={1920}
+                                        height={1080}
+                                        className="w-[100%] h-auto cursor-pointer"
+                                        onClick={() => {
+                                            window.localStorage.setItem('background', background.url);
+                                            setChangeBackGround(background.url);
+                                            closeChangeBackGround();
+                                        }}
+                                    />
                                 </div>
                             ))}
                         </div>

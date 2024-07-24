@@ -6,7 +6,6 @@ import * as PIXI from 'pixi.js';
 import { useRouter } from 'next/navigation';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GrPowerReset } from "react-icons/gr";
-import { CiSettings } from "react-icons/ci";
 import { Live2d } from '../../../components/Live2D';
 import { GrView } from "react-icons/gr";
 declare global {
@@ -20,7 +19,6 @@ const Live2DModelComponent = () => {
     const modelRef = useRef(null);  // Khai báo một biến tham chiếu useRef
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [scaleModel, setScaleModel] = useState(0.1);
-    const [isSettingOpen, setIsSettingOpen] = useState(false);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -147,14 +145,6 @@ const Live2DModelComponent = () => {
                         />
                     </div>
                     <div className="mt-6">
-                        <CiSettings
-                            className="text-xl font-bold text-white cursor-pointer"
-                            onClick={() => {
-                                setIsSettingOpen(true);
-                            }}
-                        />
-                    </div>
-                    <div className="mt-6">
                         <GrView
                             className="text-xl font-bold text-white cursor-pointer"
                             onClick={() => {
@@ -171,18 +161,6 @@ const Live2DModelComponent = () => {
                     <button className="bg-red-500 text-white px-2 py-1 rounded" onClick={downScale}>-</button>
                 </div>
             </div>
-            {isSettingOpen && (
-                <div className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#333333] rounded-lg p-4 w-[90%] max-w-[600px] ${isSettingOpen === true ? 'z-30' : '-z-30'}`}>
-                    <div className="flex justify-between items-center mb-4">
-                        <h2 className="font-bold text-lg text-white">Cài Đặt Live2D</h2>
-                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={() => { setIsSettingOpen(false) }} />
-                    </div>
-                    <h4 className="text-center font-bold text-lg text-white">Đổi ảnh nền</h4>
-                    <div className="overflow-x-auto flex justify-center">
-                        <p className="text-white py-5">Đang Cập Nhật...</p>
-                    </div>
-                </div >
-            )}
         </>
     );
 };
