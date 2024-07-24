@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GrPowerReset } from "react-icons/gr";
 import { Live2d } from '../../../components/Live2D';
-import { GrView } from "react-icons/gr";
 declare global {
     interface Window {
         PIXI: typeof PIXI;
@@ -19,6 +18,7 @@ const Live2DModelComponent = () => {
     const modelRef = useRef(null);  // Khai báo một biến tham chiếu useRef
     const [isLive2DScriptLoaded, setIsLive2DScriptLoaded] = useState(false);
     const [scaleModel, setScaleModel] = useState(0.1);
+    const [changeBackGround, setChangeBackGround] = useState('');
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -74,6 +74,7 @@ const Live2DModelComponent = () => {
             (model as any).trackedPointers = {};
             (modelRef as any).current = model;
             draggable(model);
+            setChangeBackGround(String(window.localStorage.getItem('background')));
         };
 
         loadLive2DModel();
@@ -117,15 +118,13 @@ const Live2DModelComponent = () => {
                 onLoad={() => setIsLive2DScriptLoaded(true)}
             />
 
-            <style jsx global>{`
-                #canvas {
-                    background-image: url('/background1.avif');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                }
-            `}</style>
-            <canvas id="canvas" />
+            <canvas id="canvas"
+                style={{
+                    backgroundImage: `url(${changeBackGround || '/background1.avif'})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                }} />
             <div className="relative">
                 <div className="fixed flex flex-col justify-center items-center top-4 right-4 opacity-50">
                     <div className="">
@@ -142,16 +141,6 @@ const Live2DModelComponent = () => {
                         <GrPowerReset
                             className="text-xl text-white cursor-pointer"
                             onClick={resetPage}
-                        />
-                    </div>
-                    <div className="mt-6">
-                        <GrView
-                            className="text-xl font-bold text-white cursor-pointer"
-                            onClick={() => {
-                                window.localStorage.setItem('scale', String(scaleModel));
-                                router.push("/chat/edit/view");
-                                window.sessionStorage.setItem('reload', 'true');
-                            }}
                         />
                     </div>
                 </div>
