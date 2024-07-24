@@ -46,6 +46,8 @@ const Live2DModelComponent = () => {
     const [username, setUsername] = useState('User');
     const [modelName, setModelName] = useState('');
     const [changeBackGround, setChangeBackGround] = useState('');
+    const [editModeBackGround, setEditModeBackGround] = useState(false);
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -212,6 +214,7 @@ const Live2DModelComponent = () => {
 
     const closeChangeBackGround = () => {
         setIsChangeBackGround(false);
+        setEditModeBackGround(false);
         setIsOpacityOpen(false);
     };
 
@@ -422,7 +425,32 @@ const Live2DModelComponent = () => {
                 <div className={`fixed top-4 bottom-[10vh] h-[88vh] left-4 right-4 bg-[#333333] rounded-lg p-4 ${isChangeBackGround === true ? 'z-30' : '-z-30'}`}>
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="font-bold text-lg text-white">Đổi Ảnh Nền</h2>
-                        <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeChangeBackGround} />
+                        <div className='flex justify-center items-center'>
+                            {!editModeBackGround ?
+                                <FaEdit className="text-md text-white cursor-pointer me-5" onClick={() => {
+                                    setEditModeBackGround(true);
+                                }} />
+                                : <div className='flex justify-center items-center'>
+                                    <textarea
+                                        placeholder='Nhập URL...'
+                                        autoFocus
+                                        className="resize-none border-none focus:outline-none rounded-md overflow-x-auto overflow-y-hidden px-2 bg-[#333333] text-white h-[1.5em] w-[30vw] me-2 whitespace-nowrap"
+                                        rows={1} // Đặt số hàng để hiển thị 1 hàng
+                                        ref={textareaRef} // Tham chiếu đến textarea
+                                    />
+                                    <IoCheckmarkDoneCircle onClick={() => {
+                                        if (textareaRef.current) {
+                                            // Lấy giá trị từ textarea
+                                            const url = textareaRef.current.value;
+                                            // Lưu giá trị URL vào localStorage
+                                            window.localStorage.setItem('background', url);
+                                            setChangeBackGround(url);
+                                            closeChangeBackGround();
+                                        }
+                                    }} className="font-bold text-lg cursor-pointer text-white mx-2" />
+                                </div>}
+                            <AiOutlineClose className="text-xl text-white cursor-pointer" onClick={closeChangeBackGround} />
+                        </div>
                     </div>
                     <div className="h-[90%] overflow-auto">
                         <div className='grid grid-cols-2'>
