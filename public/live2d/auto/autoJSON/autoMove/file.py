@@ -13,15 +13,18 @@ models_file_path = os.path.join(source_directory, 'models.txt')
 # Đường dẫn tới tệp models.txt trong thư mục đích
 destination_models_file_path = 'C:/Users/TomiSakae/Documents/tomisakae.github.io/public/live2d/auto/autoJSON/autoMove/models.txt'
 
-# Đọc danh sách ID từ tệp models.txt
+# Đọc danh sách ID từ tệp models.txt và bỏ qua phần số thứ tự
 with open(models_file_path, 'r') as file:
-    id_list = [line.strip() for line in file]
+    id_list = [line.strip().split(' - ', 1)[1] for line in file]
 
 # Tạo thư mục đích nếu chưa tồn tại
 os.makedirs(destination_directory, exist_ok=True)
 
 # Mở tệp models.txt ở chế độ append
 with open(models_file_path, 'a') as file:
+    # Đếm số lượng ID đã tồn tại trong tệp
+    id_count = len(id_list)
+    
     # Duyệt qua tất cả các mục trong thư mục nguồn
     for item in os.listdir(source_directory):
         item_path = os.path.join(source_directory, item)
@@ -31,8 +34,9 @@ with open(models_file_path, 'a') as file:
             # Di chuyển thư mục đến thư mục đích
             shutil.move(item_path, os.path.join(destination_directory, item))
             
-            # Ghi tên thư mục đã di chuyển vào tệp models.txt
-            file.write(item + '\n')
+            # Ghi tên thư mục đã di chuyển vào tệp models.txt với số thứ tự
+            file.write(f"{id_count + 1} - {item}\n")
+            id_count += 1
 
 # Sao chép tệp models.txt đến vị trí đích
 shutil.copy(models_file_path, destination_models_file_path)
