@@ -15,6 +15,7 @@ import Image from 'next/image';
 import { CiPlay1 } from "react-icons/ci";
 import { TbBackground } from "react-icons/tb";
 import backGroundData from "../../../components/BackGround";
+import { LiaRandomSolid } from "react-icons/lia";
 
 type JsonData = {
     Version: number;
@@ -70,6 +71,7 @@ const Live2DModelComponent = () => {
     const lastTimeRef = useRef<number>(0);
     const [isChangeBackGround, setIsChangeBackGround] = useState(false);
     const [changeBackGround, setChangeBackGround] = useState('');
+    const [isPlayRandom, setIsPlayRandom] = useState(false);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -317,8 +319,13 @@ const Live2DModelComponent = () => {
                     </div>
                 </div>
             }
-            {!isPlayMotion &&
+            {!isPlayMotion && !isPlayRandom &&
                 <div className={`fixed flex justify-end bg-[#333333] items-center  text-sm bottom-0 left-[50%] w-[100%] transform -translate-x-1/2 py-2 px-4 text-white ${isOpacityOpen ? 'opacity-50' : ''}`}>
+                    <LiaRandomSolid className="text-xl font-bold cursor-pointer me-5"
+                        onClick={() => {
+                            (modelRef.current as any).internalModel.motionManager.groups.idle = 'Animation';
+                            setIsPlayRandom(true);
+                        }} />
                     <CiPlay1
                         className="text-xl font-bold cursor-pointer me-5"
                         onClick={() => {
