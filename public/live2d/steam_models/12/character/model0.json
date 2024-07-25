@@ -1,0 +1,365 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png",
+            "textures/Textures_1_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Start": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                }
+            ],
+            "Shake": [
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json",
+                    "Sound": "voice/Motions_Shake_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json",
+                    "Sound": "voice/Motions_Shake_1_Sound_0.wav"
+                }
+            ],
+            "Tick": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                }
+            ],
+            "Tap左腿": [
+                {
+                    "File": "motions/Motions_Tap左腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap左腿_0_Sound_0.wav"
+                }
+            ],
+            "Tap手": [
+                {
+                    "File": "motions/Motions_Tap手_0_File_0.json",
+                    "Sound": "voice/Motions_Tap手_0_Sound_0.wav"
+                }
+            ],
+            "Tap花": [
+                {
+                    "File": "motions/Motions_Tap花_0_File_0.json",
+                    "Sound": "voice/Motions_Tap花_0_Sound_0.wav"
+                }
+            ],
+            "Tap胸": [
+                {
+                    "File": "motions/Motions_Tap胸_0_File_0.json",
+                    "Sound": "voice/Motions_Tap胸_0_Sound_0.wav"
+                }
+            ],
+            "Tap脚": [
+                {
+                    "File": "motions/Motions_Tap脚_0_File_0.json",
+                    "Sound": "voice/Motions_Tap脚_0_Sound_0.wav"
+                }
+            ],
+            "Tap鸟": [
+                {
+                    "File": "motions/Motions_Tap鸟_0_File_0.json",
+                    "Sound": "voice/Motions_Tap鸟_0_Sound_0.wav"
+                }
+            ],
+            "Tap头": [
+                {
+                    "File": "motions/Motions_Tap头_0_File_0.json",
+                    "Sound": "voice/Motions_Tap头_0_Sound_0.wav"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json",
+                    "Sound": "voice/Motions_Shake_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json",
+                    "Sound": "voice/Motions_Shake_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tap左腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap左腿_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap手_0_File_0.json",
+                    "Sound": "voice/Motions_Tap手_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap花_0_File_0.json",
+                    "Sound": "voice/Motions_Tap花_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap胸_0_File_0.json",
+                    "Sound": "voice/Motions_Tap胸_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap脚_0_File_0.json",
+                    "Sound": "voice/Motions_Tap脚_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap鸟_0_File_0.json",
+                    "Sound": "voice/Motions_Tap鸟_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap头_0_File_0.json",
+                    "Sound": "voice/Motions_Tap头_0_Sound_0.wav"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json",
+                    "Sound": "voice/Motions_Shake_0_Sound_0.wav"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json",
+                    "Sound": "voice/Motions_Shake_1_Sound_0.wav"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_Tap左腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap左腿_0_Sound_0.wav"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_Tap手_0_File_0.json",
+                    "Sound": "voice/Motions_Tap手_0_Sound_0.wav"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_Tap花_0_File_0.json",
+                    "Sound": "voice/Motions_Tap花_0_Sound_0.wav"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_Tap胸_0_File_0.json",
+                    "Sound": "voice/Motions_Tap胸_0_Sound_0.wav"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_Tap脚_0_File_0.json",
+                    "Sound": "voice/Motions_Tap脚_0_Sound_0.wav"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_Tap鸟_0_File_0.json",
+                    "Sound": "voice/Motions_Tap鸟_0_Sound_0.wav"
+                }
+            ],
+            "Animation_13": [
+                {
+                    "File": "motions/Motions_Tap头_0_File_0.json",
+                    "Sound": "voice/Motions_Tap头_0_Sound_0.wav"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {},
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Items": [
+                {
+                    "Id": "ParamEyeLOpen",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "BlendMode": 2,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeROpen",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "BlendMode": 2,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {
+            "Items": [
+                {}
+            ]
+        },
+        "PartOpacity": {
+            "Items": [
+                {
+                    "Name": "Part38",
+                    "Text": "背景",
+                    "Ids": [
+                        "Part38"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "Part41hx1111111",
+                    "Text": "布料",
+                    "Ids": [
+                        "Part41hx1111111"
+                    ],
+                    "Value": 1.0
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshOpacity": {
+            "Items": [
+                {
+                    "Name": "ArtMesh247",
+                    "Text": "枪",
+                    "Ids": [
+                        "ArtMesh247"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "ArtMesh263",
+                    "Text": "极光",
+                    "Ids": [
+                        "ArtMesh263"
+                    ]
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "左腿",
+            "Id": "ArtMesh134",
+            "Motion": "Tap左腿"
+        },
+        {
+            "Name": "手",
+            "Id": "ArtMesh37",
+            "Motion": "Tap手"
+        },
+        {
+            "Name": "花",
+            "Id": "ArtMesh16",
+            "Motion": "Tap花"
+        },
+        {
+            "Name": "胸",
+            "Id": "ArtMesh89",
+            "Motion": "Tap胸"
+        },
+        {
+            "Name": "脚",
+            "Id": "ArtMesh120",
+            "Motion": "Tap脚"
+        },
+        {
+            "Name": "鸟",
+            "Id": "ArtMesh227",
+            "Motion": "Tap鸟"
+        },
+        {
+            "Name": "头",
+            "Id": "ArtMesh55",
+            "Motion": "Tap头"
+        },
+        {
+            "Name": "兵蚁",
+            "Id": "ArtMesh250",
+            "Motion": "Tap兵蚁"
+        }
+    ],
+    "Options": {
+        "ScaleFactor": 1.5,
+        "PositionX": -1.5,
+        "PositionY": 4.500001,
+        "MaskBufferSize": 1024,
+        "TexFixed": true
+    }
+}
