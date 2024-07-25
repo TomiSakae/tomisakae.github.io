@@ -1,0 +1,556 @@
+{
+    "Version": 3,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json",
+                    "Interruptable": true
+                }
+            ],
+            "Tapface": [
+                {
+                    "File": "motions/Motions_Tapface_0_File_0.json",
+                    "Sound": "voice/Motions_Tapface_0_Sound_0.wav",
+                    "Text": "吾名丛雨，乃是这“丛雨丸”的管理者……简单来说，也算是“丛雨丸”的灵魂",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapface_1_File_0.json",
+                    "Sound": "voice/Motions_Tapface_1_Sound_0.wav",
+                    "Text": "你，就是本座的主人？",
+                    "Interruptable": true
+                }
+            ],
+            "Taphair": [
+                {
+                    "File": "motions/Motions_Taphair_0_File_0.json",
+                    "Sound": "voice/Motions_Taphair_0_Sound_0.wav",
+                    "Text": "在这里，这里",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Taphair_1_File_0.json",
+                    "Sound": "voice/Motions_Taphair_1_Sound_0.wav",
+                    "Text": "你看，复原了",
+                    "Interruptable": true
+                }
+            ],
+            "Tapxiongbu": [
+                {
+                    "File": "motions/Motions_Tapxiongbu_0_File_0.json",
+                    "Sound": "voice/Motions_Tapxiongbu_0_Sound_0.wav",
+                    "Text": "主人就是主人。是你拔出了丛雨丸吧？",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapxiongbu_1_File_0.json",
+                    "Sound": "voice/Motions_Tapxiongbu_1_Sound_0.wav",
+                    "Text": "你这————！！",
+                    "Interruptable": true
+                }
+            ],
+            "Tapqunzi": [
+                {
+                    "File": "motions/Motions_Tapqunzi_0_File_0.json",
+                    "Sound": "voice/Motions_Tapqunzi_0_Sound_0.wav",
+                    "Text": "——着陆",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapqunzi_1_File_0.json",
+                    "Sound": "voice/Motions_Tapqunzi_1_Sound_0.wav",
+                    "Text": "本座才不是幽灵！完全不是！不要把幽灵和本座相提并论！",
+                    "Interruptable": true
+                }
+            ],
+            "Tapleg": [
+                {
+                    "File": "motions/Motions_Tapleg_0_File_0.json",
+                    "Sound": "voice/Motions_Tapleg_0_Sound_0.wav",
+                    "Text": "哪是什么幽灵，别……别别别把本座和那种毫无事实依据的东西混为一谈",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapleg_1_File_0.json",
+                    "Sound": "voice/Motions_Tapleg_1_Sound_0.wav",
+                    "Text": "你醒了吗，主人。早上好",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapleg_2_File_0.json",
+                    "Sound": "voice/Motions_Tapleg_2_Sound_0.wav",
+                    "Text": "本座不是幻觉，更不是幽灵，主人！",
+                    "Interruptable": true
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapface_0_File_0.json",
+                    "Sound": "voice/Motions_Tapface_0_Sound_0.wav",
+                    "Text": "吾名丛雨，乃是这“丛雨丸”的管理者……简单来说，也算是“丛雨丸”的灵魂",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapface_1_File_0.json",
+                    "Sound": "voice/Motions_Tapface_1_Sound_0.wav",
+                    "Text": "你，就是本座的主人？",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Taphair_0_File_0.json",
+                    "Sound": "voice/Motions_Taphair_0_Sound_0.wav",
+                    "Text": "在这里，这里",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Taphair_1_File_0.json",
+                    "Sound": "voice/Motions_Taphair_1_Sound_0.wav",
+                    "Text": "你看，复原了",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapxiongbu_0_File_0.json",
+                    "Sound": "voice/Motions_Tapxiongbu_0_Sound_0.wav",
+                    "Text": "主人就是主人。是你拔出了丛雨丸吧？",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapxiongbu_1_File_0.json",
+                    "Sound": "voice/Motions_Tapxiongbu_1_Sound_0.wav",
+                    "Text": "你这————！！",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapqunzi_0_File_0.json",
+                    "Sound": "voice/Motions_Tapqunzi_0_Sound_0.wav",
+                    "Text": "——着陆",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapqunzi_1_File_0.json",
+                    "Sound": "voice/Motions_Tapqunzi_1_Sound_0.wav",
+                    "Text": "本座才不是幽灵！完全不是！不要把幽灵和本座相提并论！",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapleg_0_File_0.json",
+                    "Sound": "voice/Motions_Tapleg_0_Sound_0.wav",
+                    "Text": "哪是什么幽灵，别……别别别把本座和那种毫无事实依据的东西混为一谈",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapleg_1_File_0.json",
+                    "Sound": "voice/Motions_Tapleg_1_Sound_0.wav",
+                    "Text": "你醒了吗，主人。早上好",
+                    "Interruptable": true
+                },
+                {
+                    "File": "motions/Motions_Tapleg_2_File_0.json",
+                    "Sound": "voice/Motions_Tapleg_2_Sound_0.wav",
+                    "Text": "本座不是幻觉，更不是幽灵，主人！",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Tapface_0_File_0.json",
+                    "Sound": "voice/Motions_Tapface_0_Sound_0.wav",
+                    "Text": "吾名丛雨，乃是这“丛雨丸”的管理者……简单来说，也算是“丛雨丸”的灵魂",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_Tapface_1_File_0.json",
+                    "Sound": "voice/Motions_Tapface_1_Sound_0.wav",
+                    "Text": "你，就是本座的主人？",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Taphair_0_File_0.json",
+                    "Sound": "voice/Motions_Taphair_0_Sound_0.wav",
+                    "Text": "在这里，这里",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_Taphair_1_File_0.json",
+                    "Sound": "voice/Motions_Taphair_1_Sound_0.wav",
+                    "Text": "你看，复原了",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_Tapxiongbu_0_File_0.json",
+                    "Sound": "voice/Motions_Tapxiongbu_0_Sound_0.wav",
+                    "Text": "主人就是主人。是你拔出了丛雨丸吧？",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_Tapxiongbu_1_File_0.json",
+                    "Sound": "voice/Motions_Tapxiongbu_1_Sound_0.wav",
+                    "Text": "你这————！！",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_Tapqunzi_0_File_0.json",
+                    "Sound": "voice/Motions_Tapqunzi_0_Sound_0.wav",
+                    "Text": "——着陆",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_Tapqunzi_1_File_0.json",
+                    "Sound": "voice/Motions_Tapqunzi_1_Sound_0.wav",
+                    "Text": "本座才不是幽灵！完全不是！不要把幽灵和本座相提并论！",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_Tapleg_0_File_0.json",
+                    "Sound": "voice/Motions_Tapleg_0_Sound_0.wav",
+                    "Text": "哪是什么幽灵，别……别别别把本座和那种毫无事实依据的东西混为一谈",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_Tapleg_1_File_0.json",
+                    "Sound": "voice/Motions_Tapleg_1_Sound_0.wav",
+                    "Text": "你醒了吗，主人。早上好",
+                    "Interruptable": true
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_Tapleg_2_File_0.json",
+                    "Sound": "voice/Motions_Tapleg_2_Sound_0.wav",
+                    "Text": "本座不是幻觉，更不是幽灵，主人！",
+                    "Interruptable": true
+                }
+            ]
+        },
+        "Expressions": [
+            {
+                "Name": "exp1.exp3",
+                "File": "expressions/Expressions_0_File_0.json"
+            },
+            {
+                "Name": "exp2.exp3",
+                "File": "expressions/Expressions_1_File_0.json"
+            },
+            {
+                "Name": "exp3.exp3",
+                "File": "expressions/Expressions_2_File_0.json"
+            },
+            {
+                "Name": "exp4.exp3",
+                "File": "expressions/Expressions_3_File_0.json"
+            },
+            {
+                "Name": "exp5.exp3",
+                "File": "expressions/Expressions_4_File_0.json"
+            },
+            {
+                "Name": "exp6.exp3",
+                "File": "expressions/Expressions_5_File_0.json"
+            },
+            {
+                "Name": "exp7.exp3",
+                "File": "expressions/Expressions_6_File_0.json"
+            }
+        ]
+    },
+    "Controllers": {
+        "ParamHit": {},
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Items": [
+                {
+                    "Id": "ParamAngleX",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleY",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleZ",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeBallX",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeBallY",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamBodyAngleX",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamBodyAngleY",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamBodyAngleZ",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "AngleX": [
+                {
+                    "Id": "ParamAngleX",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "DefaultValue": 0.0,
+                    "Input": 0
+                }
+            ],
+            "AngleY": [
+                {
+                    "Id": "ParamAngleY",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "DefaultValue": 0.0,
+                    "Input": 0
+                }
+            ],
+            "AngleZ": [
+                {
+                    "Id": "ParamAngleZ",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "DefaultValue": 0.0,
+                    "Inverted": true,
+                    "Input": 0
+                }
+            ],
+            "PositionX": [
+                {
+                    "Id": "ParamBodyAngleX",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "DefaultValue": 0.0,
+                    "Input": 0
+                }
+            ],
+            "PositionY": [
+                {
+                    "Id": "ParamBodyAngleY",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "DefaultValue": 0.0,
+                    "Input": 0
+                }
+            ],
+            "PositionZ": [
+                {
+                    "Id": "ParamBodyAngleZ",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "DefaultValue": 0.0,
+                    "Input": 0
+                }
+            ],
+            "EyeLOpen": [
+                {
+                    "Id": "ParamEyeLOpen",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "DefaultValue": 1.0,
+                    "Input": 0
+                }
+            ],
+            "EyeROpen": [
+                {
+                    "Id": "ParamEyeROpen",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "DefaultValue": 1.0,
+                    "Input": 0
+                }
+            ],
+            "EyeballX": [
+                {
+                    "Id": "ParamEyeBallX",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "DefaultValue": 0.0,
+                    "Input": 0
+                }
+            ],
+            "EyeballY": [
+                {
+                    "Id": "ParamEyeBallY",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "DefaultValue": 0.0,
+                    "Input": 0
+                }
+            ],
+            "BrowLY": [
+                {
+                    "Id": "ParamBrowLY",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "DefaultValue": 0.0,
+                    "Input": 0
+                }
+            ],
+            "BrowRY": [
+                {
+                    "Id": "ParamBrowRY",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "DefaultValue": 0.0,
+                    "Input": 0
+                }
+            ],
+            "MouthOpenY": [
+                {
+                    "Id": "ParamMouthOpenY",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "DefaultValue": 0.0,
+                    "Input": 0
+                }
+            ],
+            "MouthForm": [
+                {
+                    "Id": "ParamMouthForm",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "DefaultValue": 0.0,
+                    "Inverted": true,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {},
+        "ArtmeshOpacity": {},
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "face",
+            "Id": "HitArea",
+            "Motion": "Tapface"
+        },
+        {
+            "Name": "hair",
+            "Id": "HitArea2",
+            "Motion": "Taphair"
+        },
+        {
+            "Name": "xiongbu",
+            "Id": "HitArea3",
+            "Motion": "Tapxiongbu"
+        },
+        {
+            "Name": "qunzi",
+            "Id": "HitArea4",
+            "Motion": "Tapqunzi"
+        },
+        {
+            "Name": "leg",
+            "Id": "HitArea5",
+            "Motion": "Tapleg"
+        }
+    ],
+    "Options": {
+        "ScaleFactor": 0.7,
+        "TexFixed": true
+    }
+}
