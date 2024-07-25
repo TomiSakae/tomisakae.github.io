@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 import useSWR from 'swr';
 import Image from 'next/image';

@@ -86,6 +86,7 @@ const Live2DModelComponent = () => {
         };
 
         loadLive2DModel();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLive2DScriptLoaded]);
 
     useEffect(() => {
