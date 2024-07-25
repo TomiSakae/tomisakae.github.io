@@ -6,43 +6,36 @@ def process_motions(data):
         motions = data['FileReferences']['Motions']
         keys_to_delete = []
 
-        # Duyệt qua các key trong 'Motions'
         for key, value in motions.items():
             if isinstance(value, list):
                 filtered_value = []
                 for item in value:
                     if 'File' in item or 'Sound' in item:
-                        # Chỉ giữ lại các giá trị 'File' và 'Sound'
+                        # Giữ lại các mục 'File' và 'Sound', thêm giá trị 'File' mặc định nếu chỉ có 'Sound'
                         filtered_item = {k: item[k] for k in ('File', 'Sound') if k in item}
+                        if 'Sound' in item and 'File' not in item:
+                            filtered_item['File'] = "motions/Motions_Idle_0_File_0.json"
                         filtered_value.append(filtered_item)
-                
+
                 if filtered_value:
-                    # Cập nhật lại giá trị với các mục đã lọc
                     motions[key] = filtered_value
                 else:
-                    # Nếu không có mục nào còn lại, đánh dấu key này để xóa
                     keys_to_delete.append(key)
             else:
-                # Đánh dấu xóa nếu không phải là danh sách
                 keys_to_delete.append(key)
 
-        # Xóa các key không cần thiết
         for key in keys_to_delete:
             del motions[key]
-        
-        # Tổng hợp dữ liệu còn lại thành 'Animation'
+
         animation_data = []
         for value in motions.values():
             animation_data.extend(value)
 
-        # Tạo key 'Animation' trong 'Motions' với dữ liệu đã tổng hợp
         data['FileReferences']['Motions']['Animation'] = animation_data
-        
-        # Tạo các key mới trong 'Motions' từ 'Animation'
+
         if 'Animation' in data['FileReferences']['Motions']:
             animation_items = data['FileReferences']['Motions']['Animation']
             
-            # Thêm các key mới vào 'Motions' từ 'Animation'
             for index, item in enumerate(animation_items):
                 new_key = f"Animation_{index+1}"
                 if new_key not in motions:
