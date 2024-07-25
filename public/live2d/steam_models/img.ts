@@ -118,6 +118,12 @@ const images = [
         "id": 20,
         "src": "/live2d/steam_models/20/background.png",
         "alt": "Image 20"
+    },
+    
+    {
+        "id": 21,
+        "src": "/live2d/steam_models/21/background.png",
+        "alt": "Image 21"
     }
 
 ];
