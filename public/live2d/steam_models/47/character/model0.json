@@ -1,0 +1,512 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png",
+            "textures/Textures_1_0.png",
+            "textures/Textures_2_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "高兴": [
+                {
+                    "File": "motions/Motions_高兴_0_File_0.json",
+                    "Sound": "voice/Motions_高兴_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_高兴_0_File_0.json",
+                    "Sound": "voice/Motions_高兴_1_Sound_0.mp3"
+                }
+            ],
+            "丝袜1": [
+                {
+                    "File": "motions/Motions_丝袜1_0_File_0.json",
+                    "Sound": "voice/Motions_丝袜1_0_Sound_0.mp3"
+                }
+            ],
+            "丝袜2": [
+                {
+                    "File": "motions/Motions_丝袜2_0_File_0.json",
+                    "Sound": "voice/Motions_丝袜1_0_Sound_0.mp3"
+                }
+            ],
+            "TapHitArea5": [
+                {
+                    "File": "motions/Motions_TapHitArea5_0_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea5_0_Sound_0.mp3"
+                }
+            ],
+            "TapHitArea8": [
+                {
+                    "File": "motions/Motions_TapHitArea8_0_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea8_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea8_1_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea8_1_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea8_0_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea8_2_Sound_0.mp3"
+                }
+            ],
+            "脱衣服": [
+                {
+                    "File": "motions/Motions_脱衣服_0_File_0.json",
+                    "Sound": "voice/Motions_脱衣服_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_脱衣服_0_File_0.json",
+                    "Sound": "voice/Motions_脱衣服_1_Sound_0.mp3"
+                }
+            ],
+            "摸屁股": [
+                {
+                    "File": "motions/Motions_摸屁股_0_File_0.json",
+                    "Sound": "voice/Motions_摸屁股_0_Sound_0.mp3"
+                }
+            ],
+            "摸胸": [
+                {
+                    "File": "motions/Motions_摸胸_0_File_0.json",
+                    "Sound": "voice/Motions_摸胸_0_Sound_0.mp3"
+                }
+            ],
+            "誓约&生气": [
+                {
+                    "File": "motions/Motions_誓约&生气_0_File_0.json",
+                    "Sound": "voice/Motions_誓约&生气_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_誓约&生气_1_File_0.json",
+                    "Sound": "voice/Motions_誓约&生气_1_Sound_0.mp3"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json",
+                    "Sound": "voice/Motions_Idle_1_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_高兴_0_File_0.json",
+                    "Sound": "voice/Motions_高兴_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_高兴_0_File_0.json",
+                    "Sound": "voice/Motions_高兴_1_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_丝袜1_0_File_0.json",
+                    "Sound": "voice/Motions_丝袜1_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_丝袜2_0_File_0.json",
+                    "Sound": "voice/Motions_丝袜1_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea5_0_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea5_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea8_0_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea8_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea8_1_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea8_1_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea8_0_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea8_2_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_脱衣服_0_File_0.json",
+                    "Sound": "voice/Motions_脱衣服_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_脱衣服_0_File_0.json",
+                    "Sound": "voice/Motions_脱衣服_1_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_摸屁股_0_File_0.json",
+                    "Sound": "voice/Motions_摸屁股_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_摸胸_0_File_0.json",
+                    "Sound": "voice/Motions_摸胸_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_誓约&生气_0_File_0.json",
+                    "Sound": "voice/Motions_誓约&生气_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_誓约&生气_1_File_0.json",
+                    "Sound": "voice/Motions_誓约&生气_1_Sound_0.mp3"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json",
+                    "Sound": "voice/Motions_Idle_1_Sound_0.mp3"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_高兴_0_File_0.json",
+                    "Sound": "voice/Motions_高兴_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_高兴_0_File_0.json",
+                    "Sound": "voice/Motions_高兴_1_Sound_0.mp3"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_丝袜1_0_File_0.json",
+                    "Sound": "voice/Motions_丝袜1_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_丝袜2_0_File_0.json",
+                    "Sound": "voice/Motions_丝袜1_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_TapHitArea5_0_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea5_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_TapHitArea8_0_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea8_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_TapHitArea8_1_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea8_1_Sound_0.mp3"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_TapHitArea8_0_File_0.json",
+                    "Sound": "voice/Motions_TapHitArea8_2_Sound_0.mp3"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_脱衣服_0_File_0.json",
+                    "Sound": "voice/Motions_脱衣服_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_脱衣服_0_File_0.json",
+                    "Sound": "voice/Motions_脱衣服_1_Sound_0.mp3"
+                }
+            ],
+            "Animation_13": [
+                {
+                    "File": "motions/Motions_摸屁股_0_File_0.json",
+                    "Sound": "voice/Motions_摸屁股_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_14": [
+                {
+                    "File": "motions/Motions_摸胸_0_File_0.json",
+                    "Sound": "voice/Motions_摸胸_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_15": [
+                {
+                    "File": "motions/Motions_誓约&生气_0_File_0.json",
+                    "Sound": "voice/Motions_誓约&生气_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_16": [
+                {
+                    "File": "motions/Motions_誓约&生气_1_File_0.json",
+                    "Sound": "voice/Motions_誓约&生气_1_Sound_0.mp3"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {
+            "Items": [
+                {
+                    "Name": "右丝袜",
+                    "Id": "wa1",
+                    "HitArea": "ArtMesh314",
+                    "Axis": 1,
+                    "Factor": 0.01,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                },
+                {
+                    "Name": "左丝袜",
+                    "Id": "wa2",
+                    "HitArea": "ArtMesh312",
+                    "Axis": 1,
+                    "Factor": 0.01,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                },
+                {
+                    "Name": "cloth",
+                    "Id": "cloth",
+                    "HitArea": "ArtMesh287",
+                    "Axis": 1,
+                    "Factor": 0.01,
+                    "ReleaseType": 1
+                }
+            ],
+            "Enabled": true
+        },
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {
+            "Items": [
+                {
+                    "Name": "脱衣服",
+                    "Id": "cloth",
+                    "Items": [
+                        {
+                            "Value": 2.0,
+                            "Direction": 0,
+                            "Motion": "脱衣服"
+                        }
+                    ]
+                },
+                {
+                    "Name": "右丝袜",
+                    "Id": "wa1",
+                    "Items": [
+                        {
+                            "Value": 1.0,
+                            "Direction": 0,
+                            "Motion": "丝袜1"
+                        }
+                    ]
+                },
+                {
+                    "Name": "左丝袜",
+                    "Id": "wa2",
+                    "Items": [
+                        {
+                            "Value": 1.0,
+                            "Direction": 0,
+                            "Motion": "丝袜2"
+                        }
+                    ]
+                }
+            ],
+            "Enabled": true
+        },
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Items": [
+                {
+                    "Id": "ParamEyeLOpen",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "BlendMode": 2,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeROpen",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "BlendMode": 2,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Items": [
+                {
+                    "Id": "Param1",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param2",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param6",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeBallX",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeBallY",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleX",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleY",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {
+            "Items": [
+                {
+                    "Name": "丝袜右",
+                    "Ids": [
+                        "wa1"
+                    ]
+                },
+                {
+                    "Name": "丝袜左",
+                    "Ids": [
+                        "wa2"
+                    ]
+                },
+                {
+                    "Name": "脱衣服",
+                    "Ids": [
+                        "cloth"
+                    ]
+                }
+            ]
+        },
+        "PartOpacity": {},
+        "ArtmeshOpacity": {},
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "ArtMesh312",
+            "Id": "ArtMesh312"
+        },
+        {
+            "Name": "ArtMesh314",
+            "Id": "ArtMesh314"
+        },
+        {
+            "Name": "ArtMesh287",
+            "Id": "ArtMesh287"
+        },
+        {
+            "Name": "HitArea5",
+            "Id": "HitArea5"
+        },
+        {
+            "Name": "HitArea8",
+            "Id": "HitArea8"
+        },
+        {
+            "Name": "脖子",
+            "Id": "ArtMesh227",
+            "Motion": "选择"
+        },
+        {
+            "Name": "HitArea4",
+            "Id": "HitArea4",
+            "Motion": "摸屁股"
+        },
+        {
+            "Name": "HitArea7",
+            "Id": "HitArea7",
+            "Motion": "高兴"
+        },
+        {
+            "Name": "HitArea3",
+            "Id": "HitArea3",
+            "Motion": "摸胸"
+        },
+        {
+            "Name": "ArtMesh153",
+            "Id": "ArtMesh153",
+            "Motion": "誓约&生气"
+        }
+    ],
+    "Options": {
+        "TexFixed": true
+    }
+}
