@@ -1,0 +1,341 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "R2": [
+                {
+                    "File": "motions/Motions_R2_0_File_0.json"
+                }
+            ],
+            "R3": [
+                {
+                    "File": "motions/Motions_R3_0_File_0.json"
+                }
+            ],
+            "R4": [
+                {
+                    "File": "motions/Motions_R4_0_File_0.json"
+                }
+            ],
+            "Tick": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json",
+                    "Sound": "voice/Motions_Tick_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json",
+                    "Sound": "voice/Motions_Tick_2_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json",
+                    "Sound": "voice/Motions_Tick_3_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_4_File_0.json",
+                    "Sound": "voice/Motions_Tick_4_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_5_File_0.json",
+                    "Sound": "voice/Motions_Tick_5_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_6_File_0.json",
+                    "Sound": "voice/Motions_Tick_6_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_7_File_0.json",
+                    "Sound": "voice/Motions_Tick_7_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_8_File_0.json",
+                    "Sound": "voice/Motions_Tick_8_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_9_File_0.json",
+                    "Sound": "voice/Motions_Tick_9_Sound_0.mp3"
+                }
+            ],
+            "Tap": [
+                {
+                    "File": "motions/Motions_Tap_0_File_0.json",
+                    "Sound": "voice/Motions_Tap_0_Sound_0.mp3"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_R2_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_R3_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_R4_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json",
+                    "Sound": "voice/Motions_Tick_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json",
+                    "Sound": "voice/Motions_Tick_2_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json",
+                    "Sound": "voice/Motions_Tick_3_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_4_File_0.json",
+                    "Sound": "voice/Motions_Tick_4_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_5_File_0.json",
+                    "Sound": "voice/Motions_Tick_5_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_6_File_0.json",
+                    "Sound": "voice/Motions_Tick_6_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_7_File_0.json",
+                    "Sound": "voice/Motions_Tick_7_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_8_File_0.json",
+                    "Sound": "voice/Motions_Tick_8_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_9_File_0.json",
+                    "Sound": "voice/Motions_Tick_9_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tap_0_File_0.json",
+                    "Sound": "voice/Motions_Tap_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_R2_0_File_0.json"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_R3_0_File_0.json"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_R4_0_File_0.json"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json",
+                    "Sound": "voice/Motions_Tick_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json",
+                    "Sound": "voice/Motions_Tick_2_Sound_0.mp3"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json",
+                    "Sound": "voice/Motions_Tick_3_Sound_0.mp3"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_Tick_4_File_0.json",
+                    "Sound": "voice/Motions_Tick_4_Sound_0.mp3"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_Tick_5_File_0.json",
+                    "Sound": "voice/Motions_Tick_5_Sound_0.mp3"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_Tick_6_File_0.json",
+                    "Sound": "voice/Motions_Tick_6_Sound_0.mp3"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_Tick_7_File_0.json",
+                    "Sound": "voice/Motions_Tick_7_Sound_0.mp3"
+                }
+            ],
+            "Animation_13": [
+                {
+                    "File": "motions/Motions_Tick_8_File_0.json",
+                    "Sound": "voice/Motions_Tick_8_Sound_0.mp3"
+                }
+            ],
+            "Animation_14": [
+                {
+                    "File": "motions/Motions_Tick_9_File_0.json",
+                    "Sound": "voice/Motions_Tick_9_Sound_0.mp3"
+                }
+            ],
+            "Animation_15": [
+                {
+                    "File": "motions/Motions_Tap_0_File_0.json",
+                    "Sound": "voice/Motions_Tap_0_Sound_0.mp3"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {},
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Items": [
+                {
+                    "Id": "ParamEyeROpen",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "BlendMode": 2,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeLOpen",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "BlendMode": 2,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {
+            "Items": [
+                {}
+            ]
+        },
+        "PartOpacity": {
+            "Items": [
+                {
+                    "Name": "BG",
+                    "Ids": [
+                        "Part45"
+                    ],
+                    "Value": 100.0
+                },
+                {
+                    "Name": "BG2",
+                    "Ids": [
+                        "Part47"
+                    ]
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshOpacity": {
+            "Items": [
+                {
+                    "Name": "灰",
+                    "Ids": [
+                        "ArtMesh173",
+                        "heiseceng",
+                        "baiseceng"
+                    ]
+                },
+                {
+                    "Name": "背板",
+                    "Ids": [
+                        "ArtMesh211"
+                    ]
+                },
+                {
+                    "Name": "黑",
+                    "Ids": [
+                        "MB_blackbgjuxing",
+                        "ArtMesh505"
+                    ],
+                    "Value": 1.0
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "ArtMesh27",
+            "Id": "ArtMesh27",
+            "Motion": "R2"
+        }
+    ],
+    "Options": {
+        "TexFixed": true
+    }
+}
