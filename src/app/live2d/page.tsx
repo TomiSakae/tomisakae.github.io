@@ -23,6 +23,7 @@ const Home = () => {
                             alt={image.alt}
                             width={512}
                             height={512}
+                            priority={true}
                             className="w-auto rounded-sm h-auto"
                         />
                     </div>
