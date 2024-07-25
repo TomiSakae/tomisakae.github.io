@@ -1,0 +1,295 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png"
+        ],
+        "PhysicsV2": {},
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Start": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                }
+            ],
+            "Shake": [
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json",
+                    "Sound": "voice/Motions_Shake_0_Sound_0.wav"
+                }
+            ],
+            "Tick": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                }
+            ],
+            "Tap鞋": [
+                {
+                    "File": "motions/Motions_Tap鞋_0_File_0.json",
+                    "Sound": "voice/Motions_Tap鞋_0_Sound_0.wav"
+                }
+            ],
+            "Tap娃娃": [
+                {
+                    "File": "motions/Motions_Tap娃娃_0_File_0.json",
+                    "Sound": "voice/Motions_Tap娃娃_0_Sound_0.wav"
+                }
+            ],
+            "Tap牌子": [
+                {
+                    "File": "motions/Motions_Tap牌子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap牌子_0_Sound_0.wav"
+                }
+            ],
+            "Tap船": [
+                {
+                    "File": "motions/Motions_Tap船_0_File_0.json",
+                    "Sound": "voice/Motions_Tap船_0_Sound_0.wav"
+                }
+            ],
+            "Tap腿": [
+                {
+                    "File": "motions/Motions_Tap腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap腿_0_Sound_0.wav"
+                }
+            ],
+            "Tap裙子": [
+                {
+                    "File": "motions/Motions_Tap裙子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap裙子_0_Sound_0.wav"
+                }
+            ],
+            "Tap416": [
+                {
+                    "File": "motions/Motions_Tap416_0_File_0.json",
+                    "Sound": "voice/Motions_Tap416_0_Sound_0.wav"
+                }
+            ],
+            "Tap头发": [
+                {
+                    "File": "motions/Motions_Tap头发_0_File_0.json",
+                    "Sound": "voice/Motions_Tap头发_0_Sound_0.wav"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json",
+                    "Sound": "voice/Motions_Shake_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tap鞋_0_File_0.json",
+                    "Sound": "voice/Motions_Tap鞋_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap娃娃_0_File_0.json",
+                    "Sound": "voice/Motions_Tap娃娃_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap牌子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap牌子_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap船_0_File_0.json",
+                    "Sound": "voice/Motions_Tap船_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap腿_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap裙子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap裙子_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap416_0_File_0.json",
+                    "Sound": "voice/Motions_Tap416_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap头发_0_File_0.json",
+                    "Sound": "voice/Motions_Tap头发_0_Sound_0.wav"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json",
+                    "Sound": "voice/Motions_Shake_0_Sound_0.wav"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_Tap鞋_0_File_0.json",
+                    "Sound": "voice/Motions_Tap鞋_0_Sound_0.wav"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_Tap娃娃_0_File_0.json",
+                    "Sound": "voice/Motions_Tap娃娃_0_Sound_0.wav"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_Tap牌子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap牌子_0_Sound_0.wav"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_Tap船_0_File_0.json",
+                    "Sound": "voice/Motions_Tap船_0_Sound_0.wav"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_Tap腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap腿_0_Sound_0.wav"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_Tap裙子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap裙子_0_Sound_0.wav"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_Tap416_0_File_0.json",
+                    "Sound": "voice/Motions_Tap416_0_Sound_0.wav"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_Tap头发_0_File_0.json",
+                    "Sound": "voice/Motions_Tap头发_0_Sound_0.wav"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {},
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {},
+        "ArtmeshOpacity": {},
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "鞋",
+            "Id": "ArtMesh101",
+            "Motion": "Tap鞋"
+        },
+        {
+            "Name": "娃娃",
+            "Id": "ArtMesh83",
+            "Motion": "Tap娃娃"
+        },
+        {
+            "Name": "牌子",
+            "Id": "ArtMesh91",
+            "Motion": "Tap牌子"
+        },
+        {
+            "Name": "船",
+            "Id": "ArtMesh75",
+            "Motion": "Tap船"
+        },
+        {
+            "Name": "腿",
+            "Id": "ArtMesh15",
+            "Motion": "Tap腿"
+        },
+        {
+            "Name": "裙子",
+            "Id": "ArtMesh93",
+            "Motion": "Tap裙子"
+        },
+        {
+            "Name": "416",
+            "Id": "ArtMesh19",
+            "Motion": "Tap416"
+        },
+        {
+            "Name": "9",
+            "Id": "ArtMesh126",
+            "Motion": "Tap9"
+        },
+        {
+            "Name": "头发",
+            "Id": "ArtMesh44",
+            "Motion": "Tap头发"
+        }
+    ],
+    "Options": {
+        "ScaleFactor": 1.90000021,
+        "TexFixed": true
+    }
+}
