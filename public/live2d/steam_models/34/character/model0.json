@@ -1,0 +1,171 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png"
+        ],
+        "PhysicsV2": {},
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Tap盒子": [
+                {
+                    "File": "motions/Motions_Tap盒子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap盒子_0_Sound_0.mp3"
+                }
+            ],
+            "Tap脸": [
+                {
+                    "File": "motions/Motions_Tap脸_0_File_0.json",
+                    "Sound": "voice/Motions_Tap脸_0_Sound_0.mp3"
+                }
+            ],
+            "Tap奶子": [
+                {
+                    "File": "motions/Motions_Tap奶子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap奶子_0_Sound_0.mp3"
+                }
+            ],
+            "Tap大腿": [
+                {
+                    "File": "motions/Motions_Tap大腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap大腿_0_Sound_0.mp3"
+                }
+            ],
+            "Tap肚子": [
+                {
+                    "File": "motions/Motions_Tap大腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap大腿_0_Sound_0.mp3"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tap盒子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap盒子_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tap脸_0_File_0.json",
+                    "Sound": "voice/Motions_Tap脸_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tap奶子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap奶子_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tap大腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap大腿_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tap大腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap大腿_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Tap盒子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap盒子_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_Tap脸_0_File_0.json",
+                    "Sound": "voice/Motions_Tap脸_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Tap奶子_0_File_0.json",
+                    "Sound": "voice/Motions_Tap奶子_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_Tap大腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap大腿_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_Tap大腿_0_File_0.json",
+                    "Sound": "voice/Motions_Tap大腿_0_Sound_0.mp3"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {},
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15
+        },
+        "AutoBreath": {},
+        "ExtraMotion": {},
+        "Accelerometer": {},
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {},
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {},
+        "ArtmeshOpacity": {},
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "盒子",
+            "Id": "ArtMesh130",
+            "Motion": "Tap盒子"
+        },
+        {
+            "Name": "脸",
+            "Id": "ArtMesh40",
+            "Motion": "Tap脸"
+        },
+        {
+            "Name": "奶子",
+            "Id": "ArtMesh95",
+            "Motion": "Tap奶子"
+        },
+        {
+            "Name": "大腿",
+            "Id": "ArtMesh91",
+            "Motion": "Tap大腿"
+        },
+        {
+            "Name": "肚子",
+            "Id": "ArtMesh94",
+            "Motion": "Tap肚子"
+        }
+    ],
+    "Options": {
+        "TexFixed": true
+    }
+}
