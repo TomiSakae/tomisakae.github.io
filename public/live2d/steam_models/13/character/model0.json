@@ -1,0 +1,430 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Start": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.ogg"
+                }
+            ],
+            "點胸": [
+                {
+                    "File": "motions/Motions_點胸_0_File_0.json",
+                    "Sound": "voice/Motions_點胸_0_Sound_0.ogg"
+                }
+            ],
+            "Tick": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json",
+                    "Sound": "voice/Motions_Tick_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json",
+                    "Sound": "voice/Motions_Tick_1_Sound_0.ogg"
+                },
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json",
+                    "Sound": "voice/Motions_Tick_2_Sound_0.ogg"
+                },
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json",
+                    "Sound": "voice/Motions_Tick_3_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_4_File_0.json",
+                    "Sound": "voice/Motions_Tick_4_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_5_File_0.json",
+                    "Sound": "voice/Motions_Tick_5_Sound_0.mp3"
+                }
+            ],
+            "摸頭": [
+                {
+                    "File": "motions/Motions_摸頭_0_File_0.json"
+                }
+            ],
+            "摸頭後": [
+                {
+                    "File": "motions/Motions_摸頭後_0_File_0.json",
+                    "Sound": "voice/Motions_摸頭後_0_Sound_0.ogg"
+                }
+            ],
+            "打招呼": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_打招呼_0_Sound_0.ogg"
+                }
+            ],
+            "點餅乾": [
+                {
+                    "File": "motions/Motions_點餅乾_0_File_0.json",
+                    "Sound": "voice/Motions_點餅乾_0_Sound_0.mp3"
+                }
+            ],
+            "掀裙後": [
+                {
+                    "File": "motions/Motions_掀裙後_0_File_0.json",
+                    "Sound": "voice/Motions_掀裙後_0_Sound_0.ogg"
+                }
+            ],
+            "點肚子": [
+                {
+                    "File": "motions/Motions_點肚子_0_File_0.json",
+                    "Sound": "voice/Motions_點肚子_0_Sound_0.mp3"
+                }
+            ],
+            "點腿": [
+                {
+                    "File": "motions/Motions_點腿_0_File_0.json",
+                    "Sound": "voice/Motions_點腿_0_Sound_0.mp3"
+                }
+            ],
+            "點手掌": [
+                {
+                    "File": "motions/Motions_點手掌_0_File_0.json",
+                    "Sound": "voice/Motions_打招呼_0_Sound_0.ogg"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.ogg"
+                },
+                {
+                    "File": "motions/Motions_點胸_0_File_0.json",
+                    "Sound": "voice/Motions_點胸_0_Sound_0.ogg"
+                },
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json",
+                    "Sound": "voice/Motions_Tick_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json",
+                    "Sound": "voice/Motions_Tick_1_Sound_0.ogg"
+                },
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json",
+                    "Sound": "voice/Motions_Tick_2_Sound_0.ogg"
+                },
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json",
+                    "Sound": "voice/Motions_Tick_3_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_4_File_0.json",
+                    "Sound": "voice/Motions_Tick_4_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Tick_5_File_0.json",
+                    "Sound": "voice/Motions_Tick_5_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_摸頭_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_摸頭後_0_File_0.json",
+                    "Sound": "voice/Motions_摸頭後_0_Sound_0.ogg"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_打招呼_0_Sound_0.ogg"
+                },
+                {
+                    "File": "motions/Motions_點餅乾_0_File_0.json",
+                    "Sound": "voice/Motions_點餅乾_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_掀裙後_0_File_0.json",
+                    "Sound": "voice/Motions_掀裙後_0_Sound_0.ogg"
+                },
+                {
+                    "File": "motions/Motions_點肚子_0_File_0.json",
+                    "Sound": "voice/Motions_點肚子_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_點腿_0_File_0.json",
+                    "Sound": "voice/Motions_點腿_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_點手掌_0_File_0.json",
+                    "Sound": "voice/Motions_打招呼_0_Sound_0.ogg"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.ogg"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_點胸_0_File_0.json",
+                    "Sound": "voice/Motions_點胸_0_Sound_0.ogg"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json",
+                    "Sound": "voice/Motions_Tick_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json",
+                    "Sound": "voice/Motions_Tick_1_Sound_0.ogg"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json",
+                    "Sound": "voice/Motions_Tick_2_Sound_0.ogg"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json",
+                    "Sound": "voice/Motions_Tick_3_Sound_0.mp3"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_Tick_4_File_0.json",
+                    "Sound": "voice/Motions_Tick_4_Sound_0.mp3"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_Tick_5_File_0.json",
+                    "Sound": "voice/Motions_Tick_5_Sound_0.mp3"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_摸頭_0_File_0.json"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_摸頭後_0_File_0.json",
+                    "Sound": "voice/Motions_摸頭後_0_Sound_0.ogg"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_打招呼_0_Sound_0.ogg"
+                }
+            ],
+            "Animation_13": [
+                {
+                    "File": "motions/Motions_點餅乾_0_File_0.json",
+                    "Sound": "voice/Motions_點餅乾_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_14": [
+                {
+                    "File": "motions/Motions_掀裙後_0_File_0.json",
+                    "Sound": "voice/Motions_掀裙後_0_Sound_0.ogg"
+                }
+            ],
+            "Animation_15": [
+                {
+                    "File": "motions/Motions_點肚子_0_File_0.json",
+                    "Sound": "voice/Motions_點肚子_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_16": [
+                {
+                    "File": "motions/Motions_點腿_0_File_0.json",
+                    "Sound": "voice/Motions_點腿_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_17": [
+                {
+                    "File": "motions/Motions_點手掌_0_File_0.json",
+                    "Sound": "voice/Motions_打招呼_0_Sound_0.ogg"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {
+            "Items": [
+                {
+                    "Name": "motou",
+                    "Id": "PARAM_AngleX",
+                    "HitArea": "HEAD",
+                    "Axis": 0,
+                    "Factor": 0.01,
+                    "ReleaseType": 0,
+                    "BeginMtn": "摸頭",
+                    "EndMtn": "摸頭後"
+                },
+                {
+                    "Name": "掀裙",
+                    "Id": "PARAM_XIANUQN",
+                    "HitArea": "qunzi_3ceng_01掀",
+                    "Axis": 0,
+                    "Factor": 0.01,
+                    "ReleaseType": 0,
+                    "EndMtn": "掀裙後"
+                },
+                {
+                    "Name": "掀裙2",
+                    "Id": "PARAM_XIANUQN",
+                    "HitArea": "qunzi_3ceng_12",
+                    "Axis": 0,
+                    "Factor": 0.01,
+                    "ReleaseType": 0,
+                    "EndMtn": "掀裙後"
+                }
+            ],
+            "Enabled": true
+        },
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0,
+            "SmoothTime": 0.214285746,
+            "Items": [
+                {
+                    "Id": "ParamMouthOpenY",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {},
+        "ArtmeshOpacity": {},
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "HEAD",
+            "Id": "qianfa_yinying_01"
+        },
+        {
+            "Name": "胸L",
+            "Id": "xiongbu_L",
+            "Motion": "點胸"
+        },
+        {
+            "Name": "胸R",
+            "Id": "xiongbu_R",
+            "Motion": "點胸"
+        },
+        {
+            "Name": "qunzi_3ceng_01掀",
+            "Id": "qunzi_3ceng_01",
+            "Order": 1
+        },
+        {
+            "Name": "ArtMesh11盤子",
+            "Id": "ArtMesh11",
+            "Motion": "點餅乾"
+        },
+        {
+            "Name": "qunzi_3ceng_12",
+            "Id": "qunzi_3ceng_12",
+            "Order": 1
+        },
+        {
+            "Name": "duji",
+            "Id": "qunzi_2ceng_16",
+            "Motion": "點肚子"
+        },
+        {
+            "Name": "zhang6點手掌右",
+            "Id": "ArtMesh91",
+            "Motion": "點手掌"
+        },
+        {
+            "Name": "xiaotui_L",
+            "Id": "xiaotui_L",
+            "Motion": "點腿"
+        },
+        {
+            "Name": "xiaotui_R",
+            "Id": "xiaotui_R",
+            "Motion": "點腿"
+        },
+        {
+            "Name": "點右手2",
+            "Id": "ArtMesh82",
+            "Motion": "點手掌"
+        },
+        {
+            "Name": "waitao_xiongkousudai",
+            "Id": "waitao_xiongkousudai",
+            "Motion": "點肚子"
+        },
+        {
+            "Name": "hand_L_02_shouzhang",
+            "Id": "xiukou_huaen_L_02",
+            "Motion": "點腿"
+        }
+    ],
+    "Options": {
+        "ScaleFactor": 1.8,
+        "TexFixed": true
+    }
+}
