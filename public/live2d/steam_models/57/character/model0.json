@@ -1,0 +1,411 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png",
+            "textures/Textures_1_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                }
+            ],
+            "备用": [
+                {
+                    "File": "motions/Motions_备用_0_File_0.json"
+                }
+            ],
+            "脱光光待机": [
+                {
+                    "File": "motions/Motions_脱光光待机_0_File_0.json"
+                }
+            ],
+            "选项1": [
+                {
+                    "File": "motions/Motions_选项1_0_File_0.json"
+                }
+            ],
+            "选项2": [
+                {
+                    "File": "motions/Motions_选项2_0_File_0.json"
+                }
+            ],
+            "选项3": [
+                {
+                    "File": "motions/Motions_选项3_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_选项3_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_选项3_2_File_0.json"
+                }
+            ],
+            "TapHitArea_Pigu": [
+                {
+                    "File": "motions/Motions_TapHitArea_Pigu_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea_Pigu_1_File_0.json"
+                }
+            ],
+            "TapHitArea_Leg": [
+                {
+                    "File": "motions/Motions_TapHitArea_Leg_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea_Leg_1_File_0.json"
+                }
+            ],
+            "TapHitArea_Hand": [
+                {
+                    "File": "motions/Motions_TapHitArea_Hand_0_File_0.json"
+                }
+            ],
+            "TapHitArea_Head": [
+                {
+                    "File": "motions/Motions_TapHitArea_Head_0_File_0.json"
+                }
+            ],
+            "TapHitArea_Chest": [
+                {
+                    "File": "motions/Motions_TapHitArea_Chest_0_File_0.json"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_备用_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_脱光光待机_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_选项1_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_选项2_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_选项3_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_选项3_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_选项3_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea_Pigu_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea_Pigu_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea_Leg_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea_Leg_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea_Hand_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea_Head_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitArea_Chest_0_File_0.json"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_备用_0_File_0.json"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_脱光光待机_0_File_0.json"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_选项1_0_File_0.json"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_选项2_0_File_0.json"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_选项3_0_File_0.json"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_选项3_1_File_0.json"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_选项3_2_File_0.json"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_TapHitArea_Pigu_0_File_0.json"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_TapHitArea_Pigu_1_File_0.json"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_TapHitArea_Leg_0_File_0.json"
+                }
+            ],
+            "Animation_13": [
+                {
+                    "File": "motions/Motions_TapHitArea_Leg_1_File_0.json"
+                }
+            ],
+            "Animation_14": [
+                {
+                    "File": "motions/Motions_TapHitArea_Hand_0_File_0.json"
+                }
+            ],
+            "Animation_15": [
+                {
+                    "File": "motions/Motions_TapHitArea_Head_0_File_0.json"
+                }
+            ],
+            "Animation_16": [
+                {
+                    "File": "motions/Motions_TapHitArea_Chest_0_File_0.json"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {
+            "Items": [
+                {
+                    "Name": "扯裙子",
+                    "Id": "Param89",
+                    "HitArea": "HitArea_Pigu",
+                    "Axis": 1,
+                    "Factor": 0.01,
+                    "ReleaseType": 3,
+                    "LockParam": true
+                },
+                {
+                    "Name": "扯内裤",
+                    "Id": "Param94",
+                    "HitArea": "HitArea_Pigu",
+                    "Axis": 0,
+                    "Factor": 0.01,
+                    "ReleaseType": 3
+                },
+                {
+                    "Name": "脱丝袜上",
+                    "Id": "Param91",
+                    "HitArea": "HitArea_Lsiwa",
+                    "Axis": 1,
+                    "Factor": 0.01,
+                    "ReleaseType": 3,
+                    "LockParam": true
+                },
+                {
+                    "Name": "脱丝袜下",
+                    "Id": "Param104",
+                    "HitArea": "HitArea_Leg",
+                    "Axis": 1,
+                    "Factor": 0.01,
+                    "ReleaseType": 3,
+                    "LockParam": true
+                },
+                {
+                    "Name": "拉带子全脱",
+                    "Id": "Param90",
+                    "HitArea": "ArtMesh89",
+                    "Axis": 1,
+                    "Factor": 0.01,
+                    "ReleaseType": 3,
+                    "MaxMtn": "备用"
+                }
+            ],
+            "Enabled": true
+        },
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {
+            "Items": [
+                {
+                    "Name": "稍微撕破丝袜左",
+                    "Ids": [
+                        "Param93"
+                    ]
+                },
+                {
+                    "Name": "稍微撕破丝袜右",
+                    "Ids": [
+                        "Param100"
+                    ]
+                }
+            ],
+            "Enabled": true
+        },
+        "PartOpacity": {
+            "Items": [
+                {
+                    "Name": "内裤（最后还是会有一点料）",
+                    "Ids": [
+                        "neiku"
+                    ],
+                    "Value": 100.0
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshOpacity": {
+            "Items": [
+                {
+                    "Name": "背景1",
+                    "Ids": [
+                        "bgb1"
+                    ],
+                    "Value": 100.0
+                },
+                {
+                    "Name": "背景2",
+                    "Ids": [
+                        "bgb2"
+                    ],
+                    "Value": 100.0
+                },
+                {
+                    "Name": "背景3",
+                    "Ids": [
+                        "bgb3"
+                    ],
+                    "Value": 100.0
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "HitArea_Hand",
+            "Id": "HitArea_Hand",
+            "Motion": "TapHitArea_Hand"
+        },
+        {
+            "Name": "HitArea_Head",
+            "Id": "HitArea_Head",
+            "Motion": "TapHitArea_Head"
+        },
+        {
+            "Name": "HitArea_Chest",
+            "Id": "HitArea_Chest",
+            "Motion": "TapHitArea_Chest"
+        },
+        {
+            "Name": "HitArea_Leg",
+            "Id": "HitArea_Leg",
+            "Motion": "TapHitArea_Leg"
+        },
+        {
+            "Name": "HitArea_Pigu",
+            "Id": "HitArea_Pigu",
+            "Motion": "TapHitArea_Pigu"
+        },
+        {
+            "Name": "HitArea_Yifu",
+            "Id": "HitArea_Yifu",
+            "Motion": "TapHitArea_Yifu"
+        },
+        {
+            "Name": "HitArea_Lsiwa",
+            "Id": "HitArea_Lsiwa",
+            "Motion": "TapHitArea_Lsiwa"
+        },
+        {
+            "Name": "ArtMesh1",
+            "Id": "ArtMesh1",
+            "Motion": "选择:选项选择"
+        },
+        {
+            "Name": "ArtMesh89",
+            "Id": "ArtMesh89"
+        }
+    ],
+    "Options": {
+        "ScaleFactor": 0.05,
+        "MaskBufferSize": 4096,
+        "TexFixed": true
+    }
+}
