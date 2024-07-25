@@ -1,0 +1,422 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png",
+            "textures/Textures_1_0.png"
+        ],
+        "PhysicsV2": {},
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Idle#1": [
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                }
+            ],
+            "Start": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "TapHitAreaRobot": [
+                {
+                    "File": "motions/Motions_TapHitAreaRobot_0_File_0.json"
+                }
+            ],
+            "TapHitAreaHip": [
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                }
+            ],
+            "TapHitAreaHead": [
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                }
+            ],
+            "Tapsp": [
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaRobot_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_TapHitAreaRobot_0_File_0.json"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_TapHitAreaHip_0_File_0.json"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {
+            "Items": [
+                {
+                    "Name": "ParamNeiku",
+                    "Id": "ParamNeiku",
+                    "HitArea": "HitAreaHip",
+                    "Axis": 1,
+                    "Factor": 0.01,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "EndMtn": "Tapsp"
+                },
+                {
+                    "Name": "ParamJiaoX",
+                    "Id": "ParamJiaoX",
+                    "HitArea": "HitAreaFoot",
+                    "Axis": 0,
+                    "Factor": 0.01,
+                    "ReleaseType": 0
+                },
+                {
+                    "Name": "ParamJiaoY",
+                    "Id": "ParamJiaoY",
+                    "HitArea": "HitAreaFoot",
+                    "Axis": 1,
+                    "Factor": -0.01,
+                    "ReleaseType": 0
+                },
+                {
+                    "Name": "ParamToushiX",
+                    "Id": "ParamToushiX",
+                    "HitArea": "HitAreaPerspective",
+                    "Axis": 0,
+                    "Factor": 0.01,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                },
+                {
+                    "Name": "ParamToushiY",
+                    "Id": "ParamToushiY",
+                    "HitArea": "HitAreaPerspective",
+                    "Axis": 1,
+                    "Factor": -0.01,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                }
+            ],
+            "Enabled": true
+        },
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0,
+            "Items": [
+                {
+                    "Id": "ParamMouthOpenY",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {
+            "Items": [
+                {
+                    "Name": "背景",
+                    "Ids": [
+                        "BG"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "机器狗",
+                    "Ids": [
+                        "Robot"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "大尾巴",
+                    "Ids": [
+                        "ArtMesh38_Skinning2"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "礼物包",
+                    "Ids": [
+                        "Part6"
+                    ],
+                    "Value": 1.0
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshOpacity": {
+            "Items": [
+                {
+                    "Name": "圣诞帽",
+                    "Ids": [
+                        "ArtMesh163",
+                        "ArtMesh166",
+                        "ArtMesh164",
+                        "ArtMesh165"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "披风",
+                    "Ids": [
+                        "ArtMesh54",
+                        "ArtMesh58",
+                        "ArtMesh56",
+                        "ArtMesh61",
+                        "ArtMesh57",
+                        "ArtMesh55",
+                        "ArtMesh68",
+                        "ArtMesh69",
+                        "ArtMesh67"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "涩涩",
+                    "Ids": [
+                        "ArtMesh198",
+                        "ArtMesh216",
+                        "ArtMesh203",
+                        "ArtMesh197",
+                        "ArtMesh59",
+                        "ArtMesh60",
+                        "ArtMesh196",
+                        "ArtMesh39",
+                        "ArtMesh40",
+                        "ArtMesh41",
+                        "ArtMesh43",
+                        "ArtMesh42"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "色色",
+                    "Ids": [
+                        "ArtMesh74",
+                        "ArtMesh73"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "邮箱＋杂物",
+                    "Ids": [
+                        "ArtMesh30",
+                        "ArtMesh27",
+                        "ArtMesh28",
+                        "ArtMesh29",
+                        "ArtMesh24",
+                        "ArtMesh25",
+                        "ArtMesh35",
+                        "ArtMesh36",
+                        "ArtMesh33",
+                        "ArtMesh34",
+                        "ArtMesh31",
+                        "ArtMesh32",
+                        "ArtMesh26",
+                        "ArtMesh37"
+                    ],
+                    "Value": 1.0
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "HitAreaFoot",
+            "Id": "HitAreaFoot",
+            "Motion": "TapHitAreaFoot"
+        },
+        {
+            "Name": "HitAreaRobot",
+            "Id": "HitAreaRobot",
+            "Motion": "TapHitAreaRobot"
+        },
+        {
+            "Name": "HitAreaHip",
+            "Id": "HitAreaHip",
+            "Motion": "TapHitAreaHip"
+        },
+        {
+            "Name": "HitAreaPerspective",
+            "Id": "HitAreaPerspective"
+        },
+        {
+            "Name": "HitAreaHead",
+            "Id": "HitAreaHead",
+            "Motion": "TapHitAreaHead"
+        },
+        {
+            "Name": "ArtMesh62",
+            "Id": "ArtMesh62",
+            "Motion": "Tapsp"
+        },
+        {
+            "Name": "ArtMesh199",
+            "Id": "ArtMesh199",
+            "Motion": "Tapsp"
+        },
+        {
+            "Name": "ArtMesh209",
+            "Id": "ArtMesh209",
+            "Motion": "Tapsp"
+        },
+        {
+            "Name": "ArtMesh210",
+            "Id": "ArtMesh210",
+            "Motion": "Tapsp"
+        }
+    ],
+    "Options": {
+        "ScaleFactor": 2.07999969,
+        "PositionX": -0.456435025,
+        "PositionY": 3.00972319,
+        "TexFixed": true
+    }
+}
