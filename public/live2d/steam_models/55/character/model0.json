@@ -1,0 +1,427 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png",
+            "textures/Textures_1_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                }
+            ],
+            "Idle#1": [
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                }
+            ],
+            "换装": [
+                {
+                    "File": "motions/Motions_换装_0_File_0.json"
+                }
+            ],
+            "带子": [
+                {
+                    "File": "motions/Motions_带子_0_File_0.json"
+                }
+            ],
+            "内衣": [
+                {
+                    "File": "motions/Motions_内衣_0_File_1.json"
+                }
+            ],
+            "手": [
+                {
+                    "File": "motions/Motions_手_0_File_0.json"
+                }
+            ],
+            "胸": [
+                {
+                    "File": "motions/Motions_胸_0_File_1.json"
+                }
+            ],
+            "屁股": [
+                {
+                    "File": "motions/Motions_屁股_0_File_1.json"
+                }
+            ],
+            "裙子": [
+                {
+                    "File": "motions/Motions_裙子_0_File_1.json"
+                }
+            ],
+            "内裤": [
+                {
+                    "File": "motions/Motions_内裤_0_File_1.json"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_换装_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_带子_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_内衣_0_File_1.json"
+                },
+                {
+                    "File": "motions/Motions_手_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_胸_0_File_1.json"
+                },
+                {
+                    "File": "motions/Motions_屁股_0_File_1.json"
+                },
+                {
+                    "File": "motions/Motions_裙子_0_File_1.json"
+                },
+                {
+                    "File": "motions/Motions_内裤_0_File_1.json"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_换装_0_File_0.json"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_带子_0_File_0.json"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_内衣_0_File_1.json"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_手_0_File_0.json"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_胸_0_File_1.json"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_屁股_0_File_1.json"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_裙子_0_File_1.json"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_内裤_0_File_1.json"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {
+            "Items": [
+                {
+                    "Name": "裙子",
+                    "Id": "Param106",
+                    "HitArea": "HitArea_Qunzi",
+                    "Axis": 1,
+                    "Factor": 0.02,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                },
+                {
+                    "Name": "内裤",
+                    "Id": "Param108",
+                    "HitArea": "HitArea_Pigu",
+                    "Axis": 0,
+                    "Factor": 0.02,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                },
+                {
+                    "Name": "带子",
+                    "Id": "Param103",
+                    "HitArea": "HitArea_Shengzi",
+                    "Axis": 1,
+                    "Factor": 0.05,
+                    "ReleaseType": 0
+                },
+                {
+                    "Name": "内衣",
+                    "Id": "Param80",
+                    "HitArea": "HitArea_Neiyi",
+                    "Axis": 0,
+                    "Factor": 0.02,
+                    "ReleaseType": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {
+            "Items": [
+                {
+                    "Name": "带子",
+                    "Id": "Param103",
+                    "Items": [
+                        {
+                            "Value": 1.0,
+                            "Direction": 0,
+                            "Motion": "带子"
+                        }
+                    ]
+                },
+                {
+                    "Name": "衣带",
+                    "Id": "Param80",
+                    "Items": [
+                        {
+                            "Value": 0.0,
+                            "Direction": 1,
+                            "Motion": "内衣"
+                        }
+                    ]
+                },
+                {
+                    "Name": "裙子",
+                    "Id": "Param106",
+                    "Items": [
+                        {
+                            "Value": -30.0,
+                            "Direction": 1,
+                            "Motion": "裙子"
+                        }
+                    ]
+                },
+                {
+                    "Name": "内裤",
+                    "Id": "Param108",
+                    "Items": [
+                        {
+                            "Value": 30.0,
+                            "Direction": 0,
+                            "Motion": "内裤"
+                        }
+                    ]
+                }
+            ],
+            "Enabled": true
+        },
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Items": [
+                {
+                    "Id": "ParamEyeBallX",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeBallY",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleX",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleY",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamBodyAngleX",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamBodyAngleY",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamBodyAngleZ",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "BlendMode": 1,
+                    "Axis": 2,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {},
+        "ArtmeshOpacity": {
+            "Items": [
+                {
+                    "Name": "背景1",
+                    "Ids": [
+                        "ArtMesh310"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "背景2",
+                    "Ids": [
+                        "ArtMesh300",
+                        "ArtMesh301",
+                        "ArtMesh304",
+                        "ArtMesh305",
+                        "ArtMesh302",
+                        "ArtMesh335",
+                        "ArtMesh346",
+                        "ArtMesh347",
+                        "ArtMesh348",
+                        "ArtMesh349"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "光",
+                    "Ids": [
+                        "ArtMesh307"
+                    ],
+                    "Value": 1.0
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "HitArea_Pigu",
+            "Id": "HitArea_Pigu",
+            "Motion": "屁股"
+        },
+        {
+            "Name": "HitArea_Qunzi",
+            "Id": "HitArea_Qunzi"
+        },
+        {
+            "Name": "HitArea_Shengzi",
+            "Id": "HitArea_Shengzi"
+        },
+        {
+            "Name": "HitArea_Neiyi",
+            "Id": "HitArea_Neiyi"
+        },
+        {
+            "Name": "ArtMesh34",
+            "Id": "ArtMesh34",
+            "Motion": "选择:选择"
+        },
+        {
+            "Name": "HitArea_Chest",
+            "Id": "HitArea_Chest",
+            "Motion": "胸"
+        },
+        {
+            "Name": "HitArea_Hand",
+            "Id": "HitArea_Hand",
+            "Motion": "手"
+        }
+    ],
+    "Options": {
+        "ScaleFactor": 0.002,
+        "TexFixed": true
+    }
+}
