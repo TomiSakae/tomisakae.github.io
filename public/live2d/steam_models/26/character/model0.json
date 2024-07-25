@@ -1,0 +1,419 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Start": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json"
+                }
+            ],
+            "Tick": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                }
+            ],
+            "站势2": [
+                {
+                    "File": "motions/Motions_站势2_0_File_0.json"
+                }
+            ],
+            "站势3": [
+                {
+                    "File": "motions/Motions_站势3_0_File_0.json"
+                }
+            ],
+            "站势4": [
+                {
+                    "File": "motions/Motions_站势4_0_File_0.json"
+                }
+            ],
+            "打招呼": [
+                {
+                    "File": "motions/Motions_打招呼_0_File_0.json"
+                }
+            ],
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "点菜盘": [
+                {
+                    "File": "motions/Motions_点菜盘_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点菜盘_1_File_0.json"
+                }
+            ],
+            "点蛋": [
+                {
+                    "File": "motions/Motions_点蛋_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点蛋_1_File_0.json"
+                }
+            ],
+            "点肚子": [
+                {
+                    "File": "motions/Motions_点肚子_0_File_0.json"
+                }
+            ],
+            "点锅": [
+                {
+                    "File": "motions/Motions_点锅_0_File_0.json"
+                }
+            ],
+            "点空白": [
+                {
+                    "File": "motions/Motions_点空白_0_File_0.json"
+                }
+            ],
+            "点书": [
+                {
+                    "File": "motions/Motions_点书_0_File_0.json"
+                }
+            ],
+            "点锁骨": [
+                {
+                    "File": "motions/Motions_点锁骨_0_File_0.json"
+                }
+            ],
+            "摸头": [
+                {
+                    "File": "motions/Motions_摸头_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_摸头_1_File_0.json"
+                }
+            ],
+            "点调料罐": [
+                {
+                    "File": "motions/Motions_点调料罐_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点调料罐_1_File_0.json"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_站势2_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_站势3_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_站势4_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_打招呼_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点菜盘_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点菜盘_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点蛋_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点蛋_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点肚子_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点锅_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点空白_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点书_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点锁骨_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_摸头_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_摸头_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点调料罐_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_点调料罐_1_File_0.json"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_站势2_0_File_0.json"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_站势3_0_File_0.json"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_站势4_0_File_0.json"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_打招呼_0_File_0.json"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_点菜盘_0_File_0.json"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_点菜盘_1_File_0.json"
+                }
+            ],
+            "Animation_13": [
+                {
+                    "File": "motions/Motions_点蛋_0_File_0.json"
+                }
+            ],
+            "Animation_14": [
+                {
+                    "File": "motions/Motions_点蛋_1_File_0.json"
+                }
+            ],
+            "Animation_15": [
+                {
+                    "File": "motions/Motions_点肚子_0_File_0.json"
+                }
+            ],
+            "Animation_16": [
+                {
+                    "File": "motions/Motions_点锅_0_File_0.json"
+                }
+            ],
+            "Animation_17": [
+                {
+                    "File": "motions/Motions_点空白_0_File_0.json"
+                }
+            ],
+            "Animation_18": [
+                {
+                    "File": "motions/Motions_点书_0_File_0.json"
+                }
+            ],
+            "Animation_19": [
+                {
+                    "File": "motions/Motions_点锁骨_0_File_0.json"
+                }
+            ],
+            "Animation_20": [
+                {
+                    "File": "motions/Motions_摸头_0_File_0.json"
+                }
+            ],
+            "Animation_21": [
+                {
+                    "File": "motions/Motions_摸头_1_File_0.json"
+                }
+            ],
+            "Animation_22": [
+                {
+                    "File": "motions/Motions_点调料罐_0_File_0.json"
+                }
+            ],
+            "Animation_23": [
+                {
+                    "File": "motions/Motions_点调料罐_1_File_0.json"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {
+            "Items": [
+                {
+                    "Name": "摸头",
+                    "Id": "PARAM_LIUHAI_1",
+                    "HitArea": "摸头",
+                    "Axis": 0,
+                    "Factor": 0.01,
+                    "ReleaseType": 0,
+                    "Type": 1,
+                    "BeginMtn": "摸头:摸头中",
+                    "EndMtn": "摸头:摸头后"
+                }
+            ],
+            "Enabled": true
+        },
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {},
+        "ArtmeshOpacity": {},
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "点右手",
+            "Id": "hand_R01_shouzhang",
+            "Motion": "打招呼"
+        },
+        {
+            "Name": "点菜盘",
+            "Id": "ArtMesh",
+            "Motion": "点菜盘"
+        },
+        {
+            "Name": "点蛋",
+            "Id": "jiandan",
+            "Motion": "点蛋"
+        },
+        {
+            "Name": "点肚子",
+            "Id": "weiqun_xia_01",
+            "Motion": "点肚子"
+        },
+        {
+            "Name": "点锅",
+            "Id": "zhuguo_qian",
+            "Motion": "点锅"
+        },
+        {
+            "Name": "点空白",
+            "Id": "zaotai",
+            "Motion": "点空白"
+        },
+        {
+            "Name": "点书",
+            "Id": "daoju_shu",
+            "Motion": "点书"
+        },
+        {
+            "Name": "点锁骨",
+            "Id": "wuxia_shengti",
+            "Motion": "点锁骨"
+        },
+        {
+            "Name": "摸头",
+            "Id": "wuxia_lian"
+        },
+        {
+            "Name": "点调料罐",
+            "Id": "pingzi01",
+            "Motion": "点调料罐"
+        },
+        {
+            "Name": "点调料罐2",
+            "Id": "pingzi02",
+            "Motion": "点调料罐"
+        }
+    ],
+    "Options": {
+        "TexFixed": true
+    }
+}
