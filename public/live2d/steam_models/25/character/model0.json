@@ -1,0 +1,254 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "TaphitArea": [
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_1_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_2_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_3_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_4_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_5_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_6_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_7_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_8_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_9_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_10_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_11_Sound_0.mp3"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_1_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_2_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_3_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_4_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_5_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_6_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_7_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_8_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_9_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_10_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_11_Sound_0.mp3"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_1_Sound_0.mp3"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_2_Sound_0.mp3"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_3_Sound_0.mp3"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_4_Sound_0.mp3"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_5_Sound_0.mp3"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_6_Sound_0.mp3"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_7_Sound_0.mp3"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_8_Sound_0.mp3"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_TaphitArea_0_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_9_Sound_0.mp3"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_TaphitArea_2_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_10_Sound_0.mp3"
+                }
+            ],
+            "Animation_13": [
+                {
+                    "File": "motions/Motions_TaphitArea_4_File_0.json",
+                    "Sound": "voice/Motions_TaphitArea_11_Sound_0.mp3"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {},
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {},
+        "ArtmeshOpacity": {},
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "hitArea",
+            "Id": "HitArea",
+            "Motion": "TaphitArea"
+        }
+    ],
+    "Options": {
+        "TexFixed": true
+    }
+}
