@@ -12,250 +12,181 @@
         "Motions": {
             "Idle": [
                 {
-                    "File": "motions/Motions_Idle_0_File_0.json",
-                    "Interruptable": true
+                    "File": "motions/Motions_Idle_0_File_0.json"
                 }
             ],
             "Tapface": [
                 {
                     "File": "motions/Motions_Tapface_0_File_0.json",
-                    "Sound": "voice/Motions_Tapface_0_Sound_0.wav",
-                    "Text": "吾名丛雨，乃是这“丛雨丸”的管理者……简单来说，也算是“丛雨丸”的灵魂",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapface_0_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapface_1_File_0.json",
-                    "Sound": "voice/Motions_Tapface_1_Sound_0.wav",
-                    "Text": "你，就是本座的主人？",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapface_1_Sound_0.wav"
                 }
             ],
             "Taphair": [
                 {
                     "File": "motions/Motions_Taphair_0_File_0.json",
-                    "Sound": "voice/Motions_Taphair_0_Sound_0.wav",
-                    "Text": "在这里，这里",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Taphair_0_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Taphair_1_File_0.json",
-                    "Sound": "voice/Motions_Taphair_1_Sound_0.wav",
-                    "Text": "你看，复原了",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Taphair_1_Sound_0.wav"
                 }
             ],
             "Tapxiongbu": [
                 {
                     "File": "motions/Motions_Tapxiongbu_0_File_0.json",
-                    "Sound": "voice/Motions_Tapxiongbu_0_Sound_0.wav",
-                    "Text": "主人就是主人。是你拔出了丛雨丸吧？",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapxiongbu_0_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapxiongbu_1_File_0.json",
-                    "Sound": "voice/Motions_Tapxiongbu_1_Sound_0.wav",
-                    "Text": "你这————！！",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapxiongbu_1_Sound_0.wav"
                 }
             ],
             "Tapqunzi": [
                 {
                     "File": "motions/Motions_Tapqunzi_0_File_0.json",
-                    "Sound": "voice/Motions_Tapqunzi_0_Sound_0.wav",
-                    "Text": "——着陆",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapqunzi_0_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapqunzi_1_File_0.json",
-                    "Sound": "voice/Motions_Tapqunzi_1_Sound_0.wav",
-                    "Text": "本座才不是幽灵！完全不是！不要把幽灵和本座相提并论！",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapqunzi_1_Sound_0.wav"
                 }
             ],
             "Tapleg": [
                 {
                     "File": "motions/Motions_Tapleg_0_File_0.json",
-                    "Sound": "voice/Motions_Tapleg_0_Sound_0.wav",
-                    "Text": "哪是什么幽灵，别……别别别把本座和那种毫无事实依据的东西混为一谈",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapleg_0_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapleg_1_File_0.json",
-                    "Sound": "voice/Motions_Tapleg_1_Sound_0.wav",
-                    "Text": "你醒了吗，主人。早上好",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapleg_1_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapleg_2_File_0.json",
-                    "Sound": "voice/Motions_Tapleg_2_Sound_0.wav",
-                    "Text": "本座不是幻觉，更不是幽灵，主人！",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapleg_2_Sound_0.wav"
                 }
             ],
             "Animation": [
                 {
-                    "File": "motions/Motions_Idle_0_File_0.json",
-                    "Interruptable": true
+                    "File": "motions/Motions_Idle_0_File_0.json"
                 },
                 {
                     "File": "motions/Motions_Tapface_0_File_0.json",
-                    "Sound": "voice/Motions_Tapface_0_Sound_0.wav",
-                    "Text": "吾名丛雨，乃是这“丛雨丸”的管理者……简单来说，也算是“丛雨丸”的灵魂",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapface_0_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapface_1_File_0.json",
-                    "Sound": "voice/Motions_Tapface_1_Sound_0.wav",
-                    "Text": "你，就是本座的主人？",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapface_1_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Taphair_0_File_0.json",
-                    "Sound": "voice/Motions_Taphair_0_Sound_0.wav",
-                    "Text": "在这里，这里",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Taphair_0_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Taphair_1_File_0.json",
-                    "Sound": "voice/Motions_Taphair_1_Sound_0.wav",
-                    "Text": "你看，复原了",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Taphair_1_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapxiongbu_0_File_0.json",
-                    "Sound": "voice/Motions_Tapxiongbu_0_Sound_0.wav",
-                    "Text": "主人就是主人。是你拔出了丛雨丸吧？",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapxiongbu_0_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapxiongbu_1_File_0.json",
-                    "Sound": "voice/Motions_Tapxiongbu_1_Sound_0.wav",
-                    "Text": "你这————！！",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapxiongbu_1_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapqunzi_0_File_0.json",
-                    "Sound": "voice/Motions_Tapqunzi_0_Sound_0.wav",
-                    "Text": "——着陆",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapqunzi_0_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapqunzi_1_File_0.json",
-                    "Sound": "voice/Motions_Tapqunzi_1_Sound_0.wav",
-                    "Text": "本座才不是幽灵！完全不是！不要把幽灵和本座相提并论！",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapqunzi_1_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapleg_0_File_0.json",
-                    "Sound": "voice/Motions_Tapleg_0_Sound_0.wav",
-                    "Text": "哪是什么幽灵，别……别别别把本座和那种毫无事实依据的东西混为一谈",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapleg_0_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapleg_1_File_0.json",
-                    "Sound": "voice/Motions_Tapleg_1_Sound_0.wav",
-                    "Text": "你醒了吗，主人。早上好",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapleg_1_Sound_0.wav"
                 },
                 {
                     "File": "motions/Motions_Tapleg_2_File_0.json",
-                    "Sound": "voice/Motions_Tapleg_2_Sound_0.wav",
-                    "Text": "本座不是幻觉，更不是幽灵，主人！",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapleg_2_Sound_0.wav"
                 }
             ],
             "Animation_1": [
                 {
-                    "File": "motions/Motions_Idle_0_File_0.json",
-                    "Interruptable": true
+                    "File": "motions/Motions_Idle_0_File_0.json"
                 }
             ],
             "Animation_2": [
                 {
                     "File": "motions/Motions_Tapface_0_File_0.json",
-                    "Sound": "voice/Motions_Tapface_0_Sound_0.wav",
-                    "Text": "吾名丛雨，乃是这“丛雨丸”的管理者……简单来说，也算是“丛雨丸”的灵魂",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapface_0_Sound_0.wav"
                 }
             ],
             "Animation_3": [
                 {
                     "File": "motions/Motions_Tapface_1_File_0.json",
-                    "Sound": "voice/Motions_Tapface_1_Sound_0.wav",
-                    "Text": "你，就是本座的主人？",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapface_1_Sound_0.wav"
                 }
             ],
             "Animation_4": [
                 {
                     "File": "motions/Motions_Taphair_0_File_0.json",
-                    "Sound": "voice/Motions_Taphair_0_Sound_0.wav",
-                    "Text": "在这里，这里",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Taphair_0_Sound_0.wav"
                 }
             ],
             "Animation_5": [
                 {
                     "File": "motions/Motions_Taphair_1_File_0.json",
-                    "Sound": "voice/Motions_Taphair_1_Sound_0.wav",
-                    "Text": "你看，复原了",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Taphair_1_Sound_0.wav"
                 }
             ],
             "Animation_6": [
                 {
                     "File": "motions/Motions_Tapxiongbu_0_File_0.json",
-                    "Sound": "voice/Motions_Tapxiongbu_0_Sound_0.wav",
-                    "Text": "主人就是主人。是你拔出了丛雨丸吧？",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapxiongbu_0_Sound_0.wav"
                 }
             ],
             "Animation_7": [
                 {
                     "File": "motions/Motions_Tapxiongbu_1_File_0.json",
-                    "Sound": "voice/Motions_Tapxiongbu_1_Sound_0.wav",
-                    "Text": "你这————！！",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapxiongbu_1_Sound_0.wav"
                 }
             ],
             "Animation_8": [
                 {
                     "File": "motions/Motions_Tapqunzi_0_File_0.json",
-                    "Sound": "voice/Motions_Tapqunzi_0_Sound_0.wav",
-                    "Text": "——着陆",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapqunzi_0_Sound_0.wav"
                 }
             ],
             "Animation_9": [
                 {
                     "File": "motions/Motions_Tapqunzi_1_File_0.json",
-                    "Sound": "voice/Motions_Tapqunzi_1_Sound_0.wav",
-                    "Text": "本座才不是幽灵！完全不是！不要把幽灵和本座相提并论！",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapqunzi_1_Sound_0.wav"
                 }
             ],
             "Animation_10": [
                 {
                     "File": "motions/Motions_Tapleg_0_File_0.json",
-                    "Sound": "voice/Motions_Tapleg_0_Sound_0.wav",
-                    "Text": "哪是什么幽灵，别……别别别把本座和那种毫无事实依据的东西混为一谈",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapleg_0_Sound_0.wav"
                 }
             ],
             "Animation_11": [
                 {
                     "File": "motions/Motions_Tapleg_1_File_0.json",
-                    "Sound": "voice/Motions_Tapleg_1_Sound_0.wav",
-                    "Text": "你醒了吗，主人。早上好",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapleg_1_Sound_0.wav"
                 }
             ],
             "Animation_12": [
                 {
                     "File": "motions/Motions_Tapleg_2_File_0.json",
-                    "Sound": "voice/Motions_Tapleg_2_Sound_0.wav",
-                    "Text": "本座不是幻觉，更不是幽灵，主人！",
-                    "Interruptable": true
+                    "Sound": "voice/Motions_Tapleg_2_Sound_0.wav"
                 }
             ]
         },

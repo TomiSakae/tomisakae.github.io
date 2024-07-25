@@ -71,7 +71,7 @@ const Live2DModelComponent = () => {
     // Ref để giữ track các giá trị elapsedTime
     const lastTimeRef = useRef<number>(0);
     const [isPlayRandom, setIsPlayRandom] = useState(false);
-
+    const [isStartMotion, setIsStartMotion] = useState(false);
 
     useEffect(() => {
         window.PIXI = PIXI;
@@ -257,6 +257,15 @@ const Live2DModelComponent = () => {
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
                 }} />
+            {!isStartMotion &&
+                <div className={`fixed top-0 left-0 h-[100vh] w-[100vw] ${isStartMotion === false ? 'z-50' : '-z-10'}`}
+                    onClick={() => {
+                        setIsStartMotion(true);
+                        (modelRef.current as any).motion('Start');
+                    }}
+                >
+                </div>
+            }
             {isPlayMotion && !isPlayRandom &&
                 <div
                     className="fixed bottom-0 left-0 h-[1px] bg-[#9C4BEE] z-50"

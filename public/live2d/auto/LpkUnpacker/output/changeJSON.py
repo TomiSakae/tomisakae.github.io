@@ -4,12 +4,36 @@ import json
 def process_motions(data):
     if 'FileReferences' in data and 'Motions' in data['FileReferences']:
         motions = data['FileReferences']['Motions']
-        animation_data = []
+        keys_to_delete = []
 
-        # Lấy tất cả dữ liệu từ các mục của 'Motions'
+        # Duyệt qua các key trong 'Motions'
         for key, value in motions.items():
             if isinstance(value, list):
-                animation_data.extend(value)
+                filtered_value = []
+                for item in value:
+                    if 'File' in item or 'Sound' in item:
+                        # Chỉ giữ lại các giá trị 'File' và 'Sound'
+                        filtered_item = {k: item[k] for k in ('File', 'Sound') if k in item}
+                        filtered_value.append(filtered_item)
+                
+                if filtered_value:
+                    # Cập nhật lại giá trị với các mục đã lọc
+                    motions[key] = filtered_value
+                else:
+                    # Nếu không có mục nào còn lại, đánh dấu key này để xóa
+                    keys_to_delete.append(key)
+            else:
+                # Đánh dấu xóa nếu không phải là danh sách
+                keys_to_delete.append(key)
+
+        # Xóa các key không cần thiết
+        for key in keys_to_delete:
+            del motions[key]
+        
+        # Tổng hợp dữ liệu còn lại thành 'Animation'
+        animation_data = []
+        for value in motions.values():
+            animation_data.extend(value)
 
         # Tạo key 'Animation' trong 'Motions' với dữ liệu đã tổng hợp
         data['FileReferences']['Motions']['Animation'] = animation_data
