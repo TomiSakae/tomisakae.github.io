@@ -1,0 +1,637 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png",
+            "textures/Textures_1_0.png",
+            "textures/Textures_2_0.png",
+            "textures/Textures_3_0.png",
+            "textures/Textures_4_0.png",
+            "textures/Textures_5_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "op": [
+                {
+                    "File": "motions/Motions_op_0_File_0.json",
+                    "Sound": "voice/Motions_op_0_Sound_0.mp3"
+                }
+            ],
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "sj": [
+                {
+                    "File": "motions/Motions_sj_0_File_0.json",
+                    "Sound": "voice/Motions_sj_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_sj_1_File_0.json",
+                    "Sound": "voice/Motions_sj_1_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_sj_2_File_0.json",
+                    "Sound": "voice/Motions_sj_2_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_sj_3_File_0.json",
+                    "Sound": "voice/Motions_sj_3_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_sj_4_File_0.json",
+                    "Sound": "voice/Motions_sj_4_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_sj_5_File_0.json",
+                    "Sound": "voice/Motions_sj_5_Sound_0.mp3"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_op_0_File_0.json",
+                    "Sound": "voice/Motions_op_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_sj_0_File_0.json",
+                    "Sound": "voice/Motions_sj_0_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_sj_1_File_0.json",
+                    "Sound": "voice/Motions_sj_1_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_sj_2_File_0.json",
+                    "Sound": "voice/Motions_sj_2_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_sj_3_File_0.json",
+                    "Sound": "voice/Motions_sj_3_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_sj_4_File_0.json",
+                    "Sound": "voice/Motions_sj_4_Sound_0.mp3"
+                },
+                {
+                    "File": "motions/Motions_sj_5_File_0.json",
+                    "Sound": "voice/Motions_sj_5_Sound_0.mp3"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_op_0_File_0.json",
+                    "Sound": "voice/Motions_op_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_sj_0_File_0.json",
+                    "Sound": "voice/Motions_sj_0_Sound_0.mp3"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_sj_1_File_0.json",
+                    "Sound": "voice/Motions_sj_1_Sound_0.mp3"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_sj_2_File_0.json",
+                    "Sound": "voice/Motions_sj_2_Sound_0.mp3"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_sj_3_File_0.json",
+                    "Sound": "voice/Motions_sj_3_Sound_0.mp3"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_sj_4_File_0.json",
+                    "Sound": "voice/Motions_sj_4_Sound_0.mp3"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_sj_5_File_0.json",
+                    "Sound": "voice/Motions_sj_5_Sound_0.mp3"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {
+            "Items": [
+                {
+                    "Name": "op",
+                    "Id": "Param223",
+                    "HitArea": "op",
+                    "Axis": 1,
+                    "Factor": 0.3,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true,
+                    "MaxMtn": "op:op"
+                },
+                {
+                    "Name": "op2",
+                    "Id": "Param223",
+                    "HitArea": "op2",
+                    "Axis": 1,
+                    "Factor": 0.3,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true,
+                    "EndMtn": "sj:op_1"
+                },
+                {
+                    "Name": "pc",
+                    "Id": "Param220",
+                    "HitArea": "pc",
+                    "Axis": 1,
+                    "Factor": 0.3,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "wa_l",
+                    "Id": "Param2",
+                    "HitArea": "wa_l",
+                    "Axis": 1,
+                    "Factor": -0.1,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "wa_r",
+                    "Id": "Param10",
+                    "HitArea": "wa_r",
+                    "Axis": 1,
+                    "Factor": -0.1,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "bp",
+                    "Id": "Param213",
+                    "HitArea": "bp",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "pc_mt",
+                    "Id": "Param212",
+                    "HitArea": "pc_mt",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "bao",
+                    "Id": "Param257",
+                    "HitArea": "bao",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "qun",
+                    "Id": "Param211",
+                    "HitArea": "qun",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "bra",
+                    "Id": "Param214",
+                    "HitArea": "bra",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "xiu",
+                    "Id": "Param216",
+                    "HitArea": "xiu",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "yao",
+                    "Id": "Param215",
+                    "HitArea": "yao",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "ts",
+                    "Id": "Param219",
+                    "HitArea": "ts",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "bj",
+                    "Id": "Param260",
+                    "HitArea": "bj",
+                    "Axis": 0,
+                    "Factor": 0.1,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "bj_mt",
+                    "Id": "Param266",
+                    "HitArea": "bj",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "hair_s",
+                    "Id": "Param217",
+                    "HitArea": "hair_s",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "hair_x",
+                    "Id": "Param218",
+                    "HitArea": "hair_x",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "bj_dai",
+                    "Id": "Param252",
+                    "HitArea": "bj_z",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "bj_lz",
+                    "Id": "Param253",
+                    "HitArea": "bj_z",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "bj_kuang",
+                    "Id": "Param262",
+                    "HitArea": "bj_z",
+                    "Axis": 1,
+                    "Factor": 0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "fy_bp",
+                    "Id": "Param213",
+                    "HitArea": "fy",
+                    "Axis": 1,
+                    "Factor": -0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "fy_pc",
+                    "Id": "Param212",
+                    "HitArea": "fy",
+                    "Axis": 1,
+                    "Factor": -0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "fy_bao",
+                    "Id": "Param257",
+                    "HitArea": "fy",
+                    "Axis": 1,
+                    "Factor": -0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "fy_qun",
+                    "Id": "Param211",
+                    "HitArea": "fy",
+                    "Axis": 1,
+                    "Factor": -0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "fy_bra",
+                    "Id": "Param214",
+                    "HitArea": "fy",
+                    "Axis": 1,
+                    "Factor": -0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "fy_xiu",
+                    "Id": "Param216",
+                    "HitArea": "fy",
+                    "Axis": 1,
+                    "Factor": -0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                },
+                {
+                    "Name": "fy_yao",
+                    "Id": "Param215",
+                    "HitArea": "fy",
+                    "Axis": 1,
+                    "Factor": -0.2,
+                    "ReleaseType": 0,
+                    "LockParam": true,
+                    "LowPriority": true
+                }
+            ],
+            "Enabled": true
+        },
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 10.0,
+            "SmoothTime": 0.0535714366,
+            "Items": [
+                {
+                    "Id": "Param227",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.09642857,
+            "Items": [
+                {
+                    "Id": "ParamAngleX",
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleY",
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleZ",
+                    "Min": -20.0,
+                    "Max": 20.0,
+                    "Inverted": true,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param8",
+                    "Inverted": true,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param9",
+                    "Inverted": true,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param221",
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param222",
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param6",
+                    "Min": 0.0,
+                    "Max": 0.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param7",
+                    "Min": 0.0,
+                    "Max": 0.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {},
+        "ArtmeshOpacity": {},
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "op",
+            "Id": "ArtMesh140",
+            "Order": 3,
+            "Motion": "op"
+        },
+        {
+            "Name": "op2",
+            "Id": "op_gai2",
+            "Order": 2
+        },
+        {
+            "Name": "pc",
+            "Id": "n_2",
+            "Order": 1
+        },
+        {
+            "Name": "wa_l",
+            "Id": "wa_gai2"
+        },
+        {
+            "Name": "wa_r",
+            "Id": "ArtMesh188",
+            "Order": 1
+        },
+        {
+            "Name": "bp",
+            "Id": "ArtMesh180",
+            "Order": 2
+        },
+        {
+            "Name": "pc_mt",
+            "Id": "sheng1"
+        },
+        {
+            "Name": "bao",
+            "Id": "ArtMesh194",
+            "Order": 1
+        },
+        {
+            "Name": "qun",
+            "Id": "ArtMesh163"
+        },
+        {
+            "Name": "xiu",
+            "Id": "ArtMesh119"
+        },
+        {
+            "Name": "bra",
+            "Id": "ArtMesh146"
+        },
+        {
+            "Name": "ts",
+            "Id": "ArtMesh39"
+        },
+        {
+            "Name": "hair_s",
+            "Id": "ArtMesh115"
+        },
+        {
+            "Name": "hair_x",
+            "Id": "ArtMesh126"
+        },
+        {
+            "Name": "bj",
+            "Id": "ArtMesh4"
+        },
+        {
+            "Name": "bj_z",
+            "Id": "ArtMesh2"
+        },
+        {
+            "Name": "yao",
+            "Id": "yy9",
+            "Order": 1
+        },
+        {
+            "Name": "fy",
+            "Id": "ArtMesh33",
+            "Motion": "fy"
+        },
+        {
+            "Name": "dm",
+            "Id": "daimao",
+            "Motion": "sj:chat_go"
+        },
+        {
+            "Name": "lapao",
+            "Id": "ArtMesh186",
+            "Motion": "sj:op_2"
+        },
+        {
+            "Name": "lapao2",
+            "Id": "ArtMesh178",
+            "Order": 2,
+            "Motion": "sj:gf"
+        },
+        {
+            "Name": "pg",
+            "Id": "ArtMesh159",
+            "Order": 1,
+            "Motion": "sj:nd"
+        }
+    ],
+    "Options": {
+        "TexFixed": true
+    }
+}
