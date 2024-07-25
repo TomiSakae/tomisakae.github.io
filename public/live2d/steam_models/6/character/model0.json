@@ -1,0 +1,968 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                }
+            ],
+            "Idle#1": [
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                }
+            ],
+            "Start": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                }
+            ],
+            "触摸": [
+                {
+                    "File": "motions/Motions_触摸_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_触摸_1_File_0.json",
+                    "Sound": "voice/Motions_触摸_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_触摸_2_File_0.json",
+                    "Sound": "voice/Motions_触摸_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_触摸_3_File_0.json",
+                    "Sound": "voice/Motions_触摸_3_Sound_0.wav"
+                }
+            ],
+            "特殊触摸": [
+                {
+                    "File": "motions/Motions_触摸_1_File_0.json",
+                    "Sound": "voice/Motions_触摸_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_触摸_2_File_0.json",
+                    "Sound": "voice/Motions_触摸_2_Sound_0.wav"
+                }
+            ],
+            "Tap身体": [
+                {
+                    "File": "motions/Motions_Tap身体_0_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_1_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_2_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_3_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_3_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_4_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_4_Sound_0.wav"
+                }
+            ],
+            "Tap背景": [
+                {
+                    "File": "motions/Motions_Tap身体_1_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_2_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_3_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_3_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_4_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_4_Sound_0.wav"
+                }
+            ],
+            "Leave30_30_30": [
+                {
+                    "File": "motions/Motions_Leave30_30_30_0_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_1_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_2_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_3_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_3_Sound_0.wav"
+                }
+            ],
+            "台词鉴赏": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_台词鉴赏_1_File_0.json",
+                    "Sound": "voice/Motions_台词鉴赏_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_台词鉴赏_2_File_0.json",
+                    "Sound": "voice/Motions_台词鉴赏_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_0_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_1_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_2_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_3_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_3_Sound_0.wav"
+                }
+            ],
+            "TouchDrag1": [
+                {
+                    "File": "motions/Motions_TouchDrag1_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TouchDrag1_1_File_0.json"
+                }
+            ],
+            "TouchDrag11": [
+                {
+                    "File": "motions/Motions_TouchDrag11_0_File_0.json"
+                }
+            ],
+            "TouchDrag12": [
+                {
+                    "File": "motions/Motions_TouchDrag12_0_File_0.json"
+                }
+            ],
+            "TouchIdle1": [
+                {
+                    "File": "motions/Motions_TouchIdle1_0_File_0.json"
+                }
+            ],
+            "TouchIdle2": [
+                {
+                    "File": "motions/Motions_TouchIdle2_0_File_0.json"
+                }
+            ],
+            "TouchIdle3": [
+                {
+                    "File": "motions/Motions_TouchIdle3_0_File_0.json"
+                }
+            ],
+            "TouchIdle4": [
+                {
+                    "File": "motions/Motions_TouchIdle4_0_File_0.json"
+                }
+            ],
+            "掀裙子2": [
+                {
+                    "File": "motions/Motions_TouchDrag1_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TouchDrag1_1_File_0.json"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_触摸_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_触摸_1_File_0.json",
+                    "Sound": "voice/Motions_触摸_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_触摸_2_File_0.json",
+                    "Sound": "voice/Motions_触摸_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_触摸_3_File_0.json",
+                    "Sound": "voice/Motions_触摸_3_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_触摸_1_File_0.json",
+                    "Sound": "voice/Motions_触摸_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_触摸_2_File_0.json",
+                    "Sound": "voice/Motions_触摸_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_0_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_1_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_2_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_3_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_3_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_4_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_4_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_1_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_2_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_3_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_3_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Tap身体_4_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_4_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_0_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_1_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_2_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_3_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_3_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_台词鉴赏_1_File_0.json",
+                    "Sound": "voice/Motions_台词鉴赏_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_台词鉴赏_2_File_0.json",
+                    "Sound": "voice/Motions_台词鉴赏_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_0_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_0_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_1_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_1_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_2_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_2_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_Leave30_30_30_3_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_3_Sound_0.wav"
+                },
+                {
+                    "File": "motions/Motions_TouchDrag1_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TouchDrag1_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TouchDrag11_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TouchDrag12_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TouchIdle1_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TouchIdle2_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TouchIdle3_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TouchIdle4_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TouchDrag1_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TouchDrag1_1_File_0.json"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_触摸_0_File_0.json"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_触摸_1_File_0.json",
+                    "Sound": "voice/Motions_触摸_1_Sound_0.wav"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_触摸_2_File_0.json",
+                    "Sound": "voice/Motions_触摸_2_Sound_0.wav"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_触摸_3_File_0.json",
+                    "Sound": "voice/Motions_触摸_3_Sound_0.wav"
+                }
+            ],
+            "Animation_13": [
+                {
+                    "File": "motions/Motions_触摸_1_File_0.json",
+                    "Sound": "voice/Motions_触摸_1_Sound_0.wav"
+                }
+            ],
+            "Animation_14": [
+                {
+                    "File": "motions/Motions_触摸_2_File_0.json",
+                    "Sound": "voice/Motions_触摸_2_Sound_0.wav"
+                }
+            ],
+            "Animation_15": [
+                {
+                    "File": "motions/Motions_Tap身体_0_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_0_Sound_0.wav"
+                }
+            ],
+            "Animation_16": [
+                {
+                    "File": "motions/Motions_Tap身体_1_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_1_Sound_0.wav"
+                }
+            ],
+            "Animation_17": [
+                {
+                    "File": "motions/Motions_Tap身体_2_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_2_Sound_0.wav"
+                }
+            ],
+            "Animation_18": [
+                {
+                    "File": "motions/Motions_Tap身体_3_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_3_Sound_0.wav"
+                }
+            ],
+            "Animation_19": [
+                {
+                    "File": "motions/Motions_Tap身体_4_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_4_Sound_0.wav"
+                }
+            ],
+            "Animation_20": [
+                {
+                    "File": "motions/Motions_Tap身体_1_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_1_Sound_0.wav"
+                }
+            ],
+            "Animation_21": [
+                {
+                    "File": "motions/Motions_Tap身体_2_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_2_Sound_0.wav"
+                }
+            ],
+            "Animation_22": [
+                {
+                    "File": "motions/Motions_Tap身体_3_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_3_Sound_0.wav"
+                }
+            ],
+            "Animation_23": [
+                {
+                    "File": "motions/Motions_Tap身体_4_File_0.json",
+                    "Sound": "voice/Motions_Tap身体_4_Sound_0.wav"
+                }
+            ],
+            "Animation_24": [
+                {
+                    "File": "motions/Motions_Leave30_30_30_0_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_0_Sound_0.wav"
+                }
+            ],
+            "Animation_25": [
+                {
+                    "File": "motions/Motions_Leave30_30_30_1_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_1_Sound_0.wav"
+                }
+            ],
+            "Animation_26": [
+                {
+                    "File": "motions/Motions_Leave30_30_30_2_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_2_Sound_0.wav"
+                }
+            ],
+            "Animation_27": [
+                {
+                    "File": "motions/Motions_Leave30_30_30_3_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_3_Sound_0.wav"
+                }
+            ],
+            "Animation_28": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json",
+                    "Sound": "voice/Motions_Start_0_Sound_0.wav"
+                }
+            ],
+            "Animation_29": [
+                {
+                    "File": "motions/Motions_台词鉴赏_1_File_0.json",
+                    "Sound": "voice/Motions_台词鉴赏_1_Sound_0.wav"
+                }
+            ],
+            "Animation_30": [
+                {
+                    "File": "motions/Motions_台词鉴赏_2_File_0.json",
+                    "Sound": "voice/Motions_台词鉴赏_2_Sound_0.wav"
+                }
+            ],
+            "Animation_31": [
+                {
+                    "File": "motions/Motions_Leave30_30_30_0_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_0_Sound_0.wav"
+                }
+            ],
+            "Animation_32": [
+                {
+                    "File": "motions/Motions_Leave30_30_30_1_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_1_Sound_0.wav"
+                }
+            ],
+            "Animation_33": [
+                {
+                    "File": "motions/Motions_Leave30_30_30_2_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_2_Sound_0.wav"
+                }
+            ],
+            "Animation_34": [
+                {
+                    "File": "motions/Motions_Leave30_30_30_3_File_0.json",
+                    "Sound": "voice/Motions_Leave30_30_30_3_Sound_0.wav"
+                }
+            ],
+            "Animation_35": [
+                {
+                    "File": "motions/Motions_TouchDrag1_0_File_0.json"
+                }
+            ],
+            "Animation_36": [
+                {
+                    "File": "motions/Motions_TouchDrag1_1_File_0.json"
+                }
+            ],
+            "Animation_37": [
+                {
+                    "File": "motions/Motions_TouchDrag11_0_File_0.json"
+                }
+            ],
+            "Animation_38": [
+                {
+                    "File": "motions/Motions_TouchDrag12_0_File_0.json"
+                }
+            ],
+            "Animation_39": [
+                {
+                    "File": "motions/Motions_TouchIdle1_0_File_0.json"
+                }
+            ],
+            "Animation_40": [
+                {
+                    "File": "motions/Motions_TouchIdle2_0_File_0.json"
+                }
+            ],
+            "Animation_41": [
+                {
+                    "File": "motions/Motions_TouchIdle3_0_File_0.json"
+                }
+            ],
+            "Animation_42": [
+                {
+                    "File": "motions/Motions_TouchIdle4_0_File_0.json"
+                }
+            ],
+            "Animation_43": [
+                {
+                    "File": "motions/Motions_TouchDrag1_0_File_0.json"
+                }
+            ],
+            "Animation_44": [
+                {
+                    "File": "motions/Motions_TouchDrag1_1_File_0.json"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {
+            "Items": [
+                {
+                    "Name": "touch_drag1",
+                    "Id": "touch_drag1",
+                    "HitArea": "TouchDrag1_屁股",
+                    "Axis": 1,
+                    "Factor": -0.002,
+                    "Release": 500,
+                    "ReleaseType": 0,
+                    "EndMtn": "掀裙子2"
+                },
+                {
+                    "Name": "touch_drag6",
+                    "Id": "touch_drag6",
+                    "HitArea": "TouchDrag6_丝袜左",
+                    "Axis": 1,
+                    "Factor": 0.002,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                },
+                {
+                    "Name": "touch_drag7",
+                    "Id": "touch_drag7",
+                    "HitArea": "TouchDrag7_丝袜右",
+                    "Axis": 1,
+                    "Factor": 0.002,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                }
+            ],
+            "Enabled": true
+        },
+        "ParamLoop": {},
+        "KeyTrigger": {
+            "Items": [
+                {
+                    "Input": 88,
+                    "DownMtn": "选项:选项"
+                }
+            ],
+            "Enabled": true
+        },
+        "ParamTrigger": {
+            "Items": [
+                {
+                    "Name": "touch_drag1",
+                    "Id": "touch_drag1",
+                    "Items": [
+                        {
+                            "Value": 1.0,
+                            "Direction": 0,
+                            "Motion": "掀裙子"
+                        }
+                    ]
+                }
+            ],
+            "Enabled": true
+        },
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Items": [
+                {
+                    "Id": "ParamEyeLOpen",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "BlendMode": 2,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeROpen",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "BlendMode": 2,
+                    "Input": 0
+                }
+            ]
+        },
+        "LipSync": {
+            "Gain": 5.0,
+            "Items": [
+                {
+                    "Id": "ParamMouthOpenY",
+                    "Min": 0.0,
+                    "Max": 1.0,
+                    "Input": 0
+                }
+            ]
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Items": [
+                {
+                    "Id": "ParamBodyAngleX",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Input": 1
+                },
+                {
+                    "Id": "ParamBodyAngleY",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 2
+                },
+                {
+                    "Id": "ParamAngleX",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Input": 1
+                },
+                {
+                    "Id": "ParamAngleY",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 2
+                },
+                {
+                    "Id": "ParamEyeBallX",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Input": 1
+                },
+                {
+                    "Id": "ParamEyeBallY",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 2
+                }
+            ],
+            "Enabled": true
+        },
+        "AutoBreath": {},
+        "ExtraMotion": {},
+        "Accelerometer": {},
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {},
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {
+            "Items": [
+                {
+                    "Name": "背景",
+                    "Ids": [
+                        "Part50"
+                    ],
+                    "Value": 1.0
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshOpacity": {
+            "Items": [
+                {
+                    "Name": "裙子",
+                    "Ids": [
+                        "ArtMesh338",
+                        "ArtMesh339",
+                        "ArtMesh89"
+                    ],
+                    "Value": 1.0,
+                    "Hidden": true
+                },
+                {
+                    "Name": "上衣",
+                    "Ids": [
+                        "ArtMesh74"
+                    ],
+                    "Value": 1.0,
+                    "Hidden": true
+                },
+                {
+                    "Name": "上衣2",
+                    "Ids": [
+                        "ArtMesh148",
+                        "ArtMesh147"
+                    ],
+                    "Value": 1.0,
+                    "Hidden": true
+                },
+                {
+                    "Name": "上衣3",
+                    "Ids": [
+                        "ArtMesh72",
+                        "ArtMesh73"
+                    ],
+                    "Value": 1.0,
+                    "Hidden": true
+                },
+                {
+                    "Name": "领结",
+                    "Ids": [
+                        "ArtMesh71",
+                        "ArtMesh142",
+                        "ArtMesh221",
+                        "ArtMesh70",
+                        "ArtMesh132",
+                        "ArtMesh75"
+                    ],
+                    "Value": 1.0,
+                    "Hidden": true
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {
+            "MaxValue": 100,
+            "BonusActive": 1,
+            "Enabled": true
+        }
+    },
+    "HitAreas": [
+        {
+            "Name": "TouchHead",
+            "Id": "TouchHead",
+            "Motion": "触摸:摸头"
+        },
+        {
+            "Name": "TouchSpecial",
+            "Id": "TouchSpecial",
+            "Motion": "特殊触摸"
+        },
+        {
+            "Name": "TouchBody",
+            "Id": "TouchBody",
+            "Motion": "Tap身体"
+        },
+        {
+            "Name": "TouchDrag1_屁股",
+            "Id": "TouchDrag1"
+        },
+        {
+            "Name": "TouchDrag2_猫耳开关",
+            "Id": "TouchDrag2",
+            "Motion": "TouchDrag2"
+        },
+        {
+            "Name": "TouchDrag3_眼镜开关",
+            "Id": "TouchDrag3",
+            "Motion": "TouchDrag3"
+        },
+        {
+            "Name": "TouchDrag4_丝袜开关",
+            "Id": "TouchDrag4",
+            "Motion": "TouchDrag4"
+        },
+        {
+            "Name": "TouchDrag5_鞋子开关",
+            "Id": "TouchDrag5",
+            "Motion": "TouchDrag5"
+        },
+        {
+            "Name": "TouchDrag6_丝袜左",
+            "Id": "TouchDrag6"
+        },
+        {
+            "Name": "TouchDrag7_丝袜右",
+            "Id": "TouchDrag7"
+        },
+        {
+            "Name": "TouchDrag8",
+            "Id": "TouchDrag8"
+        },
+        {
+            "Name": "TouchDrag9_黑板擦",
+            "Id": "TouchDrag9",
+            "Motion": "TouchDrag9"
+        },
+        {
+            "Name": "TouchDrag10"
+        },
+        {
+            "Name": "TouchDrag11_场景3_头",
+            "Id": "TouchDrag11",
+            "Motion": "TouchDrag11"
+        },
+        {
+            "Name": "TouchDrag12_场景3_身体",
+            "Id": "TouchDrag12",
+            "Motion": "TouchDrag12"
+        },
+        {
+            "Name": "TouchDrag13_场景2_书",
+            "Id": "TouchDrag13",
+            "Motion": "TouchDrag13"
+        },
+        {
+            "Name": "TouchIdle1_包",
+            "Id": "TouchIdle1",
+            "Motion": "TouchIdle1"
+        },
+        {
+            "Name": "TouchIdle2_场景2_包",
+            "Id": "TouchIdle2",
+            "Motion": "TouchIdle2"
+        },
+        {
+            "Name": "TouchIdle3_书",
+            "Id": "TouchIdle3",
+            "Motion": "TouchIdle3"
+        },
+        {
+            "Name": "TouchIdle4_场景3_书",
+            "Id": "TouchIdle4",
+            "Motion": "TouchIdle4"
+        },
+        {
+            "Name": "ArtMesh273_脚",
+            "Id": "ArtMesh273",
+            "Motion": "选项:选项"
+        },
+        {
+            "Name": "背景",
+            "Id": "ArtMesh135",
+            "Motion": "Tap背景"
+        }
+    ],
+    "Options": {
+        "ScaleFactor": 0.13,
+        "AnisoLevel": 4,
+        "TexFixed": true
+    }
+}
