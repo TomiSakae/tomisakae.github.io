@@ -1,0 +1,493 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png",
+            "textures/Textures_1_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Tick": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                }
+            ],
+            "Start": [
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                }
+            ],
+            "in": [
+                {
+                    "File": "motions/Motions_in_0_File_0.json"
+                }
+            ],
+            "out": [
+                {
+                    "File": "motions/Motions_out_0_File_0.json"
+                }
+            ],
+            "优先级9": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_in_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_out_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_in_0_File_0.json"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_out_0_File_0.json"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_Tick_0_File_0.json"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_Tick_1_File_0.json"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_Tick_2_File_0.json"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_Tick_3_File_0.json"
+                }
+            ]
+        },
+        "Expressions": [
+            {
+                "Name": "凝视.exp3",
+                "File": "expressions/Expressions_0_File_0.json"
+            },
+            {
+                "Name": "平静.exp3",
+                "File": "expressions/Expressions_1_File_0.json"
+            },
+            {
+                "Name": "张嘴.exp3",
+                "File": "expressions/Expressions_2_File_0.json"
+            },
+            {
+                "Name": "怒目.exp3",
+                "File": "expressions/Expressions_3_File_0.json"
+            },
+            {
+                "Name": "惊讶.exp3",
+                "File": "expressions/Expressions_4_File_0.json"
+            },
+            {
+                "Name": "慈祥.exp3",
+                "File": "expressions/Expressions_5_File_0.json"
+            },
+            {
+                "Name": "担忧.exp3",
+                "File": "expressions/Expressions_6_File_0.json"
+            },
+            {
+                "Name": "收翅膀.exp3",
+                "File": "expressions/Expressions_7_File_0.json"
+            },
+            {
+                "Name": "白发.exp3",
+                "File": "expressions/Expressions_8_File_0.json"
+            },
+            {
+                "Name": "白眉.exp3",
+                "File": "expressions/Expressions_9_File_0.json"
+            },
+            {
+                "Name": "红发.exp3",
+                "File": "expressions/Expressions_10_File_0.json"
+            },
+            {
+                "Name": "闭右眼.exp3",
+                "File": "expressions/Expressions_11_File_0.json"
+            },
+            {
+                "Name": "闭左眼.exp3",
+                "File": "expressions/Expressions_12_File_0.json"
+            },
+            {
+                "Name": "闭眼.exp3",
+                "File": "expressions/Expressions_13_File_0.json"
+            },
+            {
+                "Name": "默认.exp3",
+                "File": "expressions/Expressions_14_File_0.json"
+            }
+        ]
+    },
+    "Controllers": {
+        "ParamHit": {},
+        "ParamLoop": {},
+        "KeyTrigger": {
+            "Enabled": true
+        },
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Items": [
+                {
+                    "Id": "ParamBodyAngleX",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamBodyAngleZ",
+                    "Min": -5.0,
+                    "Max": 5.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Axis": 2,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleX",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleY",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleZ",
+                    "Min": -15.0,
+                    "Max": 15.0,
+                    "BlendMode": 1,
+                    "Axis": 2,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeBallX",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeBallY",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamArmL",
+                    "Min": -10.0,
+                    "Max": 60.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param5",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param6",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param21",
+                    "Min": -40.0,
+                    "Max": 25.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param22",
+                    "Min": -30.0,
+                    "Max": 10.0,
+                    "DefaultValue": 0.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "Param34",
+                    "Min": 0.0,
+                    "Max": 10.0,
+                    "DefaultValue": 0.0,
+                    "Inverted": true,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamArmR",
+                    "Min": -20.0,
+                    "Max": 60.0,
+                    "DefaultValue": 0.0,
+                    "Inverted": true,
+                    "BlendMode": 1,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {
+            "Items": [
+                {
+                    "Name": "背景双狼",
+                    "Ids": [
+                        "Part30",
+                        "Part31",
+                        "Part2"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "翅膀",
+                    "Ids": [
+                        "Part10"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "兜帽",
+                    "Ids": [
+                        "Part24"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "侧发",
+                    "Ids": [
+                        "Part01HairSide001"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "裙摆",
+                    "Ids": [
+                        "Part19"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "尾巴",
+                    "Ids": [
+                        "Part49"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "裙子",
+                    "Ids": [
+                        "Part20"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "斗篷",
+                    "Ids": [
+                        "Part12"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "兽耳+长发",
+                    "Ids": [
+                        "Part01HairBack001"
+                    ],
+                    "Value": 1.0
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshOpacity": {},
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "bad",
+            "Id": "ArtMesh225",
+            "Order": 8,
+            "Motion": "优先级9:bad"
+        },
+        {
+            "Name": "verygood",
+            "Id": "ArtMesh224",
+            "Motion": "优先级9:verygood"
+        },
+        {
+            "Name": "kettei",
+            "Id": "ArtMesh86",
+            "Motion": "优先级9:kettei"
+        },
+        {
+            "Name": "good",
+            "Id": "ArtMesh72",
+            "Order": 9,
+            "Motion": "优先级9:good"
+        },
+        {
+            "Name": "in",
+            "Id": "ArtMesh90",
+            "Motion": "in"
+        },
+        {
+            "Name": "out",
+            "Id": "ArtMesh89",
+            "Motion": "out"
+        }
+    ],
+    "Options": {
+        "TexFixed": true
+    }
+}
