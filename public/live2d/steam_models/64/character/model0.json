@@ -1,0 +1,241 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png",
+            "textures/Textures_1_0.png"
+        ],
+        "PhysicsV2": {},
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                }
+            ],
+            "Start": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json"
+                }
+            ],
+            "TapHitAreaHEAD": [
+                {
+                    "File": "motions/Motions_TapHitAreaHEAD_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHEAD_1_File_0.json"
+                }
+            ],
+            "TapHitAreaBODY": [
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_3_File_0.json"
+                }
+            ],
+            "TapHitAreaHAND": [
+                {
+                    "File": "motions/Motions_TapHitAreaHAND_0_File_0.json"
+                }
+            ],
+            "TapHitAreaLEG": [
+                {
+                    "File": "motions/Motions_TapHitAreaLEG_0_File_0.json"
+                }
+            ],
+            "Shake": [
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Start_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHEAD_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHEAD_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_3_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaHAND_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_TapHitAreaLEG_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Start_0_File_0.json"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_TapHitAreaHEAD_0_File_0.json"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_TapHitAreaHEAD_1_File_0.json"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_0_File_0.json"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_1_File_0.json"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_2_File_0.json"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_TapHitAreaBODY_3_File_0.json"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_TapHitAreaHAND_0_File_0.json"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_TapHitAreaLEG_0_File_0.json"
+                }
+            ],
+            "Animation_13": [
+                {
+                    "File": "motions/Motions_Shake_0_File_0.json"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {},
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {},
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {},
+        "ArtmeshOpacity": {},
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "HitAreaHEAD",
+            "Id": "HitAreaHEAD",
+            "Motion": "TapHitAreaHEAD"
+        },
+        {
+            "Name": "HitAreaBODY",
+            "Id": "HitAreaBODY",
+            "Motion": "TapHitAreaBODY"
+        },
+        {
+            "Name": "HitAreaHAND",
+            "Id": "HitAreaHAND",
+            "Motion": "TapHitAreaHAND"
+        },
+        {
+            "Name": "HitAreaLEG",
+            "Id": "HitAreaLEG",
+            "Motion": "TapHitAreaLEG"
+        }
+    ],
+    "Options": {
+        "TexFixed": true
+    }
+}
