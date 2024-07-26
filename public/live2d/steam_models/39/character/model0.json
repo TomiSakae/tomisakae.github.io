@@ -422,16 +422,19 @@
     "HitAreas": [
         {
             "Name": "Leg1",
-            "Id": "HitAreaLeg1"
+            "Id": "HitAreaLeg1",
+            "Motion": "TapLeg1"
         },
         {
             "Name": "Leg2",
             "Id": "HitAreaLeg2",
-            "Order": 1
+            "Order": 1,
+            "Motion": "TapLeg2"
         },
         {
             "Name": "Leg3",
-            "Id": "HitAreaLeg3"
+            "Id": "HitAreaLeg3",
+            "Motion": "TapLeg3"
         },
         {
             "Name": "Socks",
@@ -447,12 +450,14 @@
         {
             "Name": "Shoes1",
             "Id": "HitAreaShoes1",
-            "Order": 1
+            "Order": 1,
+            "Motion": "TapShoes1"
         },
         {
             "Name": "Shoes2",
             "Id": "HitAreaShoes2",
-            "Order": 1
+            "Order": 1,
+            "Motion": "TapShoes2"
         },
         {
             "Name": "Shoes3",

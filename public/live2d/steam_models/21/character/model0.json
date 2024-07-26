@@ -513,7 +513,8 @@
         {
             "Name": "头",
             "Id": "D_PSD_125",
-            "Order": 2
+            "Order": 2,
+            "Motion": "Tap头"
         }
     ],
     "Options": {

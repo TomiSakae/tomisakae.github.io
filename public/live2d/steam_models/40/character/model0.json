@@ -373,15 +373,18 @@
         },
         {
             "Name": "kuma",
-            "Id": "ArtMesh43"
+            "Id": "ArtMesh43",
+            "Motion": "Tapkuma"
         },
         {
             "Name": "Shoes_Left",
-            "Id": "HitAreaShoes1"
+            "Id": "HitAreaShoes1",
+            "Motion": "TapShoes_Left"
         },
         {
             "Name": "Shoes_Right",
-            "Id": "HitAreaShoes2"
+            "Id": "HitAreaShoes2",
+            "Motion": "TapShoes_Right"
         },
         {
             "Name": "Foot",

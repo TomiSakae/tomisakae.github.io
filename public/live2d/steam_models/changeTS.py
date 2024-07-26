@@ -1,6 +1,6 @@
 import os
 import json
-
+import subprocess
 # Đường dẫn tới thư mục cần duyệt
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -32,3 +32,8 @@ with open(img_ts_path, 'w') as f:
     f.write(img_ts_content)
 
 print(f"Đã cập nhật file img.ts với {len(images)} hình ảnh.")
+
+# Chạy lệnh cmd tiếp theo
+final_cmd = 'python JSON.py'
+subprocess.run(final_cmd, shell=True, cwd=base_dir, check=True)
+print("Đã thực thi lệnh cuối cùng: python JSON.py")

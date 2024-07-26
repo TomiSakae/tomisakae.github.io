@@ -927,22 +927,27 @@
         {
             "Name": "特触",
             "Id": "TouchSpecial",
-            "Order": 2
+            "Order": 2,
+            "Motion": "Tap特触"
         },
         {
             "Name": "摸头",
-            "Id": "TouchHead"
+            "Id": "TouchHead",
+            "Motion": "Tap摸头"
         },
         {
             "Name": "触摸",
-            "Id": "TouchBody"
+            "Id": "TouchBody",
+            "Motion": "Tap触摸"
         },
         {
-            "Name": "主界面"
+            "Name": "主界面",
+            "Motion": "Tap主界面"
         },
         {
             "Name": "誓约",
-            "Id": "ArtMesh114"
+            "Id": "ArtMesh114",
+            "Motion": "Tap誓约"
         },
         {
             "Name": "功能",
@@ -952,7 +957,8 @@
         },
         {
             "Name": "TouchIdle",
-            "Id": "TouchIdle"
+            "Id": "TouchIdle",
+            "Motion": "TapTouchIdle"
         },
         {
             "Name": "TouchIdle1",
@@ -1056,7 +1062,8 @@
         },
         {
             "Name": "TouchDrag9",
-            "Id": "TouchDrag9"
+            "Id": "TouchDrag9",
+            "Motion": "TapTouchDrag9"
         },
         {
             "Name": "TouchDrag10",

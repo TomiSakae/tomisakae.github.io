@@ -501,7 +501,8 @@
         },
         {
             "Name": "HitAreaQunzi",
-            "Id": "HitAreaQunzi"
+            "Id": "HitAreaQunzi",
+            "Motion": "TapHitAreaQunzi"
         },
         {
             "Name": "HitArea_Chest",

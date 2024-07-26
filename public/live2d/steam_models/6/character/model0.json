@@ -872,7 +872,8 @@
         },
         {
             "Name": "TouchDrag1_屁股",
-            "Id": "TouchDrag1"
+            "Id": "TouchDrag1",
+            "Motion": "TapTouchDrag1_屁股"
         },
         {
             "Name": "TouchDrag2_猫耳开关",
@@ -896,15 +897,18 @@
         },
         {
             "Name": "TouchDrag6_丝袜左",
-            "Id": "TouchDrag6"
+            "Id": "TouchDrag6",
+            "Motion": "TapTouchDrag6_丝袜左"
         },
         {
             "Name": "TouchDrag7_丝袜右",
-            "Id": "TouchDrag7"
+            "Id": "TouchDrag7",
+            "Motion": "TapTouchDrag7_丝袜右"
         },
         {
             "Name": "TouchDrag8",
-            "Id": "TouchDrag8"
+            "Id": "TouchDrag8",
+            "Motion": "TapTouchDrag8"
         },
         {
             "Name": "TouchDrag9_黑板擦",
@@ -912,7 +916,8 @@
             "Motion": "TouchDrag9"
         },
         {
-            "Name": "TouchDrag10"
+            "Name": "TouchDrag10",
+            "Motion": "TapTouchDrag10"
         },
         {
             "Name": "TouchDrag11_场景3_头",

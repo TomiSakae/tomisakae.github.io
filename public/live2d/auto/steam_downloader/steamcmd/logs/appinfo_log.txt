@@ -40,3 +40,31 @@
 [2024-07-26 09:00:44] Requesting 1 apps, 0 packages (meta data, 1024 prev attempts, expected 0 KB)
 [2024-07-26 09:00:44] UpdatesJob: finished OK, apps updated 0 (0 KB), packages updated 0 (0 KB)
 [2024-07-26 09:00:59] Starting async write C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd/appcache/appinfo.vdf (6898 KB)
+
+
+[2024-07-26 09:11:12] Client version: 1721172922
+[2024-07-26 09:11:12] RequestAppInfoUpdate: AppIDs 7
+[2024-07-26 09:11:13] Packages changed: force all
+[2024-07-26 09:11:13] Apps changed: 519860=24517748,2089300=24517716,1011850=24517706,
+[2024-07-26 09:11:13] Change number 24517637->24517766, apps: 3/97, packages: 0/0
+[2024-07-26 09:11:13] Requesting 80 apps, 1 packages (meta data, 1024 prev attempts, expected 3 KB)
+[2024-07-26 09:11:13] Requested 77 app access tokens, 0 received, 77 denied
+[2024-07-26 09:11:14] Downloaded 1 apps via HTTP, 19 KB (6 KB compressed)
+[2024-07-26 09:11:14] Requesting 1 apps, 0 packages (full data, 1024 prev attempts, expected 3 KB)
+[2024-07-26 09:11:14] UpdatesJob: finished OK, apps updated 2 (22 KB), packages updated 0 (0 KB)
+[2024-07-26 09:11:14] RequestAppInfoUpdate: AppIDs 616720
+[2024-07-26 09:11:14] Requesting 1 apps, 0 packages (meta data, 1024 prev attempts, expected 0 KB)
+[2024-07-26 09:11:14] UpdatesJob: finished OK, apps updated 0 (0 KB), packages updated 0 (0 KB)
+[2024-07-26 09:11:29] RequestAppInfoUpdate: AppIDs 616720
+[2024-07-26 09:11:29] Starting async write C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd/appcache/appinfo.vdf (6898 KB)
+[2024-07-26 09:11:29] Requesting 1 apps, 0 packages (meta data, 1024 prev attempts, expected 0 KB)
+[2024-07-26 09:11:29] UpdatesJob: finished OK, apps updated 0 (0 KB), packages updated 0 (0 KB)
+[2024-07-26 09:11:58] RequestAppInfoUpdate: AppIDs 616720
+[2024-07-26 09:11:58] Requesting 1 apps, 0 packages (meta data, 1024 prev attempts, expected 0 KB)
+[2024-07-26 09:11:59] UpdatesJob: finished OK, apps updated 0 (0 KB), packages updated 0 (0 KB)
+[2024-07-26 09:12:10] RequestAppInfoUpdate: AppIDs 616720
+[2024-07-26 09:12:10] Requesting 1 apps, 0 packages (meta data, 1024 prev attempts, expected 0 KB)
+[2024-07-26 09:12:10] UpdatesJob: finished OK, apps updated 0 (0 KB), packages updated 0 (0 KB)
+[2024-07-26 09:13:53] RequestAppInfoUpdate: AppIDs 616720
+[2024-07-26 09:13:54] Requesting 1 apps, 0 packages (meta data, 1024 prev attempts, expected 0 KB)
+[2024-07-26 09:13:54] UpdatesJob: finished OK, apps updated 0 (0 KB), packages updated 0 (0 KB)

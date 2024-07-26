@@ -322,15 +322,18 @@
         },
         {
             "Name": "HitAreaShoes",
-            "Id": "HitAreaShoes"
+            "Id": "HitAreaShoes",
+            "Motion": "TapHitAreaShoes"
         },
         {
             "Name": "HitAreaSlik",
-            "Id": "HitAreaSlik"
+            "Id": "HitAreaSlik",
+            "Motion": "TapHitAreaSlik"
         },
         {
             "Name": "HitAreaCloth",
-            "Id": "HitAreaCloth"
+            "Id": "HitAreaCloth",
+            "Motion": "TapHitAreaCloth"
         },
         {
             "Name": "HitAreaBG",

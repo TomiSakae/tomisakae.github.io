@@ -435,7 +435,8 @@
     "HitAreas": [
         {
             "Name": "衣领",
-            "Id": "yiling_3"
+            "Id": "yiling_3",
+            "Motion": "Tap衣领"
         },
         {
             "Name": "脸",

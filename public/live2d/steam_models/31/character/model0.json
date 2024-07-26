@@ -521,7 +521,8 @@
     "HitAreas": [
         {
             "Name": "足A",
-            "Id": "HitAreaFootA"
+            "Id": "HitAreaFootA",
+            "Motion": "Tap足A"
         },
         {
             "Name": "腰",
@@ -545,7 +546,8 @@
         },
         {
             "Name": "撬棍",
-            "Id": "HitAreaCrowbar"
+            "Id": "HitAreaCrowbar",
+            "Motion": "Tap撬棍"
         },
         {
             "Name": "猫1",

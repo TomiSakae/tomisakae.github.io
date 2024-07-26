@@ -765,11 +765,13 @@
             "Motion": "Tap触摸"
         },
         {
-            "Name": "主界面"
+            "Name": "主界面",
+            "Motion": "Tap主界面"
         },
         {
             "Name": "誓约",
-            "Id": "ArtMesh240"
+            "Id": "ArtMesh240",
+            "Motion": "Tap誓约"
         },
         {
             "Name": "功能",

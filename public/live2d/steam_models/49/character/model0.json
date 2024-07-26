@@ -724,11 +724,13 @@
     "HitAreas": [
         {
             "Name": "鞋子1A",
-            "Id": "HitAreaShoe1A"
+            "Id": "HitAreaShoe1A",
+            "Motion": "Tap鞋子1A"
         },
         {
             "Name": "鞋子1B",
-            "Id": "HitAreaShoe1B"
+            "Id": "HitAreaShoe1B",
+            "Motion": "Tap鞋子1B"
         },
         {
             "Name": "鞋子2A",
@@ -742,7 +744,8 @@
         },
         {
             "Name": "大腿（左）",
-            "Id": "ArtMesh120"
+            "Id": "ArtMesh120",
+            "Motion": "Tap大腿（左）"
         },
         {
             "Name": "脸",
@@ -766,7 +769,8 @@
         },
         {
             "Name": "光腿",
-            "Id": "ArtMesh103"
+            "Id": "ArtMesh103",
+            "Motion": "Tap光腿"
         },
         {
             "Name": "凳子",

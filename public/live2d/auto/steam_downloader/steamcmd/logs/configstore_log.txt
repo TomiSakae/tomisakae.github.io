@@ -23,3 +23,19 @@
 [2024-07-26 09:00:42] Loaded store 'userlocal' from 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\userdata\anonymous\config\localconfig.vdf' successfully
 [2024-07-26 09:00:42] Flushed store 'install' to 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf'
 [2024-07-26 09:00:44] Flushed store 'userlocal' to 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\userdata\anonymous\config\localconfig.vdf'
+
+
+[2024-07-26 09:11:09] Client version: 1721172922
+[2024-07-26 09:11:09] Loaded store 'install' from 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf' successfully
+[2024-07-26 09:11:09] Loaded store 'install' from 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf' successfully
+[2024-07-26 09:11:09] Loaded store 'install' from 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf' successfully
+[2024-07-26 09:11:10] Loaded store 'install' from 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf' successfully
+[2024-07-26 09:11:10] Loaded store 'install' from 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf' successfully
+[2024-07-26 09:11:12] Loaded store 'userlocal' from 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\userdata\anonymous\config\localconfig.vdf' successfully
+[2024-07-26 09:11:13] Flushed store 'install' to 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf'
+[2024-07-26 09:11:14] Flushed store 'userlocal' to 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\userdata\anonymous\config\localconfig.vdf'
+[2024-07-26 09:11:48] Flushed store 'install' to 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf'
+[2024-07-26 09:12:18] Flushed store 'install' to 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf'
+[2024-07-26 09:12:48] Flushed store 'install' to 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf'
+[2024-07-26 09:13:18] Flushed store 'install' to 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf'
+[2024-07-26 09:13:48] Flushed store 'install' to 'C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\config\config.vdf'

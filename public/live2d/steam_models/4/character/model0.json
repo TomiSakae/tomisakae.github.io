@@ -881,7 +881,8 @@
         {
             "Name": "straps",
             "Id": "ArtMesh115",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Tapstraps"
         },
         {
             "Name": "special",
@@ -944,7 +945,8 @@
         {
             "Name": "touchdrag1",
             "Id": "TouchDrag1",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Taptouchdrag1"
         },
         {
             "Name": "touchdrag2",

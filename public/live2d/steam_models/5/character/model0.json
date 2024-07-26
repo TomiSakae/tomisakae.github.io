@@ -791,7 +791,8 @@
         },
         {
             "Name": "TouchIdle1_胖次系带_进入场景2",
-            "Id": "TouchIdle1"
+            "Id": "TouchIdle1",
+            "Motion": "TapTouchIdle1_胖次系带_进入场景2"
         },
         {
             "Name": "TouchIdle2_退出场景2",

@@ -462,23 +462,28 @@
     "HitAreas": [
         {
             "Name": "ArtMesh312",
-            "Id": "ArtMesh312"
+            "Id": "ArtMesh312",
+            "Motion": "TapArtMesh312"
         },
         {
             "Name": "ArtMesh314",
-            "Id": "ArtMesh314"
+            "Id": "ArtMesh314",
+            "Motion": "TapArtMesh314"
         },
         {
             "Name": "ArtMesh287",
-            "Id": "ArtMesh287"
+            "Id": "ArtMesh287",
+            "Motion": "TapArtMesh287"
         },
         {
             "Name": "HitArea5",
-            "Id": "HitArea5"
+            "Id": "HitArea5",
+            "Motion": "TapHitArea5"
         },
         {
             "Name": "HitArea8",
-            "Id": "HitArea8"
+            "Id": "HitArea8",
+            "Motion": "TapHitArea8"
         },
         {
             "Name": "脖子",

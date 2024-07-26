@@ -400,7 +400,8 @@
         },
         {
             "Name": "ArtMesh89",
-            "Id": "ArtMesh89"
+            "Id": "ArtMesh89",
+            "Motion": "TapArtMesh89"
         }
     ],
     "Options": {

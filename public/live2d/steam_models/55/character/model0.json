@@ -394,15 +394,18 @@
         },
         {
             "Name": "HitArea_Qunzi",
-            "Id": "HitArea_Qunzi"
+            "Id": "HitArea_Qunzi",
+            "Motion": "TapHitArea_Qunzi"
         },
         {
             "Name": "HitArea_Shengzi",
-            "Id": "HitArea_Shengzi"
+            "Id": "HitArea_Shengzi",
+            "Motion": "TapHitArea_Shengzi"
         },
         {
             "Name": "HitArea_Neiyi",
-            "Id": "HitArea_Neiyi"
+            "Id": "HitArea_Neiyi",
+            "Motion": "TapHitArea_Neiyi"
         },
         {
             "Name": "ArtMesh34",

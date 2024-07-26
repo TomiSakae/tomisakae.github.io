@@ -306,7 +306,8 @@
     "HitAreas": [
         {
             "Name": "Hagoita",
-            "Id": "ArtMesh89"
+            "Id": "ArtMesh89",
+            "Motion": "TapHagoita"
         },
         {
             "Name": "Head",

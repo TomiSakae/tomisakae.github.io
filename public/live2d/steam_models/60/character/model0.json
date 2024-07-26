@@ -298,11 +298,13 @@
         },
         {
             "Name": "腿环",
-            "Id": "ArtMesh251"
+            "Id": "ArtMesh251",
+            "Motion": "Tap腿环"
         },
         {
             "Name": "鞋",
-            "Id": "ArtMesh247"
+            "Id": "ArtMesh247",
+            "Motion": "Tap鞋"
         },
         {
             "Name": "胸口",

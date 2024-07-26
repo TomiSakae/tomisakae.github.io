@@ -536,72 +536,88 @@
         {
             "Name": "op2",
             "Id": "op_gai2",
-            "Order": 2
+            "Order": 2,
+            "Motion": "Tapop2"
         },
         {
             "Name": "pc",
             "Id": "n_2",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Tappc"
         },
         {
             "Name": "wa_l",
-            "Id": "wa_gai2"
+            "Id": "wa_gai2",
+            "Motion": "Tapwa_l"
         },
         {
             "Name": "wa_r",
             "Id": "ArtMesh188",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Tapwa_r"
         },
         {
             "Name": "bp",
             "Id": "ArtMesh180",
-            "Order": 2
+            "Order": 2,
+            "Motion": "Tapbp"
         },
         {
             "Name": "pc_mt",
-            "Id": "sheng1"
+            "Id": "sheng1",
+            "Motion": "Tappc_mt"
         },
         {
             "Name": "bao",
             "Id": "ArtMesh194",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Tapbao"
         },
         {
             "Name": "qun",
-            "Id": "ArtMesh163"
+            "Id": "ArtMesh163",
+            "Motion": "Tapqun"
         },
         {
             "Name": "xiu",
-            "Id": "ArtMesh119"
+            "Id": "ArtMesh119",
+            "Motion": "Tapxiu"
         },
         {
             "Name": "bra",
-            "Id": "ArtMesh146"
+            "Id": "ArtMesh146",
+            "Motion": "Tapbra"
         },
         {
             "Name": "ts",
-            "Id": "ArtMesh39"
+            "Id": "ArtMesh39",
+            "Motion": "Tapts"
         },
         {
             "Name": "hair_s",
-            "Id": "ArtMesh115"
+            "Id": "ArtMesh115",
+            "Motion": "Taphair_s"
         },
         {
             "Name": "hair_x",
-            "Id": "ArtMesh126"
+            "Id": "ArtMesh126",
+            "Motion": "Taphair_x"
         },
         {
             "Name": "bj",
-            "Id": "ArtMesh4"
+            "Id": "ArtMesh4",
+            "Motion": "Tapbj"
         },
         {
             "Name": "bj_z",
-            "Id": "ArtMesh2"
+            "Id": "ArtMesh2",
+            "Motion": "Tapbj_z"
         },
         {
             "Name": "yao",
             "Id": "yy9",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Tapyao"
         },
         {
             "Name": "fy",

@@ -355,7 +355,8 @@
         {
             "Name": "Options",
             "Id": "ArtMesh259",
-            "Order": 1
+            "Order": 1,
+            "Motion": "TapOptions"
         }
     ],
     "Options": {

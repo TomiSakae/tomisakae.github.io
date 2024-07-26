@@ -279,7 +279,8 @@
         },
         {
             "Name": "ArtMesh494",
-            "Id": "ArtMesh494"
+            "Id": "ArtMesh494",
+            "Motion": "TapArtMesh494"
         },
         {
             "Name": "HitAreaSilkR",
@@ -288,7 +289,8 @@
         },
         {
             "Name": "HitAreaSilkL",
-            "Id": "HitAreaSilkL"
+            "Id": "HitAreaSilkL",
+            "Motion": "TapHitAreaSilkL"
         }
     ],
     "Options": {

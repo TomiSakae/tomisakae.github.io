@@ -439,11 +439,13 @@
         },
         {
             "Name": "袜子",
-            "Id": "HitAreaSock"
+            "Id": "HitAreaSock",
+            "Motion": "Tap袜子"
         },
         {
             "Name": "鞋子A",
-            "Id": "HitAreaShoesA"
+            "Id": "HitAreaShoesA",
+            "Motion": "Tap鞋子A"
         },
         {
             "Name": "腋窝",
@@ -467,7 +469,8 @@
         },
         {
             "Name": "臀B",
-            "Id": "HitAreaHipB"
+            "Id": "HitAreaHipB",
+            "Motion": "Tap臀B"
         },
         {
             "Name": "臀C2",

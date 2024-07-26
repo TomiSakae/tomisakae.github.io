@@ -385,7 +385,8 @@
         },
         {
             "Name": "HitAreaPerspective",
-            "Id": "HitAreaPerspective"
+            "Id": "HitAreaPerspective",
+            "Motion": "TapHitAreaPerspective"
         },
         {
             "Name": "HitAreaHead",

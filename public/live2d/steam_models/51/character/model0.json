@@ -512,12 +512,14 @@
         {
             "Name": "左胸",
             "Id": "HitAreaBody1",
-            "Order": 2
+            "Order": 2,
+            "Motion": "Tap左胸"
         },
         {
             "Name": "小腿 左",
             "Id": "HitAreaLeg1",
-            "Order": 3
+            "Order": 3,
+            "Motion": "Tap小腿 左"
         },
         {
             "Name": "音响",

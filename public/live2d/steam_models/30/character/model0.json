@@ -567,7 +567,8 @@
         {
             "Name": "左胸",
             "Id": "U_yongyi_01",
-            "Order": 4
+            "Order": 4,
+            "Motion": "Tap左胸"
         },
         {
             "Name": "右胸",

@@ -400,7 +400,8 @@
         },
         {
             "Name": "摸头",
-            "Id": "wuxia_lian"
+            "Id": "wuxia_lian",
+            "Motion": "Tap摸头"
         },
         {
             "Name": "点调料罐",

@@ -360,7 +360,8 @@
     "HitAreas": [
         {
             "Name": "HEAD",
-            "Id": "qianfa_yinying_01"
+            "Id": "qianfa_yinying_01",
+            "Motion": "TapHEAD"
         },
         {
             "Name": "胸L",
@@ -375,7 +376,8 @@
         {
             "Name": "qunzi_3ceng_01掀",
             "Id": "qunzi_3ceng_01",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Tapqunzi_3ceng_01掀"
         },
         {
             "Name": "ArtMesh11盤子",
@@ -385,7 +387,8 @@
         {
             "Name": "qunzi_3ceng_12",
             "Id": "qunzi_3ceng_12",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Tapqunzi_3ceng_12"
         },
         {
             "Name": "duji",

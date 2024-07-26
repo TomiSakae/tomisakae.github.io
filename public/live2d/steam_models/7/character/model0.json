@@ -1261,7 +1261,8 @@
             "Motion": "Tap触摸"
         },
         {
-            "Name": "主界面"
+            "Name": "主界面",
+            "Motion": "Tap主界面"
         },
         {
             "Name": "誓约",
@@ -1348,19 +1349,23 @@
         },
         {
             "Name": "TouchDrag15",
-            "Id": "TouchDrag15"
+            "Id": "TouchDrag15",
+            "Motion": "TapTouchDrag15"
         },
         {
             "Name": "TouchDrag16",
-            "Id": "TouchDrag16"
+            "Id": "TouchDrag16",
+            "Motion": "TapTouchDrag16"
         },
         {
             "Name": "TouchDrag22",
-            "Id": "TouchDrag22"
+            "Id": "TouchDrag22",
+            "Motion": "TapTouchDrag22"
         },
         {
             "Name": "TouchDrag21",
-            "Id": "TouchDrag21"
+            "Id": "TouchDrag21",
+            "Motion": "TapTouchDrag21"
         },
         {
             "Name": "TouchDrag20",
@@ -1374,7 +1379,8 @@
         },
         {
             "Name": "TouchDrag30",
-            "Id": "TouchDrag30"
+            "Id": "TouchDrag30",
+            "Motion": "TapTouchDrag30"
         },
         {
             "Name": "TouchDrag29",
@@ -1383,7 +1389,8 @@
         },
         {
             "Name": "TouchDrag28",
-            "Id": "TouchDrag28"
+            "Id": "TouchDrag28",
+            "Motion": "TapTouchDrag28"
         },
         {
             "Name": "TouchDrag17",
@@ -1437,11 +1444,13 @@
         },
         {
             "Name": "TouchIdle15",
-            "Id": "TouchIdle15"
+            "Id": "TouchIdle15",
+            "Motion": "TapTouchIdle15"
         },
         {
             "Name": "TouchIdle14",
-            "Id": "TouchIdle14"
+            "Id": "TouchIdle14",
+            "Motion": "TapTouchIdle14"
         },
         {
             "Name": "TouchIdle13",

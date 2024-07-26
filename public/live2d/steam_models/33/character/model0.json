@@ -456,7 +456,8 @@
     "HitAreas": [
         {
             "Name": "带子",
-            "Id": "daizi2"
+            "Id": "daizi2",
+            "Motion": "Tap带子"
         },
         {
             "Name": "大腿",
@@ -465,15 +466,18 @@
         },
         {
             "Name": "前腿1",
-            "Id": "qiantui3"
+            "Id": "qiantui3",
+            "Motion": "Tap前腿1"
         },
         {
             "Name": "前腿2",
-            "Id": "qiantui4"
+            "Id": "qiantui4",
+            "Motion": "Tap前腿2"
         },
         {
             "Name": "脚",
-            "Id": "HitAreaFoot"
+            "Id": "HitAreaFoot",
+            "Motion": "Tap脚"
         },
         {
             "Name": "胸前",

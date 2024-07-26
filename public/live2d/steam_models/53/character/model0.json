@@ -591,74 +591,89 @@
         },
         {
             "Name": "jian",
-            "Id": "hlj_5"
+            "Id": "hlj_5",
+            "Motion": "Tapjian"
         },
         {
             "Name": "qun",
-            "Id": "ArtMesh248"
+            "Id": "ArtMesh248",
+            "Motion": "Tapqun"
         },
         {
             "Name": "qkl",
             "Id": "ArtMesh158",
-            "Order": 3
+            "Order": 3,
+            "Motion": "Tapqkl"
         },
         {
             "Name": "wa_l",
             "Id": "wa",
-            "Order": 2
+            "Order": 2,
+            "Motion": "Tapwa_l"
         },
         {
             "Name": "wa_r",
             "Id": "wa2",
-            "Order": 2
+            "Order": 2,
+            "Motion": "Tapwa_r"
         },
         {
             "Name": "!",
             "Id": "ArtMesh251",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Tap!"
         },
         {
             "Name": "tui_l",
             "Id": "tui",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Taptui_l"
         },
         {
             "Name": "tui_r",
             "Id": "tui2",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Taptui_r"
         },
         {
             "Name": "xie_r",
             "Id": "ArtMesh235",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Tapxie_r"
         },
         {
             "Name": "xie_l",
             "Id": "ArtMesh233",
-            "Order": 1
+            "Order": 1,
+            "Motion": "Tapxie_l"
         },
         {
             "Name": "qun_l",
             "Id": "ArtMesh152",
-            "Order": 3
+            "Order": 3,
+            "Motion": "Tapqun_l"
         },
         {
             "Name": "qun_r",
             "Id": "ArtMesh161",
-            "Order": 3
+            "Order": 3,
+            "Motion": "Tapqun_r"
         },
         {
             "Name": "yi_l",
-            "Id": "ArtMesh140"
+            "Id": "ArtMesh140",
+            "Motion": "Tapyi_l"
         },
         {
             "Name": "yi_r",
-            "Id": "ArtMesh151"
+            "Id": "ArtMesh151",
+            "Motion": "Tapyi_r"
         },
         {
             "Name": "hlj",
             "Id": "hlj_3",
-            "Order": 5
+            "Order": 5,
+            "Motion": "Taphlj"
         }
     ],
     "Options": {

@@ -601,15 +601,18 @@
         },
         {
             "Name": "丝袜B",
-            "Id": "HitAreaSilkB4"
+            "Id": "HitAreaSilkB4",
+            "Motion": "Tap丝袜B"
         },
         {
             "Name": "羽毛B",
-            "Id": "HitAreaFeatherB"
+            "Id": "HitAreaFeatherB",
+            "Motion": "Tap羽毛B"
         },
         {
             "Name": "丝袜B2",
-            "Id": "HitAreaSilkB5"
+            "Id": "HitAreaSilkB5",
+            "Motion": "Tap丝袜B2"
         },
         {
             "Name": "熊猫B",
@@ -623,7 +626,8 @@
         },
         {
             "Name": "羽毛A",
-            "Id": "HitAreaFeatherA"
+            "Id": "HitAreaFeatherA",
+            "Motion": "Tap羽毛A"
         },
         {
             "Name": "书A",
@@ -632,7 +636,8 @@
         },
         {
             "Name": "裙子A",
-            "Id": "HitAreaSkirtA"
+            "Id": "HitAreaSkirtA",
+            "Motion": "Tap裙子A"
         },
         {
             "Name": "书",

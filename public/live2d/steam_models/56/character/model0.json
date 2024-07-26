@@ -426,7 +426,8 @@
         },
         {
             "Name": "身体2",
-            "Id": "HitAreaBody2"
+            "Id": "HitAreaBody2",
+            "Motion": "Tap身体2"
         },
         {
             "Name": "身体1",
@@ -445,7 +446,8 @@
         },
         {
             "Name": "臀",
-            "Id": "HitAreaHip"
+            "Id": "HitAreaHip",
+            "Motion": "Tap臀"
         },
         {
             "Name": "星",

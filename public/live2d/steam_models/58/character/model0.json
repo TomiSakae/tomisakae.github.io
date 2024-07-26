@@ -384,7 +384,8 @@
     "HitAreas": [
         {
             "Name": "腿环",
-            "Id": "ArtMesh123"
+            "Id": "ArtMesh123",
+            "Motion": "Tap腿环"
         },
         {
             "Name": "胸部",

@@ -1,7 +1,7 @@
 "AppWorkshop"
 {
 	"appid"		"616720"
-	"SizeOnDisk"		"81485113"
+	"SizeOnDisk"		"288841449"
 	"NeedsUpdate"		"0"
 	"NeedsDownload"		"0"
 	"TimeLastUpdated"		"0"
@@ -9,11 +9,29 @@
 	"LastBuildID"		"0"
 	"WorkshopItemsInstalled"
 	{
+		"3010010440"
+		{
+			"size"		"9014295"
+			"timeupdated"		"1690360824"
+			"manifest"		"1210429700534081965"
+		}
+		"3055341868"
+		{
+			"size"		"10259075"
+			"timeupdated"		"1697792718"
+			"manifest"		"662210186350832895"
+		}
 		"3063372184"
 		{
 			"size"		"27556133"
 			"timeupdated"		"1700141289"
 			"manifest"		"458879251587257717"
+		}
+		"3137493358"
+		{
+			"size"		"12761328"
+			"timeupdated"		"1705052275"
+			"manifest"		"7969698706679750846"
 		}
 		"3155390840"
 		{
@@ -21,9 +39,37 @@
 			"timeupdated"		"1707579714"
 			"manifest"		"1774636037662653000"
 		}
+		"3165847455"
+		{
+			"size"		"129391424"
+			"timeupdated"		"1714833511"
+			"manifest"		"4542295716283020257"
+		}
+		"3296492270"
+		{
+			"size"		"45930214"
+			"timeupdated"		"1721914300"
+			"manifest"		"3993437388251615821"
+		}
 	}
 	"WorkshopItemDetails"
 	{
+		"3010010440"
+		{
+			"manifest"		"1210429700534081965"
+			"timeupdated"		"1690360824"
+			"timetouched"		"1721959889"
+			"latest_timeupdated"		"1690360824"
+			"latest_manifest"		"1210429700534081965"
+		}
+		"3055341868"
+		{
+			"manifest"		"662210186350832895"
+			"timeupdated"		"1697792718"
+			"timetouched"		"1721959930"
+			"latest_timeupdated"		"1697792718"
+			"latest_manifest"		"662210186350832895"
+		}
 		"3063372184"
 		{
 			"manifest"		"458879251587257717"
@@ -32,6 +78,14 @@
 			"latest_timeupdated"		"1700141289"
 			"latest_manifest"		"458879251587257717"
 		}
+		"3137493358"
+		{
+			"manifest"		"7969698706679750846"
+			"timeupdated"		"1705052275"
+			"timetouched"		"1721960050"
+			"latest_timeupdated"		"1705052275"
+			"latest_manifest"		"7969698706679750846"
+		}
 		"3155390840"
 		{
 			"manifest"		"1774636037662653000"
@@ -39,6 +93,22 @@
 			"timetouched"		"1721959274"
 			"latest_timeupdated"		"1707579714"
 			"latest_manifest"		"1774636037662653000"
+		}
+		"3165847455"
+		{
+			"manifest"		"4542295716283020257"
+			"timeupdated"		"1714833511"
+			"timetouched"		"1721960033"
+			"latest_timeupdated"		"1714833511"
+			"latest_manifest"		"4542295716283020257"
+		}
+		"3296492270"
+		{
+			"manifest"		"3993437388251615821"
+			"timeupdated"		"1721914300"
+			"timetouched"		"1721959918"
+			"latest_timeupdated"		"1721914300"
+			"latest_manifest"		"3993437388251615821"
 		}
 	}
 }

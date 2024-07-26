@@ -444,11 +444,13 @@
     "HitAreas": [
         {
             "Name": "左腿",
-            "Id": "HitAreaLeg1"
+            "Id": "HitAreaLeg1",
+            "Motion": "Tap左腿"
         },
         {
             "Name": "右腿",
-            "Id": "HitAreaLeg2"
+            "Id": "HitAreaLeg2",
+            "Motion": "Tap右腿"
         },
         {
             "Name": "头",

@@ -356,7 +356,8 @@
     "HitAreas": [
         {
             "Name": "HitAreaHip",
-            "Id": "HitAreaHip"
+            "Id": "HitAreaHip",
+            "Motion": "TapHitAreaHip"
         },
         {
             "Name": "HitAreaArm2",
@@ -390,11 +391,13 @@
         },
         {
             "Name": "HitAreaLeg",
-            "Id": "HitAreaLeg"
+            "Id": "HitAreaLeg",
+            "Motion": "TapHitAreaLeg"
         },
         {
             "Name": "HitAreaLove",
-            "Id": "HitAreaLove"
+            "Id": "HitAreaLove",
+            "Motion": "TapHitAreaLove"
         },
         {
             "Name": "HitAreaCall",
@@ -403,7 +406,8 @@
         },
         {
             "Name": "HitAreaLeg2",
-            "Id": "HitAreaLeg2"
+            "Id": "HitAreaLeg2",
+            "Motion": "TapHitAreaLeg2"
         }
     ],
     "Options": {

@@ -666,7 +666,8 @@
         {
             "Name": "HitArea_Qunzi",
             "Id": "HitArea_Qunzi",
-            "Order": 3
+            "Order": 3,
+            "Motion": "TapHitArea_Qunzi"
         },
         {
             "Name": "HitArea_Siwa",
