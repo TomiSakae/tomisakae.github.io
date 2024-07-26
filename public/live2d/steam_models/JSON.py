@@ -1,7 +1,7 @@
 import json
 
 # Tên file JSON trong thư mục hiện tại
-file_name = '61/character/model0.json'
+file_name = '62/character/model0.json'
 
 # Đọc dữ liệu từ file JSON với mã hóa UTF-8
 with open(file_name, 'r', encoding='utf-8') as file:
