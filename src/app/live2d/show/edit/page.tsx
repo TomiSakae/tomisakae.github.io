@@ -72,7 +72,7 @@ const Live2DModelComponent = () => {
 
         const loadLive2DModel = async () => {
             const { Live2DModel, MotionPreloadStrategy } = await import('pixi-live2d-display');
-            const model = await Live2DModel.from(`/live2d/steam_models/${modelId}/character/model0.json`, { motionPreload: MotionPreloadStrategy.ALL });
+            const model = await Live2DModel.from(`/live2d/steam_models/${modelId}/character/model0.json`, { motionPreload: MotionPreloadStrategy.IDLE });
             app.stage.addChild(model as unknown as PIXI.DisplayObject);
             (model as any).position.y = window.sessionStorage.getItem('modely' + modelId) || 0;
             (model as any).position.x = window.sessionStorage.getItem('modelx' + modelId) || 0;

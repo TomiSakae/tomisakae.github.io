@@ -96,7 +96,7 @@ const Live2DModelComponent = () => {
 
         const loadLive2DModel = async () => {
             const { Live2DModel, MotionPreloadStrategy } = await import('pixi-live2d-display');
-            const model = await Live2DModel.from(`/live2d/steam_models/${modelId}/character/model0.json`, { motionPreload: MotionPreloadStrategy.ALL });
+            const model = await Live2DModel.from(`/live2d/steam_models/${modelId}/character/model0.json`, { motionPreload: MotionPreloadStrategy.IDLE });
             const res = await fetch(`/live2d/steam_models/${modelId}/character/model0.json`);
             const jsonData: JsonData = await res.json();
             const motionTitles = Object.keys(jsonData.FileReferences.Motions);
