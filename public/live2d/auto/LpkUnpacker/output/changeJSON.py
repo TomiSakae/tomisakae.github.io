@@ -9,6 +9,16 @@ def process_hit_areas(data):
     return data
 
 def process_motions(data):
+    motions_dir = os.path.join(base_directory, 'motions')
+    default_file = "motions/Motions_Idle_0_File_0.json"
+    default_file_path = os.path.join(motions_dir, default_file)
+
+    if not os.path.isfile(default_file_path):
+        # If the default file doesn't exist, take the first file in the motions directory
+        motion_files = [f for f in os.listdir(motions_dir) if f.endswith('.json')]
+        if motion_files:
+            default_file = os.path.join('motions', motion_files[0])
+
     if 'FileReferences' in data and 'Motions' in data['FileReferences']:
         motions = data['FileReferences']['Motions']
         keys_to_delete = []
@@ -21,7 +31,7 @@ def process_motions(data):
                         # Giữ lại các mục 'File' và 'Sound', thêm giá trị 'File' mặc định nếu chỉ có 'Sound'
                         filtered_item = {k: item[k] for k in ('File', 'Sound') if k in item}
                         if 'Sound' in item and 'File' not in item:
-                            filtered_item['File'] = "motions/Motions_Idle_0_File_0.json"
+                            filtered_item['File'] = default_file
                         filtered_value.append(filtered_item)
 
                 if filtered_value:

@@ -1,0 +1,42 @@
+
+
+[2024-07-26 08:48:47] Client version: 1721172922
+[2024-07-26 08:48:47] RequestAppInfoUpdate: AppIDs 7
+[2024-07-26 08:48:47] Change number 0->24517522, apps: 0/0, packages: 0/0
+[2024-07-26 08:48:48] Requesting 1 apps, 1 packages (meta data, 1024 prev attempts, expected 0 KB)
+[2024-07-26 08:48:48] Downloaded 1 apps via HTTP, 14 KB (3 KB compressed)
+[2024-07-26 08:48:48] Requesting 0 apps, 1 packages (full data, 1024 prev attempts, expected 29 KB)
+[2024-07-26 08:48:48] UpdatesJob: finished OK, apps updated 1 (14 KB), packages updated 1 (29 KB)
+[2024-07-26 08:48:49] Requesting 1207 apps, 0 packages (meta data, 1024 prev attempts, expected 56 KB)
+[2024-07-26 08:48:49] Requested 130 app access tokens, 53 received, 77 denied
+[2024-07-26 08:48:49] Updated SHAs with 53 new access tokens
+[2024-07-26 08:48:52] Downloaded 205 apps via HTTP, 6276 KB (1629 KB compressed)
+[2024-07-26 08:48:52] Requesting 1002 apps, 0 packages (full data, 1024 prev attempts, expected 3222 KB)
+[2024-07-26 08:48:54] UpdatesJob: finished OK, apps updated 1207 (9450 KB), packages updated 0 (0 KB)
+[2024-07-26 08:48:55] RequestAppInfoUpdate: AppIDs 616720
+[2024-07-26 08:48:55] Requesting 1 apps, 0 packages (meta data, 1024 prev attempts, expected 0 KB)
+[2024-07-26 08:48:55] UpdatesJob: finished OK, apps updated 0 (0 KB), packages updated 0 (0 KB)
+[2024-07-26 08:49:09] Starting async write C:\Users\TomiSakae\Downloads\steamcmd/appcache/appinfo.vdf (6898 KB)
+
+
+[2024-07-26 08:49:13] Downloaded 206 apps via HTTP, 6290 KB (1633 KB compressed)
+[2024-07-26 08:49:13] Requesting 1002 apps, 0 packages (full data, 1024 prev attempts, expected 3222 KB)
+[2024-07-26 08:49:14] UpdatesJob: finished OK, apps updated 1208 (9464 KB), packages updated 0 (0 KB)
+[2024-07-26 08:49:14] RequestAppInfoUpdate: AppIDs 616720
+[2024-07-26 08:49:14] Requesting 1 apps, 0 packages (meta data, 1024 prev attempts, expected 0 KB)
+[2024-07-26 08:49:14] UpdatesJob: finished OK, apps updated 0 (0 KB), packages updated 0 (0 KB)
+[2024-07-26 08:49:15] Starting async write C:\Users\TomiSakae\Downloads\steamcmd/appcache/appinfo.vdf (6898 KB)
+
+
+[2024-07-26 09:00:42] Client version: 1721172922
+[2024-07-26 09:00:42] RequestAppInfoUpdate: AppIDs 7
+[2024-07-26 09:00:43] Apps changed: 2915550=24517593,1892930=24517550,885570=24517531,1665030=24517528,
+[2024-07-26 09:00:43] Change number 24517522->24517637, apps: 4/143, packages: 0/4
+[2024-07-26 09:00:43] Requesting 82 apps, 0 packages (meta data, 1024 prev attempts, expected 3 KB)
+[2024-07-26 09:00:43] Requested 77 app access tokens, 0 received, 77 denied
+[2024-07-26 09:00:43] Requesting 4 apps, 0 packages (full data, 1024 prev attempts, expected 12 KB)
+[2024-07-26 09:00:44] UpdatesJob: finished OK, apps updated 4 (12 KB), packages updated 0 (0 KB)
+[2024-07-26 09:00:44] RequestAppInfoUpdate: AppIDs 616720
+[2024-07-26 09:00:44] Requesting 1 apps, 0 packages (meta data, 1024 prev attempts, expected 0 KB)
+[2024-07-26 09:00:44] UpdatesJob: finished OK, apps updated 0 (0 KB), packages updated 0 (0 KB)
+[2024-07-26 09:00:59] Starting async write C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd/appcache/appinfo.vdf (6898 KB)

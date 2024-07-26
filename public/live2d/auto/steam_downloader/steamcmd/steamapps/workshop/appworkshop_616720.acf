@@ -1,0 +1,44 @@
+"AppWorkshop"
+{
+	"appid"		"616720"
+	"SizeOnDisk"		"81485113"
+	"NeedsUpdate"		"0"
+	"NeedsDownload"		"0"
+	"TimeLastUpdated"		"0"
+	"TimeLastAppRan"		"0"
+	"LastBuildID"		"0"
+	"WorkshopItemsInstalled"
+	{
+		"3063372184"
+		{
+			"size"		"27556133"
+			"timeupdated"		"1700141289"
+			"manifest"		"458879251587257717"
+		}
+		"3155390840"
+		{
+			"size"		"53928980"
+			"timeupdated"		"1707579714"
+			"manifest"		"1774636037662653000"
+		}
+	}
+	"WorkshopItemDetails"
+	{
+		"3063372184"
+		{
+			"manifest"		"458879251587257717"
+			"timeupdated"		"1700141289"
+			"timetouched"		"1721958555"
+			"latest_timeupdated"		"1700141289"
+			"latest_manifest"		"458879251587257717"
+		}
+		"3155390840"
+		{
+			"manifest"		"1774636037662653000"
+			"timeupdated"		"1707579714"
+			"timetouched"		"1721959274"
+			"latest_timeupdated"		"1707579714"
+			"latest_manifest"		"1774636037662653000"
+		}
+	}
+}

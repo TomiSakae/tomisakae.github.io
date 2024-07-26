@@ -1,0 +1,29 @@
+
+
+[2024-07-26 08:48:47] Client version: 1721172922
+[2024-07-26 08:48:47] Loading workshop items for 0 installed apps for user [a:1:1708384339]:
+[2024-07-26 08:48:55] [AppID 616720] Loaded workshop items in "C:\Users\TomiSakae\Downloads\steamcmd\steamapps\workshop" (0 installed, 0 needed)
+[2024-07-26 08:48:55] [AppID 616720] Download item 3063372184 requested by app
+[2024-07-26 08:48:55] [AppID 616720] Starting Workshop download job (requested item 3063372184 )
+[2024-07-26 08:48:55] [AppID 616720] Detected workshop change (latest from server) : changed cached item 3063372184, new manifest 458879251587257717
+[2024-07-26 08:49:11] [AppID 616720] Download item 3063372184 result : OK
+[2024-07-26 08:49:11] [AppID 616720] Finished Workshop download job : No Error
+[2024-07-26 08:49:11] [AppID 616720] Updating workshop item details failed with Failure
+
+
+[2024-07-26 08:49:14] [AppID 616720] Loaded workshop items in "C:\Users\TomiSakae\Downloads\steamcmd\steamapps\workshop" (1 installed, 1 needed)
+[2024-07-26 08:49:14] [AppID 616720] Download item 3063372184 requested by app
+[2024-07-26 08:49:15] [AppID 616720] Starting Workshop download job (requested item 3063372184 )
+[2024-07-26 08:49:15] [AppID 616720] Download item 3063372184 result : OK
+[2024-07-26 08:49:15] [AppID 616720] Finished Workshop download job : No Error
+
+
+[2024-07-26 09:00:42] Client version: 1721172922
+[2024-07-26 09:00:42] Loading workshop items for 0 installed apps for user [a:1:1452594307]:
+[2024-07-26 09:00:44] [AppID 616720] Loaded workshop items in "C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\steamapps\workshop" (1 installed, 1 needed)
+[2024-07-26 09:00:44] [AppID 616720] Download item 3155390840 requested by app
+[2024-07-26 09:00:44] [AppID 616720] Starting Workshop download job (requested item 3155390840 )
+[2024-07-26 09:00:44] [AppID 616720] Detected workshop change (latest from server) : changed cached item 3155390840, new manifest 1774636037662653000
+[2024-07-26 09:01:14] [AppID 616720] Download item 3155390840 result : OK
+[2024-07-26 09:01:14] [AppID 616720] Finished Workshop download job : No Error
+[2024-07-26 09:01:14] [AppID 616720] Updating workshop item details failed with Failure

@@ -1,0 +1,99 @@
+
+
+[2024-07-26 08:48:44] Client version: 1721172922
+[2024-07-26 08:48:44] Load failed: C:\Users\TomiSakae\Downloads\steamcmd\steamapps\libraryfolders.vdf.
+[2024-07-26 08:48:44] Load failed: C:\Users\TomiSakae\Downloads\steamcmd\config\libraryfolders.vdf.
+[2024-07-26 08:48:44] Steam library folders configuration will be reset.
+[2024-07-26 08:48:44] No install folder configuration files found.
+[2024-07-26 08:48:47] Loaded 0 apps from install folder "C:\Users\TomiSakae\Downloads\steamcmd\steamapps\appmanifest_*.acf".
+[2024-07-26 08:48:47] Triggered async write of Steam library folders configuration (1 libraries).
+[2024-07-26 08:48:55] AppID 616720 scheduler update : Priority First, not played for 1721958535 seconds, update disabled for 0 seconds
+[2024-07-26 08:48:55] AppID 616720 update changed : Running Update,
+[2024-07-26 08:48:55] AppID 616720 update changed : Running Update,Reconfiguring,
+[2024-07-26 08:48:56] Got 16 download sources and 0 caching proxies via ContentServerDirectoryService::BYieldingGetServersForSteamPipe (CellID 71 / Launcher 3)
+[2024-07-26 08:48:56] Moving to source priority class '3'
+[2024-07-26 08:48:56] Created download interface of type 'SteamCache' (7) to host cache7-hkg1.steamcontent.com (cache7-hkg1.steamcontent.com)
+[2024-07-26 08:48:56] Created download interface of type 'SteamCache' (7) to host cache3-hkg1.steamcontent.com (cache3-hkg1.steamcontent.com)
+[2024-07-26 08:48:56] Created download interface of type 'SteamCache' (7) to host cache8-hkg1.steamcontent.com (cache8-hkg1.steamcontent.com)
+[2024-07-26 08:48:57] HTTP/2 available
+[2024-07-26 08:48:57] Created ipv4-only http client
+[2024-07-26 08:48:58] HTTPS (SteamCache,362) - cache7-hkg1.steamcontent.com (103.28.54.138:443 / 103.28.54.138:443, host: cache7-hkg1.steamcontent.com): Negotiated HTTP/2
+[2024-07-26 08:48:58] HTTP/2 (SteamCache,362) - cache7-hkg1.steamcontent.com (103.28.54.138:443 / 103.28.54.138:443, host: cache7-hkg1.steamcontent.com): cache7-hkg1.steamcontent.com/depot/616720/manifest/458879251587257717/5/11601968259298202202 - received 200 (OK) HTTP response
+[2024-07-26 08:48:58] AppID 616720 update changed : Running Update,
+[2024-07-26 08:48:58] AppID 616720 update changed : Running Update,Preallocating,
+[2024-07-26 08:48:58] AppID 616720 preallocated 2 files (26 MB) 
+[2024-07-26 08:48:58] AppID 616720 update changed : Running Update,
+[2024-07-26 08:48:58] AppID 616720 update started : download 0/20118688, store 0/0, reuse 0/0, delta 0/0, stage 0/27556133 
+[2024-07-26 08:48:58] AppID 616720 update changed : Running Update,Downloading,Staging,
+[2024-07-26 08:48:58] Downloading 28 chunks from depot 616720
+[2024-07-26 08:48:59] HTTPS (SteamCache,363) - cache8-hkg1.steamcontent.com (103.28.54.139:443 / 103.28.54.139:443, host: cache8-hkg1.steamcontent.com): Negotiated HTTP/2
+[2024-07-26 08:48:59] HTTPS (SteamCache,170) - cache3-hkg1.steamcontent.com (103.28.54.131:443 / 103.28.54.131:443, host: cache3-hkg1.steamcontent.com): Negotiated HTTP/2
+[2024-07-26 08:49:10] Increasing target number of download connections to 4 (rate was 0.000, now 12.114)
+[2024-07-26 08:49:10] Created download interface of type 'SteamCache' (7) to host cache2-hkg1.steamcontent.com (cache2-hkg1.steamcontent.com)
+[2024-07-26 08:49:11] AppID 616720 update changed : Running Update,
+[2024-07-26 08:49:11] AppID 616720 update changed : Running Update,Committing,
+[2024-07-26 08:49:11] AppID 616720 starting commit from "C:\Users\TomiSakae\Downloads\steamcmd\steamapps\workshop/downloads/616720" to "C:\Users\TomiSakae\Downloads\steamcmd\steamapps\workshop/content/616720" : 4 updated, 0 moved, 0 deleted files
+[2024-07-26 08:49:11] AppID 616720 update changed : Running Update,
+[2024-07-26 08:49:11] AppID 616720 update changed : None
+[2024-07-26 08:49:11] AppID 616720 scheduler finished : removed from schedule (result No Error, state 0x0) 
+[2024-07-26 08:49:11] HTTP (SteamCache,178) - cache2-hkg1.steamcontent.com (0.0.0.0:0 / 0.0.0.0:0, host: cache2-hkg1.steamcontent.com): Closing connection
+[2024-07-26 08:49:11] HTTP/2 (SteamCache,363) - cache8-hkg1.steamcontent.com (103.28.54.139:443 / 103.28.54.139:443, host: cache8-hkg1.steamcontent.com): Closing connection
+[2024-07-26 08:49:11] HTTP/2 (SteamCache,170) - cache3-hkg1.steamcontent.com (103.28.54.131:443 / 103.28.54.131:443, host: cache3-hkg1.steamcontent.com): Closing connection
+[2024-07-26 08:49:11] HTTP/2 (SteamCache,362) - cache7-hkg1.steamcontent.com (103.28.54.138:443 / 103.28.54.138:443, host: cache7-hkg1.steamcontent.com): Closing connection
+
+
+[2024-07-26 08:49:14] AppID 616720 scheduler update : Priority First, not played for 1721958554 seconds, update disabled for 0 seconds
+[2024-07-26 08:49:15] AppID 616720 update changed : Running Update,
+[2024-07-26 08:49:15] AppID 616720 update changed : Running Update,Reconfiguring,
+[2024-07-26 08:49:15] AppID 616720 update changed : Running Update,
+[2024-07-26 08:49:15] AppID 616720 update changed : Running Update,Validating,
+[2024-07-26 08:49:15] Validating active workshop item 3063372184 ...
+[2024-07-26 08:49:15] AppID 616720 update changed : Running Update,
+[2024-07-26 08:49:15] AppID 616720 has no changes, 1 active: 616720 (458879251587257717), 1 target: 616720 (458879251587257717),
+[2024-07-26 08:49:15] AppID 616720 update changed : Running Update,Staging,
+[2024-07-26 08:49:15] AppID 616720 update changed : Running Update,
+[2024-07-26 08:49:15] AppID 616720 update changed : Running Update,Committing,
+[2024-07-26 08:49:15] AppID 616720 starting commit from "C:\Users\TomiSakae\Downloads\steamcmd\steamapps\workshop/downloads/616720" to "C:\Users\TomiSakae\Downloads\steamcmd\steamapps\workshop/content/616720" : 0 updated, 0 moved, 0 deleted files
+[2024-07-26 08:49:15] AppID 616720 update changed : Running Update,
+[2024-07-26 08:49:15] AppID 616720 update changed : None
+[2024-07-26 08:49:15] AppID 616720 scheduler finished : removed from schedule (result No Error, state 0x0) 
+
+
+[2024-07-26 09:00:40] Client version: 1721172922
+[2024-07-26 09:00:40] Loaded Steam library folders configuration: C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\steamapps\libraryfolders.vdf
+[2024-07-26 09:00:42] Loaded 0 apps from install folder "C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\steamapps\appmanifest_*.acf".
+[2024-07-26 09:00:42] Triggered async write of Steam library folders configuration (1 libraries).
+[2024-07-26 09:00:44] AppID 616720 scheduler update : Priority First, not played for 1721959244 seconds, update disabled for 0 seconds
+[2024-07-26 09:00:44] AppID 616720 update changed : Running Update,
+[2024-07-26 09:00:44] AppID 616720 update changed : Running Update,Reconfiguring,
+[2024-07-26 09:00:45] Got 17 download sources and 0 caching proxies via ContentServerDirectoryService::BYieldingGetServersForSteamPipe (CellID 71 / Launcher 3)
+[2024-07-26 09:00:45] Moving to source priority class '3'
+[2024-07-26 09:00:45] Created download interface of type 'SteamCache' (7) to host cache7-hkg1.steamcontent.com (cache7-hkg1.steamcontent.com)
+[2024-07-26 09:00:45] Created download interface of type 'SteamCache' (7) to host cache3-hkg1.steamcontent.com (cache3-hkg1.steamcontent.com)
+[2024-07-26 09:00:45] Created download interface of type 'SteamCache' (7) to host cache8-hkg1.steamcontent.com (cache8-hkg1.steamcontent.com)
+[2024-07-26 09:00:45] HTTP/2 available
+[2024-07-26 09:00:45] Created ipv4-only http client
+[2024-07-26 09:00:46] HTTPS (SteamCache,362) - cache7-hkg1.steamcontent.com (103.28.54.138:443 / 103.28.54.138:443, host: cache7-hkg1.steamcontent.com): Negotiated HTTP/2
+[2024-07-26 09:00:46] HTTP/2 (SteamCache,362) - cache7-hkg1.steamcontent.com (103.28.54.138:443 / 103.28.54.138:443, host: cache7-hkg1.steamcontent.com): cache7-hkg1.steamcontent.com/depot/616720/manifest/1774636037662653000/5/4110019834718680719 - received 200 (OK) HTTP response
+[2024-07-26 09:00:46] AppID 616720 update changed : Running Update,
+[2024-07-26 09:00:46] AppID 616720 update changed : Running Update,Preallocating,
+[2024-07-26 09:00:46] AppID 616720 preallocated 2 files (51 MB) 
+[2024-07-26 09:00:46] AppID 616720 update changed : Running Update,
+[2024-07-26 09:00:46] AppID 616720 update started : download 0/38657040, store 0/0, reuse 0/0, delta 0/0, stage 0/53928980 
+[2024-07-26 09:00:46] AppID 616720 update changed : Running Update,Downloading,Staging,
+[2024-07-26 09:00:46] Downloading 53 chunks from depot 616720
+[2024-07-26 09:00:47] HTTPS (SteamCache,363) - cache8-hkg1.steamcontent.com (103.28.54.139:443 / 103.28.54.139:443, host: cache8-hkg1.steamcontent.com): Negotiated HTTP/2
+[2024-07-26 09:00:47] HTTPS (SteamCache,170) - cache3-hkg1.steamcontent.com (103.28.54.131:443 / 103.28.54.131:443, host: cache3-hkg1.steamcontent.com): Negotiated HTTP/2
+[2024-07-26 09:00:58] Increasing target number of download connections to 4 (rate was 0.000, now 11.838)
+[2024-07-26 09:00:58] Created download interface of type 'SteamCache' (7) to host cache2-hkg1.steamcontent.com (cache2-hkg1.steamcontent.com)
+[2024-07-26 09:00:59] HTTPS (SteamCache,178) - cache2-hkg1.steamcontent.com (103.28.54.148:443 / 103.28.54.148:443, host: cache2-hkg1.steamcontent.com): Negotiated HTTP/2
+[2024-07-26 09:01:14] AppID 616720 update changed : Running Update,
+[2024-07-26 09:01:14] AppID 616720 update changed : Running Update,Committing,
+[2024-07-26 09:01:14] AppID 616720 starting commit from "C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\steamapps\workshop/downloads/616720" to "C:\Users\TomiSakae\Documents\tomisakae.github.io\public\live2d\auto\steam_downloader\steamcmd\steamapps\workshop/content/616720" : 4 updated, 0 moved, 0 deleted files
+[2024-07-26 09:01:14] AppID 616720 update changed : Running Update,
+[2024-07-26 09:01:14] AppID 616720 update changed : None
+[2024-07-26 09:01:14] AppID 616720 scheduler finished : removed from schedule (result No Error, state 0x0) 
+[2024-07-26 09:01:14] HTTP/2 (SteamCache,178) - cache2-hkg1.steamcontent.com (103.28.54.148:443 / 103.28.54.148:443, host: cache2-hkg1.steamcontent.com): Closing connection
+[2024-07-26 09:01:14] HTTP/2 (SteamCache,363) - cache8-hkg1.steamcontent.com (103.28.54.139:443 / 103.28.54.139:443, host: cache8-hkg1.steamcontent.com): Closing connection
+[2024-07-26 09:01:14] HTTP/2 (SteamCache,170) - cache3-hkg1.steamcontent.com (103.28.54.131:443 / 103.28.54.131:443, host: cache3-hkg1.steamcontent.com): Closing connection
+[2024-07-26 09:01:14] HTTP/2 (SteamCache,362) - cache7-hkg1.steamcontent.com (103.28.54.138:443 / 103.28.54.138:443, host: cache7-hkg1.steamcontent.com): Closing connection
