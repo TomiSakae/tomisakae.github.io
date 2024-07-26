@@ -1,6 +1,13 @@
 import os
 import json
 
+def process_hit_areas(data):
+    if 'HitAreas' in data:
+        for hit_area in data['HitAreas']:
+            if "Motion" not in hit_area:
+                hit_area["Motion"] = "Tap" + hit_area["Name"]
+    return data
+
 def process_motions(data):
     if 'FileReferences' in data and 'Motions' in data['FileReferences']:
         motions = data['FileReferences']['Motions']
@@ -56,6 +63,7 @@ def process_files_in_directory(base_directory):
                             data = json.load(file)
                         
                         # Xử lý dữ liệu
+                        data = process_hit_areas(data)
                         data = process_motions(data)
                         
                         # Ghi dữ liệu đã xử lý vào tệp model0.json
