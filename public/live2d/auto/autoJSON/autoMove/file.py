@@ -1,5 +1,6 @@
 import os
 import shutil
+import subprocess
 
 # Đường dẫn tới thư mục chứa file Python và các thư mục cần di chuyển
 source_directory = os.path.dirname(os.path.abspath(__file__))
@@ -40,3 +41,8 @@ with open(models_file_path, 'a') as file:
 
 # Sao chép tệp models.txt đến vị trí đích
 shutil.copy(models_file_path, destination_models_file_path)
+
+# Chạy lệnh cmd tiếp theo
+final_cmd = 'python LpkToJSON.py'
+subprocess.run(final_cmd, shell=True, cwd=destination_directory, check=True)
+print("Đã thực thi lệnh cuối cùng: pythonLpkToJSON.py")

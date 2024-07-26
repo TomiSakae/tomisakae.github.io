@@ -1,0 +1,481 @@
+{
+    "Version": 3,
+    "Type": 0,
+    "FileReferences": {
+        "Moc": "Moc_0.moc3",
+        "Textures": [
+            "textures/Textures_0_0.png",
+            "textures/Textures_1_0.png"
+        ],
+        "Physics": "Physics_0.json",
+        "PhysicsV2": {
+            "File": "Physics_0.json"
+        },
+        "Motions": {
+            "Idle": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                }
+            ],
+            "Idle#1": [
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                }
+            ],
+            "rodsiwa": [
+                {
+                    "File": "motions/Motions_rodsiwa_0_File_0.json"
+                }
+            ],
+            "rod衣服": [
+                {
+                    "File": "motions/Motions_rod衣服_0_File_0.json"
+                }
+            ],
+            "手": [
+                {
+                    "File": "motions/Motions_手_0_File_0.json"
+                }
+            ],
+            "rod腿": [
+                {
+                    "File": "motions/Motions_rod腿_0_File_0.json"
+                }
+            ],
+            "头": [
+                {
+                    "File": "motions/Motions_头_0_File_0.json"
+                }
+            ],
+            "换装": [
+                {
+                    "File": "motions/Motions_换装_0_File_0.json"
+                }
+            ],
+            "Tap": [
+                {
+                    "File": "motions/Motions_Tap_0_File_1.json"
+                },
+                {
+                    "File": "motions/Motions_Tap_1_File_1.json"
+                },
+                {
+                    "File": "motions/Motions_Tap_2_File_1.json"
+                }
+            ],
+            "Animation": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_rodsiwa_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_rod衣服_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_手_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_rod腿_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_头_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_换装_0_File_0.json"
+                },
+                {
+                    "File": "motions/Motions_Tap_0_File_1.json"
+                },
+                {
+                    "File": "motions/Motions_Tap_1_File_1.json"
+                },
+                {
+                    "File": "motions/Motions_Tap_2_File_1.json"
+                }
+            ],
+            "Animation_1": [
+                {
+                    "File": "motions/Motions_Idle_0_File_0.json"
+                }
+            ],
+            "Animation_2": [
+                {
+                    "File": "motions/Motions_Idle_1_File_0.json"
+                }
+            ],
+            "Animation_3": [
+                {
+                    "File": "motions/Motions_Idle_2_File_0.json"
+                }
+            ],
+            "Animation_4": [
+                {
+                    "File": "motions/Motions_Idle1_0_File_0.json"
+                }
+            ],
+            "Animation_5": [
+                {
+                    "File": "motions/Motions_rodsiwa_0_File_0.json"
+                }
+            ],
+            "Animation_6": [
+                {
+                    "File": "motions/Motions_rod衣服_0_File_0.json"
+                }
+            ],
+            "Animation_7": [
+                {
+                    "File": "motions/Motions_手_0_File_0.json"
+                }
+            ],
+            "Animation_8": [
+                {
+                    "File": "motions/Motions_rod腿_0_File_0.json"
+                }
+            ],
+            "Animation_9": [
+                {
+                    "File": "motions/Motions_头_0_File_0.json"
+                }
+            ],
+            "Animation_10": [
+                {
+                    "File": "motions/Motions_换装_0_File_0.json"
+                }
+            ],
+            "Animation_11": [
+                {
+                    "File": "motions/Motions_Tap_0_File_1.json"
+                }
+            ],
+            "Animation_12": [
+                {
+                    "File": "motions/Motions_Tap_1_File_1.json"
+                }
+            ],
+            "Animation_13": [
+                {
+                    "File": "motions/Motions_Tap_2_File_1.json"
+                }
+            ]
+        }
+    },
+    "Controllers": {
+        "ParamHit": {
+            "Items": [
+                {
+                    "Name": "Param126",
+                    "Id": "Param126",
+                    "HitArea": "ArtMesh198",
+                    "Axis": 0,
+                    "Factor": 0.03,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                },
+                {
+                    "Name": "链子",
+                    "Id": "Param136",
+                    "HitArea": "HitArea_Yifu",
+                    "Axis": 1,
+                    "Factor": 0.035,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                },
+                {
+                    "Name": "右腿",
+                    "Id": "Param25",
+                    "HitArea": "HitArea_Leg",
+                    "Axis": 1,
+                    "Factor": 0.05,
+                    "ReleaseType": 0
+                },
+                {
+                    "Name": "左内衣",
+                    "Id": "Param23",
+                    "HitArea": "HitArea_Chest",
+                    "Axis": 0,
+                    "Factor": 0.03,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                },
+                {
+                    "Name": "胸",
+                    "Id": "Param94",
+                    "HitArea": "HitArea_Chest",
+                    "Axis": 1,
+                    "Factor": 0.04,
+                    "ReleaseType": 0
+                },
+                {
+                    "Name": "右内衣",
+                    "Id": "Param97",
+                    "HitArea": "HitArea_Chest",
+                    "Axis": 0,
+                    "Factor": 0.03,
+                    "ReleaseType": 0,
+                    "LockParam": true
+                }
+            ],
+            "Enabled": true
+        },
+        "ParamLoop": {},
+        "KeyTrigger": {},
+        "ParamTrigger": {
+            "Items": [
+                {
+                    "Name": "丝袜",
+                    "Id": "Param126",
+                    "Items": [
+                        {
+                            "Value": 80.0,
+                            "Direction": 0,
+                            "Motion": "rodsiwa"
+                        }
+                    ]
+                },
+                {
+                    "Name": "衣服",
+                    "Id": "Param136",
+                    "Items": [
+                        {
+                            "Value": 3.7,
+                            "Direction": 0,
+                            "Motion": "rod衣服"
+                        }
+                    ]
+                },
+                {
+                    "Name": "腿",
+                    "Id": "Param25",
+                    "Items": [
+                        {
+                            "Value": 30.0,
+                            "Direction": 0,
+                            "Motion": "rod腿"
+                        }
+                    ]
+                }
+            ],
+            "Enabled": true
+        },
+        "AreaTrigger": {},
+        "HandTrigger": {},
+        "EyeBlink": {
+            "MinInterval": 500,
+            "MaxInterval": 6000,
+            "Enabled": true
+        },
+        "LipSync": {
+            "Gain": 5.0
+        },
+        "MouseTracking": {
+            "SmoothTime": 0.15,
+            "Items": [
+                {
+                    "Id": "ParamAngleX",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamAngleY",
+                    "Min": -30.0,
+                    "Max": 30.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeBallX",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamEyeBallY",
+                    "Min": -1.0,
+                    "Max": 1.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamBodyAngleX",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamBodyAngleY",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamBodyAngleY2",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "BlendMode": 1,
+                    "Axis": 1,
+                    "Input": 0
+                },
+                {
+                    "Id": "ParamBodyAngleX2",
+                    "Min": -10.0,
+                    "Max": 10.0,
+                    "BlendMode": 1,
+                    "Input": 0
+                }
+            ],
+            "Enabled": true
+        },
+        "AutoBreath": {
+            "Enabled": true
+        },
+        "ExtraMotion": {
+            "Enabled": true
+        },
+        "Accelerometer": {
+            "Enabled": true
+        },
+        "Microphone": {},
+        "Transform": {},
+        "FaceTracking": {
+            "Enabled": true
+        },
+        "HandTracking": {},
+        "ParamValue": {},
+        "PartOpacity": {
+            "Items": [
+                {
+                    "Name": "内裤",
+                    "Ids": [
+                        "Part41"
+                    ],
+                    "Value": 1.0
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshOpacity": {
+            "Items": [
+                {
+                    "Name": "背景1",
+                    "Ids": [
+                        "ArtMesh"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "光1",
+                    "Ids": [
+                        "ArtMesh248"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "光2",
+                    "Ids": [
+                        "effect_1"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "光3",
+                    "Ids": [
+                        "effect_2"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "人物阴影",
+                    "Ids": [
+                        "ArtMesh254"
+                    ],
+                    "Value": 1.0
+                },
+                {
+                    "Name": "psp",
+                    "Ids": [
+                        "psp"
+                    ],
+                    "Value": 1.0
+                }
+            ],
+            "Enabled": true
+        },
+        "ArtmeshColor": {},
+        "ArtmeshCulling": {
+            "DefaultMode": 0
+        },
+        "IntimacySystem": {}
+    },
+    "HitAreas": [
+        {
+            "Name": "ArtMesh198",
+            "Id": "ArtMesh198",
+            "Motion": "TapArtMesh198"
+        },
+        {
+            "Name": "ArtMesh204",
+            "Id": "ArtMesh204",
+            "Motion": "丝袜消失"
+        },
+        {
+            "Name": "HitArea_Yifu",
+            "Id": "HitArea_Yifu",
+            "Motion": "TapHitArea_Yifu"
+        },
+        {
+            "Name": "HitArea_Hand",
+            "Id": "HitArea_Hand",
+            "Motion": "手"
+        },
+        {
+            "Name": "HitArea_Leg",
+            "Id": "HitArea_Leg",
+            "Motion": "TapHitArea_Leg"
+        },
+        {
+            "Name": "HitArea_Chest",
+            "Id": "HitArea_Chest",
+            "Motion": "TapHitArea_Chest"
+        },
+        {
+            "Name": "HitArea_Head",
+            "Id": "HitArea_Head",
+            "Motion": "头"
+        },
+        {
+            "Name": "平板",
+            "Id": "ArtMesh258",
+            "Motion": "换装"
+        }
+    ],
+    "Options": {
+        "ScaleFactor": 0.001,
+        "TexFixed": true
+    }
+}
