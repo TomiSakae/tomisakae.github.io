@@ -412,38 +412,7 @@ const images = [
         "id": 69,
         "src": "/live2d/steam_models/69/background.png",
         "alt": "Image 69"
-    },
-    
-    {
-        "id": 70,
-        "src": "/live2d/steam_models/70/background.png",
-        "alt": "Image 70"
-    },
-    
-    {
-        "id": 71,
-        "src": "/live2d/steam_models/71/background.png",
-        "alt": "Image 71"
-    },
-    
-    {
-        "id": 72,
-        "src": "/live2d/steam_models/72/background.png",
-        "alt": "Image 72"
-    },
-    
-    {
-        "id": 73,
-        "src": "/live2d/steam_models/73/background.png",
-        "alt": "Image 73"
-    },
-    
-    {
-        "id": 74,
-        "src": "/live2d/steam_models/74/background.png",
-        "alt": "Image 74"
     }
-
 ];
 
 export default images;
