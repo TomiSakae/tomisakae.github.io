@@ -113,7 +113,7 @@ const AniPhone = () => {
                     </div>
                     <div className='absolute bottom-12 left-4 right-4 flex flex-row items-end text-white text-md font-[500] justify-between'>
                         <div className='flex flex-col items-center cursor-pointer'>
-                            <Image src="/AniPhone/setting.png" alt="Settings" width={64} height={64} />
+                            <Image src="/setting.png" alt="Settings" width={64} height={64} />
                             <span>Cài đặt</span>
                         </div>
                     </div>
