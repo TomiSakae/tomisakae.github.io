@@ -1,9 +1,9 @@
 'use client'
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import SetUp1 from './new/setUp1';
 import SetUp2 from './new/setUp2';
 import SetUp3 from './new/setUp3';
-import AniPhone from './AniPhone';
 
 interface SetUpProps {
   onStart: () => void;
@@ -12,12 +12,13 @@ interface SetUpProps {
   isLastStep: boolean;
 }
 
-const setupComponents: React.FC<SetUpProps>[] = [SetUp1, SetUp2, SetUp3, AniPhone];
+const setupComponents: React.FC<SetUpProps>[] = [SetUp1, SetUp2, SetUp3];
 
 export default function Home() {
   const [turnOn, setTurnOn] = useState(false);
   const [setUp, setSetUp] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -34,7 +35,11 @@ export default function Home() {
   }, []);
 
   const handleNext = () => {
-    setCurrentStep(prev => Math.min(prev + 1, setupComponents.length - 1));
+    if (currentStep === setupComponents.length - 1) {
+      router.push('/AniPhone');
+    } else {
+      setCurrentStep(prev => Math.min(prev + 1, setupComponents.length - 1));
+    }
   };
 
   const handlePrevious = () => {
