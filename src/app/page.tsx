@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div>
-      <h1>Tales of the Shapers</h1>
+      <h1>AniPhone</h1>
     </div>
   );
 }

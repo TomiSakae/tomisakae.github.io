@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Tales of the Shapers",
-  description: "Một trò chơi mà bạn sẽ tạo ra chính kỹ năng của bạn!",
+  title: "AniPhone",
+  description: "Một trò chơi mô phỏng điện thoại.",
 };
 
 export default function RootLayout({
