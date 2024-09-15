@@ -1,13 +1,23 @@
 'use client'
 import { useState, useEffect } from 'react';
-import { MdExpandMore } from "react-icons/md";
+import SetUp1 from './new/setUp1';
+import SetUp2 from './new/setUp2';
+import SetUp3 from './new/setUp3';
+import AniPhone from './AniPhone';
+
+interface SetUpProps {
+  onStart: () => void;
+  onPrevious: () => void;
+  isFirstStep: boolean;
+  isLastStep: boolean;
+}
+
+const setupComponents: React.FC<SetUpProps>[] = [SetUp1, SetUp2, SetUp3, AniPhone];
 
 export default function Home() {
   const [turnOn, setTurnOn] = useState(false);
   const [setUp, setSetUp] = useState(false);
-  const [showLanguageModal, setShowLanguageModal] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('Tiếng Việt');
-  const [language, setLanguage] = useState('Tiếng Việt');
+  const [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,61 +33,30 @@ export default function Home() {
     return () => clearTimeout(timer2);
   }, []);
 
-  const handleLanguageSelect = (language: string) => {
-    setLanguage(language);
-    setShowLanguageModal(false);
+  const handleNext = () => {
+    setCurrentStep(prev => Math.min(prev + 1, setupComponents.length - 1));
   };
+
+  const handlePrevious = () => {
+    setCurrentStep(prev => Math.max(prev - 1, 0));
+  };
+
+  const CurrentSetupComponent = setupComponents[currentStep];
+
   return (
     <>
-      {!setUp &&
+      {!setUp && (
         <div className="bg-black h-screen flex items-center justify-center">
           <h1 className="text-white font-[600] text-4xl">{turnOn ? 'AniPhone' : ''}</h1>
         </div>
-      }
-      {setUp &&
-        <div className="bg-white h-screen flex flex-col items-center justify-between text-center">
-          <h1 className="text-black text-3xl mt-20">Xin Chào!</h1>
-          <div className="flex flex-col items-center justify-center mb-20">
-            <div
-              className="flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-lg transition-colors duration-200 py-2 px-2 mb-4"
-              onClick={() => setShowLanguageModal(true)}
-            >
-              <p className="text-black text-md ml-1">{language}</p>
-              <MdExpandMore className="text-black text-xl ml-3" />
-            </div>
-            <button className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-              Bắt Đầu
-            </button>
-          </div>
-        </div>
-      }
-      {showLanguageModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-4 rounded-lg">
-            <h2 className="text-xl mb-4">Chọn ngôn ngữ</h2>
-            <ul>
-              <li className="flex items-center justify-between cursor-pointer hover:bg-gray-100 p-2" onClick={() => setSelectedLanguage('Tiếng Việt')}>
-                <span>Tiếng Việt</span>
-                <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
-                  {selectedLanguage === 'Tiếng Việt' && <div className="w-3 h-3 rounded-full bg-blue-500" />}
-                </div>
-              </li>
-              <li className="flex items-center justify-between cursor-pointer hover:bg-gray-100 p-2" onClick={() => setSelectedLanguage('Tiếng Anime')}>
-                <span>Tiếng Anime</span>
-                <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
-                  {selectedLanguage === 'Tiếng Anime' && <div className="w-3 h-3 rounded-full bg-blue-500" />}
-                </div>
-              </li>
-            </ul>
-            <div className="mt-4 flex justify-between">
-              <button className="px-4 py-2 bg-gray-300 text-black rounded" onClick={() => setShowLanguageModal(false)}>Thoát</button>
-              <button className="px-4 py-2 bg-blue-500 text-white rounded" onClick={() => {
-                handleLanguageSelect(selectedLanguage);
-                setShowLanguageModal(false);
-              }}>OK</button>
-            </div>
-          </div>
-        </div>
+      )}
+      {setUp && (
+        <CurrentSetupComponent
+          onStart={handleNext}
+          onPrevious={handlePrevious}
+          isFirstStep={currentStep === 0}
+          isLastStep={currentStep === setupComponents.length - 1}
+        />
       )}
     </>
   );
