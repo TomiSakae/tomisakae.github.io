@@ -3,35 +3,48 @@ import { useState, useEffect } from 'react';
 import { LiaBatteryFullSolid } from "react-icons/lia";
 import Nav from '@/components/nav';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const AniPhone = () => {
     const [backgroundImage, setBackgroundImage] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     // Thêm state mới
     const [showHomeScreen, setShowHomeScreen] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
         const fetchBackgroundImage = async () => {
             setIsLoading(true);
-            try {
-                const response = await fetch('https://api.waifu.im/search?is_nsfw=false');
-                if (!response.ok) {
-                    throw new Error('Request failed with status code: ' + response.status);
-                }
-                const data = await response.json();
-                if (data.images && data.images.length > 0) {
-                    const image = data.images[0];
-                    setBackgroundImage(image.url);
-                    // Tạo một Image object để đảm bảo ảnh đã tải xong
-                    const img = document.createElement('img');
-                    img.onload = () => setIsLoading(false);
-                    img.src = image.url;
-                } else {
-                    throw new Error('No suitable image found');
-                }
-            } catch (error) {
-                console.error('An error occurred:', error);
+            // Check if an image URL is already stored in sessionStorage
+            const storedImageUrl = window.sessionStorage.getItem('backgroundImageUrl');
+
+            if (storedImageUrl) {
+                setBackgroundImage(storedImageUrl);
                 setIsLoading(false);
+                setShowHomeScreen(true);
+            } else {
+                try {
+                    const response = await fetch('https://api.waifu.im/search?is_nsfw=false');
+                    if (!response.ok) {
+                        throw new Error('Request failed with status code: ' + response.status);
+                    }
+                    const data = await response.json();
+                    if (data.images && data.images.length > 0) {
+                        const image = data.images[0];
+                        setBackgroundImage(image.url);
+                        // Store the image URL in sessionStorage
+                        window.sessionStorage.setItem('backgroundImageUrl', image.url);
+                        // Tạo một Image object để đảm bảo ảnh đã tải xong
+                        const img = document.createElement('img');
+                        img.onload = () => setIsLoading(false);
+                        img.src = image.url;
+                    } else {
+                        throw new Error('No suitable image found');
+                    }
+                } catch (error) {
+                    console.error('An error occurred:', error);
+                    setIsLoading(false);
+                }
             }
         };
 
@@ -84,7 +97,9 @@ const AniPhone = () => {
                     <Nav />
                     <div className='absolute bottom-12 left-4 right-4 flex flex-row items-end text-white text-md font-[500] justify-between'>
                         <div className='flex flex-col items-center cursor-pointer'>
-                            <Image src="/setting.png" alt="Settings" width={64} height={64} />
+                            <Image src="/setting.png" alt="Settings" width={64} height={64}
+                                onClick={() => router.push('/AniPhone/setting')}
+                            />
                             <span>Cài đặt</span>
                         </div>
                     </div>
