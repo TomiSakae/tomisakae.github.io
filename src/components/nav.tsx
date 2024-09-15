@@ -28,7 +28,9 @@ const Nav = () => {
                         <CiMenuBurger className='text-md' />
                     </div>
                 </div>
-                <div className='flex-1 flex justify-center p-2 rounded-full hover:bg-gray-200 hover:bg-opacity-20 transition-all duration-300'>
+                <div className='flex-1 flex justify-center p-2 rounded-full hover:bg-gray-200 hover:bg-opacity-20 transition-all duration-300'
+                    onClick={() => router.push('/AniPhone')}
+                >
                     <div className='flex flex-col items-center'>
                         <FaRegSquare className='text-md' />
                     </div>
