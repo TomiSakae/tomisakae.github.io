@@ -13,6 +13,11 @@ const AniPhone = () => {
     const router = useRouter();
 
     useEffect(() => {
+        if (window.localStorage.getItem('AniOS') === null) {
+            window.localStorage.setItem('AniOS', '1.0');
+            window.localStorage.setItem('ROM', '250');
+            window.localStorage.setItem('RAM', '100');
+        }
         const fetchBackgroundImage = async () => {
             setIsLoading(true);
             // Check if an image URL is already stored in sessionStorage
