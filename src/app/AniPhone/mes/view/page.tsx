@@ -3,14 +3,21 @@
 import { useState, useEffect, useRef } from 'react';
 import Nav from '@/components/nav';
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { IoMdSend } from "react-icons/io";
+
+interface Message {
+    id: number;
+    sender: string;
+    content: string;
+    timestamp: Date;
+}
 
 const MessageViewPage = () => {
     const router = useRouter();
-    const [messages, setMessages] = useState([
-        { id: 1, sender: 'Người lạ', content: 'Cần giúp giải quyết vài vấn đề!', timestamp: new Date() },
-    ]);
+    const searchParams = useSearchParams();
+    const id = searchParams.get('id');
+    const [messages, setMessages] = useState<Message[]>([]);
     const [idMessage, setIdMessage] = useState(0);
     const [money, setMoney] = useState(0);
 
@@ -22,6 +29,21 @@ const MessageViewPage = () => {
     };
 
     useEffect(() => {
+        switch (id) {
+            case '0':
+                setMessages([
+                    { id: 1, sender: 'Người lạ', content: 'Cần giúp giải quyết vài vấn đề!', timestamp: new Date() },
+                ]);
+                break;
+            case '1':
+                setMessages([
+                    { id: 1, sender: 'Người lạ', content: 'Bạn có thể giúp tôi một việc không?', timestamp: new Date() },
+                ]);
+                break;
+        }
+    }, [id]);
+
+    useEffect(() => {
         scrollToBottom();
     }, [messages]);
 
@@ -31,36 +53,81 @@ const MessageViewPage = () => {
             setMessages([...messages, userMessage]);
             setNewMessage('');
 
-            switch (idMessage) {
-                case 0:
-                    setTimeout(() => {
-                        const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Hãy giúp tôi giải quyết bài toán sau và tôi sẽ chuyển cho bạn 5.000 đ.', timestamp: new Date() };
-                        setMessages(prevMessages => [...prevMessages, responseMessage1]);
-                    }, 1000);
+            switch (id) {
+                case '0':
+                    switch (idMessage) {
+                        case 0:
+                            setTimeout(() => {
+                                const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Hãy giúp tôi giải quyết bài toán sau và tôi sẽ chuyển cho bạn 5.000 đ.', timestamp: new Date() };
+                                setMessages(prevMessages => [...prevMessages, responseMessage1]);
+                            }, 1000);
 
-                    setTimeout(() => {
-                        const responseMessage2 = { id: messages.length + 3, sender: 'Người lạ', content: '1+1=?', timestamp: new Date() };
-                        setMessages(prevMessages => [...prevMessages, responseMessage2]);
-                    }, 2000);
-                    setIdMessage(idMessage + 1);
-                    break;
-                case 1:
-                    if (newMessage.trim() === '2') {
-                        setTimeout(() => {
-                            const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Chúa ơi! Tôi đã giải được bài toán rồi! Đây là 5.000 đ cho bạn.', timestamp: new Date() };
-                            setMessages(prevMessages => [...prevMessages, responseMessage1]);
-                            setMoney(money + 5000);
-                        }, 1000);
-                        setIdMessage(idMessage + 1);
+                            setTimeout(() => {
+                                const responseMessage2 = { id: messages.length + 3, sender: 'Người lạ', content: '1+1=?', timestamp: new Date() };
+                                setMessages(prevMessages => [...prevMessages, responseMessage2]);
+                            }, 2000);
+                            setIdMessage(idMessage + 1);
+                            break;
+                        case 1:
+                            if (newMessage.trim() === '2') {
+                                setTimeout(() => {
+                                    const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Chúa ơi! Tôi đã giải được bài toán rồi! Đây là 5.000 đ cho bạn.', timestamp: new Date() };
+                                    setMessages(prevMessages => [...prevMessages, responseMessage1]);
+                                    setMoney(money + 5000);
+                                    if (typeof window !== 'undefined') {
+                                        window.sessionStorage.setItem('mes', 'true');
+                                    }
+                                }, 1000);
+                                setIdMessage(idMessage + 1);
+                            }
+                            else {
+                                setTimeout(() => {
+                                    const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Đừng trả lời linh tinh nữa!', timestamp: new Date() };
+                                    setMessages(prevMessages => [...prevMessages, responseMessage1]);
+                                }, 1000);
+                            }
+                            break;
+                        default:
+                            break;
                     }
-                    else {
-                        setTimeout(() => {
-                            const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Đừng trả lời linh tinh nữa!', timestamp: new Date() };
-                            setMessages(prevMessages => [...prevMessages, responseMessage1]);
-                        }, 1000);
-                    }
                     break;
-                default:
+
+                case '1':
+                    switch (idMessage) {
+                        case 0:
+                            setTimeout(() => {
+                                const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Hãy giúp tôi giải quyết bài toán sau và tôi sẽ chuyển cho bạn 5.000 đ.', timestamp: new Date() };
+                                setMessages(prevMessages => [...prevMessages, responseMessage1]);
+                            }, 1000);
+
+                            setTimeout(() => {
+                                const responseMessage2 = { id: messages.length + 3, sender: 'Người lạ', content: '1*1=?', timestamp: new Date() };
+                                setMessages(prevMessages => [...prevMessages, responseMessage2]);
+                            }, 2000);
+                            setIdMessage(idMessage + 1);
+                            break;
+                        case 1:
+                            if (newMessage.trim() === '1') {
+                                setTimeout(() => {
+                                    const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Chúa ơi! Tôi đã giải được bài toán rồi! Đây là 5.000 đ cho bạn.', timestamp: new Date() };
+                                    setMessages(prevMessages => [...prevMessages, responseMessage1]);
+                                    setMoney(money + 5000);
+                                    if (typeof window !== 'undefined') {
+                                        window.sessionStorage.setItem('mes', 'true');
+                                    }
+                                }, 1000);
+                                setIdMessage(idMessage + 1);
+                            }
+                            else {
+                                setTimeout(() => {
+                                    const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Đừng trả lời linh tinh nữa!', timestamp: new Date() };
+                                    setMessages(prevMessages => [...prevMessages, responseMessage1]);
+                                }, 1000);
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                     break;
             }
         }
