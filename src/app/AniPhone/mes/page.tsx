@@ -25,8 +25,8 @@ const MessagesPage = () => {
 
     const getRandomMessage = () => {
         const messages = [
-            'Cần giúp giải quyết vài vấn đề!',
-            'Bạn có thể giúp tôi một việc không?',
+            'Cần giải giúp 1 bài toán!',
+            'Cần giúp đặt mật khẩu!',
         ];
         const randomIndex = Math.floor(Math.random() * messages.length);
         if (typeof window !== 'undefined') {
