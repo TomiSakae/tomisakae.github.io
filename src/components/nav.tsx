@@ -3,11 +3,20 @@ import { FaRegSquare } from "react-icons/fa6";
 import { CiMenuBurger } from "react-icons/ci";
 import { RiPlayReverseLargeLine } from "react-icons/ri";
 import { useRouter, usePathname } from 'next/navigation';
+import { BiSignal5 } from "react-icons/bi";
+import { useEffect, useState } from "react";
 
 const Nav = () => {
     const router = useRouter();
     const pathname = usePathname();
     const isAniPhone = pathname === '/AniPhone';
+    const [isSignal, setIsSignal] = useState(false);
+
+    useEffect(() => {
+        if (localStorage.getItem('phoneNumber') !== null) {
+            setIsSignal(true);
+        }
+    }, []);
 
     return (
         <>
@@ -18,8 +27,11 @@ const Nav = () => {
                     </div>
                 </div>
                 <div className='flex items-center'>
+                    {isSignal && (
+                        <BiSignal5 className='mr-1 text-xl' />
+                    )}
                     <LiaBatteryFullSolid className='mr-1 mt-[2px] text-2xl' />
-                    <span className=''>100%</span>
+                    <span>100%</span>
                 </div>
             </div>
             <div className='absolute bottom-0 left-0 right-0 flex justify-between items-center text-white pb-1 mx-6'>

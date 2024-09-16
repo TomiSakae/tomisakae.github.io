@@ -17,6 +17,7 @@ const AniPhone = () => {
             window.localStorage.setItem('AniOS', '1.0');
             window.localStorage.setItem('ROM', '250');
             window.localStorage.setItem('RAM', '100');
+            window.localStorage.setItem('ROMused', '233');
         }
         const fetchBackgroundImage = async () => {
             setIsLoading(true);

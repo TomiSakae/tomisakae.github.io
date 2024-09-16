@@ -13,6 +13,7 @@ const DeviceInfoPage = () => {
     const [AniOS, setAniOS] = useState("1.0");
     const [textAniOS, setTextAniOS] = useState("Đang kiểm tra phiên bản...");
     const [ROM, setROM] = useState("250");
+    const [ROMused, setROMused] = useState("233");
     const [textROM, setTextROM] = useState("Đang kiểm tra...");
     const [RAM, setRAM] = useState("100");
     const [textRAM, setTextRAM] = useState("Đang kiểm tra...");
@@ -43,6 +44,7 @@ const DeviceInfoPage = () => {
                     window.localStorage.setItem('AniOS', '1.1');
                     window.localStorage.setItem('ROM', '350');
                     window.localStorage.setItem('RAM', '150');
+                    window.localStorage.setItem('ROMused', '250');
                     break;
 
                 default:
@@ -66,13 +68,14 @@ const DeviceInfoPage = () => {
         setAniOS(window.localStorage.getItem('AniOS') || '1.0');
         setROM(window.localStorage.getItem('ROM') || '250');
         setRAM(window.localStorage.getItem('RAM') || '100');
+        setROMused(window.localStorage.getItem('ROMused') || '233');
     }, []);
 
     useEffect(() => {
         setTextAniOS(`AniOS ${AniOS}`);
-        setTextROM(`233 MB/${ROM} MB`);
+        setTextROM(`${ROMused} MB/${ROM} MB`);
         setTextRAM(`${RAM} MB`);
-    }, [AniOS, ROM, RAM]);
+    }, [AniOS, ROM, RAM, ROMused]);
 
     return (
         <div className="h-screen bg-black text-white">
@@ -161,15 +164,15 @@ const DeviceInfoPage = () => {
                                 <ul className="mb-6 text-sm space-y-2">
                                     <li className="flex items-center">
                                         <span className="mr-2 text-green-500">✓</span>
-                                        Thêm hệ thống số dư
+                                        Thêm hệ thống sim
                                     </li>
                                     <li className="flex items-center">
                                         <span className="mr-2 text-green-500">✓</span>
-                                        Thêm ứng dụng AniChat
+                                        Thêm ứng dụng Tin nhắn
                                     </li>
                                     <li className="flex items-center">
                                         <span className="mr-2 text-green-500">✓</span>
-                                        Thêm hệ thống AniSim
+                                        Thêm hệ thống ứng dụng
                                     </li>
                                     <li className="flex items-center">
                                         <span className="mr-2 text-green-500">✓</span>
