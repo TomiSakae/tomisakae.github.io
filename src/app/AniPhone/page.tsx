@@ -8,9 +8,9 @@ import { useRouter } from 'next/navigation';
 const AniPhone = () => {
     const [backgroundImage, setBackgroundImage] = useState('');
     const [isLoading, setIsLoading] = useState(true);
-    // Thêm state mới
     const [showHomeScreen, setShowHomeScreen] = useState(false);
     const router = useRouter();
+    const [AniOS, setAniOS] = useState('1.0');
 
     useEffect(() => {
         if (window.localStorage.getItem('AniOS') === null) {
@@ -18,6 +18,9 @@ const AniPhone = () => {
             window.localStorage.setItem('ROM', '250');
             window.localStorage.setItem('RAM', '100');
             window.localStorage.setItem('ROMused', '233');
+        }
+        else {
+            setAniOS(window.localStorage.getItem('AniOS') || '1.0');
         }
         const fetchBackgroundImage = async () => {
             setIsLoading(true);
@@ -101,13 +104,22 @@ const AniPhone = () => {
             ) : (
                 <>
                     <Nav />
-                    <div className='absolute bottom-12 left-4 right-4 flex flex-row items-end text-white text-md font-[500] justify-between'>
+                    <div className='absolute bottom-12 left-4 flex flex-row items-end text-white text-md font-[500] gap-4'>
                         <div className='flex flex-col items-center cursor-pointer'>
                             <Image src="/setting.png" alt="Settings" width={64} height={64}
                                 onClick={() => router.push('/AniPhone/setting')}
                             />
                             <span>Cài đặt</span>
                         </div>
+                        {AniOS === '1.1' &&
+                            <div className='flex flex-col items-center cursor-pointer'>
+                                <Image src="/mes.png" alt="Message" width={57} height={57}
+                                    className='rounded-xl'
+                                    onClick={() => router.push('/AniPhone/mes')}
+                                />
+                                <span>Tin nhắn</span>
+                            </div>
+                        }
                     </div>
                 </>
             )}
