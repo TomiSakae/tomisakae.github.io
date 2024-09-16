@@ -113,7 +113,7 @@ const AniPhone = () => {
                         </div>
                         {AniOS === '1.1' &&
                             <div className='flex flex-col items-center cursor-pointer'>
-                                <Image src="/mes.png" alt="Message" width={57} height={57}
+                                <Image src="/mes.png" alt="Message" width={58} height={58}
                                     className='rounded-xl'
                                     onClick={() => router.push('/AniPhone/mes')}
                                 />
