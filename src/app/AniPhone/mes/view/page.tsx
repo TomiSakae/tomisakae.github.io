@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import Nav from '@/components/nav';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -13,7 +13,7 @@ interface Message {
     timestamp: Date;
 }
 
-const MessageViewPage = () => {
+const MessageContent = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const id = searchParams.get('id');
@@ -180,6 +180,14 @@ const MessageViewPage = () => {
                 </div>
             )}
         </div>
+    );
+};
+
+const MessageViewPage = () => {
+    return (
+        <Suspense>
+            <MessageContent />
+        </Suspense>
     );
 };
 
