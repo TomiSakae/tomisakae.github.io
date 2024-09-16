@@ -34,6 +34,13 @@ export default function Home() {
     return () => clearTimeout(timer2);
   }, []);
 
+  useEffect(() => {
+    if (window.localStorage.getItem('AniOS') !== null) {
+      router.push('/AniPhone');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const handleNext = () => {
     if (currentStep === setupComponents.length - 1) {
       router.push('/AniPhone');

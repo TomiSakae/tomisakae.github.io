@@ -16,6 +16,16 @@ const DeviceInfoPage = () => {
     const [textROM, setTextROM] = useState("Đang kiểm tra...");
     const [RAM, setRAM] = useState("100");
     const [textRAM, setTextRAM] = useState("Đang kiểm tra...");
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+    const handleDeleteData = () => {
+        setShowDeleteModal(false);
+        if (typeof window !== 'undefined') {
+            window.localStorage.clear();
+            window.sessionStorage.clear();
+            router.push('/');
+        }
+    };
 
     const startUpdate = () => {
         setIsUpdating(true);
@@ -43,7 +53,9 @@ const DeviceInfoPage = () => {
     };
 
     const handleUpdate = () => {
-        setShowUpdateModal(true);
+        if (AniOS === '1.0') {
+            setShowUpdateModal(true);
+        }
     };
 
     const closeModal = () => {
@@ -77,7 +89,7 @@ const DeviceInfoPage = () => {
                 <h2 className="text-lg font-[500]">Phiên Bản</h2>
                 <p className="text-md text-gray-300">{textAniOS}</p>
                 <button
-                    className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300"
+                    className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-xl transition duration-300"
                     onClick={handleUpdate}
                 >
                     Cập Nhật
@@ -104,6 +116,37 @@ const DeviceInfoPage = () => {
                     <p className="text-sm text-gray-300">{textRAM}</p>
                 </div>
             </div>
+            <div className="bg-[#1a1a1a] p-4 rounded-xl my-4 mx-4">
+                <h2 className="text-lg font-[500] mb-2">Xóa dữ liệu</h2>
+                <button
+                    className="bg-red-500 hover:bg-red-600 rounded-xl text-white font-bold py-2 px-4 transition duration-300"
+                    onClick={() => setShowDeleteModal(true)}
+                >
+                    Xóa tất cả dữ liệu
+                </button>
+            </div>
+            {showDeleteModal && (
+                <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center mx-4">
+                    <div className="bg-[#1a1a1a] p-8 rounded-2xl shadow-lg max-w-md w-full">
+                        <h2 className="text-2xl font-bold mb-6 text-center">Xác nhận xóa dữ liệu</h2>
+                        <p className="mb-6 text-lg text-center">Bạn có chắc chắn muốn xóa tất cả dữ liệu không?</p>
+                        <div className="flex justify-center space-x-4">
+                            <button
+                                className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                                onClick={() => setShowDeleteModal(false)}
+                            >
+                                Hủy
+                            </button>
+                            <button
+                                className="bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                                onClick={handleDeleteData}
+                            >
+                                Xác nhận
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
             {showUpdateModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center mx-4">
                     <div className="bg-[#1a1a1a] p-8 rounded-2xl shadow-lg max-w-md w-full">

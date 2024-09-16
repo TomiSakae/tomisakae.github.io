@@ -40,10 +40,10 @@ const SetUp1 = ({ onStart }: { onStart: () => void }) => {
                                     {selectedLanguage === 'Tiếng Việt' && <div className="w-3 h-3 rounded-full bg-blue-500" />}
                                 </div>
                             </li>
-                            <li className="flex items-center justify-between cursor-pointer hover:bg-gray-100 p-2" onClick={() => setSelectedLanguage('Tiếng Anime')}>
-                                <span>Tiếng Anime</span>
+                            <li className="flex items-center justify-between cursor-pointer hover:bg-gray-100 p-2" onClick={() => setSelectedLanguage('Tiếng Ani')}>
+                                <span>Tiếng Ani</span>
                                 <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
-                                    {selectedLanguage === 'Tiếng Anime' && <div className="w-3 h-3 rounded-full bg-blue-500" />}
+                                    {selectedLanguage === 'Tiếng Ani' && <div className="w-3 h-3 rounded-full bg-blue-500" />}
                                 </div>
                             </li>
                         </ul>
