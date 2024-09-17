@@ -16,11 +16,24 @@ const DecodeChallenge: React.FC<DecodeChallengeProps> = ({ onChallengeComplete, 
 
     const generateEncodedMessage = () => {
         const generateRandomMessage = (length: number) => {
-            const words = ['xin', 'chao', 'ban', 'tot', 'dep', 'vui', 'hoc', 'code', 'game', 'thich'];
+            const words = [
+                'xin', 'chao', 'ban', 'tot', 'dep', 'vui', 'hoc', 'code', 'game', 'thich',
+                'nhanh', 'cham', 'mau', 'xanh', 'do', 'vang', 'tim', 'trang', 'den', 'nau',
+                'lon', 'nho', 'cao', 'thap', 'rong', 'hep', 'day', 'mong', 'nhe', 'nang',
+                'sach', 'ban', 'ghe', 'cua', 'nha', 'cay', 'hoa', 'qua', 'com', 'canh',
+                'gio', 'mua', 'nang', 'may', 'bien', 'nui', 'song', 'ho', 'duong', 'pho',
+                'xe', 'dap', 'chay', 'nhay', 'mua', 'hat', 'cuoi', 'khoc', 'ngu', 'thuc',
+                'an', 'uong', 'noi', 'nghe', 'doc', 'viet', 'yeu', 'ghet', 'vui', 'buon',
+                'suy', 'nghi', 'mo', 'thuc', 'bay', 'boi', 'chim', 'ca', 'cho', 'meo',
+                'lon', 'ga', 'vit', 'trau', 'bo', 'ngua', 'de', 'cuu', 'khi', 'voi',
+                'cop', 'bao', 'ho', 'soi', 'tho', 'rua', 'ran', 'ech', 'nhim', 'chuot',
+                'ong', 'kien', 'buom', 'ruoi', 'muoi', 'gian', 'nhen', 'sau', 'giun', 'oc',
+                'sao', 'trang', 'nang', 'gio', 'may', 'mua', 'bao', 'set', 'sam', 'cau'
+            ];
             return Array.from({ length }, () => words[Math.floor(Math.random() * words.length)]).join(' ');
         };
 
-        const selectedMessage = generateRandomMessage(Math.floor(Math.random() * 3) + 2); // 2 đến 4 từ
+        const selectedMessage = generateRandomMessage(Math.floor(Math.random() * 5) + 3); // 3 đến 7 từ
         const methods = ['reverse', 'vowel', 'caesar'];
         const selectedMethod = methods[Math.floor(Math.random() * methods.length)];
 
