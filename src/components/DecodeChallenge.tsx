@@ -94,7 +94,7 @@ const DecodeChallenge: React.FC<DecodeChallengeProps> = ({ onChallengeComplete, 
                 setAttempts(0);
             } else {
                 setAttempts(prev => prev + 1);
-                if (attempts + 1 >= 3) {
+                if (attempts + 1 >= 1) {
                     let hint = '';
                     switch (encodeMethod) {
                         case 'reverse':
