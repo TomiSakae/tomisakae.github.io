@@ -9,6 +9,7 @@ const MessagesPage = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [messageContent, setMessageContent] = useState('');
     const [idMes, setIdMes] = useState(0);
+    const [showAdmin, setShowAdmin] = useState(false);
 
     useEffect(() => {
         const storedCheckNew = window.sessionStorage.getItem('mes');
@@ -20,6 +21,10 @@ const MessagesPage = () => {
         const storedPhoneNumber = window.localStorage.getItem('phoneNumber');
         if (storedPhoneNumber) {
             setPhoneNumber(storedPhoneNumber);
+        }
+        const aniOSVersion = window.localStorage.getItem('AniOS');
+        if (aniOSVersion && parseFloat(aniOSVersion) >= 1.2) {
+            setShowAdmin(true);
         }
     }, []);
 
@@ -64,6 +69,18 @@ const MessagesPage = () => {
                             </div>
                             <p className="text-gray-300 truncate">{messageContent}</p>
                         </div>
+                        {showAdmin && (
+                            <div
+                                className="bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition-all duration-300 cursor-pointer"
+                                onClick={() => router.push('/AniPhone/mes/admin')}
+                            >
+                                <div className="flex justify-between items-center mb-2">
+                                    <span className="font-semibold">Admin</span>
+                                    <span className="text-sm text-gray-400">{new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}</span>
+                                </div>
+                                <p className="text-gray-300 truncate">Các mẹo hữu ích!</p>
+                            </div>
+                        )}
                     </div>
                 ) : (
                     <div className="text-center">
