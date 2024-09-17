@@ -59,12 +59,36 @@ const Nav = () => {
             });
         }, 1000); // Update every second
 
-        // Check for wifiPlanId
-        if (window.localStorage.getItem('wifiPlanId') !== null) {
-            setHasWifi(true);
-        }
+        // Check for wifiPlanId and expiration
+        const checkWifiPlan = () => {
+            const savedPlanId = window.localStorage.getItem('wifiPlanId');
+            const purchaseDate = window.localStorage.getItem('wifiPlanPurchaseDate');
+            if (savedPlanId && purchaseDate) {
+                const expirationDate = new Date(purchaseDate);
+                expirationDate.setDate(expirationDate.getDate() + 30);
+                const today = new Date();
+                const remainingDays = Math.ceil((expirationDate.getTime() - today.getTime()) / (1000 * 3600 * 24));
 
-        return () => clearInterval(interval);
+                if (remainingDays <= 0) {
+                    // Plan has expired, cancel it
+                    window.localStorage.removeItem('wifiPlanId');
+                    window.localStorage.removeItem('wifiPlanPurchaseDate');
+                    setHasWifi(false);
+                } else {
+                    setHasWifi(true);
+                }
+            } else {
+                setHasWifi(false);
+            }
+        };
+
+        checkWifiPlan();
+        const wifiCheckInterval = setInterval(checkWifiPlan, 60000); // Check every minute
+
+        return () => {
+            clearInterval(interval);
+            clearInterval(wifiCheckInterval);
+        };
     }, [usageDuration, router]);
 
     const getBatteryIcon = () => {
