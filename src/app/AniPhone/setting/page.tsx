@@ -27,7 +27,7 @@ const SettingsPage = () => {
                     <h1 className="text-3xl font-[600] mx-2">Cài đặt</h1>
                 </div>
                 {
-                    AniOS === '1.1' && (
+                    parseFloat(AniOS) >= 1.1 && (
                         <>
                             <div className="p-4 hover:bg-gray-800 rounded-lg transition-all duration-300 mb-4">
                                 <div

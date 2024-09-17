@@ -111,7 +111,7 @@ const AniPhone = () => {
                             />
                             <span>Cài đặt</span>
                         </div>
-                        {AniOS === '1.1' &&
+                        {parseFloat(AniOS) >= 1.1 &&
                             <div className='flex flex-col items-center cursor-pointer mb-[1px]'>
                                 <Image src="/mes.png" alt="Message" width={57} height={57}
                                     className='rounded-xl'

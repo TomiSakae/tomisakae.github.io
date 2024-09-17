@@ -18,6 +18,7 @@ const DeviceInfoPage = () => {
     const [RAM, setRAM] = useState("100");
     const [textRAM, setTextRAM] = useState("Đang kiểm tra...");
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [userBalance, setUserBalance] = useState(0);
 
     const handleDeleteData = () => {
         setShowDeleteModal(false);
@@ -29,8 +30,18 @@ const DeviceInfoPage = () => {
     };
 
     const startUpdate = () => {
+        const updateInfo = getUpdateInfo();
+        if (!updateInfo) return;
+
+        const balance = parseInt(window.localStorage.getItem('balance') || '0');
+        if (balance < updateInfo.fee) {
+            return;
+        }
+
         setIsUpdating(true);
         setTimeout(() => {
+            const newBalance = balance - updateInfo.fee;
+            window.localStorage.setItem('balance', newBalance.toString());
             setIsUpdating(false);
             setIsUpdateComplete(true);
         }, 3000);
@@ -39,25 +50,33 @@ const DeviceInfoPage = () => {
     const handleRestart = () => {
         if (typeof window !== 'undefined') {
             window.sessionStorage.removeItem('backgroundImageUrl');
-            switch (AniOS) {
-                case '1.0':
-                    window.localStorage.setItem('AniOS', '1.1');
-                    window.localStorage.setItem('ROM', '350');
-                    window.localStorage.setItem('RAM', '150');
-                    window.localStorage.setItem('ROMused', '250');
-                    break;
+            const currentVersion = window.localStorage.getItem('AniOS') || '1.0';
+            const updates: Record<string, { AniOS: string; ROM: string; RAM: string; ROMused: string }> = {
+                '1.0': {
+                    AniOS: '1.1',
+                    ROM: '350',
+                    RAM: '150',
+                    ROMused: '250'
+                },
+                '1.1': {
+                    AniOS: '1.2',
+                    ROM: '500',
+                    RAM: '200',
+                    ROMused: '300'
+                }
+            };
 
-                default:
-                    break;
+            if (currentVersion in updates) {
+                Object.entries(updates[currentVersion as keyof typeof updates]).forEach(([key, value]) => {
+                    window.localStorage.setItem(key, value.toString());
+                });
             }
         }
         router.push('/AniPhone');
     };
 
     const handleUpdate = () => {
-        if (AniOS === '1.0') {
-            setShowUpdateModal(true);
-        }
+        setShowUpdateModal(true);
     };
 
     const closeModal = () => {
@@ -69,6 +88,8 @@ const DeviceInfoPage = () => {
         setROM(window.localStorage.getItem('ROM') || '250');
         setRAM(window.localStorage.getItem('RAM') || '100');
         setROMused(window.localStorage.getItem('ROMused') || '233');
+        const balance = parseInt(window.localStorage.getItem('balance') || '0');
+        setUserBalance(balance);
     }, []);
 
     useEffect(() => {
@@ -76,6 +97,49 @@ const DeviceInfoPage = () => {
         setTextROM(`${ROMused} MB/${ROM} MB`);
         setTextRAM(`${RAM} MB`);
     }, [AniOS, ROM, RAM, ROMused]);
+
+    const getUpdateInfo = () => {
+        const currentVersion = AniOS as '1.0' | '1.1';
+        const updateInfo: Record<'1.0' | '1.1', { version: string; features: string[]; fee: number }> = {
+            '1.0': {
+                version: '1.1',
+                features: [
+                    'Thêm hệ thống sim',
+                    'Thêm ứng dụng Tin nhắn',
+                    'Thêm hệ thống ứng dụng',
+                    'Tăng thêm 100 MB dung lượng',
+                    'Tăng thêm 50 MB RAM'
+                ],
+                fee: 0
+            },
+            '1.1': {
+                version: '1.2',
+                features: [
+                    'Thêm hệ thống wifi',
+                    'Thêm ứng dụng Trình duyệt',
+                    'Thêm hệ thống pin',
+                    'Tăng thêm 150 MB dung lượng',
+                    'Tăng thêm 50 MB RAM'
+                ],
+                fee: 100000
+            }
+        };
+        return updateInfo[currentVersion] || null;
+    };
+
+    const isSufficientBalance = () => {
+        const updateInfo = getUpdateInfo();
+        return updateInfo ? userBalance >= updateInfo.fee : false;
+    };
+
+    const handleUpdateButtonClick = () => {
+        const updateInfo = getUpdateInfo();
+        if (!updateInfo) {
+            closeModal();
+        } else if (isSufficientBalance()) {
+            startUpdate();
+        }
+    };
 
     return (
         <div className="h-screen bg-black text-white">
@@ -155,52 +219,57 @@ const DeviceInfoPage = () => {
                     <div className="bg-[#1a1a1a] p-8 rounded-2xl shadow-lg max-w-md w-full">
                         <h2 className="text-2xl font-bold mb-6 text-center">Cập Nhật Phần Mềm</h2>
                         {!isUpdating && !isUpdateComplete ? (
-                            <p className="mb-4 text-lg font-semibold">Phiên bản AniOS 1.1:</p>
-                        ) : (
-                            <p className="mb-4 text-lg font-semibold text-center">Phiên bản AniOS 1.1</p>
-                        )}
-                        {!isUpdating && !isUpdateComplete && (
                             <>
-                                <ul className="mb-6 text-sm space-y-2">
-                                    <li className="flex items-center">
-                                        <span className="mr-2 text-green-500">✓</span>
-                                        Thêm hệ thống sim
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="mr-2 text-green-500">✓</span>
-                                        Thêm ứng dụng Tin nhắn
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="mr-2 text-green-500">✓</span>
-                                        Thêm hệ thống ứng dụng
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="mr-2 text-green-500">✓</span>
-                                        Tăng thêm 100 MB dung lượng
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="mr-2 text-green-500">✓</span>
-                                        Tăng thêm 50 MB RAM
-                                    </li>
-                                </ul>
-                                <p className="mb-6 text-lg font-bold text-center text-green-500">Phí cập nhật: 0đ</p>
+                                {getUpdateInfo() ? (
+                                    <>
+                                        <p className="mb-4 text-lg font-semibold">Phiên bản AniOS {getUpdateInfo().version}:</p>
+                                        <ul className="mb-6 text-sm space-y-2">
+                                            {getUpdateInfo().features.map((feature, index) => (
+                                                <li key={index} className="flex items-center">
+                                                    <span className="mr-2 text-green-500">✓</span>
+                                                    {feature}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <p className={`mb-6 text-lg font-bold text-center ${isSufficientBalance() ? 'text-green-500' : 'text-red-500'}`}>
+                                            Phí cập nhật: {getUpdateInfo().fee.toLocaleString()}đ
+                                        </p>
+                                    </>
+                                ) : (
+                                    <p className="mb-6 text-lg text-center">Không có bản cập nhật mới.</p>
+                                )}
                             </>
+                        ) : (
+                            <p className="mb-4 text-lg font-semibold text-center">Phiên bản AniOS {getUpdateInfo()?.version}</p>
                         )}
                         <div className="flex justify-center space-x-4">
                             {!isUpdating && !isUpdateComplete && (
                                 <>
-                                    <button
-                                        className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full transition duration-300"
-                                        onClick={closeModal}
-                                    >
-                                        Hủy
-                                    </button>
-                                    <button
-                                        className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-full transition duration-300"
-                                        onClick={startUpdate}
-                                    >
-                                        Xác nhận
-                                    </button>
+                                    {getUpdateInfo() ? (
+                                        <>
+                                            <button
+                                                className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                                                onClick={closeModal}
+                                            >
+                                                Hủy
+                                            </button>
+                                            {isSufficientBalance() && (
+                                                <button
+                                                    className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                                                    onClick={handleUpdateButtonClick}
+                                                >
+                                                    Xác nhận
+                                                </button>
+                                            )}
+                                        </>
+                                    ) : (
+                                        <button
+                                            className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                                            onClick={closeModal}
+                                        >
+                                            Đóng
+                                        </button>
+                                    )}
                                 </>
                             )}
                             {isUpdating && (
