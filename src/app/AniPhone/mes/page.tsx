@@ -28,6 +28,7 @@ const MessagesPage = () => {
             'Cần giải giúp 1 bài toán!',
             'Cần giúp đặt mật khẩu!',
             'Hãy nhập mã captcha giúp tôi!',
+            'Hãy giúp tôi giải mã tin nhắn!',
         ];
         const randomIndex = Math.floor(Math.random() * messages.length);
         if (typeof window !== 'undefined') {

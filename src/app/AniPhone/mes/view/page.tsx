@@ -8,6 +8,7 @@ import { IoMdSend } from "react-icons/io";
 import PasswordChallengeComponent from '@/components/PasswordChallenge';
 import MathChallenge from '@/components/MathChallenge';
 import CaptchaChallenge from '@/components/CaptchaChallenge';
+import DecodeChallenge from '@/components/DecodeChallenge';
 
 interface Message {
     id: number;
@@ -33,6 +34,7 @@ const MessageContent = () => {
     const [showPasswordChallenge, setShowPasswordChallenge] = useState(false);
     const [showMathChallenge, setShowMathChallenge] = useState(false);
     const [showCaptchaChallenge, setShowCaptchaChallenge] = useState(false);
+    const [showDecodeChallenge, setShowDecodeChallenge] = useState(false);
     const initialChallengeSet = useRef(false);
 
     const scrollToBottom = () => {
@@ -54,6 +56,11 @@ const MessageContent = () => {
                 { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi nhập mã CAPTCHA sau: ', timestamp: new Date() },
             ]);
             setShowCaptchaChallenge(true);
+        } else if (id === '3') {
+            setMessages([
+                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi giải mã tin nhắn sau: ', timestamp: new Date() },
+            ]);
+            setShowDecodeChallenge(true);
         }
         // ... handle other cases if necessary
     }, [id]);
@@ -83,6 +90,7 @@ const MessageContent = () => {
         setShowMathChallenge(false);
         setShowPasswordChallenge(false);
         setShowCaptchaChallenge(false);
+        setShowDecodeChallenge(false);
     };
 
     const handleMathMessage = (message: { sender: string; content: string }) => {
@@ -158,7 +166,13 @@ const MessageContent = () => {
                             onMessage={handleMessage}
                         />
                     )}
-                    {!showMathChallenge && !showPasswordChallenge && !showCaptchaChallenge && (
+                    {showDecodeChallenge && (
+                        <DecodeChallenge
+                            onChallengeComplete={handleChallengeComplete}
+                            onMessage={handleMessage}
+                        />
+                    )}
+                    {!showMathChallenge && !showPasswordChallenge && !showCaptchaChallenge && !showDecodeChallenge && (
                         <div className="flex items-center">
                             <input
                                 type="text"
