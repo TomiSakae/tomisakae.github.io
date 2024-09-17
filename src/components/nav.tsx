@@ -1,4 +1,4 @@
-import { LiaBatteryFullSolid } from "react-icons/lia";
+import { LiaBatteryFullSolid, LiaBatteryThreeQuartersSolid, LiaBatteryHalfSolid, LiaBatteryQuarterSolid, LiaBatteryEmptySolid } from "react-icons/lia";
 import { FaRegSquare } from "react-icons/fa6";
 import { CiMenuBurger } from "react-icons/ci";
 import { RiPlayReverseLargeLine } from "react-icons/ri";
@@ -11,12 +11,63 @@ const Nav = () => {
     const pathname = usePathname();
     const isAniPhone = pathname === '/AniPhone';
     const [isSignal, setIsSignal] = useState(false);
+    const [batteryPercentage, setBatteryPercentage] = useState(100);
+    const [usageDuration, setUsageDuration] = useState(0);
+    const [showLowBatteryModal, setShowLowBatteryModal] = useState(false);
 
     useEffect(() => {
-        if (localStorage.getItem('phoneNumber') !== null) {
+        if (window.localStorage.getItem('phoneNumber') !== null) {
             setIsSignal(true);
         }
-    }, []);
+
+        // Load battery percentage and usage duration from localStorage
+        const storedBattery = window.localStorage.getItem('batteryPercentage');
+        const storedUsage = window.localStorage.getItem('usageDuration');
+
+        if (storedBattery) setBatteryPercentage(parseInt(storedBattery));
+        if (storedUsage) setUsageDuration(parseInt(storedUsage));
+
+        // Start tracking usage time and updating battery
+        const interval = setInterval(() => {
+            setUsageDuration(prevDuration => {
+                const newDuration = prevDuration + 1;
+                window.localStorage.setItem('usageDuration', newDuration.toString());
+                return newDuration;
+            });
+
+            setBatteryPercentage(prevBattery => {
+                // Giảm pin 1% mỗi 60 giây
+                if (prevBattery > 0 && usageDuration % 60 === 0) {
+                    const newBattery = prevBattery - 1;
+                    window.localStorage.setItem('batteryPercentage', newBattery.toString());
+
+                    // Kiểm tra nếu pin còn 5% thì hiện modal
+                    if (newBattery === 5) {
+                        setShowLowBatteryModal(true);
+                    }
+
+                    // Thêm điều kiện để chuyển hướng khi pin 0%
+                    if (newBattery === 0) {
+                        router.push('/shutdown');
+                    }
+
+                    return newBattery;
+                }
+                return prevBattery;
+            });
+        }, 1000); // Update every second
+
+        return () => clearInterval(interval);
+    }, [usageDuration, router]);
+
+    const getBatteryIcon = () => {
+        const iconClass = batteryPercentage <= 20 ? 'text-red-500' : '';
+        if (batteryPercentage > 75) return <LiaBatteryFullSolid className={`mr-1 mt-[2px] text-2xl ${iconClass}`} />;
+        if (batteryPercentage > 50) return <LiaBatteryThreeQuartersSolid className={`mr-1 mt-[2px] text-2xl ${iconClass}`} />;
+        if (batteryPercentage > 25) return <LiaBatteryHalfSolid className={`mr-1 mt-[2px] text-2xl ${iconClass}`} />;
+        if (batteryPercentage > 10) return <LiaBatteryQuarterSolid className={`mr-1 mt-[2px] text-2xl ${iconClass}`} />;
+        return <LiaBatteryEmptySolid className={`mr-1 mt-[2px] text-2xl ${iconClass}`} />;
+    };
 
     return (
         <>
@@ -30,8 +81,8 @@ const Nav = () => {
                     {isSignal && (
                         <BiSignal5 className='mr-1 text-xl' />
                     )}
-                    <LiaBatteryFullSolid className='mr-1 mt-[2px] text-2xl' />
-                    <span>100%</span>
+                    {getBatteryIcon()}
+                    <span className={batteryPercentage <= 20 ? 'text-red-500' : ''}>{batteryPercentage}%</span>
                 </div>
             </div>
             <div className='absolute bottom-0 left-0 right-0 flex justify-between items-center text-white pb-1 mx-6'>
@@ -59,6 +110,20 @@ const Nav = () => {
                     </div>
                 </div>
             </div>
+            {showLowBatteryModal && (
+                <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+                    <div className="bg-[#1a1a1a] p-6 rounded-lg text-white">
+                        <h2 className="text-xl font-bold mb-4">Cảnh báo pin yếu</h2>
+                        <p className="mb-4">Pin của bạn còn 5%. Vui lòng sạc pin ngay.</p>
+                        <button
+                            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition duration-300"
+                            onClick={() => setShowLowBatteryModal(false)}
+                        >
+                            Đóng
+                        </button>
+                    </div>
+                </div>
+            )}
         </>
     );
 };

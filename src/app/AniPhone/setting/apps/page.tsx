@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Nav from '@/components/nav';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useRouter } from 'next/navigation';
@@ -8,11 +8,25 @@ import Image from 'next/image';
 
 const AppsPage = () => {
     const router = useRouter();
-    const [apps] = useState([
+    const [apps, setApps] = useState([
         { name: 'AniOS', icon: null, size: '228 MB' },
         { name: 'Cài đặt', icon: '/setting.png', size: '12 MB' },
         { name: 'Tin nhắn', icon: '/mes.png', size: '10 MB' },
     ]);
+
+    useEffect(() => {
+        const aniosVersion = window.localStorage.getItem('AniOS');
+
+        setApps(prevApps => prevApps.map(app => {
+            if (app.name === 'AniOS') {
+                return {
+                    ...app,
+                    size: aniosVersion === '1.1' ? '228 MB' : '258 MB'
+                };
+            }
+            return app;
+        }));
+    }, []);
 
     return (
         <div className="h-screen bg-black text-white">
