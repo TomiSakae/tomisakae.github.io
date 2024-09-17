@@ -12,21 +12,32 @@ const AppsPage = () => {
         { name: 'AniOS', icon: null, size: '228 MB' },
         { name: 'Cài đặt', icon: '/setting.webp', size: '12 MB' },
         { name: 'Tin nhắn', icon: '/mes.webp', size: '10 MB' },
-        { name: 'Trình duyệt', icon: '/browser.webp', size: '20 MB' },
     ]);
 
     useEffect(() => {
         const aniosVersion = window.localStorage.getItem('AniOS');
 
-        setApps(prevApps => prevApps.map(app => {
-            if (app.name === 'AniOS') {
-                return {
-                    ...app,
-                    size: aniosVersion === '1.1' ? '228 MB' : '258 MB'
-                };
+        setApps(prevApps => {
+            const updatedApps = prevApps.map(app => {
+                if (app.name === 'AniOS') {
+                    return {
+                        ...app,
+                        size: aniosVersion === '1.1' ? '228 MB' : '258 MB'
+                    };
+                }
+                return app;
+            });
+
+            // Kiểm tra xem trình duyệt đã tồn tại chưa
+            const browserExists = updatedApps.some(app => app.name === 'Trình duyệt');
+
+            // Thêm ứng dụng trình duyệt nếu phiên bản AniOS >= 1.2 và trình duyệt chưa tồn tại
+            if (aniosVersion && parseFloat(aniosVersion) >= 1.2 && !browserExists) {
+                updatedApps.push({ name: 'Trình duyệt', icon: '/browser.webp', size: '20 MB' });
             }
-            return app;
-        }));
+
+            return updatedApps;
+        });
     }, []);
 
     return (
