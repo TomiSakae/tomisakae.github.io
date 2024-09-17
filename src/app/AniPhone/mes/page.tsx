@@ -50,7 +50,7 @@ const MessagesPage = () => {
             <Nav />
             <div className="p-4 mx-4">
                 <div className="flex items-center mb-6">
-                    <h1 className="text-xl font-[600] mx-2">Tin nhắn</h1>
+                    <h1 className="text-3xl font-[600] mx-2">Tin nhắn</h1>
                 </div>
                 {phoneNumber ? (
                     <div className="space-y-4">

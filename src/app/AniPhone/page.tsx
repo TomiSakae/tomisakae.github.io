@@ -104,20 +104,30 @@ const AniPhone = () => {
             ) : (
                 <>
                     <Nav />
-                    <div className='absolute bottom-12 left-4 flex flex-row items-end text-white text-md font-[500] gap-4'>
-                        <div className='flex flex-col items-center cursor-pointer'>
-                            <Image src="/setting.png" alt="Settings" width={64} height={64}
+                    <div className='absolute bottom-12 left-4 flex flex-row items-start text-white text-md font-[500] gap-8'>
+                        <div className='flex flex-col items-center cursor-pointer w-14'>
+                            <Image src="/setting.webp" alt="Settings" width={56} height={56}
+                                className='rounded-xl'
                                 onClick={() => router.push('/AniPhone/setting')}
                             />
-                            <span>Cài đặt</span>
+                            <span className='text-center truncate'>Cài đặt</span>
                         </div>
                         {parseFloat(AniOS) >= 1.1 &&
-                            <div className='flex flex-col items-center cursor-pointer mb-[1px]'>
-                                <Image src="/mes.png" alt="Message" width={57} height={57}
+                            <div className='flex flex-col items-center cursor-pointer w-14'>
+                                <Image src="/mes.webp" alt="Message" width={56} height={56}
                                     className='rounded-xl'
                                     onClick={() => router.push('/AniPhone/mes')}
                                 />
-                                <span>Tin nhắn</span>
+                                <span className='text-center truncate'>Tin nhắn</span>
+                            </div>
+                        }
+                        {parseFloat(AniOS) >= 1.2 &&
+                            <div className='flex flex-col items-center cursor-pointer w-14'>
+                                <Image src="/browser.webp" alt="Browser" width={56} height={56}
+                                    className='rounded-xl'
+                                    onClick={() => router.push('/AniPhone/browser')}
+                                />
+                                <span className='text-center truncate'>Trình duyệt</span>
                             </div>
                         }
                     </div>

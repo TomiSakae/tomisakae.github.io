@@ -10,8 +10,9 @@ const AppsPage = () => {
     const router = useRouter();
     const [apps, setApps] = useState([
         { name: 'AniOS', icon: null, size: '228 MB' },
-        { name: 'Cài đặt', icon: '/setting.png', size: '12 MB' },
-        { name: 'Tin nhắn', icon: '/mes.png', size: '10 MB' },
+        { name: 'Cài đặt', icon: '/setting.webp', size: '12 MB' },
+        { name: 'Tin nhắn', icon: '/mes.webp', size: '10 MB' },
+        { name: 'Trình duyệt', icon: '/browser.webp', size: '20 MB' },
     ]);
 
     useEffect(() => {
