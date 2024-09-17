@@ -5,6 +5,7 @@ import { RiPlayReverseLargeLine } from "react-icons/ri";
 import { useRouter, usePathname } from 'next/navigation';
 import { BiSignal5 } from "react-icons/bi";
 import { useEffect, useState } from "react";
+import { IoWifiOutline } from "react-icons/io5";
 
 const Nav = () => {
     const router = useRouter();
@@ -14,6 +15,7 @@ const Nav = () => {
     const [batteryPercentage, setBatteryPercentage] = useState(100);
     const [usageDuration, setUsageDuration] = useState(0);
     const [showLowBatteryModal, setShowLowBatteryModal] = useState(false);
+    const [hasWifi, setHasWifi] = useState(false);
 
     useEffect(() => {
         if (window.localStorage.getItem('phoneNumber') !== null) {
@@ -57,6 +59,11 @@ const Nav = () => {
             });
         }, 1000); // Update every second
 
+        // Check for wifiPlanId
+        if (window.localStorage.getItem('wifiPlanId') !== null) {
+            setHasWifi(true);
+        }
+
         return () => clearInterval(interval);
     }, [usageDuration, router]);
 
@@ -78,6 +85,9 @@ const Nav = () => {
                     </div>
                 </div>
                 <div className='flex items-center'>
+                    {hasWifi && (
+                        <IoWifiOutline className='mr-1 text-xl' />
+                    )}
                     {isSignal && (
                         <BiSignal5 className='mr-1 text-xl' />
                     )}
