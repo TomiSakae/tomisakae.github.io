@@ -1,16 +1,22 @@
 'use client'
 
-import { useState, useEffect, useRef, Suspense } from 'react';
+import { useState, useEffect, useRef, Suspense, useCallback } from 'react';
 import Nav from '@/components/nav';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { IoMdSend } from "react-icons/io";
+import PasswordChallengeComponent from '@/components/PasswordChallenge';
+import MathChallenge from '@/components/MathChallenge';
 
 interface Message {
     id: number;
     sender: string;
     content: string;
     timestamp: Date;
+}
+
+interface Challenge {
+    description: string;
 }
 
 const MessageContent = () => {
@@ -20,75 +26,34 @@ const MessageContent = () => {
     const [messages, setMessages] = useState<Message[]>([]);
     const [idMessage, setIdMessage] = useState(0);
     const [money, setMoney] = useState(0);
-
     const [newMessage, setNewMessage] = useState('');
     const messagesEndRef = useRef<HTMLDivElement>(null);
-    const [currentAnswer, setCurrentAnswer] = useState('');
-    const [passwordChallenge, setPasswordChallenge] = useState('');
+    const [, setCurrentChallenge] = useState<Challenge | null>(null);
+    const [showPasswordChallenge, setShowPasswordChallenge] = useState(false);
+    const initialChallengeSet = useRef(false);
+    const [showMathChallenge, setShowMathChallenge] = useState(false);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
     useEffect(() => {
-        switch (id) {
-            case '0':
-                setMessages([
-                    { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi giải quyết bài toán sau: ', timestamp: new Date() },
-                ]);
-                break;
-            case '1':
-                setMessages([
-                    { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi đặt mật khẩu với điều kiện sau: ', timestamp: new Date() },
-                ]);
-                break;
+        if (id === '0') {
+            setMessages([
+                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi giải quyết bài toán sau: ', timestamp: new Date() },
+            ]);
+            setShowMathChallenge(true);
+        } else if (id === '1') {
+            setMessages([
+                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi đặt mật khẩu với điều kiện sau: ', timestamp: new Date() },
+            ]);
         }
-    }, [id]);
-
-    useEffect(() => {
-        if (id === '1') {
-            const challenges = [
-                'Mật khẩu phải có ít nhất 8 ký tự.',
-                'Mật khẩu phải có ít nhất một chữ hoa.',
-                'Mật khẩu phải có ít nhất một ký tự đặc biệt (!@#$%^&*(),.?":{}|<>).'
-            ];
-            const randomChallenge = challenges[Math.floor(Math.random() * challenges.length)];
-            setPasswordChallenge(randomChallenge);
-        }
+        // ... handle other cases if necessary
     }, [id]);
 
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
-
-    const generateMathProblem = () => {
-        const operators = ['+', '-', '*', '/'];
-        const num1 = Math.floor(Math.random() * 90) + 10; // Random number between 10-99
-        const num2 = Math.floor(Math.random() * 90) + 10; // Random number between 10-99
-        const operator = operators[Math.floor(Math.random() * operators.length)];
-
-        let problem = `${num1} ${operator} ${num2}`;
-        let answer;
-
-        switch (operator) {
-            case '+':
-                answer = num1 + num2;
-                break;
-            case '-':
-                answer = num1 - num2;
-                break;
-            case '*':
-                answer = num1 * num2;
-                break;
-            case '/':
-                // Ensure division results in a whole number
-                answer = num1;
-                problem = `${num1 * num2} ${operator} ${num2}`;
-                break;
-        }
-
-        return { problem, answer: answer?.toString() };
-    };
 
     const handleSendMessage = () => {
         if (newMessage.trim()) {
@@ -96,92 +61,46 @@ const MessageContent = () => {
             setMessages([...messages, userMessage]);
             setNewMessage('');
 
-            switch (id) {
-                case '0':
-                    switch (idMessage) {
-                        case 0:
-                            const { problem, answer } = generateMathProblem();
-                            setTimeout(() => {
-                                const responseMessage2 = { id: messages.length + 3, sender: 'Người lạ', content: `${problem} = ?`, timestamp: new Date() };
-                                setMessages(prevMessages => [...prevMessages, responseMessage2]);
-                            }, 1000);
-                            setIdMessage(idMessage + 1);
-                            setCurrentAnswer(answer || '');
-                            break;
-                        case 1:
-                            if (newMessage.trim() === currentAnswer) {
-                                setTimeout(() => {
-                                    const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Chúa ơi! Bạn đã giải đúng bài toán rồi! Đây là 5.000 đ cho bạn.', timestamp: new Date() };
-                                    setMessages(prevMessages => [...prevMessages, responseMessage1]);
-                                    setMoney(money + 5000);
-                                    if (typeof window !== 'undefined') {
-                                        window.sessionStorage.setItem('mes', 'true');
-                                        const currentBalance = parseInt(window.localStorage.getItem('balance') || '0', 10);
-                                        window.localStorage.setItem('balance', (currentBalance + 5000).toString());
-                                    }
-                                }, 1000);
-                                setIdMessage(idMessage + 1);
-                            } else {
-                                setTimeout(() => {
-                                    const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Rất tiếc, câu trả lời của bạn chưa chính xác. Hãy thử lại!', timestamp: new Date() };
-                                    setMessages(prevMessages => [...prevMessages, responseMessage1]);
-                                }, 1000);
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-
-                case '1':
-                    switch (idMessage) {
-                        case 0:
-                            setTimeout(() => {
-                                const responseMessage2 = { id: messages.length + 3, sender: 'Người lạ', content: `${passwordChallenge}`, timestamp: new Date() };
-                                setMessages(prevMessages => [...prevMessages, responseMessage2]);
-                            }, 1000);
-                            setIdMessage(idMessage + 1);
-                            break;
-                        case 1:
-                            const isValidPassword = (password: string) => {
-                                switch (passwordChallenge) {
-                                    case 'Mật khẩu phải có ít nhất 8 ký tự.':
-                                        return password.length >= 8;
-                                    case 'Mật khẩu phải có ít nhất một chữ hoa.':
-                                        return /[A-Z]/.test(password);
-                                    case 'Mật khẩu phải có ít nhất một ký tự đặc biệt (!@#$%^&*(),.?":{}|<>).':
-                                        return /[!@#$%^&*(),.?":{}|<>]/.test(password);
-                                    default:
-                                        return false;
-                                }
-                            };
-
-                            if (isValidPassword(newMessage.trim())) {
-                                setTimeout(() => {
-                                    const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: 'Tuyệt vời! Mật khẩu của bạn đáp ứng yêu cầu. Đây là 5.000 đ cho bạn.', timestamp: new Date() };
-                                    setMessages(prevMessages => [...prevMessages, responseMessage1]);
-                                    setMoney(money + 5000);
-                                    if (typeof window !== 'undefined') {
-                                        window.sessionStorage.setItem('mes', 'true');
-                                        const currentBalance = parseInt(window.localStorage.getItem('balance') || '0', 10);
-                                        window.localStorage.setItem('balance', (currentBalance + 5000).toString());
-                                    }
-                                }, 1000);
-                                setIdMessage(idMessage + 1);
-                            } else {
-                                setTimeout(() => {
-                                    const responseMessage1 = { id: messages.length + 2, sender: 'Người lạ', content: `Mật khẩu chưa đáp ứng yêu cầu. Hãy thử lại!`, timestamp: new Date() };
-                                    setMessages(prevMessages => [...prevMessages, responseMessage1]);
-                                }, 1000);
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-            }
+            // Remove the switch statement here as we're showing the challenge immediately
         }
     };
+
+    const handleChallengeComplete = (reward: number) => {
+        setMoney(prevMoney => prevMoney + reward);
+        if (typeof window !== 'undefined') {
+            window.sessionStorage.setItem('mes', 'true');
+            const currentBalance = parseInt(window.localStorage.getItem('balance') || '0', 10);
+            window.localStorage.setItem('balance', (currentBalance + reward).toString());
+        }
+        setIdMessage(idMessage + 1);
+        setShowMathChallenge(false);
+        setShowPasswordChallenge(false);
+    };
+
+    const handleMathMessage = (message: { sender: string; content: string }) => {
+        setMessages(prevMessages => [...prevMessages, { id: prevMessages.length + 1, ...message, timestamp: new Date() }]);
+    };
+
+    const handleMessage = (message: { sender: string; content: string }) => {
+        setMessages(prevMessages => [...prevMessages, { id: prevMessages.length + 1, ...message, timestamp: new Date() }]);
+    };
+
+    const handleInitialChallenge = useCallback((challenge: Challenge) => {
+        if (!initialChallengeSet.current) {
+            setCurrentChallenge(challenge);
+            handleMessage({ sender: 'Người lạ', content: challenge.description });
+            initialChallengeSet.current = true;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        if (id === '1' && idMessage === 0 && !showPasswordChallenge) {
+            setShowPasswordChallenge(true);
+            setIdMessage(1);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [id, idMessage]);
 
     return (
         <div className="h-screen bg-black text-white flex flex-col">
@@ -207,26 +126,41 @@ const MessageContent = () => {
             </div>
             {money !== 0 ? (
                 <div className="p-4 border-t border-gray-700 mb-8 text-center">
-                    <p className="text-green-500 font-semibold">Bạn đã nhận được 5.000 đ</p>
+                    <p className="text-green-500 font-semibold">Bạn đã nhận được {money.toLocaleString()} đ</p>
                     <p className="text-gray-400 mt-2">Cuộc trò chuyện đã kết thúc</p>
                 </div>
             ) : (
                 <div className="p-4 border-t border-gray-700 mb-8">
-                    <div className="flex items-center">
-                        <input
-                            type="text"
-                            value={newMessage}
-                            onChange={(e) => setNewMessage(e.target.value)}
-                            placeholder="Nhập tin nhắn..."
-                            className="flex-grow bg-gray-800 text-white p-2 rounded-lg focus:outline-none"
+                    {showMathChallenge && (
+                        <MathChallenge
+                            onChallengeComplete={handleChallengeComplete}
+                            onMessage={handleMathMessage}
                         />
-                        <button
-                            onClick={handleSendMessage}
-                            className="bg-blue-500 text-white p-2 rounded-lg ml-2"
-                        >
-                            <IoMdSend className='text-2xl' />
-                        </button>
-                    </div>
+                    )}
+                    {showPasswordChallenge && (
+                        <PasswordChallengeComponent
+                            onChallengeComplete={handleChallengeComplete}
+                            onMessage={handleMessage}
+                            onInitialChallenge={handleInitialChallenge}
+                        />
+                    )}
+                    {!showMathChallenge && !showPasswordChallenge && (
+                        <div className="flex items-center">
+                            <input
+                                type="text"
+                                value={newMessage}
+                                onChange={(e) => setNewMessage(e.target.value)}
+                                placeholder="Nhập tin nhắn..."
+                                className="flex-grow bg-gray-800 text-white p-2 rounded-lg focus:outline-none"
+                            />
+                            <button
+                                onClick={handleSendMessage}
+                                className="bg-blue-500 text-white p-2 rounded-lg ml-2"
+                            >
+                                <IoMdSend className='text-2xl' />
+                            </button>
+                        </div>
+                    )}
                 </div>
             )}
         </div>
