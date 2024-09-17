@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { IoMdSend } from "react-icons/io";
 import PasswordChallengeComponent from '@/components/PasswordChallenge';
 import MathChallenge from '@/components/MathChallenge';
+import CaptchaChallenge from '@/components/CaptchaChallenge';
 
 interface Message {
     id: number;
@@ -30,8 +31,9 @@ const MessageContent = () => {
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const [, setCurrentChallenge] = useState<Challenge | null>(null);
     const [showPasswordChallenge, setShowPasswordChallenge] = useState(false);
-    const initialChallengeSet = useRef(false);
     const [showMathChallenge, setShowMathChallenge] = useState(false);
+    const [showCaptchaChallenge, setShowCaptchaChallenge] = useState(false);
+    const initialChallengeSet = useRef(false);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -47,6 +49,11 @@ const MessageContent = () => {
             setMessages([
                 { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi đặt mật khẩu với điều kiện sau: ', timestamp: new Date() },
             ]);
+        } else if (id === '2') {
+            setMessages([
+                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi nhập mã CAPTCHA sau: ', timestamp: new Date() },
+            ]);
+            setShowCaptchaChallenge(true);
         }
         // ... handle other cases if necessary
     }, [id]);
@@ -75,6 +82,7 @@ const MessageContent = () => {
         setIdMessage(idMessage + 1);
         setShowMathChallenge(false);
         setShowPasswordChallenge(false);
+        setShowCaptchaChallenge(false);
     };
 
     const handleMathMessage = (message: { sender: string; content: string }) => {
@@ -144,7 +152,13 @@ const MessageContent = () => {
                             onInitialChallenge={handleInitialChallenge}
                         />
                     )}
-                    {!showMathChallenge && !showPasswordChallenge && (
+                    {showCaptchaChallenge && (
+                        <CaptchaChallenge
+                            onChallengeComplete={handleChallengeComplete}
+                            onMessage={handleMessage}
+                        />
+                    )}
+                    {!showMathChallenge && !showPasswordChallenge && !showCaptchaChallenge && (
                         <div className="flex items-center">
                             <input
                                 type="text"
