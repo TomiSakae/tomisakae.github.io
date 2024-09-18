@@ -1,6 +1,8 @@
 'use client'
+import { LiaBatteryFullSolid, LiaBatteryThreeQuartersSolid, LiaBatteryHalfSolid, LiaBatteryQuarterSolid, LiaBatteryEmptySolid } from "react-icons/lia";
 import { useState, useEffect } from 'react';
-import { LiaBatteryFullSolid } from "react-icons/lia";
+import { BiSignal5 } from "react-icons/bi";
+import { IoWifiOutline } from "react-icons/io5";
 import Nav from '@/components/nav';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -11,6 +13,9 @@ const AniPhone = () => {
     const [showHomeScreen, setShowHomeScreen] = useState(false);
     const router = useRouter();
     const [AniOS, setAniOS] = useState('1.0');
+    const [batteryScreen, setBatteryScreen] = useState("100");
+    const [isSignal, setIsSignal] = useState(false);
+    const [hasWifi, setHasWifi] = useState(false);
 
     useEffect(() => {
         if (window.localStorage.getItem('AniOS') === null) {
@@ -21,6 +26,13 @@ const AniPhone = () => {
         }
         else {
             setAniOS(window.localStorage.getItem('AniOS') || '1.0');
+        }
+        setBatteryScreen(window.localStorage.getItem('batteryPercentage') || "100");
+        if (window.localStorage.getItem('wifiPlanId')) {
+            setHasWifi(true);
+        }
+        if (window.localStorage.getItem('phoneNumber')) {
+            setIsSignal(true);
         }
         const fetchBackgroundImage = async () => {
             setIsLoading(true);
@@ -60,6 +72,15 @@ const AniPhone = () => {
         fetchBackgroundImage();
     }, []);
 
+    const getBatteryIcon = () => {
+        const iconClass = Number(batteryScreen) <= 20 ? 'text-red-500' : '';
+        if (Number(batteryScreen) > 75) return <LiaBatteryFullSolid className={`mr-1 mt-[2px] text-2xl ${iconClass}`} />;
+        if (Number(batteryScreen) > 50) return <LiaBatteryThreeQuartersSolid className={`mr-1 mt-[2px] text-2xl ${iconClass}`} />;
+        if (Number(batteryScreen) > 25) return <LiaBatteryHalfSolid className={`mr-1 mt-[2px] text-2xl ${iconClass}`} />;
+        if (Number(batteryScreen) > 10) return <LiaBatteryQuarterSolid className={`mr-1 mt-[2px] text-2xl ${iconClass}`} />;
+        return <LiaBatteryEmptySolid className={`mr-1 mt-[2px] text-2xl ${iconClass}`} />;
+    };
+
     // Thêm hàm xử lý click
     const handleScreenClick = () => {
         if (!isLoading) {
@@ -88,8 +109,14 @@ const AniPhone = () => {
 
                         </div>
                         <div className='flex items-center'>
-                            <LiaBatteryFullSolid className='mr-1 mt-[2px] text-2xl' />
-                            <span className=''>100%</span>
+                            {hasWifi && (
+                                <IoWifiOutline className='mr-1 text-xl' />
+                            )}
+                            {isSignal && (
+                                <BiSignal5 className='mr-1 text-xl' />
+                            )}
+                            {getBatteryIcon()}
+                            <span className={Number(batteryScreen) <= 20 ? 'text-red-500' : ''}>{batteryScreen}%</span>
                         </div>
                     </div>
                     <div className='mt-14 flex flex-col items-center text-white mx-4'>
