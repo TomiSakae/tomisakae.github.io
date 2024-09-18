@@ -94,22 +94,20 @@ const DocTruyenKiemTien = () => {
                 <div className="bg-white rounded-lg shadow-lg p-4 mb-6">
                     <h2 className="text-xl font-semibold mb-3 text-indigo-700">Đổi xu lấy tiền</h2>
                     <p className="mb-2">Số xu hiện tại: <span className="font-bold">{balance}</span></p>
-                    <p className="mb-4">Tỉ lệ đổi: 1000 xu = 1000 đồng</p>
-                    {balance >= 1000 && (
+                    <p className="mb-4">Tỉ lệ đổi: 100 xu = 1000 đồng</p>
+                    {balance >= 100 && (
                         <button
                             className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300 ease-in-out flex items-center"
                             onClick={() => {
-                                const exchangeAmount = Math.floor(balance / 1000) * 1000;
-                                const newBalance = balance - exchangeAmount;
+                                const exchangeAmount = Math.floor(balance / 100) * 1000;
+                                const newBalance = balance - Math.floor(balance / 100) * 100;
                                 setBalance(newBalance);
                                 if (typeof window !== 'undefined') {
                                     const currentBalance = parseInt(window.localStorage.getItem('balance') || '0');
                                     const updatedBalance = currentBalance + exchangeAmount;
                                     window.localStorage.setItem('balance', updatedBalance.toString());
 
-                                    // Trừ xu từ sessionStorage balanceStory
-                                    const balanceStory = parseInt(window.sessionStorage.getItem('balanceStory') || '0');
-                                    const updatedBalanceStory = balanceStory - exchangeAmount;
+                                    const updatedBalanceStory = newBalance;
                                     window.sessionStorage.setItem('balanceStory', updatedBalanceStory.toString());
                                 }
                                 // Hiển thị hiệu ứng cộng tiền
@@ -154,19 +152,44 @@ const DocTruyenKiemTien = () => {
 
             {!currentStory ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {stories.map(story => (
-                        <div key={story.id} className="bg-white rounded-lg shadow-lg p-4 cursor-pointer hover:bg-indigo-50 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" onClick={() => selectStory(story)}>
-                            <h2 className="text-lg font-semibold mb-2 text-indigo-600">{story.title}</h2>
-                            <p className="text-gray-600 mb-2 flex items-center text-sm">
-                                <FaBook className="mr-2 text-indigo-400" />
-                                Số chương: {story.chapters}
-                            </p>
-                            <p className="text-green-600 font-semibold flex items-center text-sm">
-                                <FaCoins className="mr-2 text-yellow-500" />
-                                Thưởng: {story.reward} xu/chương
-                            </p>
+                    {stories.length > 0 ? (
+                        stories.map(story => (
+                            <div key={story.id} className="bg-white rounded-lg shadow-lg p-4 cursor-pointer hover:bg-indigo-50 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" onClick={() => selectStory(story)}>
+                                <h2 className="text-lg font-semibold mb-2 text-indigo-600">{story.title}</h2>
+                                <p className="text-gray-600 mb-2 flex items-center text-sm">
+                                    <FaBook className="mr-2 text-indigo-400" />
+                                    Số chương: {story.chapters}
+                                </p>
+                                <p className="text-green-600 font-semibold flex items-center text-sm">
+                                    <FaCoins className="mr-2 text-yellow-500" />
+                                    Thưởng: {story.reward} xu/chương
+                                </p>
+                            </div>
+                        ))
+                    ) : (
+                        <div className="text-center">
+                            <p className="text-gray-600 mb-4">Không còn truyện nào để đọc!</p>
+                            <button
+                                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out"
+                                onClick={() => {
+                                    setStories([
+                                        { "id": 1, "title": "Cuộc phiêu lưu kỳ thú", "chapters": 10, "reward": 5 },
+                                        { "id": 2, "title": "Bí mật của rừng xanh", "chapters": 15, "reward": 8 },
+                                        { "id": 3, "title": "Hành trình về phương Đông", "chapters": 20, "reward": 10 },
+                                        { "id": 4, "title": "Công chúa chiến binh", "chapters": 12, "reward": 6 },
+                                        { "id": 5, "title": "Thợ săn quái vật", "chapters": 18, "reward": 9 },
+                                        { "id": 6, "title": "Thành phố trên mây", "chapters": 22, "reward": 11 },
+                                        { "id": 7, "title": "Vùng đất của ma thuật", "chapters": 16, "reward": 7 },
+                                        { "id": 8, "title": "Thế giới song song", "chapters": 14, "reward": 6 },
+                                        { "id": 9, "title": "Lời thề của kiếm sĩ", "chapters": 25, "reward": 12 },
+                                        { "id": 10, "title": "Đại chiến thần thú", "chapters": 30, "reward": 15 },
+                                    ]);
+                                }}
+                            >
+                                Làm mới
+                            </button>
                         </div>
-                    ))}
+                    )}
                 </div>
             ) : (
                 <div className="bg-white rounded-lg shadow-lg p-4">
