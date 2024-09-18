@@ -12,8 +12,18 @@ const Nav = () => {
     const pathname = usePathname();
     const isAniPhone = pathname === '/AniPhone';
     const [isSignal, setIsSignal] = useState(false);
-    const [batteryPercentage, setBatteryPercentage] = useState(100);
-    const [usageDuration, setUsageDuration] = useState(0);
+    const [batteryPercentage, setBatteryPercentage] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return parseInt(window.localStorage.getItem('batteryPercentage') || '100');
+        }
+        return 100;
+    });
+    const [usageDuration, setUsageDuration] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return parseInt(window.localStorage.getItem('usageDuration') || '0');
+        }
+        return 0;
+    });
     const [showLowBatteryModal, setShowLowBatteryModal] = useState(false);
     const [hasWifi, setHasWifi] = useState(false);
     const [customTime, setCustomTime] = useState(() => {
@@ -23,6 +33,7 @@ const Nav = () => {
         }
         return new Date(2024, 7, 12, 6, 0);
     });
+    const [batteryDrainRate, setBatteryDrainRate] = useState(6); // Tốc độ giảm pin (% mỗi giây)
 
     const updateCustomTime = useCallback((minutes: number) => {
         setCustomTime(prevTime => {
@@ -49,16 +60,15 @@ const Nav = () => {
         if (window.localStorage.getItem('phoneNumber') !== null) {
             setIsSignal(true);
         }
-
-        // Load battery percentage and usage duration from localStorage
-        const storedBattery = window.localStorage.getItem('batteryPercentage');
-        const storedUsage = window.localStorage.getItem('usageDuration');
-
-        if (storedBattery) setBatteryPercentage(parseInt(storedBattery));
-        if (storedUsage) setUsageDuration(parseInt(storedUsage));
-
         // Start tracking usage time and updating battery
         const interval = setInterval(() => {
+
+            // Load battery drain rate from localStorage
+            const storedDrainRate = window.localStorage.getItem('batteryDrainRate');
+            const batteryDrainRate = storedDrainRate ? parseFloat(storedDrainRate) : 60; // Default to 60 seconds if not set
+            setBatteryDrainRate(batteryDrainRate);
+            setBatteryPercentage(parseInt(window.localStorage.getItem('batteryPercentage') || '100'));
+
             setUsageDuration(prevDuration => {
                 const newDuration = prevDuration + 1;
                 window.localStorage.setItem('usageDuration', newDuration.toString());
@@ -66,8 +76,8 @@ const Nav = () => {
             });
 
             setBatteryPercentage(prevBattery => {
-                // Giảm pin 1% mỗi 60 giây
-                if (prevBattery > 0 && usageDuration % 60 === 0) {
+                // Giảm pin 1% mỗi batteryDrainRate giây
+                if (prevBattery > 0 && usageDuration % batteryDrainRate === 0) {
                     const newBattery = prevBattery - 1;
                     window.localStorage.setItem('batteryPercentage', newBattery.toString());
 
@@ -122,7 +132,7 @@ const Nav = () => {
             clearInterval(wifiCheckInterval);
             clearInterval(timeInterval);
         };
-    }, [usageDuration, router, updateCustomTime, customTime]);
+    }, [usageDuration, router, updateCustomTime, customTime, batteryDrainRate, showLowBatteryModal]);
 
     const getBatteryIcon = () => {
         const iconClass = batteryPercentage <= 20 ? 'text-red-500' : '';

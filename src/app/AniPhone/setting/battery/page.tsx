@@ -11,6 +11,7 @@ const BatteryPage = () => {
     const [batteryPercentage, setBatteryPercentage] = useState(100);
     const [remainingTime, setRemainingTime] = useState('');
     const [isCharging, setIsCharging] = useState(false);
+    const [batteryDrainRate, setBatteryDrainRate] = useState(6); // Mặc định 60 giây
 
     useEffect(() => {
         const storedBattery = window.localStorage.getItem('batteryPercentage');
@@ -18,10 +19,15 @@ const BatteryPage = () => {
             setBatteryPercentage(parseInt(storedBattery));
         }
 
-        // Tính thời gian sử dụng còn lại (giả định 1% pin = 1 phút)
-        const remainingMinutes = batteryPercentage;
-        const hours = Math.floor(remainingMinutes / 60);
-        const minutes = remainingMinutes % 60;
+        const storedDrainRate = window.localStorage.getItem('batteryDrainRate');
+        if (storedDrainRate) {
+            setBatteryDrainRate(parseFloat(storedDrainRate));
+        }
+
+        // Tính thời gian sử dụng còn lại dựa trên batteryDrainRate
+        const remainingSeconds = batteryPercentage * batteryDrainRate;
+        const hours = Math.floor(remainingSeconds / 3600);
+        const minutes = Math.floor((remainingSeconds % 3600) / 60);
         setRemainingTime(`${hours}h ${minutes}m`);
 
         const interval = setInterval(() => {
@@ -32,7 +38,7 @@ const BatteryPage = () => {
         }, 1000);
 
         return () => clearInterval(interval);
-    }, [batteryPercentage]);
+    }, [batteryPercentage, batteryDrainRate]);
 
     const handleCharge = () => {
         setIsCharging(true);

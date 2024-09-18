@@ -48,6 +48,7 @@ const AniPhone = () => {
             window.localStorage.setItem('ROM', '250');
             window.localStorage.setItem('RAM', '100');
             window.localStorage.setItem('ROMused', '233');
+            window.localStorage.setItem('batteryDrainRate', '6');
         }
         else {
             setAniOS(window.localStorage.getItem('AniOS') || '1.0');
