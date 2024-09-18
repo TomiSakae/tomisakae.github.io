@@ -4,7 +4,7 @@ import { CiMenuBurger } from "react-icons/ci";
 import { RiPlayReverseLargeLine } from "react-icons/ri";
 import { useRouter, usePathname } from 'next/navigation';
 import { BiSignal5 } from "react-icons/bi";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { IoWifiOutline } from "react-icons/io5";
 
 const Nav = () => {
@@ -16,6 +16,34 @@ const Nav = () => {
     const [usageDuration, setUsageDuration] = useState(0);
     const [showLowBatteryModal, setShowLowBatteryModal] = useState(false);
     const [hasWifi, setHasWifi] = useState(false);
+    const [customTime, setCustomTime] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const savedTime = window.localStorage.getItem('customTime');
+            return savedTime ? new Date(JSON.parse(savedTime)) : new Date(2024, 7, 12, 6, 0);
+        }
+        return new Date(2024, 7, 12, 6, 0);
+    });
+
+    const updateCustomTime = useCallback((minutes: number) => {
+        setCustomTime(prevTime => {
+            const newTime = new Date(prevTime.getTime());
+            newTime.setMinutes(newTime.getMinutes() + minutes);
+
+            // Xử lý tăng ngày, tháng, năm, và thứ
+            const daysPassed = Math.floor(minutes / (24 * 60));
+            if (daysPassed > 0) {
+                const newDate = new Date(prevTime.getTime() + daysPassed * 24 * 60 * 60 * 1000);
+                newTime.setDate(newDate.getDate());
+                newTime.setMonth(newDate.getMonth());
+                newTime.setFullYear(newDate.getFullYear());
+            }
+
+            if (typeof window !== 'undefined') {
+                window.localStorage.setItem('customTime', JSON.stringify(newTime));
+            }
+            return newTime;
+        });
+    }, []);
 
     useEffect(() => {
         if (window.localStorage.getItem('phoneNumber') !== null) {
@@ -59,6 +87,11 @@ const Nav = () => {
             });
         }, 1000); // Update every second
 
+        // Add custom time tracking
+        const timeInterval = setInterval(() => {
+            updateCustomTime(1); // Tăng 1 phút mỗi giây
+        }, 1000);
+
         // Check for wifiPlanId and expiration
         const checkWifiPlan = () => {
             const savedPlanId = window.localStorage.getItem('wifiPlanId');
@@ -88,8 +121,9 @@ const Nav = () => {
         return () => {
             clearInterval(interval);
             clearInterval(wifiCheckInterval);
+            clearInterval(timeInterval);
         };
-    }, [usageDuration, router]);
+    }, [usageDuration, router, updateCustomTime]);
 
     const getBatteryIcon = () => {
         const iconClass = batteryPercentage <= 20 ? 'text-red-500' : '';
@@ -100,12 +134,18 @@ const Nav = () => {
         return <LiaBatteryEmptySolid className={`mr-1 mt-[2px] text-2xl ${iconClass}`} />;
     };
 
+    const formatCustomTime = (date: Date) => {
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        return `${hours}:${minutes}`;
+    };
+
     return (
         <>
             <div className='flex justify-between items-center text-white mx-4 pt-1'>
                 <div className='flex items-center'>
                     <div className='text-md'>
-                        {new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}
+                        {formatCustomTime(customTime)}
                     </div>
                 </div>
                 <div className='flex items-center'>

@@ -1,6 +1,6 @@
 'use client'
 import { LiaBatteryFullSolid, LiaBatteryThreeQuartersSolid, LiaBatteryHalfSolid, LiaBatteryQuarterSolid, LiaBatteryEmptySolid } from "react-icons/lia";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { BiSignal5 } from "react-icons/bi";
 import { IoWifiOutline } from "react-icons/io5";
 import Nav from '@/components/nav';
@@ -16,6 +16,31 @@ const AniPhone = () => {
     const [batteryScreen, setBatteryScreen] = useState("100");
     const [isSignal, setIsSignal] = useState(false);
     const [hasWifi, setHasWifi] = useState(false);
+    const [customTime, setCustomTime] = useState<Date | null>(null);
+
+    const updateCustomTime = useCallback((minutes: number) => {
+        setCustomTime(prevTime => {
+            if (prevTime) {
+                const newTime = new Date(prevTime.getTime());
+                newTime.setMinutes(newTime.getMinutes() + minutes);
+
+                // Xử lý tăng ngày, tháng, năm, và thứ
+                const daysPassed = Math.floor(minutes / (24 * 60));
+                if (daysPassed > 0) {
+                    const newDate = new Date(prevTime.getTime() + daysPassed * 24 * 60 * 60 * 1000);
+                    newTime.setDate(newDate.getDate());
+                    newTime.setMonth(newDate.getMonth());
+                    newTime.setFullYear(newDate.getFullYear());
+                }
+
+                if (typeof window !== 'undefined') {
+                    window.localStorage.setItem('customTime', JSON.stringify(newTime));
+                }
+                return newTime;
+            }
+            return prevTime;
+        });
+    }, []);
 
     useEffect(() => {
         if (window.localStorage.getItem('AniOS') === null) {
@@ -70,7 +95,28 @@ const AniPhone = () => {
         };
 
         fetchBackgroundImage();
-    }, []);
+
+        // Load custom time from localStorage
+        const loadCustomTime = () => {
+            const savedTime = window.localStorage.getItem('customTime');
+            if (savedTime) {
+                setCustomTime(new Date(JSON.parse(savedTime)));
+            } else {
+                setCustomTime(new Date(2024, 7, 12, 6, 0));
+            }
+        };
+
+        loadCustomTime();
+
+        // Set up an interval to update the custom time every second
+        const timeInterval = setInterval(() => {
+            updateCustomTime(1); // Tăng 1 phút mỗi giây
+        }, 1000);
+
+        return () => {
+            clearInterval(timeInterval);
+        };
+    }, [updateCustomTime]);
 
     const getBatteryIcon = () => {
         const iconClass = Number(batteryScreen) <= 20 ? 'text-red-500' : '';
@@ -121,10 +167,10 @@ const AniPhone = () => {
                     </div>
                     <div className='mt-14 flex flex-col items-center text-white mx-4'>
                         <div className='text-4xl font-bold'>
-                            {new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}
+                            {customTime && customTime.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}
                         </div>
                         <div className='text-xl'>
-                            {new Date().toLocaleDateString('vi-VN', { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' })}
+                            {customTime && customTime.toLocaleDateString('vi-VN', { weekday: 'long', month: 'long', day: 'numeric' })}
                         </div>
                     </div>
                 </>
@@ -159,8 +205,9 @@ const AniPhone = () => {
                         }
                     </div>
                 </>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 };
 
