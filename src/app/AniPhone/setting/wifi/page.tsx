@@ -15,6 +15,13 @@ const WifiPage = () => {
     const [currentPlan, setCurrentPlan] = useState<WifiPlan | null>(null);
     const [daysRemaining, setDaysRemaining] = useState(0);
     const [isRenewing, setIsRenewing] = useState(false);
+    const [customTime] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const savedTime = window.localStorage.getItem('customTime');
+            return savedTime ? new Date(JSON.parse(savedTime)) : new Date(2024, 7, 12, 6, 0);
+        }
+        return new Date(2024, 7, 12, 6, 0);
+    });
 
     const wifiPlans = [
         { id: 1, name: 'Khởi đầu', speed: '1 Mbps', price: 50000 },
@@ -34,11 +41,9 @@ const WifiPage = () => {
             if (parsedPlan) {
                 const expirationDate = new Date(purchaseDate);
                 expirationDate.setDate(expirationDate.getDate() + 30);
-                const today = new Date();
-                const remainingDays = Math.ceil((expirationDate.getTime() - today.getTime()) / (1000 * 3600 * 24));
+                const remainingDays = Math.ceil((expirationDate.getTime() - customTime.getTime()) / (1000 * 3600 * 24));
 
                 if (remainingDays <= 0) {
-                    // Gói đã hết hạn, tự động hủy
                     handleCancelPlan();
                 } else {
                     setCurrentPlan(parsedPlan);
@@ -47,7 +52,7 @@ const WifiPage = () => {
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [customTime]);
 
     const handleSelectPlan = (plan: WifiPlan) => {
         setSelectedPlan(plan);
@@ -58,7 +63,7 @@ const WifiPage = () => {
     const handleConfirmPurchase = () => {
         if (selectedPlan && userBalance >= selectedPlan.price) {
             const newBalance = userBalance - selectedPlan.price;
-            const purchaseDate = new Date().toISOString();
+            const purchaseDate = customTime.toISOString();
             window.localStorage.setItem('balance', newBalance.toString());
             window.localStorage.setItem('wifiPlanId', selectedPlan.id.toString());
             window.localStorage.setItem('wifiPlanPurchaseDate', purchaseDate);

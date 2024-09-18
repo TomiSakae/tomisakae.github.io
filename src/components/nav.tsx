@@ -99,8 +99,7 @@ const Nav = () => {
             if (savedPlanId && purchaseDate) {
                 const expirationDate = new Date(purchaseDate);
                 expirationDate.setDate(expirationDate.getDate() + 30);
-                const today = new Date();
-                const remainingDays = Math.ceil((expirationDate.getTime() - today.getTime()) / (1000 * 3600 * 24));
+                const remainingDays = Math.ceil((expirationDate.getTime() - customTime.getTime()) / (1000 * 3600 * 24));
 
                 if (remainingDays <= 0) {
                     // Plan has expired, cancel it
@@ -123,7 +122,7 @@ const Nav = () => {
             clearInterval(wifiCheckInterval);
             clearInterval(timeInterval);
         };
-    }, [usageDuration, router, updateCustomTime]);
+    }, [usageDuration, router, updateCustomTime, customTime]);
 
     const getBatteryIcon = () => {
         const iconClass = batteryPercentage <= 20 ? 'text-red-500' : '';

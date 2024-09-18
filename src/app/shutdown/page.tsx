@@ -9,6 +9,7 @@ const ShutdownPage = () => {
     const [showChargingButton, setShowChargingButton] = useState(false);
     const [batteryLevel, setBatteryLevel] = useState(0);
     const [isCharging, setIsCharging] = useState(false);
+    const [showPowerOnButton, setShowPowerOnButton] = useState(false);
 
     useEffect(() => {
         const shutdownTimer = setTimeout(() => {
@@ -22,12 +23,12 @@ const ShutdownPage = () => {
         if (isCharging) {
             const chargingInterval = setInterval(() => {
                 setBatteryLevel(prev => {
-                    if (prev >= 100) {
+                    const newLevel = prev >= 100 ? 100 : prev + 1;
+                    window.localStorage.setItem('batteryPercentage', newLevel.toString());
+                    if (newLevel >= 100) {
                         clearInterval(chargingInterval);
-                        window.localStorage.setItem('batteryPercentage', '100');
-                        return 100;
                     }
-                    return prev + 1;
+                    return newLevel;
                 });
             }, 1000);
 
@@ -41,8 +42,20 @@ const ShutdownPage = () => {
         }
     }, [batteryLevel, router]);
 
+    useEffect(() => {
+        if (batteryLevel > 50) {
+            setShowPowerOnButton(true);
+        } else {
+            setShowPowerOnButton(false);
+        }
+    }, [batteryLevel]);
+
     const handleCharge = () => {
         setIsCharging(true);
+    };
+
+    const handlePowerOn = () => {
+        router.push('/');
     };
 
     const getBatteryIcon = () => {
@@ -89,6 +102,14 @@ const ShutdownPage = () => {
                             style={{ width: `${batteryLevel}%` }}
                         ></div>
                     </div>
+                    {showPowerOnButton && (
+                        <button
+                            onClick={handlePowerOn}
+                            className="mt-6 bg-green-500 text-white rounded-full px-8 py-4 hover:bg-green-600 transition-colors duration-300 shadow-lg"
+                        >
+                            <span className="text-xl font-semibold">Mở nguồn</span>
+                        </button>
+                    )}
                 </div>
             )}
         </div>
