@@ -23,6 +23,7 @@ const BrowserPage = () => {
             setDisplayUrl(newUrl);
             if (newUrl === 'aniw://doctruyenkiemtien.ani') {
                 finalUrl = 'https://tomisakae.github.io/AniPhone/browser/custom/doctruyen';
+                //finalUrl = 'http://localhost:3000/AniPhone/browser/custom/doctruyen';
             }
             setHistory([...history.slice(0, currentIndex + 1), finalUrl]);
             setCurrentIndex(currentIndex + 1);
