@@ -35,9 +35,9 @@ const Nav = () => {
     });
     const [batteryDrainRate, setBatteryDrainRate] = useState(6); // Tốc độ giảm pin (% mỗi giây)
 
-    const updateCustomTime = useCallback((minutes: number) => {
+    const updateCustomTime = useCallback((minutes: number, currentTime?: Date) => {
         setCustomTime(prevTime => {
-            const newTime = new Date(prevTime.getTime());
+            const newTime = new Date(currentTime || prevTime);
             newTime.setMinutes(newTime.getMinutes() + minutes);
 
             // Xử lý tăng ngày, tháng, năm, và thứ
@@ -99,7 +99,15 @@ const Nav = () => {
 
         // Add custom time tracking
         const timeInterval = setInterval(() => {
-            updateCustomTime(1); // Tăng 1 phút mỗi giây
+            if (typeof window !== 'undefined') {
+                const savedTime = window.localStorage.getItem('customTime');
+                if (savedTime) {
+                    const currentTime = new Date(JSON.parse(savedTime));
+                    updateCustomTime(1, currentTime); // Pass the current time from localStorage
+                } else {
+                    updateCustomTime(1); // Use the existing state if no saved time
+                }
+            }
         }, 1000);
 
         // Check for wifiPlanId and expiration

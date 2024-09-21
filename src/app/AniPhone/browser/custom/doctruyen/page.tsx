@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FaCoins, FaUser, FaBook, FaArrowLeft, FaExchangeAlt } from 'react-icons/fa';
 
 const DocTruyenKiemTien = () => {
@@ -25,12 +25,29 @@ const DocTruyenKiemTien = () => {
     } | null>(null);
     const [currentChapter, setCurrentChapter] = useState(1);
     const [showExchange, setShowExchange] = useState(false);
+    const [, setCustomTime] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const savedTime = window.localStorage.getItem('customTime');
+            return savedTime ? new Date(JSON.parse(savedTime)) : new Date();
+        }
+        return new Date();
+    });
 
     useEffect(() => {
         const savedBalance = window.sessionStorage.getItem('balanceStory');
         if (savedBalance) {
             setBalance(parseInt(savedBalance));
         }
+    }, []);
+
+    const updateCustomTime = useCallback((minutes: number) => {
+        setCustomTime(prevTime => {
+            const newTime = new Date(prevTime.getTime() + minutes * 60000);
+            if (typeof window !== 'undefined') {
+                window.localStorage.setItem('customTime', JSON.stringify(newTime));
+            }
+            return newTime;
+        });
     }, []);
 
     const readChapter = () => {
@@ -44,6 +61,9 @@ const DocTruyenKiemTien = () => {
 
             // Lưu số chapter đã đọc vào sessionStorage
             window.sessionStorage.setItem(`story_${currentStory.id}`, newChapter.toString());
+
+            // Cập nhật thời gian tùy chỉnh
+            updateCustomTime(currentStory.reward * 2); // Tăng 2 phút cho mỗi xu nhận được
 
             // Nếu đã đọc hết truyện, xóa id story khỏi sessionStorage
             if (newChapter > currentStory.chapters) {
@@ -110,37 +130,11 @@ const DocTruyenKiemTien = () => {
                                     const updatedBalanceStory = newBalance;
                                     window.sessionStorage.setItem('balanceStory', updatedBalanceStory.toString());
                                 }
-                                // Hiển thị hiệu ứng cộng tiền
-                                const showMoneyEffect = (amount: number) => {
-                                    const effectElement = document.createElement('div');
-                                    effectElement.innerHTML = `+${amount.toLocaleString()} <span style="font-size: 18px;">đồng</span>`;
-                                    effectElement.style.position = 'fixed';
-                                    effectElement.style.top = '50%';
-                                    effectElement.style.left = '50%';
-                                    effectElement.style.transform = 'translate(-50%, -50%)';
-                                    effectElement.style.fontSize = '24px';
-                                    effectElement.style.fontWeight = 'bold';
-                                    effectElement.style.color = '#4CAF50';
-                                    effectElement.style.opacity = '0';
-                                    effectElement.style.transition = 'all 1s ease-out';
-                                    effectElement.style.whiteSpace = 'nowrap';
-                                    document.body.appendChild(effectElement);
 
-                                    setTimeout(() => {
-                                        effectElement.style.opacity = '1';
-                                        effectElement.style.transform = 'translate(-50%, -100%)';
-                                    }, 100);
-
-                                    setTimeout(() => {
-                                        effectElement.style.opacity = '0';
-                                    }, 1500);
-
-                                    setTimeout(() => {
-                                        document.body.removeChild(effectElement);
-                                    }, 2000);
-                                };
-
-                                showMoneyEffect(exchangeAmount);
+                                // Show notification
+                                if (typeof window !== 'undefined') {
+                                    window.sessionStorage.setItem('doctruyenNotification', `Bạn đã nhận được ${exchangeAmount.toLocaleString()} đồng`);
+                                }
                             }}
                         >
                             <FaExchangeAlt className="mr-2" />

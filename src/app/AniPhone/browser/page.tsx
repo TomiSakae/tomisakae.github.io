@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Nav from '@/components/nav';
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
+import Image from 'next/image';
 
 const BrowserPage = () => {
     const [url, setUrl] = useState('');
@@ -11,10 +12,28 @@ const BrowserPage = () => {
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [hasWifi, setHasWifi] = useState(false);
     const [displayUrl, setDisplayUrl] = useState('');
+    const [showNotification, setShowNotification] = useState(false);
+    const [notificationMessage, setNotificationMessage] = useState('');
 
     useEffect(() => {
         const wifiPlanId = window.localStorage.getItem('wifiPlanId');
         setHasWifi(!!wifiPlanId);
+    }, []);
+
+    useEffect(() => {
+        const checkNotification = () => {
+            const notification = window.sessionStorage.getItem('doctruyenNotification');
+            if (notification) {
+                setNotificationMessage(notification);
+                setShowNotification(true);
+                setTimeout(() => setShowNotification(false), 3000);
+                window.sessionStorage.removeItem('doctruyenNotification');
+            }
+        };
+
+        const intervalId = setInterval(checkNotification, 1000);
+
+        return () => clearInterval(intervalId);
     }, []);
 
     const handleSearch = (newUrl: string) => {
@@ -86,6 +105,23 @@ const BrowserPage = () => {
                     )}
                 </div>
             </div>
+            {showNotification && (
+                <div className="fixed top-10 left-0 right-0 bg-white text-black px-4 py-3 shadow-lg z-50 animate-fade-in-down flex items-center h-[10vh]">
+                    <div className="w-10 h-10 mr-3 rounded-full overflow-hidden">
+                        <Image
+                            src="/mes.webp"
+                            alt="Message icon"
+                            width={40}
+                            height={40}
+                            className="object-cover"
+                        />
+                    </div>
+                    <div className="flex-grow">
+                        <p className="font-semibold text-sm">Thông báo</p>
+                        <p className="text-xs text-gray-600">{notificationMessage}</p>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
