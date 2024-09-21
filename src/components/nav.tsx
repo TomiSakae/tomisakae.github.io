@@ -6,6 +6,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { BiSignal5 } from "react-icons/bi";
 import { useEffect, useState, useCallback } from "react";
 import { IoWifiOutline } from "react-icons/io5";
+import ActiveAppsManager from './ActiveAppsManager';
 
 const Nav = () => {
     const router = useRouter();
@@ -159,6 +160,7 @@ const Nav = () => {
 
     return (
         <>
+            <ActiveAppsManager />
             <div className='flex justify-between items-center text-white mx-4 pt-1'>
                 <div className='flex items-center'>
                     <div className='text-md'>
@@ -177,7 +179,9 @@ const Nav = () => {
                 </div>
             </div>
             <div className='absolute bottom-0 left-0 right-0 flex justify-between items-center text-white pb-1 mx-6'>
-                <div className='flex-1 flex justify-center p-2 rounded-full hover:bg-gray-200 hover:bg-opacity-20 transition-all duration-300'>
+                <div className='flex-1 flex justify-center p-2 rounded-full hover:bg-gray-200 hover:bg-opacity-20 transition-all duration-300'
+                    onClick={() => router.push('/menu')}
+                >
                     <div className='flex flex-col items-center'>
                         <CiMenuBurger className='text-md' />
                     </div>
