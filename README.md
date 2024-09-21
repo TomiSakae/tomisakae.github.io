@@ -4,29 +4,29 @@ AniPhone là một game mô phỏng điện thoại độc đáo, được xây 
 
 ## Tính năng nổi bật
 
-- <span style="color: green;">✓</span> **AniOS 1.0**: Giao diện điện thoại thông minh trực quan và ứng dụng cài đặt tùy biến.
+- ✅ **AniOS 1.0**: Giao diện điện thoại thông minh trực quan và ứng dụng cài đặt tùy biến.
 
-- <span style="color: green;">✓</span> **AniOS 1.1**: Ứng dụng nhắn tin đa năng và nâng cao chức năng cài đặt hệ thống.
+- ✅ **AniOS 1.1**: Ứng dụng nhắn tin đa năng và nâng cao chức năng cài đặt hệ thống.
 
-- <span style="color: green;">✓</span> **AniOS 1.2**: Trình duyệt web tích hợp và bổ sung tính năng cài đặt nâng cao.
+- ✅ **AniOS 1.2**: Trình duyệt web tích hợp và bổ sung tính năng cài đặt nâng cao.
 
 ## Lộ trình phát triển
 
-- <span style="color: red;">✗</span> **AniOS 1.3**: Tích hợp nền tảng mạng xã hội và hệ thống nhắn tin thời gian thực. Triển khai chức năng thương mại điện tử cho phép người dùng tham gia vào hoạt động kinh doanh trực tuyến.
+- ❌ **AniOS 1.3**: Tích hợp nền tảng mạng xã hội và hệ thống nhắn tin thời gian thực. Triển khai chức năng thương mại điện tử cho phép người dùng tham gia vào hoạt động kinh doanh trực tuyến.
 
-- <span style="color: red;">✗</span> **AniOS 1.4**: Ra mắt ứng dụng đa phương tiện chuyên biệt cho việc đọc truyện, manga và xem anime. Tích hợp hệ thống khuyến khích người dùng sáng tạo nội dung và tạo thu nhập từ việc viết truyện, vẽ manga và đánh giá anime.
+- ❌ **AniOS 1.4**: Ra mắt ứng dụng đa phương tiện chuyên biệt cho việc đọc truyện, manga và xem anime. Tích hợp hệ thống khuyến khích người dùng sáng tạo nội dung và tạo thu nhập từ việc viết truyện, vẽ manga và đánh giá anime.
 
-- <span style="color: red;">✗</span> **AniOS 1.5**: Phát triển nền tảng game đa dạng với tính năng thi đấu trực tuyến, tạo cơ hội cho người chơi tham gia vào các giải đấu có thưởng.
+- ❌ **AniOS 1.5**: Phát triển nền tảng game đa dạng với tính năng thi đấu trực tuyến, tạo cơ hội cho người chơi tham gia vào các giải đấu có thưởng.
 
-- <span style="color: red;">✗</span> **AniOS 1.6**: Triển khai ứng dụng chia sẻ và xem video, tích hợp hệ thống monetization cho phép người dùng tạo thu nhập từ nội dung video của họ.
+- ❌ **AniOS 1.6**: Triển khai ứng dụng chia sẻ và xem video, tích hợp hệ thống monetization cho phép người dùng tạo thu nhập từ nội dung video của họ.
 
-- <span style="color: red;">✗</span> **AniOS 1.7**: Nâng cấp trình duyệt web với các tính năng tiên tiến, bổ sung công cụ hỗ trợ người dùng tạo blog và nội dung số nhằm tối ưu hóa khả năng kiếm tiền trực tuyến.
+- ❌ **AniOS 1.7**: Nâng cấp trình duyệt web với các tính năng tiên tiến, bổ sung công cụ hỗ trợ người dùng tạo blog và nội dung số nhằm tối ưu hóa khả năng kiếm tiền trực tuyến.
 
-- <span style="color: red;">✗</span> **AniOS 1.8**: Giới thiệu nền tảng phát triển phần mềm tích hợp, cung cấp công cụ và thị trường để người dùng có thể tạo, phân phối và kinh doanh các ứng dụng của riêng họ.
+- ❌ **AniOS 1.8**: Giới thiệu nền tảng phát triển phần mềm tích hợp, cung cấp công cụ và thị trường để người dùng có thể tạo, phân phối và kinh doanh các ứng dụng của riêng họ.
 
-- <span style="color: red;">✗</span> **AniOS 1.9**: Phát hành bộ công cụ tiện ích đa năng, cung cấp các giải pháp tối ưu hóa và tăng cường hiệu suất cho toàn bộ hệ sinh thái ứng dụng.
+- ❌ **AniOS 1.9**: Phát hành bộ công cụ tiện ích đa năng, cung cấp các giải pháp tối ưu hóa và tăng cường hiệu suất cho toàn bộ hệ sinh thái ứng dụng.
 
-- <span style="color: red;">✗</span> **AniOS 1.10**: Triển khai công nghệ đột phá cho phép tương tác liên không gian ảo, mở ra cánh cửa khám phá và trải nghiệm đa chiều chưa từng có.
+- ❌ **AniOS 1.10**: Triển khai công nghệ đột phá cho phép tương tác liên không gian ảo, mở ra cánh cửa khám phá và trải nghiệm đa chiều chưa từng có.
 
 ## Hướng dẫn cài đặt chi tiết
 
