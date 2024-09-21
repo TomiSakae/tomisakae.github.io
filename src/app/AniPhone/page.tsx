@@ -135,6 +135,19 @@ const AniPhone = () => {
         }
     };
 
+    const handleAppClick = useCallback((appId: string, defaultPath: string) => {
+        if (typeof window !== 'undefined') {
+            const activeApps = JSON.parse(window.sessionStorage.getItem('activeApps') || '[]');
+            const activeApp = activeApps.find((app: { id: string }) => app.id === appId);
+
+            if (activeApp) {
+                router.push(activeApp.url);
+            } else {
+                router.push(defaultPath);
+            }
+        }
+    }, [router]);
+
     if (isLoading) {
         return (
             <div className="bg-black h-screen flex items-center justify-center">
@@ -182,7 +195,7 @@ const AniPhone = () => {
                         <div className='flex flex-col items-center cursor-pointer w-14'>
                             <Image src="/setting.webp" alt="Settings" width={56} height={56}
                                 className='rounded-xl'
-                                onClick={() => router.push('/AniPhone/setting')}
+                                onClick={() => handleAppClick('setting', '/AniPhone/setting')}
                             />
                             <span className='text-center truncate'>Cài đặt</span>
                         </div>
@@ -190,7 +203,7 @@ const AniPhone = () => {
                             <div className='flex flex-col items-center cursor-pointer w-14'>
                                 <Image src="/mes.webp" alt="Message" width={56} height={56}
                                     className='rounded-xl'
-                                    onClick={() => router.push('/AniPhone/mes')}
+                                    onClick={() => handleAppClick('mes', '/AniPhone/mes')}
                                 />
                                 <span className='text-center truncate'>Tin nhắn</span>
                             </div>
@@ -199,7 +212,7 @@ const AniPhone = () => {
                             <div className='flex flex-col items-center cursor-pointer w-14'>
                                 <Image src="/browser.webp" alt="Browser" width={56} height={56}
                                     className='rounded-xl'
-                                    onClick={() => router.push('/AniPhone/browser')}
+                                    onClick={() => handleAppClick('browser', '/AniPhone/browser')}
                                 />
                                 <span className='text-center truncate'>Trình duyệt</span>
                             </div>

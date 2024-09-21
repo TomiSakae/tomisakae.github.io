@@ -106,7 +106,7 @@ const WifiPage = () => {
             <div className="p-4 mx-4">
                 <div className="flex items-center mb-6">
                     <FaArrowLeftLong className='text-xl cursor-pointer'
-                        onClick={() => router.back()}
+                        onClick={() => router.push('/AniPhone/setting')}
                     />
                     <h1 className="text-xl font-[600] mx-4">Wi-Fi</h1>
                 </div>

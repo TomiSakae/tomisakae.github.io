@@ -28,7 +28,7 @@ const AdminMessagePage = () => {
             <div className="p-4 flex items-center border-b border-gray-700">
                 <FaArrowLeftLong
                     className="text-xl cursor-pointer mr-4"
-                    onClick={() => router.back()}
+                    onClick={() => router.push('/AniPhone/mes')}
                 />
                 <h1 className="text-xl font-semibold">Admin</h1>
             </div>

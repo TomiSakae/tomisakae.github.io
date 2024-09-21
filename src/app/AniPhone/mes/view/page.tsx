@@ -122,7 +122,7 @@ const MessageContent = () => {
         <div className="h-screen bg-black text-white flex flex-col">
             <Nav />
             <div className="p-4 flex items-center border-b border-gray-700">
-                <FaArrowLeftLong className='text-xl cursor-pointer mr-4' onClick={() => router.back()} />
+                <FaArrowLeftLong className='text-xl cursor-pointer mr-4' onClick={() => router.push('/AniPhone/mes')} />
                 <h1 className="text-xl font-semibold">Người lạ</h1>
             </div>
             <div className="flex-grow overflow-y-auto p-4 space-y-4">

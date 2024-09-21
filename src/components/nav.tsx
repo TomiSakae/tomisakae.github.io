@@ -158,6 +158,24 @@ const Nav = () => {
         return `${hours}:${minutes}`;
     };
 
+    const handleBackNavigation = useCallback(() => {
+        if (isAniPhone) return; // Don't navigate back if on AniPhone main screen
+
+        const pathParts = pathname.split('/').filter(Boolean);
+
+        if (pathname === '/menu') {
+            // If we're on /menu, go back to /AniPhone
+            router.push('/AniPhone');
+        } else if (pathParts.length > 1) {
+            // Remove the last part of the path
+            const parentPath = '/' + pathParts.slice(0, -1).join('/');
+            router.push(parentPath);
+        } else {
+            // If we're already at a top-level route, go to /menu
+            router.push('/menu');
+        }
+    }, [router, pathname, isAniPhone]);
+
     return (
         <>
             <ActiveAppsManager />
@@ -194,11 +212,7 @@ const Nav = () => {
                     </div>
                 </div>
                 <div className="flex-1 flex justify-center p-2 rounded-full hover:bg-gray-200 hover:bg-opacity-20 transition-all duration-300"
-                    onClick={() => {
-                        if (!isAniPhone) {
-                            router.back();
-                        }
-                    }}
+                    onClick={handleBackNavigation}
                 >
                     <div className='flex flex-col items-center'>
                         <RiPlayReverseLargeLine className='text-lg' />

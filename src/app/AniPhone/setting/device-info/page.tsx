@@ -147,7 +147,7 @@ const DeviceInfoPage = () => {
             <div className="p-4 mx-4">
                 <div className="flex items-center">
                     <FaArrowLeftLong className='text-xl cursor-pointer'
-                        onClick={() => router.back()}
+                        onClick={() => router.push('/AniPhone/setting')}
                     />
                     <h1 className="text-xl font-[600] mx-4">Giới thiệu về thiết bị</h1>
                 </div>
