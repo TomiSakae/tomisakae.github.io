@@ -7,6 +7,7 @@ import { BiSignal5 } from "react-icons/bi";
 import { useEffect, useState, useCallback } from "react";
 import { IoWifiOutline } from "react-icons/io5";
 import ActiveAppsManager from './ActiveAppsManager';
+import Image from 'next/image';
 
 const Nav = () => {
     const router = useRouter();
@@ -35,6 +36,8 @@ const Nav = () => {
         return new Date(2024, 7, 12, 6, 0);
     });
     const [batteryDrainRate, setBatteryDrainRate] = useState(6); // Tốc độ giảm pin (% mỗi giây)
+    const [showNotification, setShowNotification] = useState(false);
+    const [notificationMessage, setNotificationMessage] = useState('');
 
     const updateCustomTime = useCallback((minutes: number, currentTime?: Date) => {
         setCustomTime(prevTime => {
@@ -136,10 +139,23 @@ const Nav = () => {
         checkWifiPlan();
         const wifiCheckInterval = setInterval(checkWifiPlan, 60000); // Check every minute
 
+        const checkNotification = () => {
+            const notification = window.sessionStorage.getItem('Notification');
+            if (notification) {
+                setNotificationMessage(notification);
+                setShowNotification(true);
+                setTimeout(() => setShowNotification(false), 3000);
+                window.sessionStorage.removeItem('Notification');
+            }
+        };
+
+        const notificationInterval = setInterval(checkNotification, 1000);
+
         return () => {
             clearInterval(interval);
             clearInterval(wifiCheckInterval);
             clearInterval(timeInterval);
+            clearInterval(notificationInterval);
         };
     }, [usageDuration, router, updateCustomTime, customTime, batteryDrainRate, showLowBatteryModal]);
 
@@ -230,6 +246,23 @@ const Nav = () => {
                         >
                             Đóng
                         </button>
+                    </div>
+                </div>
+            )}
+            {showNotification && (
+                <div className="fixed top-10 left-0 right-0 bg-white text-black px-4 py-3 shadow-lg z-50 animate-fade-in-down flex items-center h-[10vh]">
+                    <div className="w-10 h-10 mr-3 rounded-full overflow-hidden">
+                        <Image
+                            src="/mes.webp"
+                            alt="Message icon"
+                            width={40}
+                            height={40}
+                            className="object-cover"
+                        />
+                    </div>
+                    <div className="flex-grow">
+                        <p className="font-semibold text-sm">Thông báo</p>
+                        <p className="text-xs text-gray-600">{notificationMessage}</p>
                     </div>
                 </div>
             )}

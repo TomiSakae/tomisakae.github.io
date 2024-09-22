@@ -20,7 +20,7 @@ const SimPage = () => {
     }, []);
 
     const handleRegister = () => {
-        if (newPhoneNumber.length === 10 && /^\d+$/.test(newPhoneNumber)) {
+        if (newPhoneNumber.length === 10 && /^0\d{9}$/.test(newPhoneNumber)) {
             setPhoneNumber(newPhoneNumber);
             setBalance(10000); // Số dư khởi đầu
             if (typeof window !== 'undefined') {
@@ -65,9 +65,9 @@ const SimPage = () => {
                         <h2 className="text-xl font-bold mb-4">Đăng ký SIM mới</h2>
                         <input
                             type="text"
-                            placeholder="Nhập số điện thoại (10 chữ số)"
+                            placeholder="Nhập số điện thoại (10 số với 0 ở đầu)"
                             className={`w-full p-2 mb-4 rounded ${newPhoneNumber.length > 0
-                                ? newPhoneNumber.length === 10 && /^\d+$/.test(newPhoneNumber)
+                                ? newPhoneNumber.length === 10 && /^0\d{9}$/.test(newPhoneNumber)
                                     ? 'bg-green-800 border-green-500'
                                     : 'bg-red-800 border-red-500'
                                 : 'bg-gray-800'
@@ -83,12 +83,12 @@ const SimPage = () => {
                                 Hủy
                             </button>
                             <button
-                                className={`${newPhoneNumber.length === 10 && /^\d+$/.test(newPhoneNumber)
+                                className={`${newPhoneNumber.length === 10 && /^0\d{9}$/.test(newPhoneNumber)
                                     ? 'bg-blue-500 hover:bg-blue-600'
                                     : 'bg-gray-500 cursor-not-allowed'
                                     } text-white font-bold py-2 px-4 rounded`}
                                 onClick={handleRegister}
-                                disabled={!(newPhoneNumber.length === 10 && /^\d+$/.test(newPhoneNumber))}
+                                disabled={!(newPhoneNumber.length === 10 && /^0\d{9}$/.test(newPhoneNumber))}
                             >
                                 Đăng ký
                             </button>
