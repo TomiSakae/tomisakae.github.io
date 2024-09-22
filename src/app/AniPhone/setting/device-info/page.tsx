@@ -51,7 +51,7 @@ const DeviceInfoPage = () => {
         if (typeof window !== 'undefined') {
             window.sessionStorage.removeItem('backgroundImageUrl');
             const currentVersion = window.localStorage.getItem('AniOS') || '1.0';
-            const updates: Record<string, { AniOS: string; ROM: string; RAM: string; ROMused: string }> = {
+            const updates: Record<string, { AniOS: string; ROM: string; RAM: string; ROMused: string; batteryDrainRate?: string }> = {
                 '1.0': {
                     AniOS: '1.1',
                     ROM: '350',
@@ -63,6 +63,13 @@ const DeviceInfoPage = () => {
                     ROM: '500',
                     RAM: '200',
                     ROMused: '300'
+                },
+                '1.2': {
+                    AniOS: '1.3',
+                    ROM: '1000',
+                    RAM: '500',
+                    ROMused: '350',
+                    batteryDrainRate: '12' // Thêm batteryDrainRate cho phiên bản 1.3
                 }
             };
 
@@ -94,13 +101,21 @@ const DeviceInfoPage = () => {
 
     useEffect(() => {
         setTextAniOS(`AniOS ${AniOS}`);
-        setTextROM(`${ROMused} MB/${ROM} MB`);
-        setTextRAM(`${RAM} MB`);
+        setTextROM(`${formatStorage(ROMused)}/${formatStorage(ROM)}`);
+        setTextRAM(formatStorage(RAM));
     }, [AniOS, ROM, RAM, ROMused]);
 
+    const formatStorage = (value: string) => {
+        const numValue = parseInt(value);
+        if (numValue >= 1000) {
+            return `${(numValue / 1000).toFixed(2)} GB`;
+        }
+        return `${numValue} MB`;
+    };
+
     const getUpdateInfo = () => {
-        const currentVersion = AniOS as '1.0' | '1.1';
-        const updateInfo: Record<'1.0' | '1.1', { version: string; features: string[]; fee: number }> = {
+        const currentVersion = AniOS as '1.0' | '1.1' | '1.2';
+        const updateInfo: Record<'1.0' | '1.1' | '1.2', { version: string; features: string[]; fee: number }> = {
             '1.0': {
                 version: '1.1',
                 features: [
@@ -122,6 +137,17 @@ const DeviceInfoPage = () => {
                     'Tăng thêm 50 MB RAM'
                 ],
                 fee: 100000
+            },
+            '1.2': {
+                version: '1.3',
+                features: [
+                    'Thêm hệ thống Ngân hàng',
+                    'Thêm tính năng web app cho Trình duyệt',
+                    'Tăng thời gian sử dụng pin',
+                    'Tăng thêm 500 MB dung lượng',
+                    'Tăng thêm 300 MB RAM'
+                ],
+                fee: 250000
             }
         };
         return updateInfo[currentVersion] || null;
