@@ -52,6 +52,10 @@ const BrowserPage = () => {
                 finalUrl = 'https://tomisakae.github.io/AniPhone/browser/custom/xemquangcao';
                 //finalUrl = 'http://localhost:3000/AniPhone/browser/custom/xemquangcao';
             }
+            if (newUrl === 'aniw://choigamekiemtien.ani') {
+                finalUrl = 'https://tomisakae.github.io/AniPhone/browser/custom/choigame';
+                //finalUrl = 'http://localhost:3000/AniPhone/browser/custom/choigame';
+            }
             setHistory([...history.slice(0, currentIndex + 1), finalUrl]);
             setCurrentIndex(currentIndex + 1);
             setUrl(finalUrl);

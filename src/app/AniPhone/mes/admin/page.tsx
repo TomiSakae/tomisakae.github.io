@@ -12,6 +12,7 @@ const AdminMessagePage = () => {
         { content: "1. aniw://doctruyenkiemtien.ani", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
         { content: "2. aniw://khaosatkiemtien.ani", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
         { content: "3. aniw://xemquangcaokiemtien.ani", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
+        { content: "4. aniw://choigamekiemtien.ani", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
     ]);
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
