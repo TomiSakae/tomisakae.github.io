@@ -26,12 +26,12 @@ const BankSettingsPage = () => {
     const [idError, setIdError] = useState('');
 
     useEffect(() => {
-        const storedBalance = localStorage.getItem('balance');
+        const storedBalance = window.localStorage.getItem('balanceBank');
         if (storedBalance) {
             setBalance(parseInt(storedBalance));
         }
-        const storedCardNumber = localStorage.getItem('cardNumber');
-        const storedFullName = localStorage.getItem('cardHolderName');
+        const storedCardNumber = window.localStorage.getItem('cardNumber');
+        const storedFullName = window.localStorage.getItem('cardHolderName');
         if (storedCardNumber && storedFullName) {
             setHasCard(true);
             setCardNumber(storedCardNumber);
@@ -79,8 +79,12 @@ const BankSettingsPage = () => {
         setCardNumber(newCardNumber);
         setHasCard(true);
         setShowOpenCardForm(false);
-        localStorage.setItem('cardNumber', newCardNumber);
-        localStorage.setItem('cardHolderName', fullName);
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem('cardNumber', newCardNumber);
+            window.localStorage.setItem('cardHolderName', fullName);
+            window.localStorage.setItem('balanceBank', '0');
+        }
+        setBalance(0);
         setShowNewCardModal(true);
     };
 
@@ -89,11 +93,15 @@ const BankSettingsPage = () => {
     };
 
     const confirmCancelCard = () => {
-        localStorage.removeItem('cardNumber');
-        localStorage.removeItem('cardHolderName');
+        if (typeof window !== 'undefined') {
+            window.localStorage.removeItem('cardNumber');
+            window.localStorage.removeItem('cardHolderName');
+            window.localStorage.removeItem('balanceBank');
+        }
         setHasCard(false);
         setCardNumber('');
         setFullName('');
+        setBalance(0);
         setShowCancelCardModal(false);
         setShowOpenCardForm(true);
     };
@@ -123,6 +131,10 @@ const BankSettingsPage = () => {
                     <div className="bg-gray-700 p-4 rounded-lg mb-6">
                         <p className="text-sm text-gray-400 mb-1">Chủ thẻ:</p>
                         <p className="text-xl">{fullName}</p>
+                    </div>
+                    <div className="bg-gray-700 p-4 rounded-lg mb-6">
+                        <p className="text-sm text-gray-400 mb-1">Số dư:</p>
+                        <p className="text-xl">0 đ</p>
                     </div>
                 </div>
                 <button
