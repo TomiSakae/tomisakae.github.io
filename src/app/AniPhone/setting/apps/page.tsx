@@ -31,9 +31,25 @@ const AppsPage = () => {
             // Kiểm tra xem trình duyệt đã tồn tại chưa
             const browserExists = updatedApps.some(app => app.name === 'Trình duyệt');
 
-            // Thêm ứng dụng trình duyệt nếu phiên bản AniOS >= 1.2 và trình duyệt chưa tồn tại
-            if (aniosVersion && parseFloat(aniosVersion) >= 1.2 && !browserExists) {
-                updatedApps.push({ name: 'Trình duyệt', icon: '/browser.webp', size: '20 MB' });
+            // Thêm hoặc cập nhật ứng dụng trình duyệt
+            if (aniosVersion && parseFloat(aniosVersion) >= 1.2) {
+                if (browserExists) {
+                    return updatedApps.map(app => {
+                        if (app.name === 'Trình duyệt') {
+                            return {
+                                ...app,
+                                size: parseFloat(aniosVersion) >= 1.3 ? '70 MB' : '20 MB'
+                            };
+                        }
+                        return app;
+                    });
+                } else {
+                    updatedApps.push({
+                        name: 'Trình duyệt',
+                        icon: '/browser.webp',
+                        size: parseFloat(aniosVersion) >= 1.3 ? '70 MB' : '20 MB'
+                    });
+                }
             }
 
             return updatedApps;

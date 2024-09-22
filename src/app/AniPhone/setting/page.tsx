@@ -8,6 +8,7 @@ import { RiAppsLine } from "react-icons/ri";
 import { FaSimCard } from "react-icons/fa";
 import { IoWifiOutline } from "react-icons/io5";
 import { IoBatteryFullOutline } from "react-icons/io5";
+import { FaUniversity } from "react-icons/fa";
 
 const SettingsPage = () => {
     const router = useRouter();
@@ -91,6 +92,22 @@ const SettingsPage = () => {
                                     <IoIosArrowForward className="text-lg" />
                                 </div>
                             </div>
+                            {parseFloat(AniOS) >= 1.3 && (
+                                <div className="p-4 hover:bg-gray-800 rounded-lg transition-all duration-300 mb-4">
+                                    <div
+                                        className="flex justify-between items-center cursor-pointer"
+                                        onClick={() => router.push('/AniPhone/setting/bank')}
+                                    >
+                                        <div className="flex items-center gap-2">
+                                            <div className="bg-[#4CD964] rounded-full p-2">
+                                                <FaUniversity className="text-lg text-white" />
+                                            </div>
+                                            <span className="text-xl ml-2">Ngân hàng</span>
+                                        </div>
+                                        <IoIosArrowForward className="text-lg" />
+                                    </div>
+                                </div>
+                            )}
                         </>
                     )
                 }
