@@ -56,6 +56,10 @@ const BrowserPage = () => {
                 finalUrl = 'https://tomisakae.github.io/AniPhone/browser/custom/choigame';
                 //finalUrl = 'http://localhost:3000/AniPhone/browser/custom/choigame';
             }
+            if (newUrl === 'aniw://gachakiemtien.ani') {
+                finalUrl = 'https://tomisakae.github.io/AniPhone/browser/custom/gachakiemtien';
+                //finalUrl = 'http://localhost:3000/AniPhone/browser/custom/gachakiemtien';
+            }
             setHistory([...history.slice(0, currentIndex + 1), finalUrl]);
             setCurrentIndex(currentIndex + 1);
             setUrl(finalUrl);
