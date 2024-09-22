@@ -31,35 +31,37 @@ const TransferPage = () => {
     };
 
     const handleTransfer = () => {
-        if (!cardNumber || cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
-            setError('Số thẻ không hợp lệ. Vui lòng nhập 16 chữ số.');
-            setSuccess(false);
-            return;
+        if (typeof window !== 'undefined') {
+            if (!cardNumber || cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
+                setError('Số thẻ không hợp lệ. Vui lòng nhập 16 chữ số.');
+                setSuccess(false);
+                return;
+            }
+
+            const transferAmount = parseInt(amount);
+            if (isNaN(transferAmount) || transferAmount <= 0) {
+                setError('Số tiền không hợp lệ');
+                setSuccess(false);
+                return;
+            }
+
+            if (transferAmount > bankBalance) {
+                setError('Số dư tài khoản không đủ');
+                setSuccess(false);
+                return;
+            }
+
+            // Thực hiện chuyển tiền
+            const newBankBalance = bankBalance - transferAmount;
+            setBankBalance(newBankBalance);
+            window.localStorage.setItem('balanceBank', newBankBalance.toString());
+
+            // Set notification
+            window.sessionStorage.setItem('Notification', `Bạn đã chuyển thành công ${transferAmount.toLocaleString()} đồng đến số thẻ ${cardNumber}`);
+
+            setSuccess(true);
+            setError('');
         }
-
-        const transferAmount = parseInt(amount);
-        if (isNaN(transferAmount) || transferAmount <= 0) {
-            setError('Số tiền không hợp lệ');
-            setSuccess(false);
-            return;
-        }
-
-        if (transferAmount > bankBalance) {
-            setError('Số dư tài khoản không đủ');
-            setSuccess(false);
-            return;
-        }
-
-        // Thực hiện chuyển tiền
-        const newBankBalance = bankBalance - transferAmount;
-        setBankBalance(newBankBalance);
-        window.localStorage.setItem('balanceBank', newBankBalance.toString());
-
-        // Set notification
-        window.sessionStorage.setItem('Notification', `Bạn đã chuyển thành công ${transferAmount.toLocaleString()} đồng đến số thẻ ${cardNumber}`);
-
-        setSuccess(true);
-        setError('');
     };
 
     return (

@@ -2,19 +2,25 @@
 
 import { useState, useEffect } from 'react';
 import Nav from '@/components/nav';
-import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import { FaExchangeAlt } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
+import { useRouter } from 'next/navigation';
 
 const BrowserPage = () => {
+    const router = useRouter();
     const [url, setUrl] = useState('');
-    const [history, setHistory] = useState<string[]>([]);
-    const [currentIndex, setCurrentIndex] = useState(-1);
     const [hasWifi, setHasWifi] = useState(false);
     const [displayUrl, setDisplayUrl] = useState('');
+    const [showSwitchIcon, setShowSwitchIcon] = useState(false);
 
     useEffect(() => {
         const wifiPlanId = window.localStorage.getItem('wifiPlanId');
         setHasWifi(!!wifiPlanId);
+
+        const aniOSVersion = window.localStorage.getItem('AniOS');
+        if (aniOSVersion && parseFloat(aniOSVersion) >= 1.3) {
+            setShowSwitchIcon(true);
+        }
     }, []);
 
     const handleSearch = (newUrl: string) => {
@@ -41,24 +47,12 @@ const BrowserPage = () => {
                 finalUrl = 'https://tomisakae.github.io/AniPhone/browser/custom/gachakiemtien';
                 //finalUrl = 'http://localhost:3000/AniPhone/browser/custom/gachakiemtien';
             }
-            setHistory([...history.slice(0, currentIndex + 1), finalUrl]);
-            setCurrentIndex(currentIndex + 1);
             setUrl(finalUrl);
         }
     };
 
-    const goBack = () => {
-        if (currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1);
-            setUrl(history[currentIndex - 1]);
-        }
-    };
-
-    const goForward = () => {
-        if (currentIndex < history.length - 1) {
-            setCurrentIndex(currentIndex + 1);
-            setUrl(history[currentIndex + 1]);
-        }
+    const switchToWebApp = () => {
+        router.push('/AniPhone/browser/app');
     };
 
     return (
@@ -66,8 +60,9 @@ const BrowserPage = () => {
             <Nav />
             <div className="p-4 flex-grow flex flex-col">
                 <div className="flex items-center mb-4">
-                    <FaArrowLeftLong className="text-xl cursor-pointer mr-4" onClick={goBack} />
-                    <FaArrowRightLong className="text-xl cursor-pointer mr-4" onClick={goForward} />
+                    {showSwitchIcon && (
+                        <FaExchangeAlt className="text-xl cursor-pointer mr-4" onClick={switchToWebApp} />
+                    )}
                     <div className="flex-grow flex items-center bg-gray-800 rounded-lg p-2">
                         <FaSearch className="text-gray-400 mr-2" />
                         <input
