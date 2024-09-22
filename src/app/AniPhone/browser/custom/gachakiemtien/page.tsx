@@ -26,8 +26,8 @@ const GachaKiemTien = () => {
         { id: 1, name: 'Xu thường', rarity: 'Phổ biến', value: 10, color: 'text-gray-400', bgColor: 'bg-gray-700' },
         { id: 2, name: 'Xu bạc', rarity: 'Hiếm', value: 50, color: 'text-green-500', bgColor: 'bg-green-900' },
         { id: 3, name: 'Xu vàng', rarity: 'Cực hiếm', value: 250, color: 'text-blue-500', bgColor: 'bg-blue-900' },
-        { id: 4, name: 'Xu kim cương', rarity: 'Huyền thoại', value: 2500, color: 'text-purple-500', bgColor: 'bg-purple-900' },
-        { id: 5, name: 'Xu bạch kim', rarity: 'Siêu hiếm', value: 10000, color: 'text-orange-500', bgColor: 'bg-orange-900' },
+        { id: 4, name: 'Xu kim cương', rarity: 'Siêu hiếm', value: 2500, color: 'text-purple-500', bgColor: 'bg-purple-900' },
+        { id: 5, name: 'Xu bạch kim', rarity: 'Huyền thoại', value: 10000, color: 'text-orange-500', bgColor: 'bg-orange-900' },
         { id: 6, name: 'Xu vũ trụ', rarity: 'Thần thoại', value: 50000, color: 'text-red-500', bgColor: 'bg-red-900' },
     ];
 
@@ -50,18 +50,18 @@ const GachaKiemTien = () => {
             const randomNumber = Math.random();
             let selectedItem: GachaItem;
 
-            if (randomNumber < 0.5) {
-                selectedItem = gachaItems[0]; // 50% chance for common
-            } else if (randomNumber < 0.8) {
-                selectedItem = gachaItems[1]; // 30% chance for rare
-            } else if (randomNumber < 0.97) {
-                selectedItem = gachaItems[2]; // 17% chance for epic
-            } else if (randomNumber < 0.99) {
-                selectedItem = gachaItems[3]; // 2% chance for legendary
-            } else if (randomNumber < 0.999) {
-                selectedItem = gachaItems[4]; // 0.9% chance for super rare
+            if (randomNumber < 0.6) {
+                selectedItem = gachaItems[0]; // 60% chance for common
+            } else if (randomNumber < 0.95) {
+                selectedItem = gachaItems[1]; // 35% chance for rare
+            } else if (randomNumber < 0.98) {
+                selectedItem = gachaItems[2]; // 3% chance for epic
+            } else if (randomNumber < 0.9989) {
+                selectedItem = gachaItems[3]; // 1.89% chance for legendary
+            } else if (randomNumber < 0.9999) {
+                selectedItem = gachaItems[4]; // 0.1% chance for super rare
             } else {
-                selectedItem = gachaItems[5]; // 0.1% chance for mythical
+                selectedItem = gachaItems[5]; // 0.01% chance for mythical
             }
             pulls.push(selectedItem);
         }
