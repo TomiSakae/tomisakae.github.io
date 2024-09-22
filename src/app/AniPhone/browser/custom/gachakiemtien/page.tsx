@@ -25,10 +25,10 @@ const GachaKiemTien = () => {
     const gachaItems: GachaItem[] = [
         { id: 1, name: 'Xu thường', rarity: 'Phổ biến', value: 10, color: 'text-gray-400', bgColor: 'bg-gray-700' },
         { id: 2, name: 'Xu bạc', rarity: 'Hiếm', value: 50, color: 'text-green-500', bgColor: 'bg-green-900' },
-        { id: 3, name: 'Xu vàng', rarity: 'Cực hiếm', value: 100, color: 'text-blue-500', bgColor: 'bg-blue-900' },
-        { id: 4, name: 'Xu kim cương', rarity: 'Huyền thoại', value: 500, color: 'text-purple-500', bgColor: 'bg-purple-900' },
-        { id: 5, name: 'Xu bạch kim', rarity: 'Siêu hiếm', value: 1000, color: 'text-orange-500', bgColor: 'bg-orange-900' },
-        { id: 6, name: 'Xu vũ trụ', rarity: 'Thần thoại', value: 5000, color: 'text-red-500', bgColor: 'bg-red-900' },
+        { id: 3, name: 'Xu vàng', rarity: 'Cực hiếm', value: 250, color: 'text-blue-500', bgColor: 'bg-blue-900' },
+        { id: 4, name: 'Xu kim cương', rarity: 'Huyền thoại', value: 2500, color: 'text-purple-500', bgColor: 'bg-purple-900' },
+        { id: 5, name: 'Xu bạch kim', rarity: 'Siêu hiếm', value: 10000, color: 'text-orange-500', bgColor: 'bg-orange-900' },
+        { id: 6, name: 'Xu vũ trụ', rarity: 'Thần thoại', value: 50000, color: 'text-red-500', bgColor: 'bg-red-900' },
     ];
 
     useEffect(() => {
