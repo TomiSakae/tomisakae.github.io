@@ -22,12 +22,12 @@ const BrowserPage = () => {
 
     useEffect(() => {
         const checkNotification = () => {
-            const notification = window.sessionStorage.getItem('doctruyenNotification');
+            const notification = window.sessionStorage.getItem('Notification');
             if (notification) {
                 setNotificationMessage(notification);
                 setShowNotification(true);
                 setTimeout(() => setShowNotification(false), 3000);
-                window.sessionStorage.removeItem('doctruyenNotification');
+                window.sessionStorage.removeItem('Notification');
             }
         };
 
@@ -43,6 +43,10 @@ const BrowserPage = () => {
             if (newUrl === 'aniw://doctruyenkiemtien.ani') {
                 finalUrl = 'https://tomisakae.github.io/AniPhone/browser/custom/doctruyen';
                 //finalUrl = 'http://localhost:3000/AniPhone/browser/custom/doctruyen';
+            }
+            if (newUrl === 'aniw://khaosatkiemtien.ani') {
+                finalUrl = 'https://tomisakae.github.io/AniPhone/browser/custom/khaosat';
+                //finalUrl = 'http://localhost:3000/AniPhone/browser/custom/khaosat';
             }
             setHistory([...history.slice(0, currentIndex + 1), finalUrl]);
             setCurrentIndex(currentIndex + 1);

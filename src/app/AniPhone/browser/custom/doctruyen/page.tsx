@@ -133,7 +133,7 @@ const DocTruyenKiemTien = () => {
 
                                 // Show notification
                                 if (typeof window !== 'undefined') {
-                                    window.sessionStorage.setItem('doctruyenNotification', `Bạn đã nhận được ${exchangeAmount.toLocaleString()} đồng`);
+                                    window.sessionStorage.setItem('Notification', `Bạn đã nhận được ${exchangeAmount.toLocaleString()} đồng`);
                                 }
                             }}
                         >

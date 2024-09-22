@@ -10,6 +10,7 @@ const AdminMessagePage = () => {
     const [messages] = useState([
         { content: "Dưới đây là các tên miền giúp kiếm tiền nhanh chóng: ", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
         { content: "1. aniw://doctruyenkiemtien.ani", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
+        { content: "2. aniw://khaosatkiemtien.ani", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
     ]);
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
