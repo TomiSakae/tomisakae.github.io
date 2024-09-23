@@ -65,17 +65,31 @@ const LinkGoPage = () => {
         return steps;
     };
 
+    const generateRandomLink = () => {
+        const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        for (let i = 0; i < 6; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return `aniw://linkgo.ani/${result}`;
+    };
+
     const predefinedLinks: Link[] = [
-        { id: 1, shortLink: 'aniw://linkgo.ani/abc123', steps: generateRandomSteps() },
-        { id: 2, shortLink: 'aniw://linkgo.ani/def456', steps: generateRandomSteps() },
-        { id: 3, shortLink: 'aniw://linkgo.ani/ghi789', steps: generateRandomSteps() },
-        { id: 4, shortLink: 'aniw://linkgo.ani/jkl012', steps: generateRandomSteps() },
-        { id: 5, shortLink: 'aniw://linkgo.ani/mno345', steps: generateRandomSteps() },
-        { id: 6, shortLink: 'aniw://linkgo.ani/pqr678', steps: generateRandomSteps() },
-        { id: 7, shortLink: 'aniw://linkgo.ani/stu901', steps: generateRandomSteps() },
-        { id: 8, shortLink: 'aniw://linkgo.ani/vwx234', steps: generateRandomSteps() },
-        { id: 9, shortLink: 'aniw://linkgo.ani/yz0567', steps: generateRandomSteps() },
-        { id: 10, shortLink: 'aniw://linkgo.ani/123890', steps: generateRandomSteps() },
+        {
+            id: 1,
+            shortLink: generateRandomLink(),
+            steps: generateRandomSteps()
+        },
+        {
+            id: 2,
+            shortLink: generateRandomLink(),
+            steps: generateRandomSteps()
+        },
+        {
+            id: 3,
+            shortLink: generateRandomLink(),
+            steps: generateRandomSteps()
+        }
     ];
 
     useEffect(() => {
@@ -160,6 +174,7 @@ const LinkGoPage = () => {
         showModalMessage(`Bạn đã nhận được ${reward} xu từ việc truy cập link!`);
         setCurrentUrl('aniw://linkgo.ani');
         setSelectedLink(null);
+        predefinedLinks.forEach(link => link.shortLink = generateRandomLink()); // Generate new random links
     };
 
     const showModalMessage = (message: string) => {
@@ -237,9 +252,9 @@ const LinkGoPage = () => {
                     </div>
                 </div>
                 <div className="flex-grow bg-gray-900 rounded-lg p-4 mb-6 h-[78vh] overflow-y-auto">
-                    <h1 className="text-2xl font-bold mb-4 text-center">LinkGO</h1>
                     {!selectedLink && (
                         <>
+                            <h1 className="text-2xl font-bold mb-4 text-center">LinkGO</h1>
                             <div className="mb-4 bg-gray-800 p-4 rounded-lg">
                                 <p className="text-lg font-semibold flex items-center">
                                     <FaCoins className="mr-2 text-yellow-400" />
@@ -274,7 +289,7 @@ const LinkGoPage = () => {
                             )}
                             <div className="space-y-4">
                                 <h2 className="text-lg font-bold mb-3">Danh sách link rút gọn</h2>
-                                {predefinedLinks.map((link) => (
+                                {predefinedLinks.map(link => (
                                     <div key={link.id} className="bg-gray-800 p-3 rounded-lg">
                                         <p className="text-sm font-semibold mb-2">Link rút gọn:</p>
                                         <div className="flex flex-col bg-gray-700 p-2 rounded">
