@@ -41,24 +41,31 @@ const MessageContent = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
+    const getCurrentCustomTime = () => {
+        const savedTime = window.localStorage.getItem('customTime');
+        return savedTime ? new Date(JSON.parse(savedTime)) : new Date();
+    };
+
     useEffect(() => {
+        const customTime = getCurrentCustomTime();
+
         if (id === '0') {
             setMessages([
-                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi giải quyết bài toán sau: ', timestamp: new Date() },
+                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi giải quyết bài toán sau: ', timestamp: customTime },
             ]);
             setShowMathChallenge(true);
         } else if (id === '1') {
             setMessages([
-                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi đặt mật khẩu với điều kiện sau: ', timestamp: new Date() },
+                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi đặt mật khẩu với điều kiện sau: ', timestamp: customTime },
             ]);
         } else if (id === '2') {
             setMessages([
-                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi nhập mã CAPTCHA sau: ', timestamp: new Date() },
+                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi nhập mã CAPTCHA sau: ', timestamp: customTime },
             ]);
             setShowCaptchaChallenge(true);
         } else if (id === '3') {
             setMessages([
-                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi giải mã tin nhắn sau: ', timestamp: new Date() },
+                { id: 1, sender: 'Người lạ', content: 'Bạn hãy giúp tôi giải mã tin nhắn sau: ', timestamp: customTime },
             ]);
             setShowDecodeChallenge(true);
         }
@@ -71,7 +78,8 @@ const MessageContent = () => {
 
     const handleSendMessage = () => {
         if (newMessage.trim()) {
-            const userMessage = { id: messages.length + 1, sender: 'Bạn', content: newMessage, timestamp: new Date() };
+            const customTime = getCurrentCustomTime();
+            const userMessage = { id: messages.length + 1, sender: 'Bạn', content: newMessage, timestamp: customTime };
             setMessages([...messages, userMessage]);
             setNewMessage('');
 
@@ -94,16 +102,19 @@ const MessageContent = () => {
     };
 
     const handleMathMessage = (message: { sender: string; content: string }) => {
-        setMessages(prevMessages => [...prevMessages, { id: prevMessages.length + 1, ...message, timestamp: new Date() }]);
+        const customTime = getCurrentCustomTime();
+        setMessages(prevMessages => [...prevMessages, { id: prevMessages.length + 1, ...message, timestamp: customTime }]);
     };
 
     const handleMessage = (message: { sender: string; content: string }) => {
-        setMessages(prevMessages => [...prevMessages, { id: prevMessages.length + 1, ...message, timestamp: new Date() }]);
+        const customTime = getCurrentCustomTime();
+        setMessages(prevMessages => [...prevMessages, { id: prevMessages.length + 1, ...message, timestamp: customTime }]);
     };
 
     const handleInitialChallenge = useCallback((challenge: Challenge) => {
         if (!initialChallengeSet.current) {
             setCurrentChallenge(challenge);
+
             handleMessage({ sender: 'Người lạ', content: challenge.description });
             initialChallengeSet.current = true;
         }

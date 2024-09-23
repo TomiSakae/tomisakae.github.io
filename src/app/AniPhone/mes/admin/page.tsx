@@ -7,14 +7,38 @@ import { useRouter } from 'next/navigation';
 
 const AdminMessagePage = () => {
     const router = useRouter();
-    const [messages] = useState([
-        { content: "Dưới đây là các tên miền giúp kiếm tiền nhanh chóng: ", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
-        { content: "1. aniw://doctruyenkiemtien.ani", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
-        { content: "2. aniw://khaosatkiemtien.ani", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
-        { content: "3. aniw://xemquangcaokiemtien.ani", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
-        { content: "4. aniw://choigamekiemtien.ani", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
-        { content: "5. aniw://gachakiemtien.ani", time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) },
-    ]);
+    const [customTime, setCustomTime] = useState<Date>(new Date());
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const storedTime = window.localStorage.getItem('customTime');
+            if (storedTime) {
+                setCustomTime(new Date(JSON.parse(storedTime)));
+            } else {
+                setCustomTime(new Date("2024-08-12T06:00:00.000Z"));
+            }
+        }
+    }, []);
+
+    const formatTime = (date: Date) => {
+        return date.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+    };
+
+    const [messages, setMessages] = useState<Array<{ content: string; time: string }>>([]);
+
+    useEffect(() => {
+        const baseTime = new Date(customTime);
+        const newMessages = [
+            { content: "Dưới đây là các tên miền giúp kiếm tiền nhanh chóng: ", time: formatTime(baseTime) },
+            { content: "1. aniw://doctruyenkiemtien.ani", time: formatTime(new Date(baseTime.getTime() + 1000)) },
+            { content: "2. aniw://khaosatkiemtien.ani", time: formatTime(new Date(baseTime.getTime() + 2000)) },
+            { content: "3. aniw://xemquangcaokiemtien.ani", time: formatTime(new Date(baseTime.getTime() + 3000)) },
+            { content: "4. aniw://choigamekiemtien.ani", time: formatTime(new Date(baseTime.getTime() + 4000)) },
+            { content: "5. aniw://gachakiemtien.ani", time: formatTime(new Date(baseTime.getTime() + 5000)) },
+        ];
+        setMessages(newMessages);
+        console.log(customTime);
+    }, [customTime]);
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -40,7 +64,7 @@ const AdminMessagePage = () => {
                 <div className="h-full overflow-y-auto">
                     {messages.map((message, index) => (
                         <div key={index} className="flex justify-start mb-4">
-                            <div className="max-w-[70%] p-3 rounded-lg bg-gray-700">
+                            <div className="max-w-[85%] p-3 rounded-lg bg-gray-700">
                                 <p className="break-words">{message.content}</p>
                                 <p className="text-xs text-gray-300 mt-1">{message.time}</p>
                             </div>

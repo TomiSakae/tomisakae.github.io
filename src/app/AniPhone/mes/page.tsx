@@ -10,6 +10,7 @@ const MessagesPage = () => {
     const [messageContent, setMessageContent] = useState('');
     const [idMes, setIdMes] = useState(0);
     const [showAdmin, setShowAdmin] = useState(false);
+    const [customTime, setCustomTime] = useState<Date | null>(null);
 
     useEffect(() => {
         const storedCheckNew = window.sessionStorage.getItem('mes');
@@ -25,6 +26,12 @@ const MessagesPage = () => {
         const aniOSVersion = window.localStorage.getItem('AniOS');
         if (aniOSVersion && parseFloat(aniOSVersion) >= 1.2) {
             setShowAdmin(true);
+        }
+
+        // Load custom time from localStorage
+        const savedTime = window.localStorage.getItem('customTime');
+        if (savedTime) {
+            setCustomTime(new Date(JSON.parse(savedTime)));
         }
     }, []);
 
@@ -65,7 +72,9 @@ const MessagesPage = () => {
                         >
                             <div className="flex justify-between items-center mb-2">
                                 <span className="font-semibold">Người lạ</span>
-                                <span className="text-sm text-gray-400">{new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}</span>
+                                <span className="text-sm text-gray-400">
+                                    {customTime && customTime.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}
+                                </span>
                             </div>
                             <p className="text-gray-300 truncate">{messageContent}</p>
                         </div>
@@ -76,7 +85,9 @@ const MessagesPage = () => {
                             >
                                 <div className="flex justify-between items-center mb-2">
                                     <span className="font-semibold">Admin</span>
-                                    <span className="text-sm text-gray-400">{new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}</span>
+                                    <span className="text-sm text-gray-400">
+                                        {customTime && customTime.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}
+                                    </span>
                                 </div>
                                 <p className="text-gray-300 truncate">Các mẹo hữu ích!</p>
                             </div>

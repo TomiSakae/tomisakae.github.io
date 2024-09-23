@@ -155,12 +155,9 @@ const LinkGoPage = () => {
             const exchangeAmount = Math.floor(balance / 10) * 1000;
             const newBalance = balance % 10;
             setBalance(newBalance);
-            const currentBalance = parseInt(window.localStorage.getItem('balance') || '0', 10);
-            const updatedBalance = currentBalance + exchangeAmount;
-            window.localStorage.setItem('balance', updatedBalance.toString());
             window.sessionStorage.setItem('balanceLinkGo', newBalance.toString());
 
-            // Cập nhật số dư ngân hàng
+            // Chỉ cập nhật số dư ngân hàng
             const currentBankBalance = parseInt(window.localStorage.getItem('balanceBank') || '0', 10);
             const updatedBankBalance = currentBankBalance + exchangeAmount;
             window.localStorage.setItem('balanceBank', updatedBankBalance.toString());

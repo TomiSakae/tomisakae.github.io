@@ -49,6 +49,8 @@ const AniPhone = () => {
             window.localStorage.setItem('RAM', '100');
             window.localStorage.setItem('ROMused', '233');
             window.localStorage.setItem('batteryDrainRate', '6');
+            window.localStorage.setItem('customTime', '"2024-08-12T06:00:00"');
+            window.localStorage.setItem('usageDuration', '0');
         }
         else {
             setAniOS(window.localStorage.getItem('AniOS') || '1.0');
