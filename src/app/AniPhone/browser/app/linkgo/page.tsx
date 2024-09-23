@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Nav from '@/components/nav';
-import { FaArrowLeft, FaCoins, FaExternalLinkAlt, FaSearch, FaSpinner } from 'react-icons/fa';
+import { FaArrowLeft, FaCoins, FaExternalLinkAlt, FaSearch, FaSpinner, FaCheck } from 'react-icons/fa';
 
 interface Step {
-    type: 'captcha' | 'timer';
+    type: 'captcha' | 'timer' | 'humanVerification';
     text?: string;
     duration?: number;
 }
@@ -33,30 +33,49 @@ const LinkGoPage = () => {
     const [modalMessage, setModalMessage] = useState('');
     const [cardInputMessage, setCardInputMessage] = useState('');
     const [cardInputMessageType, setCardInputMessageType] = useState<'success' | 'error' | ''>('');
+    const [isVerifying, setIsVerifying] = useState(false);
+    const [isVerified, setIsVerified] = useState(false);
+
+    const generateRandomCaptcha = () => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let result = '';
+        for (let i = 0; i < 6; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return result;
+    };
+
+    const generateRandomDuration = () => {
+        return Math.floor(Math.random() * 11) + 5; // Random duration between 5 and 15 seconds
+    };
+
+    const generateRandomSteps = () => {
+        const numberOfSteps = Math.floor(Math.random() * 3) + 2; // Random number of steps between 2 and 4
+        const steps: Step[] = [];
+        for (let i = 0; i < numberOfSteps; i++) {
+            const randomStep = Math.random();
+            if (randomStep < 0.33) {
+                steps.push({ type: 'captcha', text: `Nhập mã Captcha sau: ${generateRandomCaptcha()}` });
+            } else if (randomStep < 0.66) {
+                steps.push({ type: 'timer', duration: generateRandomDuration() });
+            } else {
+                steps.push({ type: 'humanVerification', text: 'Xác nhận bạn không phải là người máy' });
+            }
+        }
+        return steps;
+    };
 
     const predefinedLinks: Link[] = [
-        {
-            id: 1, shortLink: 'aniw://linkgo.ani/abc123', steps: [
-                { type: 'captcha', text: 'Nhập mã Captcha sau: ABC123' },
-                { type: 'timer', duration: 5 },
-                { type: 'captcha', text: 'Nhập mã Captcha sau: XYZ789' },
-            ]
-        },
-        {
-            id: 2, shortLink: 'aniw://linkgo.ani/def456', steps: [
-                { type: 'timer', duration: 10 },
-                { type: 'captcha', text: 'Nhập mã Captcha sau: DEF456' },
-                { type: 'timer', duration: 5 },
-            ]
-        },
-        {
-            id: 3, shortLink: 'aniw://linkgo.ani/ghi789', steps: [
-                { type: 'captcha', text: 'Nhập mã Captcha sau: GHI789' },
-                { type: 'timer', duration: 7 },
-                { type: 'captcha', text: 'Nhập mã Captcha sau: JKL012' },
-                { type: 'timer', duration: 3 },
-            ]
-        },
+        { id: 1, shortLink: 'aniw://linkgo.ani/abc123', steps: generateRandomSteps() },
+        { id: 2, shortLink: 'aniw://linkgo.ani/def456', steps: generateRandomSteps() },
+        { id: 3, shortLink: 'aniw://linkgo.ani/ghi789', steps: generateRandomSteps() },
+        { id: 4, shortLink: 'aniw://linkgo.ani/jkl012', steps: generateRandomSteps() },
+        { id: 5, shortLink: 'aniw://linkgo.ani/mno345', steps: generateRandomSteps() },
+        { id: 6, shortLink: 'aniw://linkgo.ani/pqr678', steps: generateRandomSteps() },
+        { id: 7, shortLink: 'aniw://linkgo.ani/stu901', steps: generateRandomSteps() },
+        { id: 8, shortLink: 'aniw://linkgo.ani/vwx234', steps: generateRandomSteps() },
+        { id: 9, shortLink: 'aniw://linkgo.ani/yz0567', steps: generateRandomSteps() },
+        { id: 10, shortLink: 'aniw://linkgo.ani/123890', steps: generateRandomSteps() },
     ];
 
     useEffect(() => {
@@ -95,6 +114,7 @@ const LinkGoPage = () => {
         setCurrentUrl(link.shortLink);
         setStep(0);
         setTimerProgress(0);
+        setIsVerified(false);
     };
 
     const handleCaptchaSubmit = (input: string) => {
@@ -105,10 +125,20 @@ const LinkGoPage = () => {
         }
     };
 
+    const handleHumanVerification = () => {
+        setIsVerifying(true);
+        setTimeout(() => {
+            setIsVerifying(false);
+            setIsVerified(true);
+        }, 2000);
+    };
+
     const proceedToNextStep = () => {
         setError('');
         setSuccess('');
         setTimerProgress(0);
+        setIsVerifying(false);
+        setIsVerified(false);
         if (selectedLink && step < selectedLink.steps.length - 1) {
             setIsLoading(true);
             setTimeout(() => {
@@ -284,6 +314,31 @@ const LinkGoPage = () => {
                                     </div>
                                 </>
                             )}
+                            {selectedLink.steps[step].type === 'humanVerification' && (
+                                <div className="flex flex-col items-center space-y-4">
+                                    <div className="flex items-center space-x-4">
+                                        <button
+                                            onClick={handleHumanVerification}
+                                            className={`w-6 h-6 border-2 rounded-md ${isVerifying ? 'border-blue-500' : isVerified ? 'border-green-500 bg-green-500' : 'border-gray-500'} flex items-center justify-center relative`}
+                                            disabled={isVerifying || isVerified}
+                                        >
+                                            {isVerifying && (
+                                                <FaSpinner className="animate-spin text-blue-500 absolute text-xs" />
+                                            )}
+                                            {isVerified && <FaCheck className="text-white text-xs" />}
+                                        </button>
+                                        <span className="text-md">Xác thực bạn không phải là người máy.</span>
+                                    </div>
+                                    {isVerified && (
+                                        <button
+                                            onClick={proceedToNextStep}
+                                            className="w-full bg-blue-600 text-white px-4 py-3 rounded-md hover:bg-blue-700 transition duration-300 text-lg font-semibold"
+                                        >
+                                            Tiếp tục
+                                        </button>
+                                    )}
+                                </div>
+                            )}
                         </div>
                     )}
                     {isLoading && (
@@ -295,14 +350,16 @@ const LinkGoPage = () => {
                     {error && <p className="text-red-500 bg-red-100 p-3 rounded-md mt-4">{error}</p>}
                 </div>
             </div>
-            {showModal && (
-                <div className="fixed top-[15vh] left-1/2 transform -translate-x-1/2 z-50">
-                    <div className="bg-green-500 text-white px-4 py-2 rounded-md shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 inline-block">
-                        <p className="text-sm font-semibold whitespace-nowrap">{modalMessage}</p>
+            {
+                showModal && (
+                    <div className="fixed top-[15vh] left-1/2 transform -translate-x-1/2 z-50">
+                        <div className="bg-green-500 text-white px-4 py-2 rounded-md shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 inline-block">
+                            <p className="text-sm font-semibold whitespace-nowrap">{modalMessage}</p>
+                        </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+        </div >
     );
 };
 
