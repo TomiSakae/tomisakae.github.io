@@ -29,7 +29,7 @@ const SettingsPage = () => {
                 <div className="flex items-center mb-6">
                     <h1 className="text-3xl font-[600] mx-2">Cài đặt</h1>
                 </div>
-                <div className="h-[79vh] overflow-y-auto">
+                <div className="h-[77vh] overflow-y-auto">
                     {parseFloat(AniOS) >= 1.2 && (
                         <>
                             <div className="p-4 hover:bg-gray-800 rounded-lg transition-all duration-300 mb-4">
