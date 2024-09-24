@@ -83,6 +83,12 @@ const BankSettingsPage = () => {
             window.localStorage.setItem('cardNumber', newCardNumber);
             window.localStorage.setItem('cardHolderName', fullName);
             window.localStorage.setItem('balanceBank', '0');
+            const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+            if (storedAchievementStatuses[1] === 0) {
+                storedAchievementStatuses[1] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+                window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+                window.sessionStorage.setItem('AchievementNotification', 'Khởi Đầu');
+            }
         }
         setBalance(0);
         setShowNewCardModal(true);

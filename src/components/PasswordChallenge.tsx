@@ -76,9 +76,21 @@ const PasswordChallengeComponent: React.FC<PasswordChallengeProps> = ({ onChalle
         if (!currentChallenge) return;
 
         onMessage({ sender: 'Bạn', content: password });
+        const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+        if (storedAchievementStatuses[6] === 0) {
+            storedAchievementStatuses[6] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+            window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+            window.sessionStorage.setItem('AchievementNotification', 'Trợ Thủ');
+        }
         setTimeout(() => {
             if (currentChallenge.validator(password.trim())) {
                 onChallengeComplete(currentChallenge.reward);
+                const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+                if (storedAchievementStatuses[8] === 0) {
+                    storedAchievementStatuses[8] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+                    window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+                    window.sessionStorage.setItem('AchievementNotification', 'Mật Khẩu');
+                }
                 onMessage({ sender: 'Người lạ', content: `Tuyệt vời! Mật khẩu của bạn đáp ứng yêu cầu. Đây là ${currentChallenge.reward.toLocaleString()} đ cho bạn.` });
                 setCurrentChallenge(null); // Đặt currentChallenge về null để ẩn input
             } else {

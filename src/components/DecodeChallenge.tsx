@@ -72,6 +72,12 @@ const DecodeChallenge: React.FC<DecodeChallengeProps> = ({ onChallengeComplete, 
 
     const handleSubmit = () => {
         onMessage({ sender: 'Bạn', content: userInput });
+        const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+        if (storedAchievementStatuses[6] === 0) {
+            storedAchievementStatuses[6] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+            window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+            window.sessionStorage.setItem('AchievementNotification', 'Trợ Thủ');
+        }
 
         setTimeout(() => {
             if (userInput.trim().toLowerCase() === decodedMessage.toLowerCase()) {
@@ -90,6 +96,12 @@ const DecodeChallenge: React.FC<DecodeChallengeProps> = ({ onChallengeComplete, 
                         reward = 5000;
                 }
                 onChallengeComplete(reward);
+                const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+                if (storedAchievementStatuses[10] === 0) {
+                    storedAchievementStatuses[10] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+                    window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+                    window.sessionStorage.setItem('AchievementNotification', 'Giải Mã');
+                }
                 onMessage({ sender: 'Người lạ', content: `Tuyệt vời! Bạn đã giải mã đúng tin nhắn. Đây là ${reward.toLocaleString()} đ cho bạn.` });
                 setAttempts(0);
             } else {

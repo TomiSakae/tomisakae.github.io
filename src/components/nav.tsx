@@ -280,7 +280,7 @@ const Nav = () => {
                 </div>
             )}
             {showNotification && (
-                <div className="fixed top-10 left-0 right-0 bg-white text-black px-4 py-3 shadow-lg z-50 animate-fade-in-down flex items-center h-[10vh] z-10">
+                <div className="fixed top-10 left-0 right-0 bg-white text-black px-4 py-3 shadow-lg z-50 animate-fade-in-down flex items-center h-[10vh] z-[9999]">
                     <div className="w-10 h-10 mr-3 rounded-full overflow-hidden">
                         <Image
                             src="/mes.webp"
@@ -297,7 +297,7 @@ const Nav = () => {
                 </div>
             )}
             {showAchievementNotification && (
-                <div className="fixed top-10 left-0 right-0 bg-white text-black px-4 py-3 shadow-lg z-50 animate-fade-in-down flex items-center h-[10vh] z-10">
+                <div className="fixed top-10 left-0 right-0 bg-white text-black px-4 py-3 shadow-lg z-50 animate-fade-in-down flex items-center h-[10vh] z-[9999]">
                     <div className="w-10 h-10 mr-3 rounded-full overflow-hidden bg-yellow-500 flex items-center justify-center">
                         <FaTrophy className="text-2xl text-white" />
                     </div>

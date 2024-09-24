@@ -16,6 +16,12 @@ const AppPage = () => {
     useEffect(() => {
         const wifiPlanId = window.localStorage.getItem('wifiPlanId');
         setHasWifi(!!wifiPlanId);
+        const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+        if (storedAchievementStatuses[17] === 0) {
+            storedAchievementStatuses[17] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+            window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+            window.sessionStorage.setItem('AchievementNotification', 'Truy Cập Web App');
+        }
     }, []);
 
     const switchToBrowser = () => {

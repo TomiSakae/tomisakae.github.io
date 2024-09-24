@@ -78,6 +78,28 @@ const DeviceInfoPage = () => {
                     window.localStorage.setItem(key, value.toString());
                 });
             }
+            if (currentVersion === '1.0') {
+                const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+                if (storedAchievementStatuses[2] === 0) {
+                    storedAchievementStatuses[2] = 1; // Đánh dấu thành tựu thứ hai đã đạt được
+                    window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+                    window.sessionStorage.setItem('AchievementNotification', 'Hệ Điều Hành 1.1');
+                }
+            } else if (currentVersion === '1.1') {
+                const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+                if (storedAchievementStatuses[3] === 0) {
+                    storedAchievementStatuses[3] = 1; // Đánh dấu thành tựu thứ ba đã đạt được
+                    window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+                    window.sessionStorage.setItem('AchievementNotification', 'Hệ Điều Hành 1.2');
+                }
+            } else if (currentVersion === '1.2') {
+                const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+                if (storedAchievementStatuses[4] === 0) {
+                    storedAchievementStatuses[4] = 1; // Đánh dấu thành tựu thứ tư đã đạt được
+                    window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+                    window.sessionStorage.setItem('AchievementNotification', 'Hệ Điều Hành 1.3');
+                }
+            }
         }
         router.push('/AniPhone');
     };

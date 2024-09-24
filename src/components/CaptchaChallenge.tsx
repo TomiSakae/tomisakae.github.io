@@ -78,10 +78,22 @@ const CaptchaChallenge: React.FC<CaptchaChallengeProps> = ({ onChallengeComplete
 
     const handleSubmit = () => {
         onMessage({ sender: 'Bạn', content: userInput });
+        const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+        if (storedAchievementStatuses[6] === 0) {
+            storedAchievementStatuses[6] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+            window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+            window.sessionStorage.setItem('AchievementNotification', 'Trợ Thủ');
+        }
 
         setTimeout(() => {
             if (captcha && currentChallenge && userInput.trim().toUpperCase() === currentChallenge.answer.toUpperCase()) {
                 onChallengeComplete(captcha.reward);
+                const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+                if (storedAchievementStatuses[9] === 0) {
+                    storedAchievementStatuses[9] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+                    window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+                    window.sessionStorage.setItem('AchievementNotification', 'CAPTCHA');
+                }
                 onMessage({ sender: 'Người lạ', content: `Tuyệt vời! Bạn đã ghi đúng mã CAPTCHA. Đây là ${captcha.reward.toLocaleString()} đ cho bạn.` });
             } else {
                 onMessage({ sender: 'Người lạ', content: 'Rất tiếc, câu trả lời của bạn chưa chính xác. Hãy thử lại!' });

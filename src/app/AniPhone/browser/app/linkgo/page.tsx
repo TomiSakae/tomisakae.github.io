@@ -101,6 +101,12 @@ const LinkGoPage = () => {
         if (savedCardNumber) {
             setCardNumberLinkGo(savedCardNumber);
         }
+        const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+        if (storedAchievementStatuses[18] === 0) {
+            storedAchievementStatuses[18] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+            window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+            window.sessionStorage.setItem('AchievementNotification', 'LinkGO');
+        }
     }, []);
 
     useEffect(() => {

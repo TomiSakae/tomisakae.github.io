@@ -36,6 +36,12 @@ const GachaKiemTien = () => {
         if (savedBalance) {
             setBalance(parseInt(savedBalance));
         }
+        const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+        if (storedAchievementStatuses[16] === 0) {
+            storedAchievementStatuses[16] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+            window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+            window.sessionStorage.setItem('AchievementNotification', 'Truy Cập Web 5');
+        }
     }, []);
 
     const pullGacha = (times: number) => {

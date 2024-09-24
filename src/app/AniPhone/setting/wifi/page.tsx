@@ -67,6 +67,14 @@ const WifiPage = () => {
             window.localStorage.setItem('balance', newBalance.toString());
             window.localStorage.setItem('wifiPlanId', selectedPlan.id.toString());
             window.localStorage.setItem('wifiPlanPurchaseDate', purchaseDate);
+            if (selectedPlan.id === 1) {
+                const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+                if (storedAchievementStatuses[19] === 0) {
+                    storedAchievementStatuses[19] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+                    window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+                    window.sessionStorage.setItem('AchievementNotification', 'Wifi Khởi Đầu');
+                }
+            }
             setUserBalance(newBalance);
             setCurrentPlan(selectedPlan);
             setDaysRemaining(30);

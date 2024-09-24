@@ -76,13 +76,21 @@ const MessageContent = () => {
         scrollToBottom();
     }, [messages]);
 
+    useEffect(() => {
+        const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+        if (storedAchievementStatuses[5] === 0) {
+            storedAchievementStatuses[5] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+            window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+            window.sessionStorage.setItem('AchievementNotification', 'Người Lạ');
+        }
+    }, []);
+
     const handleSendMessage = () => {
         if (newMessage.trim()) {
             const customTime = getCurrentCustomTime();
             const userMessage = { id: messages.length + 1, sender: 'Bạn', content: newMessage, timestamp: customTime };
             setMessages([...messages, userMessage]);
             setNewMessage('');
-
             // Remove the switch statement here as we're showing the challenge immediately
         }
     };

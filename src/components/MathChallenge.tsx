@@ -48,11 +48,23 @@ const MathChallenge: React.FC<MathChallengeProps> = ({ onChallengeComplete, onMe
     const handleSubmit = () => {
         // Hiển thị câu trả lời của người dùng
         onMessage({ sender: 'Bạn', content: userAnswer });
+        const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+        if (storedAchievementStatuses[6] === 0) {
+            storedAchievementStatuses[6] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+            window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+            window.sessionStorage.setItem('AchievementNotification', 'Trợ Thủ');
+        }
 
         setTimeout(() => {
             if (userAnswer.trim() === answer) {
                 const reward = ['+', '-'].includes(problem.split(' ')[1]) ? 5000 : 10000;
                 onChallengeComplete(reward);
+                const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+                if (storedAchievementStatuses[7] === 0) {
+                    storedAchievementStatuses[7] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+                    window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+                    window.sessionStorage.setItem('AchievementNotification', 'Toán Học');
+                }
                 onMessage({ sender: 'Người lạ', content: `Chúa ơi! Bạn đã giải đúng bài toán rồi! Đây là ${reward.toLocaleString()} đ cho bạn.` });
             } else {
                 onMessage({ sender: 'Người lạ', content: 'Rất tiếc, câu trả lời của bạn chưa chính xác. Hãy thử lại!' });

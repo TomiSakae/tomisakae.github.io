@@ -35,6 +35,12 @@ const ChoiGameKiemTien = () => {
         if (savedBalance) {
             setBalance(parseInt(savedBalance));
         }
+        const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+        if (storedAchievementStatuses[15] === 0) {
+            storedAchievementStatuses[15] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+            window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+            window.sessionStorage.setItem('AchievementNotification', 'Truy Cập Web 4');
+        }
     }, []);
 
     const startGame = (game: Game) => {

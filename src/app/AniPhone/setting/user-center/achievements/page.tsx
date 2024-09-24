@@ -22,7 +22,7 @@ const AchievementsPage = () => {
         { id: 4, title: "Hệ Điều Hành 1.2", description: "Nâng cấp AniOS lên 1.2", rewardPoints: 25 },
         { id: 5, title: "Hệ Điều Hành 1.3", description: "Nâng cấp AniOS lên 1.3", rewardPoints: 50 },
         { id: 6, title: "Người Lạ", description: "Lần đầu chat với người lạ", rewardPoints: 5 },
-        { id: 7, title: "Trợ Thủ", description: "Trả lời đúng 1 câu hỏi của người lạ", rewardPoints: 10 },
+        { id: 7, title: "Trợ Thủ", description: "Trả lời 1 câu hỏi của người lạ", rewardPoints: 10 },
         { id: 8, title: "Toán Học", description: "Trả lời đúng 1 câu hỏi toán học", rewardPoints: 15 },
         { id: 9, title: "Mật Khẩu", description: "Trả lời đúng 1 câu hỏi mật khẩu", rewardPoints: 15 },
         { id: 10, title: "CAPTCHA", description: "Trả lời đúng 1 câu hỏi CAPTCHA", rewardPoints: 15 },
@@ -89,9 +89,9 @@ const AchievementsPage = () => {
                                     {achievementStatuses[index] === 1 && (
                                         <button
                                             onClick={() => claimReward(index)}
-                                            className="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded flex items-center gap-1 text-sm"
+                                            className="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded flex items-center gap-1 text-sm mx-2"
                                         >
-                                            <FaGift /> +{achievement.rewardPoints}P
+                                            <FaGift /> {achievement.rewardPoints}P
                                         </button>
                                     )}
                                     {achievementStatuses[index] === 2 && (
