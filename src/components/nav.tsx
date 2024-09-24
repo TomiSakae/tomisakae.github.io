@@ -1,5 +1,5 @@
 import { LiaBatteryFullSolid, LiaBatteryThreeQuartersSolid, LiaBatteryHalfSolid, LiaBatteryQuarterSolid, LiaBatteryEmptySolid } from "react-icons/lia";
-import { FaRegSquare } from "react-icons/fa6";
+import { FaRegSquare, FaTrophy } from "react-icons/fa6";
 import { CiMenuBurger } from "react-icons/ci";
 import { RiPlayReverseLargeLine } from "react-icons/ri";
 import { useRouter, usePathname } from 'next/navigation';
@@ -38,6 +38,8 @@ const Nav = () => {
     const [batteryDrainRate, setBatteryDrainRate] = useState(6); // Tốc độ giảm pin (% mỗi giây)
     const [showNotification, setShowNotification] = useState(false);
     const [notificationMessage, setNotificationMessage] = useState('');
+    const [showAchievementNotification, setShowAchievementNotification] = useState(false);
+    const [achievementMessage, setAchievementMessage] = useState('');
 
     const updateCustomTime = useCallback((minutes: number, currentTime?: Date) => {
         setCustomTime(prevTime => {
@@ -58,6 +60,26 @@ const Nav = () => {
             }
             return newTime;
         });
+    }, []);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const storedStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+            if (storedStatuses.length < 20) {
+                const initialStatuses = [...storedStatuses, ...new Array(20 - storedStatuses.length).fill(0)];
+                window.localStorage.setItem('achievementStatuses', JSON.stringify(initialStatuses));
+            }
+            const storedStatuses2 = JSON.parse(localStorage.getItem('inboxMessageStatuses') || '[]');
+            if (storedStatuses2.length < 1) {
+                const initialStatuses2 = [...storedStatuses2, ...new Array(1 - storedStatuses2.length).fill(0)];
+                window.localStorage.setItem('inboxMessageStatuses', JSON.stringify(initialStatuses2));
+            }
+            const storedStatuses3 = JSON.parse(localStorage.getItem('usedGiftCodes') || '[]');
+            if (storedStatuses3.length < 3) {
+                const initialStatuses3 = [...storedStatuses3, ...new Array(3 - storedStatuses3.length).fill(0)];
+                window.localStorage.setItem('usedGiftCodes', JSON.stringify(initialStatuses3));
+            }
+        }
     }, []);
 
     useEffect(() => {
@@ -139,7 +161,7 @@ const Nav = () => {
         checkWifiPlan();
         const wifiCheckInterval = setInterval(checkWifiPlan, 60000); // Check every minute
 
-        const checkNotification = () => {
+        const checkNotifications = () => {
             const notification = window.sessionStorage.getItem('Notification');
             if (notification) {
                 setNotificationMessage(notification);
@@ -147,9 +169,17 @@ const Nav = () => {
                 setTimeout(() => setShowNotification(false), 3000);
                 window.sessionStorage.removeItem('Notification');
             }
+
+            const achievementNotification = window.sessionStorage.getItem('AchievementNotification');
+            if (achievementNotification) {
+                setAchievementMessage(achievementNotification);
+                setShowAchievementNotification(true);
+                setTimeout(() => setShowAchievementNotification(false), 3000);
+                window.sessionStorage.removeItem('AchievementNotification');
+            }
         };
 
-        const notificationInterval = setInterval(checkNotification, 1000);
+        const notificationInterval = setInterval(checkNotifications, 1000);
 
         return () => {
             clearInterval(interval);
@@ -250,7 +280,7 @@ const Nav = () => {
                 </div>
             )}
             {showNotification && (
-                <div className="fixed top-10 left-0 right-0 bg-white text-black px-4 py-3 shadow-lg z-50 animate-fade-in-down flex items-center h-[10vh]">
+                <div className="fixed top-10 left-0 right-0 bg-white text-black px-4 py-3 shadow-lg z-50 animate-fade-in-down flex items-center h-[10vh] z-10">
                     <div className="w-10 h-10 mr-3 rounded-full overflow-hidden">
                         <Image
                             src="/mes.webp"
@@ -263,6 +293,16 @@ const Nav = () => {
                     <div className="flex-grow">
                         <p className="font-semibold text-sm">Thông báo</p>
                         <p className="text-xs text-gray-600">{notificationMessage}</p>
+                    </div>
+                </div>
+            )}
+            {showAchievementNotification && (
+                <div className="fixed top-10 left-0 right-0 bg-white text-black px-4 py-3 shadow-lg z-50 animate-fade-in-down flex items-center h-[10vh] z-10">
+                    <div className="w-10 h-10 mr-3 rounded-full overflow-hidden bg-yellow-500 flex items-center justify-center">
+                        <FaTrophy className="text-2xl text-white" />
+                    </div>
+                    <div className="flex-grow">
+                        <p className="font-semibold text-sm">Bạn vừa đạt thành tựu <span className="text-yellow-500">{achievementMessage}</span></p>
                     </div>
                 </div>
             )}

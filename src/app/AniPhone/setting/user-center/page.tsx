@@ -41,28 +41,22 @@ const UserCenterPage = () => {
     };
 
     const handleGiftCodeSubmit = () => {
-        let storedGiftCodes = JSON.parse(window.localStorage.getItem('giftCodes') || '[]');
-        if (storedGiftCodes.length === 0) {
-            storedGiftCodes = [
-                { id: 'TOMISAKAE', points: 100, value: 1 },
-                { id: 'NEWPLAYER', points: 50, value: 1 },
-                { id: 'GIFTUP', points: 200, value: 1 }
-            ];
-            window.localStorage.setItem('giftCodes', JSON.stringify(storedGiftCodes));
-        }
+        const giftCodes = ['TOMISAKAE', 'NEWPLAYER', 'GIFTUP'];
+        const giftCodePoints = [100, 50, 200];
+        const usedGiftCodes = JSON.parse(window.localStorage.getItem('usedGiftCodes') || '[]');
 
-        const giftCodeIndex = storedGiftCodes.findIndex((code: { id: string, points: number, value: number }) => code.id === giftCode && code.value === 1);
+        const giftCodeIndex = giftCodes.indexOf(giftCode);
 
-        if (giftCodeIndex !== -1) {
-            const giftCodePoints = storedGiftCodes[giftCodeIndex].points;
-            const newPoints = points + giftCodePoints;
+        if (giftCodeIndex !== -1 && !usedGiftCodes[giftCodeIndex]) {
+            const giftCodePointsValue = giftCodePoints[giftCodeIndex];
+            const newPoints = points + giftCodePointsValue;
             setPoints(newPoints);
             window.localStorage.setItem('point', newPoints.toString());
 
-            storedGiftCodes[giftCodeIndex].value = 0;
-            window.localStorage.setItem('giftCodes', JSON.stringify(storedGiftCodes));
+            usedGiftCodes[giftCodeIndex] = 1;
+            window.localStorage.setItem('usedGiftCodes', JSON.stringify(usedGiftCodes));
 
-            setGiftCodeMessage(`Bạn đã nhận được ${giftCodePoints} điểm!`);
+            setGiftCodeMessage(`Bạn đã nhận được ${giftCodePointsValue} điểm!`);
         } else {
             setGiftCodeMessage("Mã quà tặng không hợp lệ hoặc đã được sử dụng!");
         }
@@ -316,7 +310,7 @@ const UserCenterPage = () => {
                     </div>
                     <div className="p-4 bg-[#1a1a1a] rounded-lg hover:bg-gray-800 transition-all duration-300">
                         <div className="flex justify-between items-center cursor-pointer"
-                            onClick={() => router.push('/AniPhone/setting/achievements')}>
+                            onClick={() => router.push('/AniPhone/setting/user-center/achievements')}>
                             <div className="flex items-center gap-2">
                                 <span className="text-lg">Thành tựu</span>
                             </div>
@@ -325,7 +319,7 @@ const UserCenterPage = () => {
                     </div>
                     <div className="p-4 bg-[#1a1a1a] rounded-lg hover:bg-gray-800 transition-all duration-300">
                         <div className="flex justify-between items-center cursor-pointer"
-                            onClick={() => router.push('/AniPhone/setting/inbox')}>
+                            onClick={() => router.push('/AniPhone/setting/user-center/inbox')}>
                             <div className="flex items-center gap-2">
                                 <span className="text-lg">Hòm thư</span>
                             </div>

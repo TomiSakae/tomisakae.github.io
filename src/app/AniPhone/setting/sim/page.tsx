@@ -23,6 +23,12 @@ const SimPage = () => {
         if (newPhoneNumber.length === 10 && /^0\d{9}$/.test(newPhoneNumber)) {
             setPhoneNumber(newPhoneNumber);
             setBalance(10000); // Số dư khởi đầu
+            const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
+            if (storedAchievementStatuses[0] === 0) {
+                storedAchievementStatuses[0] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
+                window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
+                window.sessionStorage.setItem('AchievementNotification', 'Người Mới');
+            }
             if (typeof window !== 'undefined') {
                 window.localStorage.setItem('phoneNumber', newPhoneNumber);
                 window.localStorage.setItem('balance', '10000');
