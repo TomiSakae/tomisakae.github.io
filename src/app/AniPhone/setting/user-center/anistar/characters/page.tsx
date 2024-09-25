@@ -11,6 +11,7 @@ const IdolGallery = () => {
     const [idols, setIdols] = useState<(Character & { level: number, currentSpeed: number })[]>([]);
     const [selectedIdol, setSelectedIdol] = useState<(Character & { level: number, currentSpeed: number }) | null>(null);
     const [showModal, setShowModal] = useState(false);
+    const [points, setPoints] = useState(0);
     const router = useRouter();
 
     useEffect(() => {
@@ -22,6 +23,16 @@ const IdolGallery = () => {
             currentSpeed: storedIdolSpeeds[idol.id - 1] || idol.speed,
             level: storedIdolLevels[idol.id - 1] || 1
         })));
+
+        const updatePoints = () => {
+            const currentPoints = parseInt(localStorage.getItem('point') || '0', 10);
+            setPoints(currentPoints);
+        };
+
+        updatePoints();
+        const intervalId = setInterval(updatePoints, 1000);
+
+        return () => clearInterval(intervalId);
     }, []);
 
     const getRarityColor = (rarity: string) => {
@@ -47,11 +58,9 @@ const IdolGallery = () => {
     const upgradeIdol = () => {
         if (selectedIdol) {
             const upgradeCost = selectedIdol.level * 100;
-            const currentPoints = parseInt(localStorage.getItem('point') || '0', 10);
-
-            if (currentPoints >= upgradeCost) {
+            if (points >= upgradeCost) {
                 const newLevel = selectedIdol.level + 1;
-                const newPoints = currentPoints - upgradeCost;
+                const newPoints = points - upgradeCost;
                 const newSpeed = selectedIdol.currentSpeed + selectedIdol.speed;
 
                 // Cập nhật cấp độ trong localStorage
@@ -72,8 +81,9 @@ const IdolGallery = () => {
                     idol.id === selectedIdol.id ? { ...idol, level: newLevel, currentSpeed: newSpeed } : idol
                 ));
                 setSelectedIdol({ ...selectedIdol, level: newLevel, currentSpeed: newSpeed });
+                setPoints(newPoints);
             } else {
-
+                // Xử lý trường hợp không đủ điểm
             }
         }
     };
@@ -113,7 +123,6 @@ const IdolGallery = () => {
                             → <span className="mx-2 font-bold text-green-300">{selectedIdol.currentSpeed + selectedIdol.speed}</span>
                         </span>
                     </p>
-                    <p>Kỹ năng: <span className="italic">{selectedIdol.skill || 'Không có kỹ năng'}</span></p>
                     <div className="mt-4">
                         <button
                             onClick={closeModal}
@@ -138,7 +147,10 @@ const IdolGallery = () => {
                     />
                     <h1 className="text-xl font-[600] mx-4">Nhân vật</h1>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="mb-4">
+                    <p className="text-xl font-semibold">Điểm: <span className="text-yellow-300">{points}</span></p>
+                </div>
+                <div className="grid grid-cols-2 gap-4 h-[71vh] overflow-y-auto">
                     {idols.map((idol, index) => (
                         <div key={index} className="bg-gray-800 rounded-lg p-2 cursor-pointer" onClick={() => openModal(idol)}>
                             <div className="relative w-full aspect-square mb-2">

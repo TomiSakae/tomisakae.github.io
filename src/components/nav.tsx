@@ -8,6 +8,7 @@ import { useEffect, useState, useCallback } from "react";
 import { IoWifiOutline } from "react-icons/io5";
 import ActiveAppsManager from './ActiveAppsManager';
 import Image from 'next/image';
+import TotalPointsPerSecond from "./TotalPointsPerSecond";
 
 const Nav = () => {
     const router = useRouter();
@@ -78,6 +79,11 @@ const Nav = () => {
             if (storedStatuses3.length < 3) {
                 const initialStatuses3 = [...storedStatuses3, ...new Array(3 - storedStatuses3.length).fill(0)];
                 window.localStorage.setItem('usedGiftCodes', JSON.stringify(initialStatuses3));
+            }
+            const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+            if (storedJobs.length < 5) {
+                const initialJobs = [...storedJobs, ...new Array(5 - storedJobs.length).fill(-1)];
+                localStorage.setItem('jobs', JSON.stringify(initialJobs));
             }
         }
     }, []);
@@ -229,6 +235,9 @@ const Nav = () => {
                 <div className='flex items-center'>
                     <div className='text-md'>
                         {formatCustomTime(customTime)}
+                    </div>
+                    <div className="mx-4">
+                        <span className="text-yellow-400"><TotalPointsPerSecond /></span>
                     </div>
                 </div>
                 <div className='flex items-center'>

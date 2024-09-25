@@ -18,9 +18,17 @@ const GachaPage = () => {
     const [showCharacterListModal, setShowCharacterListModal] = useState(false);
 
     useEffect(() => {
-        const storedPoints = parseInt(localStorage.getItem('point') || '0', 10);
-        setPoints(storedPoints);
+        const updatePoints = () => {
+            const storedPoints = parseInt(localStorage.getItem('point') || '0', 10);
+            setPoints(storedPoints);
+        };
+
+        updatePoints();
         setCharacters(charactersData);
+
+        const intervalId = setInterval(updatePoints, 1000);
+
+        return () => clearInterval(intervalId);
     }, []);
 
     const banner = {
@@ -145,7 +153,6 @@ const GachaPage = () => {
                             <p className="text-xl mb-2">{featuredCharacter.name}</p>
                             <p className="text-lg mb-2">Độ hiếm: <span className={`font-bold ${getRarityColor(featuredCharacter.rarity)}`}>{featuredCharacter.rarity}</span></p>
                             <p className="text-lg mb-2">Tốc độ: <span className="font-bold text-blue-300">{featuredCharacter.speed}</span></p>
-                            <p className="text-lg mb-4">Kỹ năng: <span className="font-bold text-green-300">{featuredCharacter.skill}</span></p>
                         </div>
                     )}
                 </div>

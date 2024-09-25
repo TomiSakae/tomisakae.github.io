@@ -26,7 +26,15 @@ const UserCenterPage = () => {
         } else {
             setHasCheckedIn(false);
         }
-        setPoints(parseInt(window.localStorage.getItem('point') || '0', 10));
+
+        const updatePoints = () => {
+            setPoints(parseInt(window.localStorage.getItem('point') || '0', 10));
+        };
+
+        updatePoints();
+        const intervalId = setInterval(updatePoints, 1000);
+
+        return () => clearInterval(intervalId);
     }, []);
 
     const handleCheckIn = () => {

@@ -16,6 +16,7 @@ interface Message {
 const InboxPage = () => {
     const router = useRouter();
     const [messageStatuses, setMessageStatuses] = useState<number[]>([]);
+    const [currentPoints, setCurrentPoints] = useState(0);
 
     const messages: Message[] = [
         {
@@ -30,6 +31,16 @@ const InboxPage = () => {
     useEffect(() => {
         const storedStatuses = JSON.parse(localStorage.getItem('inboxMessageStatuses') || '[]');
         setMessageStatuses(storedStatuses);
+
+        const updatePoints = () => {
+            const points = parseInt(localStorage.getItem('point') || '0');
+            setCurrentPoints(points);
+        };
+
+        updatePoints();
+        const intervalId = setInterval(updatePoints, 1000);
+
+        return () => clearInterval(intervalId);
     }, []);
 
     const deleteMessage = (index: number) => {
@@ -46,9 +57,10 @@ const InboxPage = () => {
         localStorage.setItem('inboxMessageStatuses', JSON.stringify(updatedStatuses));
 
         // Cộng điểm thưởng
-        const currentPoints = parseInt(localStorage.getItem('point') || '0');
         const rewardPoints = messages[index].rewardPoints;
-        localStorage.setItem('point', (currentPoints + rewardPoints).toString());
+        const newPoints = currentPoints + rewardPoints;
+        setCurrentPoints(newPoints);
+        localStorage.setItem('point', newPoints.toString());
     };
 
     return (

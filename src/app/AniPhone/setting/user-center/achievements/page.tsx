@@ -39,10 +39,21 @@ const AchievementsPage = () => {
         { id: 21, title: "CrazyNumber", description: "Lần đầu vào CrazyNumber", rewardPoints: 10 },
     ]);
     const [achievementStatuses, setAchievementStatuses] = useState<number[]>([]);
+    const [currentPoints, setCurrentPoints] = useState(0);
 
     useEffect(() => {
         const storedStatuses = JSON.parse(localStorage.getItem('achievementStatuses') || '[]');
         setAchievementStatuses(storedStatuses);
+
+        const updatePoints = () => {
+            const points = parseInt(localStorage.getItem('point') || '0');
+            setCurrentPoints(points);
+        };
+
+        updatePoints();
+        const intervalId = setInterval(updatePoints, 1000);
+
+        return () => clearInterval(intervalId);
     }, []);
 
     const claimReward = (index: number) => {
@@ -52,9 +63,10 @@ const AchievementsPage = () => {
         localStorage.setItem('achievementStatuses', JSON.stringify(updatedStatuses));
 
         // Cộng điểm thưởng
-        const currentPoints = parseInt(localStorage.getItem('point') || '0');
         const rewardPoints = achievements[index].rewardPoints;
-        localStorage.setItem('point', (currentPoints + rewardPoints).toString());
+        const newPoints = currentPoints + rewardPoints;
+        setCurrentPoints(newPoints);
+        localStorage.setItem('point', newPoints.toString());
     };
 
     return (
@@ -68,7 +80,10 @@ const AchievementsPage = () => {
                     />
                     <h1 className="text-xl font-[600] mx-4">Thành tựu</h1>
                 </div>
-                <div className='h-[77vh] overflow-y-auto'>
+                <div className="mb-4">
+                    <p className="text-xl font-semibold">Điểm: <span className="text-yellow-300">{currentPoints}</span></p>
+                </div>
+                <div className='h-[70vh] overflow-y-auto'>
                     <div className="space-y-4">
                         {achievements.map((achievement, index) => (
                             <div key={index} className="p-4 bg-[#1a1a1a] rounded-lg hover:bg-gray-800 transition-all duration-300">
