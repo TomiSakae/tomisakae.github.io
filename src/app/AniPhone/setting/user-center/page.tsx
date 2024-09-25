@@ -334,6 +334,15 @@ const UserCenterPage = () => {
                             <IoIosArrowForward className="text-lg" />
                         </div>
                     </div>
+                    <div className="p-4 rounded-lg hover:opacity-90 transition-all duration-300 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x"></div>
+                        <div className="relative flex justify-between items-center cursor-pointer" onClick={() => router.push('/AniPhone/setting/user-center/anistar')}>
+                            <div className="flex items-center gap-2">
+                                <span className="text-lg text-white font-semibold">AniStar</span>
+                            </div>
+                            <IoIosArrowForward className="text-lg text-white" />
+                        </div>
+                    </div>
                 </div>
             </div>
             {showCheckInModal && <CheckInModal />}
