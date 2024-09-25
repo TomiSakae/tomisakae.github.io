@@ -36,6 +36,10 @@ const GachaKiemTien = () => {
         if (savedBalance) {
             setBalance(parseInt(savedBalance));
         }
+        const savedCoins = window.localStorage.getItem('gachaCoins');
+        if (savedCoins) {
+            setCoins(parseInt(savedCoins));
+        }
         const storedAchievementStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
         if (storedAchievementStatuses[16] === 0) {
             storedAchievementStatuses[16] = 1; // Đánh dấu thành tựu đầu tiên đã đạt được
@@ -78,7 +82,9 @@ const GachaKiemTien = () => {
         setLastPull(pulls);
         setItems([...pulls, ...items]);
         const totalCoins = pulls.reduce((sum, item) => sum + item.value, 0);
-        setCoins(coins + totalCoins);
+        const newCoins = coins + totalCoins;
+        setCoins(newCoins);
+        window.localStorage.setItem('gachaCoins', newCoins.toString());
 
         setNotificationMessage(`Bạn đã quay được ${pulls.length} lần (+${totalCoins} xu)`);
         setShowNotification(true);
@@ -101,6 +107,7 @@ const GachaKiemTien = () => {
             setCoins(newCoins);
             setBalance(newBalance);
             window.localStorage.setItem('balance', newBalance.toString());
+            window.localStorage.setItem('gachaCoins', newCoins.toString());
 
             setNotificationMessage(`Bạn đã đổi ${coins - newCoins} xu thành ${exchangeAmount.toLocaleString()} đồng`);
             setShowNotification(true);

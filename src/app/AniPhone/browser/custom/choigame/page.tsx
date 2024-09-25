@@ -31,7 +31,7 @@ const ChoiGameKiemTien = () => {
     const [showInsufficientCoinsModal, setShowInsufficientCoinsModal] = useState(false);
 
     useEffect(() => {
-        const savedBalance = window.sessionStorage.getItem('balanceGame');
+        const savedBalance = window.localStorage.getItem('balanceGame');
         if (savedBalance) {
             setBalance(parseInt(savedBalance));
         }
@@ -62,7 +62,7 @@ const ChoiGameKiemTien = () => {
     const completeGame = (game: Game) => {
         const newBalance = balance + game.reward;
         setBalance(newBalance);
-        window.sessionStorage.setItem('balanceGame', newBalance.toString());
+        window.localStorage.setItem('balanceGame', newBalance.toString());
         setIsPlaying(false);
         setCurrentGame(null);
         setGames(games.filter(g => g.id !== game.id));
@@ -100,7 +100,7 @@ const ChoiGameKiemTien = () => {
             const currentBalance = parseInt(window.localStorage.getItem('balance') || '0', 10);
             const updatedBalance = currentBalance + exchangeAmount;
             window.localStorage.setItem('balance', updatedBalance.toString());
-            window.sessionStorage.setItem('balanceGame', newBalance.toString());
+            window.localStorage.setItem('balanceGame', newBalance.toString());
 
             window.sessionStorage.setItem('Notification', `Bạn đã nhận được ${exchangeAmount.toLocaleString()} đồng`);
 

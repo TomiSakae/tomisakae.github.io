@@ -25,7 +25,7 @@ const CrazyNumberPage = () => {
     const [winningNumbers, setWinningNumbers] = useState<number[][]>([]);
 
     useEffect(() => {
-        const savedBalance = window.sessionStorage.getItem('balanceCrazyNumber');
+        const savedBalance = window.localStorage.getItem('balanceCrazyNumber');
         if (savedBalance) {
             setBalance(parseInt(savedBalance));
         }
@@ -56,7 +56,7 @@ const CrazyNumberPage = () => {
         setMessage('');
         setMessageType('');
         setBalance(prevBalance => prevBalance - 10);
-        window.sessionStorage.setItem('balanceCrazyNumber', (balance - 10).toString());
+        window.localStorage.setItem('balanceCrazyNumber', (balance - 10).toString());
     };
 
     const calculateReward = () => {
@@ -91,7 +91,7 @@ const CrazyNumberPage = () => {
         if (reward > 0) {
             const newBalance = balance + reward;
             setBalance(newBalance);
-            window.sessionStorage.setItem('balanceCrazyNumber', newBalance.toString());
+            window.localStorage.setItem('balanceCrazyNumber', newBalance.toString());
             setMessage(`Chúc mừng! Bạn đã trúng ${reward} xu.`);
             setMessageType('success');
         } else {
@@ -118,7 +118,7 @@ const CrazyNumberPage = () => {
             const exchangeAmount = Math.floor(balance / 10) * 1000;
             const newBalance = balance % 10;
             setBalance(newBalance);
-            window.sessionStorage.setItem('balanceCrazyNumber', newBalance.toString());
+            window.localStorage.setItem('balanceCrazyNumber', newBalance.toString());
 
             const currentBankBalance = parseInt(window.localStorage.getItem('balanceBank') || '0', 10);
             const updatedBankBalance = currentBankBalance + exchangeAmount;
@@ -186,7 +186,7 @@ const CrazyNumberPage = () => {
         const coinsToAdd = Math.floor(amount / 1000) * 10;
         const newBalance = balance + coinsToAdd;
         setBalance(newBalance);
-        window.sessionStorage.setItem('balanceCrazyNumber', newBalance.toString());
+        window.localStorage.setItem('balanceCrazyNumber', newBalance.toString());
 
         // Trừ tiền từ tài khoản ngân hàng
         const currentBankBalance = parseInt(window.localStorage.getItem('balanceBank') || '0', 10);

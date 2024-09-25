@@ -30,7 +30,7 @@ const XemQuangCaoKiemTien = () => {
     const [showExchange, setShowExchange] = useState(false);
 
     useEffect(() => {
-        const savedBalance = window.sessionStorage.getItem('balanceAd');
+        const savedBalance = window.localStorage.getItem('balanceAd');
         if (savedBalance) {
             setBalance(parseInt(savedBalance));
         }
@@ -63,7 +63,7 @@ const XemQuangCaoKiemTien = () => {
         if (currentAd) {
             const newBalance = balance + currentAd.reward;
             setBalance(newBalance);
-            window.sessionStorage.setItem('balanceAd', newBalance.toString());
+            window.localStorage.setItem('balanceAd', newBalance.toString());
             setIsWatching(false);
             setCurrentAd(null);
             setAds(ads.filter(ad => ad.id !== currentAd.id));
@@ -93,7 +93,7 @@ const XemQuangCaoKiemTien = () => {
             const currentBalance = parseInt(window.localStorage.getItem('balance') || '0', 10);
             const updatedBalance = currentBalance + exchangeAmount;
             window.localStorage.setItem('balance', updatedBalance.toString());
-            window.sessionStorage.setItem('balanceAd', newBalance.toString());
+            window.localStorage.setItem('balanceAd', newBalance.toString());
 
             // Show notification
             window.sessionStorage.setItem('Notification', `Bạn đã nhận được ${exchangeAmount.toLocaleString()} đồng`);

@@ -93,7 +93,7 @@ const LinkGoPage = () => {
     ];
 
     useEffect(() => {
-        const savedBalance = window.sessionStorage.getItem('balanceLinkGo');
+        const savedBalance = window.localStorage.getItem('balanceLinkGo');
         if (savedBalance) {
             setBalance(parseInt(savedBalance));
         }
@@ -175,7 +175,7 @@ const LinkGoPage = () => {
         const newBalance = balance + reward;
         setBalance(newBalance);
         if (typeof window !== 'undefined') {
-            window.sessionStorage.setItem('balanceLinkGo', newBalance.toString());
+            window.localStorage.setItem('balanceLinkGo', newBalance.toString());
         }
         showModalMessage(`Bạn đã nhận được ${reward} xu từ việc truy cập link!`);
         setCurrentUrl('aniw://linkgo.ani');
@@ -206,7 +206,7 @@ const LinkGoPage = () => {
             const exchangeAmount = Math.floor(balance / 10) * 1000;
             const newBalance = balance % 10;
             setBalance(newBalance);
-            window.sessionStorage.setItem('balanceLinkGo', newBalance.toString());
+            window.localStorage.setItem('balanceLinkGo', newBalance.toString());
 
             // Chỉ cập nhật số dư ngân hàng
             const currentBankBalance = parseInt(window.localStorage.getItem('balanceBank') || '0', 10);

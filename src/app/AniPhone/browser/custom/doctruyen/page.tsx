@@ -34,7 +34,7 @@ const DocTruyenKiemTien = () => {
     });
 
     useEffect(() => {
-        const savedBalance = window.sessionStorage.getItem('balanceStory');
+        const savedBalance = window.localStorage.getItem('balanceStory');
         if (savedBalance) {
             setBalance(parseInt(savedBalance));
         }
@@ -60,7 +60,7 @@ const DocTruyenKiemTien = () => {
         if (currentStory && currentChapter <= currentStory.chapters && typeof window !== 'undefined') {
             const newBalance = balance + currentStory.reward;
             setBalance(newBalance);
-            window.sessionStorage.setItem('balanceStory', newBalance.toString());
+            window.localStorage.setItem('balanceStory', newBalance.toString());
 
             const newChapter = currentChapter + 1;
             setCurrentChapter(newChapter);
@@ -134,7 +134,7 @@ const DocTruyenKiemTien = () => {
                                     window.localStorage.setItem('balance', updatedBalance.toString());
 
                                     const updatedBalanceStory = newBalance;
-                                    window.sessionStorage.setItem('balanceStory', updatedBalanceStory.toString());
+                                    window.localStorage.setItem('balanceStory', updatedBalanceStory.toString());
                                 }
 
                                 // Show notification

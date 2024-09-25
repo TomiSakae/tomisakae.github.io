@@ -36,7 +36,7 @@ const KhaoSatKiemTien = () => {
     });
 
     useEffect(() => {
-        const savedBalance = window.sessionStorage.getItem('balanceSurvey');
+        const savedBalance = window.localStorage.getItem('balanceSurvey');
         if (savedBalance) {
             setBalance(parseInt(savedBalance));
         }
@@ -59,7 +59,7 @@ const KhaoSatKiemTien = () => {
         } else if (currentSurvey) {
             const newBalance = balance + currentSurvey.reward;
             setBalance(newBalance);
-            window.sessionStorage.setItem('balanceSurvey', newBalance.toString());
+            window.localStorage.setItem('balanceSurvey', newBalance.toString());
             setSurveys(surveys.filter(s => s.id !== currentSurvey.id));
             setCurrentSurvey(null);
 
@@ -76,7 +76,7 @@ const KhaoSatKiemTien = () => {
             const currentBalance = parseInt(window.localStorage.getItem('balance') || '0', 10);
             const updatedBalance = currentBalance + exchangeAmount;
             window.localStorage.setItem('balance', updatedBalance.toString());
-            window.sessionStorage.setItem('balanceSurvey', newBalance.toString());
+            window.localStorage.setItem('balanceSurvey', newBalance.toString());
 
             // Show notification
             window.sessionStorage.setItem('Notification', `Bạn đã nhận được ${exchangeAmount.toLocaleString()} đồng`);
