@@ -80,10 +80,16 @@ const AniPhone = () => {
                     const data = await response.json();
                     if (data.images && data.images.length > 0) {
                         const image = data.images[0];
-                        setBackgroundImage(image.url);
-                        // Store the image URL in sessionStorage
-                        window.sessionStorage.setItem('backgroundImageUrl', image.url);
-                        // Tạo một Image object để đảm bảo ảnh đã tải xong
+                        if (window.localStorage.getItem('backgroundImageUrl') !== null) {
+                            setBackgroundImage(window.localStorage.getItem('backgroundImageUrl') || '');
+                            window.sessionStorage.setItem('backgroundImageUrl', window.localStorage.getItem('backgroundImageUrl') || '');
+                        }
+                        else {
+                            setBackgroundImage(image.url);
+                            // Store the image URL in sessionStorage
+                            window.sessionStorage.setItem('backgroundImageUrl', image.url);
+                            // Tạo một Image object để đảm bảo ảnh đã tải xong
+                        }
                         const img = document.createElement('img');
                         img.onload = () => setIsLoading(false);
                         img.src = image.url;
