@@ -65,8 +65,8 @@ const Nav = () => {
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const storedStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
-            if (storedStatuses.length < 20) {
-                const initialStatuses = [...storedStatuses, ...new Array(20 - storedStatuses.length).fill(0)];
+            if (storedStatuses.length < 21) {
+                const initialStatuses = [...storedStatuses, ...new Array(21 - storedStatuses.length).fill(0)];
                 window.localStorage.setItem('achievementStatuses', JSON.stringify(initialStatuses));
             }
             const storedStatuses2 = JSON.parse(localStorage.getItem('inboxMessageStatuses') || '[]');

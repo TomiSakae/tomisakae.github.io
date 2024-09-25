@@ -10,6 +10,7 @@ const AppPage = () => {
     const [displayUrl] = useState('');
     const [apps] = useState([
         { name: 'LinkGO', url: '/AniPhone/browser/app/linkgo', icon: 'L' },
+        { name: 'CrazyNumber', url: '/AniPhone/browser/app/crazynumber', icon: 'C' },
     ]);
     const [hasWifi, setHasWifi] = useState(false);
 
