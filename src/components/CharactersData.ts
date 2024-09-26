@@ -18,4 +18,5 @@ export const charactersData: Character[] = [
     { id: 9, name: 'Rin Hoshizora', image: '/idol/rin-hoshizora-5.jpg', rarity: 'SR', speed: 2 },
     { id: 10, name: 'Setsuna Yuki', image: '/idol/setsuna-yuki-5.jpg', rarity: 'SSR', speed: 3 },
     { id: 11, name: 'Umi Sonoda', image: '/idol/umi-sonoda-6.jpg', rarity: 'SR', speed: 2 },
+    { id: 12, name: 'Hanayo Koizumi', image: '/idol/hanayo-koizumi-6.jpg', rarity: 'SR', speed: 2 },
 ];

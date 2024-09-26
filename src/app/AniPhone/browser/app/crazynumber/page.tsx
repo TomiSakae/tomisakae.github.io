@@ -141,7 +141,7 @@ const CrazyNumberPage = () => {
             setShowCardInput(true);
             return;
         }
-        setShowTopUpInput(true);
+        setShowTopUpInput(!showTopUpInput);
     };
 
     const handleCardNumberSubmit = (e: React.FormEvent<HTMLFormElement>) => {

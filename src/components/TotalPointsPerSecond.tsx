@@ -18,6 +18,7 @@ const jobs: Job[] = [
     { id: 9, name: "Gacha kiếm tiền", basePointsPerSecond: 0.66 },
     { id: 10, name: "Kiếm tiền từ LinkGO", basePointsPerSecond: 0.7 },
     { id: 11, name: "Kiếm tiền từ CrazyNumber", basePointsPerSecond: 0.8 },
+    { id: 12, name: "Kiếm tiền từ Tic-Tac-Toe Online", basePointsPerSecond: 0.88 },
 ];
 
 const TotalPointsPerSecond: React.FC = () => {

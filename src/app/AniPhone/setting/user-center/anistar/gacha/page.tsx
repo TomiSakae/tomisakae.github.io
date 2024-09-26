@@ -32,7 +32,9 @@ const GachaPage = () => {
 
         const pointsIntervalId = setInterval(updatePoints, 1000);
         const characterIntervalId = setInterval(() => {
-            setCurrentCharacterIndex((prevIndex) => (prevIndex + 1) % 2);
+            if (!showModal && !showBannerModal && !showCharacterListModal) {
+                setCurrentCharacterIndex((prevIndex) => (prevIndex + 1) % 2);
+            }
         }, 5000);
 
         return () => {
