@@ -41,6 +41,13 @@ const ChoiGameKiemTien = () => {
             window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
             window.sessionStorage.setItem('AchievementNotification', 'Truy Cập Web 4');
         }
+        // Mở khóa công việc 8
+        const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+        if (storedJobs[7] === -1) {
+            storedJobs[7] = 0;
+            localStorage.setItem('jobs', JSON.stringify(storedJobs));
+        }
+
     }, []);
 
     const startGame = (game: Game) => {

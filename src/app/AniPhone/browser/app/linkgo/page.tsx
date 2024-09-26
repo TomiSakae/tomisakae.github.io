@@ -107,6 +107,12 @@ const LinkGoPage = () => {
             window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
             window.sessionStorage.setItem('AchievementNotification', 'LinkGO');
         }
+        // Mở khóa công việc 10
+        const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+        if (storedJobs[9] === -1) {
+            storedJobs[9] = 0;
+            localStorage.setItem('jobs', JSON.stringify(storedJobs));
+        }
     }, []);
 
     useEffect(() => {

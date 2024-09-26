@@ -91,6 +91,12 @@ const PasswordChallengeComponent: React.FC<PasswordChallengeProps> = ({ onChalle
                     window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
                     window.sessionStorage.setItem('AchievementNotification', 'Mật Khẩu');
                 }
+                // Mở khóa công việc 2
+                const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+                if (storedJobs[1] === -1) {
+                    storedJobs[1] = 0;
+                    localStorage.setItem('jobs', JSON.stringify(storedJobs));
+                }
                 onMessage({ sender: 'Người lạ', content: `Tuyệt vời! Mật khẩu của bạn đáp ứng yêu cầu. Đây là ${currentChallenge.reward.toLocaleString()} đ cho bạn.` });
                 setCurrentChallenge(null); // Đặt currentChallenge về null để ẩn input
             } else {

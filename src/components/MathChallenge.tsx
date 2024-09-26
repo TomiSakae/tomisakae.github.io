@@ -65,6 +65,12 @@ const MathChallenge: React.FC<MathChallengeProps> = ({ onChallengeComplete, onMe
                     window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
                     window.sessionStorage.setItem('AchievementNotification', 'Toán Học');
                 }
+                // Mở khóa công việc 1
+                const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+                if (storedJobs[0] === -1) {
+                    storedJobs[0] = 0;
+                    localStorage.setItem('jobs', JSON.stringify(storedJobs));
+                }
                 onMessage({ sender: 'Người lạ', content: `Chúa ơi! Bạn đã giải đúng bài toán rồi! Đây là ${reward.toLocaleString()} đ cho bạn.` });
             } else {
                 onMessage({ sender: 'Người lạ', content: 'Rất tiếc, câu trả lời của bạn chưa chính xác. Hãy thử lại!' });

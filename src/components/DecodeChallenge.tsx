@@ -102,6 +102,12 @@ const DecodeChallenge: React.FC<DecodeChallengeProps> = ({ onChallengeComplete, 
                     window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
                     window.sessionStorage.setItem('AchievementNotification', 'Giải Mã');
                 }
+                // Mở khóa công việc 4
+                const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+                if (storedJobs[3] === -1) {
+                    storedJobs[3] = 0;
+                    localStorage.setItem('jobs', JSON.stringify(storedJobs));
+                }
                 onMessage({ sender: 'Người lạ', content: `Tuyệt vời! Bạn đã giải mã đúng tin nhắn. Đây là ${reward.toLocaleString()} đ cho bạn.` });
                 setAttempts(0);
             } else {

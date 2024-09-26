@@ -40,6 +40,12 @@ const XemQuangCaoKiemTien = () => {
             window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
             window.sessionStorage.setItem('AchievementNotification', 'Truy Cập Web 3');
         }
+        // Mở khóa công việc 7
+        const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+        if (storedJobs[6] === -1) {
+            storedJobs[6] = 0;
+            localStorage.setItem('jobs', JSON.stringify(storedJobs));
+        }
     }, []);
 
     useEffect(() => {

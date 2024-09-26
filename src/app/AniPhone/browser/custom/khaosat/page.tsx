@@ -46,6 +46,12 @@ const KhaoSatKiemTien = () => {
             window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
             window.sessionStorage.setItem('AchievementNotification', 'Truy Cập Web 2');
         }
+        // Mở khóa công việc 6
+        const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+        if (storedJobs[5] === -1) {
+            storedJobs[5] = 0;
+            localStorage.setItem('jobs', JSON.stringify(storedJobs));
+        }
     }, []);
 
     const startSurvey = (survey: Survey) => {

@@ -12,6 +12,12 @@ const jobs: Job[] = [
     { id: 3, name: "Xác thực CAPTCHA", basePointsPerSecond: 0.25 },
     { id: 4, name: "Giãi mã tin nhắn", basePointsPerSecond: 0.3 },
     { id: 5, name: "Đọc truyện kiếm tiền", basePointsPerSecond: 0.4 },
+    { id: 6, name: "Khảo sát kiếm tiền", basePointsPerSecond: 0.5 },
+    { id: 7, name: "Xem quảng cáo kiếm tiền", basePointsPerSecond: 0.55 },
+    { id: 8, name: "Chơi game kiếm tiền", basePointsPerSecond: 0.6 },
+    { id: 9, name: "Gacha kiếm tiền", basePointsPerSecond: 0.66 },
+    { id: 10, name: "Kiếm tiền từ LinkGO", basePointsPerSecond: 0.7 },
+    { id: 11, name: "Kiếm tiền từ CrazyNumber", basePointsPerSecond: 0.8 },
 ];
 
 const TotalPointsPerSecond: React.FC = () => {

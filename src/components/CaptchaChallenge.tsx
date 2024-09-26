@@ -94,6 +94,12 @@ const CaptchaChallenge: React.FC<CaptchaChallengeProps> = ({ onChallengeComplete
                     window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
                     window.sessionStorage.setItem('AchievementNotification', 'CAPTCHA');
                 }
+                // Mở khóa công việc 3
+                const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+                if (storedJobs[2] === -1) {
+                    storedJobs[2] = 0;
+                    localStorage.setItem('jobs', JSON.stringify(storedJobs));
+                }
                 onMessage({ sender: 'Người lạ', content: `Tuyệt vời! Bạn đã ghi đúng mã CAPTCHA. Đây là ${captcha.reward.toLocaleString()} đ cho bạn.` });
             } else {
                 onMessage({ sender: 'Người lạ', content: 'Rất tiếc, câu trả lời của bạn chưa chính xác. Hãy thử lại!' });

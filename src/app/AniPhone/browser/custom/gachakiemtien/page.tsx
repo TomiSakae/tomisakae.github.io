@@ -46,6 +46,12 @@ const GachaKiemTien = () => {
             window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
             window.sessionStorage.setItem('AchievementNotification', 'Truy Cập Web 5');
         }
+        // Mở khóa công việc 9
+        const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+        if (storedJobs[8] === -1) {
+            storedJobs[8] = 0;
+            localStorage.setItem('jobs', JSON.stringify(storedJobs));
+        }
     }, []);
 
     const pullGacha = (times: number) => {

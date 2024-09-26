@@ -44,7 +44,7 @@ const GachaPage = () => {
     const banner = {
         name: 'Banner Thường - Sự khởi đầu của AniStar',
         cost: 100,
-        featuredCharacterIds: [1, 7] // Assuming Nico Yazawa has id 1 and Maki Nishikino has id 2
+        featuredCharacterIds: [1, 8] // Assuming Nico Yazawa has id 1 and Maki Nishikino has id 2
     };
 
     const featuredCharacters = banner.featuredCharacterIds.map(id => charactersData.find(char => char.id === id));

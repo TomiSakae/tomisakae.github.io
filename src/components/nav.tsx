@@ -81,8 +81,8 @@ const Nav = () => {
                 window.localStorage.setItem('usedGiftCodes', JSON.stringify(initialStatuses3));
             }
             const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
-            if (storedJobs.length < 5) {
-                const initialJobs = [...storedJobs, ...new Array(5 - storedJobs.length).fill(-1)];
+            if (storedJobs.length < 11) {
+                const initialJobs = [...storedJobs, ...new Array(11 - storedJobs.length).fill(-1)];
                 localStorage.setItem('jobs', JSON.stringify(initialJobs));
             }
         }

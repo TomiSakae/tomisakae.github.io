@@ -44,6 +44,12 @@ const DocTruyenKiemTien = () => {
             window.localStorage.setItem('achievementStatuses', JSON.stringify(storedAchievementStatuses));
             window.sessionStorage.setItem('AchievementNotification', 'Truy Cập Web 1');
         }
+        // Mở khóa công việc 5
+        const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+        if (storedJobs[4] === -1) {
+            storedJobs[4] = 0;
+            localStorage.setItem('jobs', JSON.stringify(storedJobs));
+        }
     }, []);
 
     const updateCustomTime = useCallback((minutes: number) => {
