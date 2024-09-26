@@ -14,11 +14,11 @@ interface Job {
 }
 
 const jobs: Job[] = [
-    { id: 1, name: "Hỗ trợ giải toán", basePointsPerSecond: 0.3 },
-    { id: 2, name: "Giúp đặt mật khẩu", basePointsPerSecond: 0.17 },
-    { id: 3, name: "Xác thực CAPTCHA", basePointsPerSecond: 0.5 },
-    { id: 4, name: "Giãi mã tin nhắn", basePointsPerSecond: 0.22 },
-    { id: 5, name: "Đọc truyện kiếm tiền", basePointsPerSecond: 0.45 },
+    { id: 1, name: "Hỗ trợ giải toán", basePointsPerSecond: 0.1 },
+    { id: 2, name: "Giúp đặt mật khẩu", basePointsPerSecond: 0.2 },
+    { id: 3, name: "Xác thực CAPTCHA", basePointsPerSecond: 0.25 },
+    { id: 4, name: "Giãi mã tin nhắn", basePointsPerSecond: 0.3 },
+    { id: 5, name: "Đọc truyện kiếm tiền", basePointsPerSecond: 0.4 },
 ];
 
 const FarmPage = () => {
@@ -62,6 +62,12 @@ const FarmPage = () => {
             newAssignments[selectedJob.id - 1] = characterId;
             setJobAssignments(newAssignments);
             localStorage.setItem('jobs', JSON.stringify(newAssignments));
+            // Hoàn thành nhiệm vụ 1
+            const storedMissionStatuses = JSON.parse(localStorage.getItem('dailyMissions') || '[]');
+            if (storedMissionStatuses[0] === 0) {
+                storedMissionStatuses[0] = 1;
+                localStorage.setItem('dailyMissions', JSON.stringify(storedMissionStatuses));
+            }
             closeModal();
         }
     };
@@ -71,6 +77,13 @@ const FarmPage = () => {
         newAssignments[jobId - 1] = 0;
         setJobAssignments(newAssignments);
         localStorage.setItem('jobs', JSON.stringify(newAssignments));
+        // Hoàn thành nhiệm vụ 2
+        const storedMissionStatuses = JSON.parse(localStorage.getItem('dailyMissions') || '[]');
+        if (storedMissionStatuses[1] === 0) {
+            storedMissionStatuses[1] = 1;
+            localStorage.setItem('dailyMissions', JSON.stringify(storedMissionStatuses));
+        }
+
         closeModal();
     };
 

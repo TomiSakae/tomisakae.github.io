@@ -102,6 +102,13 @@ const GachaPage = () => {
             }
         }
 
+        // Hoàn thành nhiệm vụ 4: Thực hiện 1 lần gacha
+        const dailyMissions = JSON.parse(localStorage.getItem('dailyMissions') || '[]');
+        if (dailyMissions[3] === 0) {
+            dailyMissions[3] = 1;
+            localStorage.setItem('dailyMissions', JSON.stringify(dailyMissions));
+        }
+
         setGachaResults(results);
         setShowModal(true);
     };

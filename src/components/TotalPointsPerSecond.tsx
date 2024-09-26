@@ -7,11 +7,11 @@ interface Job {
 }
 
 const jobs: Job[] = [
-    { id: 1, name: "Hỗ trợ giải toán", basePointsPerSecond: 0.3 },
-    { id: 2, name: "Giúp đặt mật khẩu", basePointsPerSecond: 0.17 },
-    { id: 3, name: "Xác thực CAPTCHA", basePointsPerSecond: 0.5 },
-    { id: 4, name: "Giãi mã tin nhắn", basePointsPerSecond: 0.22 },
-    { id: 5, name: "Đọc truyện kiếm tiền", basePointsPerSecond: 0.45 },
+    { id: 1, name: "Hỗ trợ giải toán", basePointsPerSecond: 0.1 },
+    { id: 2, name: "Giúp đặt mật khẩu", basePointsPerSecond: 0.2 },
+    { id: 3, name: "Xác thực CAPTCHA", basePointsPerSecond: 0.25 },
+    { id: 4, name: "Giãi mã tin nhắn", basePointsPerSecond: 0.3 },
+    { id: 5, name: "Đọc truyện kiếm tiền", basePointsPerSecond: 0.4 },
 ];
 
 const TotalPointsPerSecond: React.FC = () => {

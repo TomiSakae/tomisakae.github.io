@@ -79,6 +79,13 @@ const IdolGallery = () => {
                 // Cập nhật điểm trong localStorage
                 localStorage.setItem('point', newPoints.toString());
 
+                // Hoàn thành nhiệm vụ 3: Nâng cấp 1 idol
+                const dailyMissions = JSON.parse(localStorage.getItem('dailyMissions') || '[]');
+                if (dailyMissions[2] === 0) {
+                    dailyMissions[2] = 1;
+                    localStorage.setItem('dailyMissions', JSON.stringify(dailyMissions));
+                }
+
                 // Cập nhật state
                 setIdols(prevIdols => prevIdols.map(idol =>
                     idol.id === selectedIdol.id ? { ...idol, level: newLevel, currentSpeed: newSpeed } : idol
