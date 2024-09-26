@@ -13,6 +13,7 @@ const AppPage = () => {
         { name: 'CrazyNumber', url: '/AniPhone/browser/app/crazynumber', icon: 'C' },
         { name: 'Tic-Tac-Toe Online', url: '/AniPhone/browser/app/tictactoe', icon: 'T' },
         { name: 'AdClicker', url: '/AniPhone/browser/app/adclicker', icon: 'A' },
+        { name: 'SurveyPay', url: '/AniPhone/browser/app/surveypay', icon: 'S' },
 
     ]);
     const [hasWifi, setHasWifi] = useState(false);

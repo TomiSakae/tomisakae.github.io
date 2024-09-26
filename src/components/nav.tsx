@@ -66,8 +66,8 @@ const Nav = () => {
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const storedStatuses = JSON.parse(window.localStorage.getItem('achievementStatuses') || '[]');
-            if (storedStatuses.length < 23) {
-                const initialStatuses = [...storedStatuses, ...new Array(23 - storedStatuses.length).fill(0)];
+            if (storedStatuses.length < 24) {
+                const initialStatuses = [...storedStatuses, ...new Array(24 - storedStatuses.length).fill(0)];
                 window.localStorage.setItem('achievementStatuses', JSON.stringify(initialStatuses));
             }
             const storedStatuses2 = JSON.parse(localStorage.getItem('inboxMessageStatuses') || '[]');
@@ -81,8 +81,8 @@ const Nav = () => {
                 window.localStorage.setItem('usedGiftCodes', JSON.stringify(initialStatuses3));
             }
             const storedJobs = JSON.parse(localStorage.getItem('jobs') || '[]');
-            if (storedJobs.length < 13) {
-                const initialJobs = [...storedJobs, ...new Array(13 - storedJobs.length).fill(-1)];
+            if (storedJobs.length < 14) {
+                const initialJobs = [...storedJobs, ...new Array(14 - storedJobs.length).fill(-1)];
                 localStorage.setItem('jobs', JSON.stringify(initialJobs));
             }
         }

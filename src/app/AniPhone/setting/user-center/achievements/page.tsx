@@ -39,6 +39,7 @@ const AchievementsPage = () => {
         { id: 21, title: "CrazyNumber", description: "Lần đầu vào CrazyNumber", rewardPoints: 10 },
         { id: 22, title: "TicTacToe", description: "Lần đầu vào Tic-Tac-Toe Online", rewardPoints: 10 },
         { id: 23, title: "AdClicker", description: "Lần đầu vào AdClicker", rewardPoints: 10 },
+        { id: 24, title: "SurveyPay", description: "Lần đầu vào SurveyPay", rewardPoints: 10 },
 
     ]);
     const [achievementStatuses, setAchievementStatuses] = useState<number[]>([]);
