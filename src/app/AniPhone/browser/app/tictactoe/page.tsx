@@ -194,6 +194,7 @@ const TicTacToe = () => {
             return;
         }
         setShowTopUpInput(!showTopUpInput);
+        setCardInputMessage('');
     };
 
     const handleCardNumberSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -229,12 +230,18 @@ const TicTacToe = () => {
             return;
         }
 
+        const currentBankBalance = parseInt(window.localStorage.getItem('balanceBank') || '0', 10);
+        if (currentBankBalance < amount) {
+            setCardInputMessage('Số dư tài khoản ngân hàng không đủ để thực hiện giao dịch này.');
+            setCardInputMessageType('error');
+            return;
+        }
+
         const coinsToAdd = Math.floor(amount / 1000) * 10;
         const newBalance = balance + coinsToAdd;
         setBalance(newBalance);
         window.localStorage.setItem('balanceTicTacToe', newBalance.toString());
 
-        const currentBankBalance = parseInt(window.localStorage.getItem('balanceBank') || '0', 10);
         const updatedBankBalance = currentBankBalance - amount;
         window.localStorage.setItem('balanceBank', updatedBankBalance.toString());
 
@@ -321,7 +328,7 @@ const TicTacToe = () => {
                             </form>
                         )}
                         {showTopUpInput && (
-                            <form onSubmit={handleTopUpSubmit} className="mb-4 bg-gray-800 p-4 rounded-lg">
+                            <form onSubmit={handleTopUpSubmit} className="mb-4 bg-gray-800 p-4 rounded-lg mx-4">
                                 <input
                                     type="number"
                                     value={topUpAmount}
@@ -335,6 +342,11 @@ const TicTacToe = () => {
                                 <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-md">
                                     Nạp xu
                                 </button>
+                                {cardInputMessage && (
+                                    <p className={`my-2 ${cardInputMessageType === 'success' ? 'text-green-500' : 'text-red-500'}`}>
+                                        {cardInputMessage}
+                                    </p>
+                                )}
                             </form>
                         )}
                         <div className="grid grid-cols-3 gap-2 mb-4">
