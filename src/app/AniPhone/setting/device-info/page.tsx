@@ -70,6 +70,13 @@ const DeviceInfoPage = () => {
                     RAM: '500',
                     ROMused: '350',
                     batteryDrainRate: '12' // Thêm batteryDrainRate cho phiên bản 1.3
+                },
+                '1.3': {
+                    AniOS: '1.4',
+                    ROM: '2000',
+                    RAM: '1000',
+                    ROMused: '500',
+                    batteryDrainRate: '24'
                 }
             };
 
@@ -136,8 +143,8 @@ const DeviceInfoPage = () => {
     };
 
     const getUpdateInfo = () => {
-        const currentVersion = AniOS as '1.0' | '1.1' | '1.2';
-        const updateInfo: Record<'1.0' | '1.1' | '1.2', { version: string; features: string[]; fee: number }> = {
+        const currentVersion = AniOS as '1.0' | '1.1' | '1.2' | '1.3';
+        const updateInfo: Record<'1.0' | '1.1' | '1.2' | '1.3', { version: string; features: string[]; fee: number }> = {
             '1.0': {
                 version: '1.1',
                 features: [
@@ -170,6 +177,17 @@ const DeviceInfoPage = () => {
                     'Tăng thêm 300 MB RAM'
                 ],
                 fee: 250000
+            },
+            '1.3': {
+                version: '1.4',
+                features: [
+                    'Thêm hệ thống tài khoản Ani',
+                    'Thêm các ứng dụng mới!',
+                    'Tăng thời gian sử dụng pin',
+                    'Tăng thêm 1 GB dung lượng',
+                    'Tăng thêm 500 MB RAM'
+                ],
+                fee: 500000
             }
         };
         return updateInfo[currentVersion] || null;

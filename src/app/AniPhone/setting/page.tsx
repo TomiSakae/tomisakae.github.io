@@ -10,6 +10,7 @@ import { IoWifiOutline } from "react-icons/io5";
 import { IoBatteryFullOutline } from "react-icons/io5";
 import { FaUniversity } from "react-icons/fa";
 import { IoImageOutline } from "react-icons/io5";
+import { FaUserCircle } from 'react-icons/fa';
 
 const SettingsPage = () => {
     const router = useRouter();
@@ -105,6 +106,22 @@ const SettingsPage = () => {
                                                     <FaUniversity className="text-lg text-white" />
                                                 </div>
                                                 <span className="text-xl ml-2">Ngân hàng</span>
+                                            </div>
+                                            <IoIosArrowForward className="text-lg" />
+                                        </div>
+                                    </div>
+                                )}
+                                {parseFloat(AniOS) >= 1.4 && (
+                                    <div className="p-4 hover:bg-gray-800 rounded-lg transition-all duration-300 mb-4">
+                                        <div
+                                            className="flex justify-between items-center cursor-pointer"
+                                            onClick={() => router.push('/AniPhone/setting/ani-account')}
+                                        >
+                                            <div className="flex items-center gap-2">
+                                                <div className="bg-[#FF2D55] rounded-full p-2">
+                                                    <FaUserCircle className="text-lg text-white" />
+                                                </div>
+                                                <span className="text-xl ml-2">Tài khoản Ani</span>
                                             </div>
                                             <IoIosArrowForward className="text-lg" />
                                         </div>
