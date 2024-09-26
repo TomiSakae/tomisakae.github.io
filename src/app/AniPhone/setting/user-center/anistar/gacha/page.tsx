@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaInfoCircle } from 'react-icons/fa';
 import { FaArrowLeftLong } from 'react-icons/fa6';
+import { IoClose } from 'react-icons/io5';
 import { useRouter } from 'next/navigation';
 import Nav from '@/components/nav';
 import Image from 'next/image';
@@ -16,28 +17,37 @@ const GachaPage = () => {
     const [showModal, setShowModal] = useState(false);
     const [showBannerModal, setShowBannerModal] = useState(false);
     const [showCharacterListModal, setShowCharacterListModal] = useState(false);
+    const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
 
     useEffect(() => {
         const updatePoints = () => {
-            const storedPoints = parseInt(localStorage.getItem('point') || '0', 10);
-            setPoints(storedPoints);
+            if (!showModal && !showBannerModal && !showCharacterListModal) {
+                const storedPoints = parseInt(localStorage.getItem('point') || '0', 10);
+                setPoints(storedPoints);
+            }
         };
 
         updatePoints();
         setCharacters(charactersData);
 
-        const intervalId = setInterval(updatePoints, 1000);
+        const pointsIntervalId = setInterval(updatePoints, 1000);
+        const characterIntervalId = setInterval(() => {
+            setCurrentCharacterIndex((prevIndex) => (prevIndex + 1) % 2);
+        }, 5000);
 
-        return () => clearInterval(intervalId);
-    }, []);
+        return () => {
+            clearInterval(pointsIntervalId);
+            clearInterval(characterIntervalId);
+        };
+    }, [showBannerModal, showCharacterListModal, showModal]);
 
     const banner = {
         name: 'Banner Thường - Sự khởi đầu của AniStar',
         cost: 100,
-        featuredCharacterId: 1 // Assuming Nico Yazawa has id 1
+        featuredCharacterIds: [1, 7] // Assuming Nico Yazawa has id 1 and Maki Nishikino has id 2
     };
 
-    const featuredCharacter = charactersData.find(char => char.id === banner.featuredCharacterId);
+    const featuredCharacters = banner.featuredCharacterIds.map(id => charactersData.find(char => char.id === id));
 
     const performGacha = (times: number) => {
         const totalCost = banner.cost * times;
@@ -107,10 +117,10 @@ const GachaPage = () => {
     };
 
     const GachaModal = () => (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full max-h-[80vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 mx-4">
+            <div className="bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full">
                 <h2 className="text-2xl font-bold mb-4 text-center">Kết Quả Gacha:</h2>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto">
                     {gachaResults.map((result, index) => (
                         <div key={index} className="flex flex-col items-center">
                             <Image
@@ -141,20 +151,20 @@ const GachaPage = () => {
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full">
                 <h2 className="text-xl font-bold mb-4">{banner.name}</h2>
                 <div className='h-[60vh] overflow-y-auto'>
-                    {featuredCharacter && (
-                        <div className='flex flex-col items-center'>
+                    {featuredCharacters.map((character, index) => (
+                        <div key={index} className="flex flex-col items-center mb-4">
                             <Image
-                                src={featuredCharacter.image}
-                                alt={featuredCharacter.name}
+                                src={character?.image || ''}
+                                alt={character?.name || ''}
                                 width={200}
                                 height={200}
                                 className="rounded-lg mb-4 mx-auto"
                             />
-                            <p className="text-xl mb-2">{featuredCharacter.name}</p>
-                            <p className="text-lg mb-2">Độ hiếm: <span className={`font-bold ${getRarityColor(featuredCharacter.rarity)}`}>{featuredCharacter.rarity}</span></p>
-                            <p className="text-lg mb-2">Tốc độ: <span className="font-bold text-blue-300">{featuredCharacter.speed}</span></p>
+                            <p className="text-xl mb-2">{character?.name}</p>
+                            <p className="text-lg mb-2">Độ hiếm: <span className={`font-bold ${getRarityColor(character?.rarity || '')}`}>{character?.rarity}</span></p>
+                            <p className="text-lg mb-2">Tốc độ: <span className="font-bold text-blue-300">{character?.speed}</span></p>
                         </div>
-                    )}
+                    ))}
                 </div>
                 <button
                     onClick={() => setShowBannerModal(false)}
@@ -166,42 +176,48 @@ const GachaPage = () => {
         </div>
     );
 
-    const CharacterListModal = () => (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 mx-4">
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full max-h-[80vh] overflow-y-auto">
-                <h2 className="text-2xl font-bold mb-4 text-center">Danh Sách Nhân Vật</h2>
-                <table className="w-full mb-4">
-                    <thead>
-                        <tr>
-                            <th className="text-left">Tên</th>
-                            <th className="text-left">Độ hiếm</th>
-                            <th className="text-left">Tỉ lệ</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {characters.map((character, index) => (
-                            <tr key={index}>
-                                <td>{character.name}</td>
-                                <td className={`font-bold ${getRarityColor(character.rarity)}`}>{character.rarity}</td>
-                                <td>
-                                    {character.rarity === 'R' && '70%'}
-                                    {character.rarity === 'SR' && '20%'}
-                                    {character.rarity === 'SSR' && '7%'}
-                                    {character.rarity === 'UR' && '3%'}
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-                <button
-                    onClick={() => setShowCharacterListModal(false)}
-                    className="mt-6 w-full bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg text-white font-bold"
-                >
-                    Đóng
-                </button>
+    const CharacterListModal = () => {
+        const rarities = ['UR', 'SSR', 'SR', 'R'];
+        const rarityPercentages = {
+            'UR': 3,
+            'SSR': 7,
+            'SR': 20,
+            'R': 70
+        };
+
+        return (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 mx-4">
+                <div className="bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full max-h-[80vh] overflow-y-auto relative">
+                    <h2 className="text-2xl font-bold mb-6 text-center border-b border-gray-600 pb-2">Tỉ lệ Gacha</h2>
+                    <button
+                        onClick={() => setShowCharacterListModal(false)}
+                        className="absolute top-2 right-2 text-gray-400 hover:text-white"
+                    >
+                        <IoClose className="h-6 w-6" />
+                    </button>
+                    {rarities.map(rarity => (
+                        <div key={rarity} className="mb-6 border border-gray-600 rounded-lg p-4">
+                            <h3 className={`text-xl font-bold mb-3 ${getRarityColor(rarity)} flex justify-between items-center`}>
+                                <span>{rarity}</span>
+                                <span className="text-lg">{rarityPercentages[rarity as keyof typeof rarityPercentages]}%</span>
+                            </h3>
+                            <div className="flex flex-col gap-2">
+                                {characters.filter(char => char.rarity === rarity).map(character => {
+                                    const characterPercentage = (rarityPercentages[rarity as keyof typeof rarityPercentages] / characters.filter(c => c.rarity === rarity).length).toFixed(2);
+                                    return (
+                                        <p key={character.id} className="text-sm bg-gray-700 p-2 rounded flex justify-between">
+                                            <span>{character.name}</span>
+                                            <span>{characterPercentage}%</span>
+                                        </p>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
-    );
+        );
+    };
 
     return (
         <div className="h-screen bg-black text-white">
@@ -226,10 +242,10 @@ const GachaPage = () => {
                         className="relative w-full h-64 rounded-lg overflow-hidden cursor-pointer"
                         onClick={() => setShowBannerModal(true)}
                     >
-                        {featuredCharacter && (
+                        {featuredCharacters[currentCharacterIndex] && (
                             <Image
-                                src={featuredCharacter.image}
-                                alt={featuredCharacter.name}
+                                src={featuredCharacters[currentCharacterIndex].image}
+                                alt={featuredCharacters[currentCharacterIndex].name}
                                 layout="fill"
                                 objectFit="cover"
                                 className="opacity-50"

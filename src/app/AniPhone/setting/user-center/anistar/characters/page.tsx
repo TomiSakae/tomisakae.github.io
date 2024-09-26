@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { FaSort } from 'react-icons/fa';
 import { FaArrowLeftLong } from 'react-icons/fa6';
 import { useRouter } from 'next/navigation';
 import Nav from '@/components/nav';
@@ -11,7 +12,9 @@ const IdolGallery = () => {
     const [idols, setIdols] = useState<(Character & { level: number, currentSpeed: number })[]>([]);
     const [selectedIdol, setSelectedIdol] = useState<(Character & { level: number, currentSpeed: number }) | null>(null);
     const [showModal, setShowModal] = useState(false);
+    const [showSortModal, setShowSortModal] = useState(false);
     const [points, setPoints] = useState(0);
+    const [sortBy, setSortBy] = useState('rarity');
     const router = useRouter();
 
     useEffect(() => {
@@ -136,22 +139,85 @@ const IdolGallery = () => {
         );
     };
 
+    const SortModal = () => (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 mx-4">
+            <div className="bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full">
+                <h2 className="text-xl font-bold mb-4">Sắp xếp theo</h2>
+                <div className="flex flex-col gap-2">
+                    {['rarity', 'level', 'speed', 'name'].map((option) => (
+                        <button
+                            key={option}
+                            onClick={() => {
+                                setSortBy(option);
+                                setShowSortModal(false);
+                            }}
+                            className={`w-full text-left p-2 rounded ${sortBy === option ? 'bg-purple-600' : 'bg-gray-700'} hover:bg-purple-500`}
+                        >
+                            {option === 'rarity' && 'Độ hiếm'}
+                            {option === 'level' && 'Cấp độ'}
+                            {option === 'speed' && 'Tốc độ'}
+                            {option === 'name' && 'Tên'}
+                        </button>
+                    ))}
+                </div>
+                <button
+                    onClick={() => setShowSortModal(false)}
+                    className="mt-4 w-full bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg text-white font-bold"
+                >
+                    Đóng
+                </button>
+            </div>
+        </div>
+    );
+
+    const sortIdols = (idols: (Character & { level: number, currentSpeed: number })[]) => {
+        switch (sortBy) {
+            case 'rarity':
+                return [...idols].sort((a, b) => {
+                    const rarityOrder = { 'UR': 0, 'SSR': 1, 'SR': 2, 'R': 3 };
+                    return rarityOrder[a.rarity as keyof typeof rarityOrder] - rarityOrder[b.rarity as keyof typeof rarityOrder];
+                });
+            case 'level':
+                return [...idols].sort((a, b) => b.level - a.level);
+            case 'speed':
+                return [...idols].sort((a, b) => b.currentSpeed - a.currentSpeed);
+            case 'name':
+                return [...idols].sort((a, b) => a.name.localeCompare(b.name));
+            default:
+                return idols;
+        }
+    };
+
     return (
         <div className="h-screen bg-black text-white">
             <Nav />
             <div className="p-4 mx-4">
-                <div className="flex items-center mb-6">
-                    <FaArrowLeftLong
-                        className='text-xl cursor-pointer'
-                        onClick={() => router.push('/AniPhone/setting/user-center/anistar')}
-                    />
-                    <h1 className="text-xl font-[600] mx-4">Nhân vật</h1>
+                <div className="flex justify-between items-center mb-6">
+                    <div className='flex items-center'>
+                        <FaArrowLeftLong
+                            className='text-xl cursor-pointer'
+                            onClick={() => router.push('/AniPhone/setting/user-center/anistar')}
+                        />
+                        <h1 className="text-xl font-[600] mx-4">Nhân vật</h1>
+                    </div>
+                    <div className='flex items-center cursor-pointer'
+                        onClick={() => setShowSortModal(true)}>
+                        <FaSort
+                            className="text-2xl"
+                        />
+                        <span className="font-bold ml-2">
+                            {sortBy === 'rarity' && 'Độ hiếm'}
+                            {sortBy === 'level' && 'Cấp độ'}
+                            {sortBy === 'speed' && 'Tốc độ'}
+                            {sortBy === 'name' && 'Tên'}
+                        </span>
+                    </div>
                 </div>
                 <div className="mb-4">
                     <p className="text-xl font-semibold">Điểm: <span className="text-yellow-300">{points}</span></p>
                 </div>
                 <div className="grid grid-cols-2 gap-4 h-[71vh] overflow-y-auto">
-                    {idols.map((idol, index) => (
+                    {sortIdols(idols).map((idol, index) => (
                         <div key={index} className="bg-gray-800 rounded-lg p-2 cursor-pointer" onClick={() => openModal(idol)}>
                             <div className="relative w-full aspect-square mb-2">
                                 <Image
@@ -171,6 +237,7 @@ const IdolGallery = () => {
                 </div>
             </div>
             {showModal && <IdolModal />}
+            {showSortModal && <SortModal />}
         </div>
     );
 };

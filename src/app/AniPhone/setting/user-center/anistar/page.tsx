@@ -26,10 +26,10 @@ const AniStarPage = () => {
                 <div className="space-y-4">
                     <div
                         className="p-4 bg-[#1a1a1a] rounded-lg hover:bg-gray-800 transition-all duration-300 cursor-pointer"
-                        onClick={() => handleNavigation('farm')}
+                        onClick={() => handleNavigation('work')}
                     >
                         <div className="flex justify-between items-center">
-                            <span className="text-lg">Cày điểm</span>
+                            <span className="text-lg">Làm việc</span>
                             <IoIosArrowForward className="text-lg" />
                         </div>
                     </div>

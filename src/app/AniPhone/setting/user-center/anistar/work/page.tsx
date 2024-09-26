@@ -171,7 +171,7 @@ const FarmPage = () => {
                         className='text-xl cursor-pointer'
                         onClick={() => router.push('/AniPhone/setting/user-center/anistar')}
                     />
-                    <h1 className="text-xl font-[600] mx-4">Cày điểm</h1>
+                    <h1 className="text-xl font-[600] mx-4">Làm việc</h1>
                 </div>
                 <div className="grid gap-4 h-[77vh] overflow-y-auto">
                     {jobs.map((job) => {
